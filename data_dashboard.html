@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data Summary Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plotly -->
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+
+<!-- DataTables -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
+<style>
+body { margin: 20px; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+h1, h2, h3 { font-weight: 600; }
+.chart { margin-top: 30px; }
+.file-card { cursor:pointer; }
+#detail-area { margin-top: 40px; }
+.table-wrapper { margin-top: 20px; }
+#filesTable_wrapper .dataTables_filter input {
+  width: 240px;
+}
+</style>
+</head>
+<body>
+<div class="container-fluid">
+  <h1 class="mb-4">📊 Data Summary Dashboard</h1>
+
+  <!-- ================= OVERVIEW ================= -->
+  <div id="overview">
+    <h2>Overview by File</h2>
+    <div class="row">
+      <div class="col-md-6 chart" id="chart_total_rows"></div>
+      <div class="col-md-6 chart" id="chart_total_cols"></div>
+    </div>
+
+    <div class="table-wrapper">
+      <table id="filesTable" class="table table-striped table-bordered table-hover">
+        <thead class="table-light">
+          <tr><th>File</th><th>Sheets</th><th>Total Rows</th><th>Total Columns</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <!-- ================= DETAIL AREA ================= -->
+  <div id="detail-area" style="display:none;">
+    <h2 id="detail-title"></h2>
+    <div class="row">
+      <div class="col-md-6 chart" id="chart_rows_per_sheet"></div>
+      <div class="col-md-6 chart" id="chart_cols_per_sheet"></div>
+    </div>
+    <div class="table-wrapper">
+      <table id="sheetsTable" class="table table-striped table-bordered">
+        <thead class="table-light">
+          <tr><th>Sheet</th><th>Rows</th><th>Columns</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <button class="btn btn-secondary mt-3" onclick="backToOverview()">← Back to Overview</button>
+  </div>
+
+</div>
+
+<script>
+// =================== Data from Python ===================
+const filesData = [{"directory": "AKARI Dump", "filename": "Programme and Module data 1.xlsx", "total_rows": 82008, "total_cols": 307, "sheets": 6, "file_rel": "AKARI Dump/Programme and Module data 1.xlsx"}, {"directory": "Avanti-Status", "filename": "SS Incidents 1.xlsx", "total_rows": 1329, "total_cols": 22, "sheets": 1, "file_rel": "Avanti-Status/SS Incidents 1.xlsx"}, {"directory": "Avanti-Status", "filename": "SS Service Requests 1.xlsx", "total_rows": 18141, "total_cols": 21, "sheets": 1, "file_rel": "Avanti-Status/SS Service Requests 1.xlsx"}, {"directory": "Banner", "filename": "General Learner Record Term 1.csv", "total_rows": 26659, "total_cols": 33, "sheets": 1, "file_rel": "Banner/General Learner Record Term 1.csv"}, {"directory": "Banner", "filename": "General Learner Record Term 2.csv", "total_rows": 29, "total_cols": 33, "sheets": 1, "file_rel": "Banner/General Learner Record Term 2.csv"}, {"directory": "Banner", "filename": "R27_Expanded 202510.csv", "total_rows": 58775, "total_cols": 37, "sheets": 1, "file_rel": "Banner/R27_Expanded 202510.csv"}, {"directory": "Banner", "filename": "R27_Expanded_202520 1.csv", "total_rows": 64057, "total_cols": 37, "sheets": 1, "file_rel": "Banner/R27_Expanded_202520 1.csv"}, {"directory": "BrightSpaceDump", "filename": "Enrollment - all CO's with attached role - modules with no enrolments.xlsx", "total_rows": 221082, "total_cols": 23, "sheets": 5, "file_rel": "BrightSpaceDump/Enrollment - all CO's with attached role - modules with no enrolments.xlsx"}, {"directory": "BrightSpaceDump", "filename": "Modules with no enrolments 24102025.xlsx", "total_rows": 101488, "total_cols": 10, "sheets": 2, "file_rel": "BrightSpaceDump/Modules with no enrolments 24102025.xlsx"}, {"directory": "CRN2Use", "filename": "081025 CRN's to USE_ONLY_shared.xlsx", "total_rows": 30852, "total_cols": 70, "sheets": 4, "file_rel": "CRN2Use/081025 CRN's to USE_ONLY_shared.xlsx"}, {"directory": "DummyCRNS2Remove", "filename": "Programs with Dummy CRN.xlsx", "total_rows": 96, "total_cols": 6, "sheets": 1, "file_rel": "DummyCRNS2Remove/Programs with Dummy CRN.xlsx"}];
+const sheetsData = [{"file_rel": "AKARI Dump/Programme and Module data 1.xlsx", "file_type": "xlsx", "sheet": "Approved Module Activity Data", "rows": 24373, "cols": 14, "directory": "AKARI Dump", "filename": "Programme and Module data 1.xlsx"}, {"file_rel": "AKARI Dump/Programme and Module data 1.xlsx", "file_type": "xlsx", "sheet": "Approved Module Assessment Data", "rows": 23518, "cols": 18, "directory": "AKARI Dump", "filename": "Programme and Module data 1.xlsx"}, {"file_rel": "AKARI Dump/Programme and Module data 1.xlsx", "file_type": "xlsx", "sheet": "Approved Programme Data", "rows": 831, "cols": 16, "directory": "AKARI Dump", "filename": "Programme and Module data 1.xlsx"}, {"file_rel": "AKARI Dump/Programme and Module data 1.xlsx", "file_type": "xlsx", "sheet": "Associa-mod-approved programme", "rows": 22085, "cols": 28, "directory": "AKARI Dump", "filename": "Programme and Module data 1.xlsx"}, {"file_rel": "AKARI Dump/Programme and Module data 1.xlsx", "file_type": "xlsx", "sheet": "Module Raw Data", "rows": 9848, "cols": 121, "directory": "AKARI Dump", "filename": "Programme and Module data 1.xlsx"}, {"file_rel": "AKARI Dump/Programme and Module data 1.xlsx", "file_type": "xlsx", "sheet": "Programme Raw Data", "rows": 1353, "cols": 110, "directory": "AKARI Dump", "filename": "Programme and Module data 1.xlsx"}, {"file_rel": "Avanti-Status/SS Incidents 1.xlsx", "file_type": "xlsx", "sheet": "Data", "rows": 1329, "cols": 22, "directory": "Avanti-Status", "filename": "SS Incidents 1.xlsx"}, {"file_rel": "Avanti-Status/SS Service Requests 1.xlsx", "file_type": "xlsx", "sheet": "Data", "rows": 18141, "cols": 21, "directory": "Avanti-Status", "filename": "SS Service Requests 1.xlsx"}, {"file_rel": "Banner/General Learner Record Term 1.csv", "file_type": "csv", "sheet": "", "rows": 26659, "cols": 33, "directory": "Banner", "filename": "General Learner Record Term 1.csv"}, {"file_rel": "Banner/General Learner Record Term 2.csv", "file_type": "csv", "sheet": "", "rows": 29, "cols": 33, "directory": "Banner", "filename": "General Learner Record Term 2.csv"}, {"file_rel": "Banner/R27_Expanded 202510.csv", "file_type": "csv", "sheet": "", "rows": 58775, "cols": 37, "directory": "Banner", "filename": "R27_Expanded 202510.csv"}, {"file_rel": "Banner/R27_Expanded_202520 1.csv", "file_type": "csv", "sheet": "", "rows": 64057, "cols": 37, "directory": "Banner", "filename": "R27_Expanded_202520 1.csv"}, {"file_rel": "BrightSpaceDump/Enrollment - all CO's with attached role - modules with no enrolments.xlsx", "file_type": "xlsx", "sheet": "All 25-26 OrgUnits", "rows": 130124, "cols": 6, "directory": "BrightSpaceDump", "filename": "Enrollment - all CO's with attached role - modules with no enrolments.xlsx"}, {"file_rel": "BrightSpaceDump/Enrollment - all CO's with attached role - modules with no enrolments.xlsx", "file_type": "xlsx", "sheet": "All COs with roles", "rows": 21009, "cols": 6, "directory": "BrightSpaceDump", "filename": "Enrollment - all CO's with attached role - modules with no enrolments.xlsx"}, {"file_rel": "BrightSpaceDump/Enrollment - all CO's with attached role - modules with no enrolments.xlsx", "file_type": "xlsx", "sheet": "Modules with Lecturers", "rows": 14391, "cols": 4, "directory": "BrightSpaceDump", "filename": "Enrollment - all CO's with attached role - modules with no enrolments.xlsx"}, {"file_rel": "BrightSpaceDump/Enrollment - all CO's with attached role - modules with no enrolments.xlsx", "file_type": "xlsx", "sheet": "Modules with no enrolments", "rows": 41731, "cols": 3, "directory": "BrightSpaceDump", "filename": "Enrollment - all CO's with attached role - modules with no enrolments.xlsx"}, {"file_rel": "BrightSpaceDump/Enrollment - all CO's with attached role - modules with no enrolments.xlsx", "file_type": "xlsx", "sheet": "Modules with students", "rows": 13827, "cols": 4, "directory": "BrightSpaceDump", "filename": "Enrollment - all CO's with attached role - modules with no enrolments.xlsx"}, {"file_rel": "BrightSpaceDump/Modules with no enrolments 24102025.xlsx", "file_type": "xlsx", "sheet": "25-26 Modules with enrolment #", "rows": 60074, "cols": 7, "directory": "BrightSpaceDump", "filename": "Modules with no enrolments 24102025.xlsx"}, {"file_rel": "BrightSpaceDump/Modules with no enrolments 24102025.xlsx", "file_type": "xlsx", "sheet": "25-26 Modules with no enrolment", "rows": 41414, "cols": 3, "directory": "BrightSpaceDump", "filename": "Modules with no enrolments 24102025.xlsx"}, {"file_rel": "CRN2Use/081025 CRN's to USE_ONLY_shared.xlsx", "file_type": "xlsx", "sheet": "202510", "rows": 19968, "cols": 22, "directory": "CRN2Use", "filename": "081025 CRN's to USE_ONLY_shared.xlsx"}, {"file_rel": "CRN2Use/081025 CRN's to USE_ONLY_shared.xlsx", "file_type": "xlsx", "sheet": "202520", "rows": 10809, "cols": 22, "directory": "CRN2Use", "filename": "081025 CRN's to USE_ONLY_shared.xlsx"}, {"file_rel": "CRN2Use/081025 CRN's to USE_ONLY_shared.xlsx", "file_type": "xlsx", "sheet": "202530", "rows": 51, "cols": 22, "directory": "CRN2Use", "filename": "081025 CRN's to USE_ONLY_shared.xlsx"}, {"file_rel": "CRN2Use/081025 CRN's to USE_ONLY_shared.xlsx", "file_type": "xlsx", "sheet": "Index", "rows": 24, "cols": 4, "directory": "CRN2Use", "filename": "081025 CRN's to USE_ONLY_shared.xlsx"}, {"file_rel": "DummyCRNS2Remove/Programs with Dummy CRN.xlsx", "file_type": "xlsx", "sheet": "Sheet1", "rows": 96, "cols": 6, "directory": "DummyCRNS2Remove", "filename": "Programs with Dummy CRN.xlsx"}];
+let sheetsTableDT = null; // DataTable instance
+
+// =================== Initialise Overview ===================
+function initOverview() {
+  // Populate overview table
+  let tbody = document.querySelector('#filesTable tbody');
+  tbody.innerHTML = '';
+  filesData.forEach(f => {
+    let tr = document.createElement('tr');
+    tr.className = 'file-card';
+    tr.innerHTML = `<td>${f.file_rel}</td><td>${f.sheets}</td><td>${f.total_rows}</td><td>${f.total_cols}</td>`;
+    tr.onclick = () => showDetail(f.file_rel);
+    tbody.appendChild(tr);
+  });
+  new DataTable('#filesTable', {order:[[0,'asc']]}); // sort by path
+
+  // Overview charts
+  Plotly.newPlot('chart_total_rows', [{
+    x: filesData.map(f=>f.file_rel),
+    y: filesData.map(f=>f.total_rows),
+    type:'bar',
+    marker:{color:'#0d6efd'}
+  }], {title:'Total Rows per File', margin:{b:150}, xaxis:{automargin:true}});
+
+  Plotly.newPlot('chart_total_cols', [{
+    x: filesData.map(f=>f.file_rel),
+    y: filesData.map(f=>f.total_cols),
+    type:'bar',
+    marker:{color:'#198754'}
+  }], {title:'Total Columns per File', margin:{b:150}, xaxis:{automargin:true}});
+}
+
+// =================== Detail View ===================
+function showDetail(fileRel) {
+  const filtered = sheetsData.filter(s=>s.file_rel===fileRel);
+  if(!filtered.length) return;
+
+  document.getElementById('overview').style.display='none';
+  const detail = document.getElementById('detail-area');
+  detail.style.display='block';
+  document.getElementById('detail-title').textContent = 'File: '+fileRel;
+
+  const rowsArray = filtered.map(s => [s.sheet, s.rows, s.cols]);
+
+  // DataTable logic — destroy once, reuse properly
+  if (sheetsTableDT) {
+    sheetsTableDT.clear();
+    sheetsTableDT.rows.add(rowsArray);
+    sheetsTableDT.order([1, 'desc']).draw();
+  } else {
+    sheetsTableDT = $('#sheetsTable').DataTable({
+      data: rowsArray,
+      columns: [
+        { title: 'Sheet' },
+        { title: 'Rows' },
+        { title: 'Columns' }
+      ],
+      order: [[1, 'desc']]
+    });
+  }
+
+  // Charts
+  Plotly.newPlot('chart_rows_per_sheet', [{
+    x: filtered.map(s=>s.sheet),
+    y: filtered.map(s=>s.rows),
+    type:'bar',
+    marker:{color:'#0d6efd'}
+  }], {title:'Rows per Sheet', margin:{b:120}, xaxis:{automargin:true}});
+
+  Plotly.newPlot('chart_cols_per_sheet', [{
+    x: filtered.map(s=>s.sheet),
+    y: filtered.map(s=>s.cols),
+    type:'bar',
+    marker:{color:'#198754'}
+  }], {title:'Columns per Sheet', margin:{b:120}, xaxis:{automargin:true}});
+}
+
+function backToOverview() {
+  document.getElementById('detail-area').style.display='none';
+  document.getElementById('overview').style.display='block';
+}
+
+// =================== Init ===================
+initOverview();
+</script>
+</body>
+</html>
