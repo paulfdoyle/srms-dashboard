@@ -11,16 +11,9 @@
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
     background-color: #f8f9fa;
   }
-  h1 {
-    margin-bottom: 1rem;
-  }
-  .card {
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-  }
+  h1 { margin-bottom: 1rem; }
+  .card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
   footer {
     margin-top: 3rem;
     font-size: 0.9rem;
@@ -35,6 +28,27 @@
   <p class="text-muted">Select a viewer or document below to open the corresponding interactive report.</p>
 
   <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
+
+    <!-- NEW: Course Code Changes Query Viewer -->
+    <div class="col">
+      <a href="coursecodechanges_query.html" class="text-decoration-none text-dark">
+        <div class="card h-100 border-info">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              Course Code Changes — Query
+              <span class="badge bg-info text-dark ms-2">New</span>
+            </h5>
+            <p class="card-text mb-2">
+              Search by <em>New Code in Banner Sample</em>, <em>Legacy Tu Code</em>, or
+              <em>Legacy Banner programme Code</em>. Exact matches render a status card with
+              Active/Inactive, mapped school, level, faculty, campus, and comments. Partial matches
+              list below and are clickable to re-run as exact searches.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
     <div class="col">
       <a href="viewer_r27_202510.html" class="text-decoration-none text-dark">
         <div class="card h-100">
@@ -79,7 +93,7 @@
       </a>
     </div>
 
-    <!-- NEW: Akari vs R27 Differences Viewer -->
+    <!-- Akari vs R27 Differences Viewer -->
     <div class="col">
       <a href="viewer_akari_vs_r27_split.html" class="text-decoration-none text-dark">
         <div class="card h-100 border-warning">
@@ -107,6 +121,7 @@
         </div>
       </a>
     </div>
+
   </div>
 
   <footer class="mt-5">
