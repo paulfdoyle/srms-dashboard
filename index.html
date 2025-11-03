@@ -3,121 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SRMS Dashboard — Home</title>
+<title>TU Dublin SRMS Dashboard</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
-  body {
-    padding: 40px;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    background-color: #f8f9fa;
-  }
-  h1 { margin-bottom: 1rem; }
-  .card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.1); }
-  footer {
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    color: #6c757d;
-    text-align: center;
-  }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #f8f9fa;
+  padding: 20px;
+}
+h1 {
+  margin-bottom: 1.5rem;
+}
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.badge {
+  font-size: 0.75rem;
+}
 </style>
 </head>
 <body>
+
 <div class="container">
-  <h1 class="mb-4">SRMS Dashboard — Viewer Index</h1>
-  <p class="text-muted">Select a viewer or document below to open the corresponding interactive report.</p>
+  <h1 class="mb-4">TU Dublin SRMS Dashboard</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
 
-  <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
-
-    <!-- Course Code Changes Query Viewer -->
+    <!-- Course Code Changes Viewer -->
     <div class="col">
-      <a href="coursecodechanges_query.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-info">
+      <a href="viewer_coursecodechanges_query.html" class="text-decoration-none text-dark">
+        <div class="card h-100 border-primary">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center">
-              Course Code Changes — Query
-              <span class="badge bg-info text-dark ms-2">New</span>
-            </h5>
-            <p class="card-text mb-2">
-              Search by <em>New Code in Banner Sample</em>, <em>Legacy Tu Code</em>, or
-              <em>Legacy Banner programme Code</em>. Exact matches render a status card with
-              Active/Inactive, mapped school, level, faculty, campus, and comments. Partial matches
-              list below and are clickable to re-run as exact searches.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- R27 Viewer 202510 (Updated) -->
-    <div class="col">
-      <a href="viewer_r27_202510.html" class="text-decoration-none text-dark">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              R27 Viewer — Term 202510
-              <span class="badge bg-secondary ms-2">Updated</span>
+              Course Code Changes Query
+              <span class="badge bg-primary text-light ms-2">New</span>
             </h5>
             <p class="card-text">
-              Detailed view of programme and student data for the September–December 2025/26 term.
-              <strong>Update:</strong> now shows <em>Part-Time</em> and <em>Full-Time</em> CRNs.
+              Interactive viewer for Course Code Changes. Allows queries and filtering across programme updates.
             </p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- R27 Viewer 202520 (Updated) -->
+    <!-- Akari Viewer -->
     <div class="col">
-      <a href="viewer_r27_202520.html" class="text-decoration-none text-dark">
-        <div class="card h-100">
+      <a href="viewer_akari_build.html" class="text-decoration-none text-dark">
+        <div class="card h-100 border-success">
+          <div class="card-body">
+            <h5 class="card-title">Akari Viewer</h5>
+            <p class="card-text">
+              Displays Akari module and programme data after cleaning and transformation.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- R27 Viewer -->
+    <div class="col">
+      <a href="viewer_r27_build.html" class="text-decoration-none text-dark">
+        <div class="card h-100 border-success">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center">
-              R27 Viewer — Term 202520
-              <span class="badge bg-secondary ms-2">Updated</span>
+              R27 Viewer
+              <span class="badge bg-warning text-dark ms-2">Updated</span>
             </h5>
             <p class="card-text">
-              Detailed view of programme and student data for the January–May 2025/26 term.
-              <strong>Update:</strong> now shows <em>Part-Time</em> and <em>Full-Time</em> CRNs.
+              Updated to show separate Part-Time and Full-Time CRNs for better reporting granularity.
             </p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- Akari Programme Viewer -->
-    <div class="col">
-      <a href="viewer_akari_by_school.html" class="text-decoration-none text-dark">
-        <div class="card h-100">
-          <div class="card-body">
-            <h5 class="card-title">Akari Programme Viewer</h5>
-            <p class="card-text">Interactive viewer showing programme structures and modules grouped by school.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- GLR Viewer (Updated) -->
+    <!-- GLR Viewer -->
     <div class="col">
       <a href="viewer_glr_school.html" class="text-decoration-none text-dark">
-        <div class="card h-100">
+        <div class="card h-100 border-success">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center">
               General Learner Record Viewer
-              <span class="badge bg-secondary ms-2">Updated</span>
+              <span class="badge bg-warning text-dark ms-2">Updated</span>
             </h5>
             <p class="card-text">
-              Displays aggregated programme-level learner data for both terms, side-by-side.
-              <strong>Update:</strong> now shows <em>registration breakdown by YEAR_OF_STUDY</em>.
+              Displays GLR programme-level totals and now includes registration breakdowns by year of study.
             </p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- Akari vs R27 Differences Viewer (Updated) -->
+    <!-- Password-Protected GLR Classlists Viewer -->
     <div class="col">
-      <a href="viewer_akari_vs_r27_split.html" class="text-decoration-none text-dark">
+      <a href="unlock.html" class="text-decoration-none text-dark">
+        <div class="card h-100 border-danger">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center">
+              GLR Classlists Viewer
+              <span class="badge bg-danger text-light ms-2">Password Protected</span>
+            </h5>
+            <p class="card-text">
+              Secure version of the General Learner Record Classlists viewer.
+              Access requires a password before content is decrypted in the browser.
+              <strong>Note:</strong> Restricted to authorized users.
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Akari vs R27 Differences Viewer -->
+    <div class="col">
+      <a href="viewer_programmename_diff_split.html" class="text-decoration-none text-dark">
         <div class="card h-100 border-warning">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center">
@@ -125,32 +126,33 @@
               <span class="badge bg-warning text-dark ms-2">Updated</span>
             </h5>
             <p class="card-text">
-              Side-by-side comparisons between Akari and R27: missing codes, title differences
-              (Akari stripped; synonyms normalized), and school-name differences (“&amp;” vs “and” ignored).
-              <strong>Update:</strong> improved mapping of codes between Akari and R27.
+              Improved mapping between Akari and R27 programme codes.
+              Highlights unmatched or inconsistent programme records.
             </p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- Pipeline Guide -->
+    <!-- SRMS Process Flow (PDF) -->
     <div class="col">
-      <a href="SRMS-Notes.pdf" class="text-decoration-none text-dark" target="_blank">
-        <div class="card h-100 border-success">
+      <a href="SRMS_Process_Flow.pdf" class="text-decoration-none text-dark" target="_blank">
+        <div class="card h-100 border-secondary">
           <div class="card-body">
-            <h5 class="card-title text-success">SRMS Data Pipeline Guide (PDF)</h5>
-            <p class="card-text">Technical documentation describing the full SRMS data pipeline, authored by Paul Doyle, Dean of the Faculty of Engineering, Built Environment and Apprenticeships.</p>
+            <h5 class="card-title d-flex align-items-center">
+              SRMS Process Flow
+              <span class="badge bg-secondary text-light ms-2">PDF</span>
+            </h5>
+            <p class="card-text">
+              Overview of the SRMS end-to-end processing pipeline showing data flow and script dependencies.
+            </p>
           </div>
         </div>
       </a>
     </div>
 
   </div>
-
-  <footer class="mt-5">
-    © 2025 Technological University Dublin — SRMS Dashboard
-  </footer>
 </div>
+
 </body>
 </html>
