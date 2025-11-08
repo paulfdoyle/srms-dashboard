@@ -196,8 +196,8 @@ function statusBadge(v){
   if (s.startsWith("INACTIVE")) return `<span class="status-badge status-inactive">${esc(v)}</span>`;
   return `<span class="badge bg-secondary">${esc(v||"UNKNOWN")}</span>`;
 }
-const mapFaculty = c => FACULTY_MAP[(c||"").toUpperCase()] || (c || "");
-const mapCampus  = c => CAMPUS_MAP[(c||"").toUpperCase()] || (c || "");
+const mapFaculty = c => ({"FE":"Faculty of Engineering","FB":"Faculty of Business","FC":"Faculty of Computing, Digital & Data","FA":"Faculty of Arts","FS":"Faculty of Sciences and Health"}[(c||"").toUpperCase()] || (c || ""));
+const mapCampus  = c => ({"BN":"Blanchardstown","TA":"Tallaght","BST":"Bolton Street","GRG":"Grangegorman","AUN":"Aungier Street"}[(c||"").toUpperCase()] || (c || ""));
 const mapSchool  = c => (DEPT_TO_SCHOOL[(c||"").toUpperCase()] || c || "");
 
 // Exact card renderer (codes stacked vertically + HR separator before metadata)
