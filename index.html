@@ -24,6 +24,17 @@ h1 {
 .badge {
   font-size: 0.75rem;
 }
+
+/* Make all NEW badges red */
+.badge.bg-primary {
+  background-color: #dc3545 !important;
+}
+
+/* Make all NEW cards clearly framed in red */
+.card.new-card {
+  border: 2px solid #dc3545 !important;
+}
+
 .update-banner {
   font-weight: bold;
   font-size: 1.1rem;
@@ -55,7 +66,7 @@ h1 {
   <div class="row mb-4">
     <div class="col">
       <a href="https://www.tudublin.ie/intranet/student-experience-transformation-set-programme/srms-dashboard/student-records-query/" class="text-decoration-none text-dark">
-        <div class="card h-100 border-primary">
+        <div class="card h-100 new-card">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center">
               Student Records Query
@@ -75,10 +86,10 @@ h1 {
   ============================ -->
   <div class="row row-cols-1 row-cols-md-2 g-4">
 
-    <!-- Module Code Query Viewer -->
+    <!-- Module Code Query Viewer (NEW) -->
     <div class="col">
       <a href="modulecode_query.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-primary">
+        <div class="card h-100 new-card">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center">
               Module Code Query
@@ -236,6 +247,7 @@ h1 {
   <div class="mt-5 pt-4 border-top">
     <h4 class="text-primary mb-4">TEST SECTION — Verification Instructions</h4>
 
+    <!-- Row 1: PDF instructions -->
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
       <!-- Missing Programmes Instructions -->
@@ -274,7 +286,66 @@ h1 {
         </a>
       </div>
 
-    </div> <!-- end row -->
+    </div> <!-- end row 1 -->
+
+    <!-- Row 2: Full-width Jan 2026 Boards viewer -->
+    <div class="row g-4 mt-3">
+      <div class="col-12">
+        <a href="viewer_jan2026_boards.html" class="text-decoration-none text-dark" target="_blank">
+          <div class="card h-100 new-card">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center">
+                Jan 2026 Award/Progression Boards Overview
+                <span class="badge bg-primary text-light ms-2">NEW</span>
+              </h5>
+              <p class="card-text">
+                Summary of Stage 2 verification and Missing Programmes outcomes, highlighting the Award and Progression Boards required for 2026.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Row 3: Existing NEW test viewers -->
+    <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
+
+      <!-- NEW BUTTON: Visualisation of Stage 2 Verification Activity -->
+      <div class="col">
+        <a href="viewer_stage2_completion.html" class="text-decoration-none text-dark" target="_blank">
+          <div class="card h-100 new-card">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center">
+                Visualisation of Stage 2 Verification Activity
+                <span class="badge bg-primary text-light ms-2">NEW</span>
+              </h5>
+              <p class="card-text">
+                Interactive visualisation showing completion progress for Stage 2 verification activities across Schools.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- NEW BUTTON: Missing Programmes Progress Viewer -->
+      <div class="col">
+        <a href="viewer_missingprogrammes.html" class="text-decoration-none text-dark" target="_blank">
+          <div class="card h-100 new-card">
+            <div class="card-body">
+              <h5 class="card-title d-flex align-items-center">
+                Missing Programmes Progress Viewer
+                <span class="badge bg-primary text-light ms-2">NEW</span>
+              </h5>
+              <p class="card-text">
+                Shows progress and summary for Schools with outstanding Missing Programmes files and submissions.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+
+    </div> <!-- end row 3 -->
+
   </div> <!-- end test section -->
 
 </div> <!-- end container -->
