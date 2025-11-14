@@ -26,8 +26,21 @@
     height: 0.9rem;
     background-color: #e9ecef;
   }
+  .progress-thin {
+    height: 0.5rem;
+  }
   .progress-bar {
     background-color: #0d6efd;
+  }
+  .stacked-bar {
+    display: flex;
+    height: 0.5rem;
+    border-radius: 999px;
+    overflow: hidden;
+    background-color: #e9ecef;
+  }
+  .stacked-segment {
+    height: 100%;
   }
   .completion-good   { background-color: #198754; } /* >= 80% */
   .completion-medium { background-color: #ffc107; } /* 40–79% */
@@ -42,56 +55,80 @@
   <div class="row g-4">
     <!-- Sidebar -->
     <div class="col-lg-3">
-      <div class="card sticky-top">
-        <div class="card-body">
-          <h5 class="card-title">Overall Summary</h5>
+      <div class="sticky-top">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Overall Summary</h5>
 
-          <div class="mb-2">
-            <div class="mute">Total rows (all schools)</div>
-            <div class="h5 mb-0" id="overallTotal">0</div>
-          </div>
+            <div class="mb-2">
+              <div class="mute">Total rows (all schools)</div>
+              <div class="h5 mb-0" id="overallTotal">0</div>
+            </div>
 
-          <div class="mb-2">
-            <div class="mute">Completed rows (all VC1–VC10 filled)</div>
-            <div class="h6 mb-0" id="overallCompleted">0</div>
-          </div>
+            <div class="mb-2">
+              <div class="mute">Completed rows (all VC1–VC10 filled)</div>
+              <div class="h6 mb-0" id="overallCompleted">0</div>
+            </div>
 
-          <div class="mb-3">
-            <div class="mute">Strict completion</div>
-            <div class="h6 mb-1" id="overallPct">0%</div>
-            <div class="progress">
-              <div class="progress-bar" id="overallBar" role="progressbar" style="width:0%"></div>
+            <div class="mb-3">
+              <div class="mute">Strict completion</div>
+              <div class="h6 mb-1" id="overallPct">0%</div>
+              <div class="progress">
+                <div class="progress-bar" id="overallBar" role="progressbar" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="mute">Partial completion (all VC fields)</div>
+              <div class="h6 mb-1" id="overallPartialPct">0%</div>
+              <div class="progress">
+                <div class="progress-bar" id="overallPartialBar" role="progressbar" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div class="mb-2">
+              <div class="mute">Rows with any VC field filled</div>
+              <div class="h6 mb-0" id="overallEngagedRows">0</div>
+              <div class="small mute" id="overallEngagedPct">0%</div>
+            </div>
+
+            <hr>
+
+            <div class="mb-3">
+              <label class="form-label">Filter by school name</label>
+              <input type="text" id="searchInput" class="form-control" placeholder="Type to filter…">
+            </div>
+
+            <div class="small mute">
+              <strong>Definitions:</strong><br>
+              <span class="pill">Strict</span> = all VC1–VC10 filled.<br>
+              <span class="pill">Partial</span> = based on the share of VC fields completed
+              across all rows for that school.
             </div>
           </div>
+        </div>
 
-          <hr>
-
-          <div class="mb-3">
-            <div class="mute">Partial completion (all VC fields)</div>
-            <div class="h6 mb-1" id="overallPartialPct">0%</div>
-            <div class="progress">
-              <div class="progress-bar" id="overallPartialBar" role="progressbar" style="width:0%"></div>
+        <div class="card">
+          <div class="card-header bg-light fw-semibold">
+            VC Field Responses
+          </div>
+          <div class="card-body p-0">
+            <div class="table-responsive">
+              <table class="table table-sm mb-0 align-middle" id="fieldStatsTable">
+                <thead class="table-light">
+                  <tr>
+                    <th>Field</th>
+                    <th style="width:200px;">Response mix</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Filled by JS -->
+                </tbody>
+              </table>
             </div>
-          </div>
-
-          <div class="mb-2">
-            <div class="mute">Rows with any VC field filled</div>
-            <div class="h6 mb-0" id="overallEngagedRows">0</div>
-            <div class="small mute" id="overallEngagedPct">0%</div>
-          </div>
-
-          <hr>
-
-          <div class="mb-3">
-            <label class="form-label">Filter by school name</label>
-            <input type="text" id="searchInput" class="form-control" placeholder="Type to filter…">
-          </div>
-
-          <div class="small mute">
-            <strong>Definitions:</strong><br>
-            <span class="pill">Strict</span> = all VC1–VC10 filled.<br>
-            <span class="pill">Partial</span> = based on the share of VC fields completed
-            across all rows for that school.
+            <div class="small text-muted px-3 py-2">
+              Mini stacked bars show how filled VC responses split (blank cells excluded).
+            </div>
           </div>
         </div>
       </div>
@@ -170,6 +207,8 @@
 <script>
 const DATA = [{"school":"Conservatoire","total_rows":6,"completed_rows":6,"completion_pct":100.0,"engaged_rows":6,"engaged_pct_rows":100.0,"avg_vc_pct":100.0},{"school":"Graduate Business School","total_rows":13,"completed_rows":5,"completion_pct":38.5,"engaged_rows":6,"engaged_pct_rows":46.2,"avg_vc_pct":45.4},{"school":"Graduate Research","total_rows":9,"completed_rows":0,"completion_pct":0.0,"engaged_rows":0,"engaged_pct_rows":0.0,"avg_vc_pct":0.0},{"school":"Language Studies","total_rows":3,"completed_rows":0,"completion_pct":0.0,"engaged_rows":0,"engaged_pct_rows":0.0,"avg_vc_pct":0.0},{"school":"School of Accounting, Economics & Finance","total_rows":24,"completed_rows":24,"completion_pct":100.0,"engaged_rows":24,"engaged_pct_rows":100.0,"avg_vc_pct":100.0},{"school":"School of Architecture, Building and Environment","total_rows":13,"completed_rows":8,"completion_pct":61.5,"engaged_rows":11,"engaged_pct_rows":84.6,"avg_vc_pct":81.5},{"school":"School of Art & Design","total_rows":14,"completed_rows":1,"completion_pct":7.1,"engaged_rows":14,"engaged_pct_rows":100.0,"avg_vc_pct":56.4},{"school":"School of Biological, Health & Sports Sciences","total_rows":19,"completed_rows":19,"completion_pct":100.0,"engaged_rows":19,"engaged_pct_rows":100.0,"avg_vc_pct":100.0},{"school":"School of Business Technology, Retail & Supply Chain","total_rows":29,"completed_rows":2,"completion_pct":6.9,"engaged_rows":4,"engaged_pct_rows":13.8,"avg_vc_pct":12.8},{"school":"School of Chemical & BioPharmaceutical Sciences","total_rows":56,"completed_rows":38,"completion_pct":67.9,"engaged_rows":51,"engaged_pct_rows":91.1,"avg_vc_pct":82.3},{"school":"School of Computer Science","total_rows":14,"completed_rows":1,"completion_pct":7.1,"engaged_rows":14,"engaged_pct_rows":100.0,"avg_vc_pct":16.4},{"school":"School of Culinary Arts & Food Technology","total_rows":32,"completed_rows":15,"completion_pct":46.9,"engaged_rows":32,"engaged_pct_rows":100.0,"avg_vc_pct":64.7},{"school":"School of Electrical & Electronic Engineering","total_rows":39,"completed_rows":12,"completion_pct":30.8,"engaged_rows":25,"engaged_pct_rows":64.1,"avg_vc_pct":52.8},{"school":"School of Enterprise, Computing & Digital Transformation","total_rows":41,"completed_rows":0,"completion_pct":0.0,"engaged_rows":39,"engaged_pct_rows":95.1,"avg_vc_pct":41.2},{"school":"School of Food Science & Environmental Health","total_rows":16,"completed_rows":16,"completion_pct":100.0,"engaged_rows":16,"engaged_pct_rows":100.0,"avg_vc_pct":100.0},{"school":"School of Global Business","total_rows":12,"completed_rows":9,"completion_pct":75.0,"engaged_rows":12,"engaged_pct_rows":100.0,"avg_vc_pct":95.8},{"school":"School of Informatics & Cybersecurity","total_rows":21,"completed_rows":17,"completion_pct":81.0,"engaged_rows":21,"engaged_pct_rows":100.0,"avg_vc_pct":82.9},{"school":"School of Management, People & Organisations","total_rows":21,"completed_rows":8,"completion_pct":38.1,"engaged_rows":14,"engaged_pct_rows":66.7,"avg_vc_pct":60.5},{"school":"School of Marketing & Entrepreneurship","total_rows":35,"completed_rows":11,"completion_pct":31.4,"engaged_rows":22,"engaged_pct_rows":62.9,"avg_vc_pct":46.3},{"school":"School of Mathematics & Statistics","total_rows":7,"completed_rows":0,"completion_pct":0.0,"engaged_rows":7,"engaged_pct_rows":100.0,"avg_vc_pct":30.0},{"school":"School of Mechanical Engineering","total_rows":29,"completed_rows":2,"completion_pct":6.9,"engaged_rows":14,"engaged_pct_rows":48.3,"avg_vc_pct":21.7},{"school":"School of Media","total_rows":21,"completed_rows":0,"completion_pct":0.0,"engaged_rows":21,"engaged_pct_rows":100.0,"avg_vc_pct":50.5},{"school":"School of Physics, Clinical & Optometric Sciences","total_rows":12,"completed_rows":12,"completion_pct":100.0,"engaged_rows":12,"engaged_pct_rows":100.0,"avg_vc_pct":100.0},{"school":"School of Social Sciences, Law & Education","total_rows":40,"completed_rows":7,"completion_pct":17.5,"engaged_rows":32,"engaged_pct_rows":80.0,"avg_vc_pct":23.7},{"school":"School of Surveying & Construction Innovation","total_rows":21,"completed_rows":17,"completion_pct":81.0,"engaged_rows":19,"engaged_pct_rows":90.5,"avg_vc_pct":89.5},{"school":"School of Tourism & Hospitality Management","total_rows":30,"completed_rows":16,"completion_pct":53.3,"engaged_rows":30,"engaged_pct_rows":100.0,"avg_vc_pct":80.0},{"school":"School of Transport & Civil Engineering","total_rows":16,"completed_rows":6,"completion_pct":37.5,"engaged_rows":9,"engaged_pct_rows":56.2,"avg_vc_pct":54.4},{"school":"Unknown / Unassigned","total_rows":3,"completed_rows":0,"completion_pct":0.0,"engaged_rows":0,"engaged_pct_rows":0.0,"avg_vc_pct":0.0}];
 const OVERALL = {"total_rows":596,"completed_rows":252,"completion_pct":42.3,"engaged_rows":474,"engaged_pct_rows":79.5,"avg_vc_pct":58.6};
+const FIELD_SUMMARY = [{"field":"VC1 \u2013 Programme assigned to correct School","value_breakdown":[{"label":"Yes","count":427,"pct":90.1},{"label":"No","count":35,"pct":7.4},{"label":"yes","count":12,"pct":2.5}]},{"field":"VC2 \u2013 Active/Inactive state correct","value_breakdown":[{"label":"Yes","count":299,"pct":69.7},{"label":"No","count":118,"pct":27.5},{"label":"yes","count":11,"pct":2.6},{"label":"no","count":1,"pct":0.2}]},{"field":"VC3 \u2013 Requires January 2026 Progression / Award board","value_breakdown":[{"label":"No","count":304,"pct":76.0},{"label":"Yes","count":82,"pct":20.5},{"label":"no","count":14,"pct":3.5}]},{"field":"VC4 \u2013 'Programme title identical to Akari 'programme short title'","value_breakdown":[{"label":"No","count":189,"pct":53.4},{"label":"Yes","count":155,"pct":43.8},{"label":"no","count":5,"pct":1.4},{"label":"yes","count":5,"pct":1.4}]},{"field":"VC5 \u2013 Delivery Mode","value_breakdown":[{"label":"Full-Time","count":225,"pct":61.1},{"label":"Part-Time","count":140,"pct":38.0},{"label":"Apprenticeship","count":3,"pct":0.8}]},{"field":"VC6 \u2013 If FT, equivalent PT exists","value_breakdown":[{"label":"No","count":157,"pct":44.6},{"label":"N/A","count":137,"pct":38.9},{"label":"Yes","count":48,"pct":13.6},{"label":"no","count":10,"pct":2.8}]},{"field":"VC7 \u2013 Semester 1 modules correct in AKARI","value_breakdown":[{"label":"Yes","count":189,"pct":67.3},{"label":"N/A","count":43,"pct":15.3},{"label":"No","count":37,"pct":13.2},{"label":"yes","count":12,"pct":4.3}]},{"field":"VC8 \u2013 Semester 2 modules correct in AKARI","value_breakdown":[{"label":"Yes","count":183,"pct":65.4},{"label":"N/A","count":43,"pct":15.4},{"label":"No","count":42,"pct":15.0},{"label":"yes","count":12,"pct":4.3}]},{"field":"VC9 \u2013 Year-long modules correct in AKARI","value_breakdown":[{"label":"Yes","count":128,"pct":45.2},{"label":"N/A","count":114,"pct":40.3},{"label":"No","count":26,"pct":9.2},{"label":"yes","count":13,"pct":4.6},{"label":"Other","count":2,"pct":0.7}]},{"field":"VC10 \u2013 Module Assessments correct in AKARI","value_breakdown":[{"label":"Yes","count":208,"pct":75.9},{"label":"No","count":54,"pct":19.7},{"label":"yes","count":12,"pct":4.4}]}];
+const BREAKDOWN_COLORS = ["#0d6efd", "#f59f00", "#845ef7", "#20c997", "#6c757d"];
 
 function classifyPct(p) {
   if (p >= 80) return "completion-good";
@@ -309,10 +348,55 @@ function renderPartialTable(filterText="") {
   });
 }
 
+function renderFieldStatsTable() {
+  const tbody = document.querySelector("#fieldStatsTable tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+
+  const rows = FIELD_SUMMARY.slice();
+
+  rows.forEach(row => {
+    const tr = document.createElement("tr");
+
+    const tdField = document.createElement("td");
+    tdField.textContent = row.field;
+    tr.appendChild(tdField);
+
+    const tdVisual = document.createElement("td");
+    if (row.value_breakdown.length) {
+      const bar = document.createElement("div");
+      bar.className = "stacked-bar";
+      row.value_breakdown.forEach((seg, idx) => {
+        const span = document.createElement("span");
+        span.className = "stacked-segment";
+        span.style.width = seg.pct.toFixed(1) + "%";
+        span.style.backgroundColor = BREAKDOWN_COLORS[idx % BREAKDOWN_COLORS.length];
+        span.title = `${seg.label || "Value"}: ${seg.pct.toFixed(1)}% (${seg.count})`;
+        bar.appendChild(span);
+      });
+      tdVisual.appendChild(bar);
+
+      const legend = document.createElement("div");
+      legend.className = "small text-muted mt-1";
+      legend.textContent = row.value_breakdown
+        .map(seg => `${seg.label || "Value"} ${seg.pct.toFixed(1)}%`)
+        .join(" • ");
+      tdVisual.appendChild(legend);
+    } else {
+      tdVisual.className = "small text-muted text-center";
+      tdVisual.textContent = "No responses yet";
+    }
+
+    tr.appendChild(tdVisual);
+    tbody.appendChild(tr);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   renderOverview();
   renderStrictTable("");
   renderPartialTable("");
+  renderFieldStatsTable();
 
   const searchInput = document.getElementById("searchInput");
   searchInput.addEventListener("input", () => {

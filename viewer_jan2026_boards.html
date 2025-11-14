@@ -26,25 +26,47 @@
     background-color: #f1f3f5;
     cursor: pointer;
   }
-  .prog-card {
-    margin-bottom: 0.75rem;
+  .progress {
+    height: 0.9rem;
+    background-color: #e9ecef;
   }
-  .prog-card .card-body {
-    padding: 0.75rem 0.9rem;
+  .progress-bar {
+    background-color: #0d6efd;
   }
-  .prog-header {
+  .stacked-bar {
+    display: flex;
+    height: 0.5rem;
+    border-radius: 999px;
+    overflow: hidden;
+    background-color: #e9ecef;
+  }
+  .stacked-segment {
+    height: 100%;
+  }
+  .pill-source-ver { background-color: #0d6efd; color: #fff; }
+  .pill-source-miss { background-color: #dc3545; color: #fff; }
+  .programme-table td {
+    vertical-align: middle;
+  }
+  .programme-table .code-title {
     font-weight: 600;
   }
-  .prog-meta {
+  .programme-table .subtext {
+    font-size: 0.85rem;
+    color: #6c757d;
+  }
+  .comment-cell {
+    white-space: pre-wrap;
     font-size: 0.85rem;
   }
-  .comment-block {
-    white-space: pre-wrap;
-    font-size: 0.9rem;
+  .filter-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6c757d;
   }
-  .nav-tabs .nav-link {
-    padding: 0.4rem 0.75rem;
-    font-size: 0.9rem;
+  .btn-toggle-group .btn {
+    font-size: 0.85rem;
   }
 </style>
 </head>
@@ -53,40 +75,69 @@
   <div class="row g-4">
     <!-- Sidebar -->
     <div class="col-lg-3">
-      <div class="card sticky-top">
-        <div class="card-body">
-          <h5 class="card-title">Overall Summary</h5>
+      <div class="sticky-top">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Overall Summary</h5>
 
-          <div class="mb-2">
-            <div class="mute">Total schools</div>
-            <div class="h5 mb-0" id="overallSchools">0</div>
+            <div class="mb-2">
+              <div class="mute">Total schools</div>
+              <div class="h5 mb-0" id="overallSchools">0</div>
+            </div>
+
+            <div class="mb-2">
+              <div class="mute">Programmes requiring Jan 2026 boards</div>
+              <div class="h5 mb-0" id="overallProgrammes">0</div>
+            </div>
+
+            <div class="row text-center mb-3">
+              <div class="col">
+                <div class="mute small">Verification</div>
+                <div class="h6 mb-0" id="overallVerCount">0</div>
+              </div>
+              <div class="col">
+                <div class="mute small">Missing Prog.</div>
+                <div class="h6 mb-0" id="overallMissCount">0</div>
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="mb-3">
+              <label class="form-label">Filter by school name</label>
+              <input type="text" id="schoolFilter" class="form-control" placeholder="Type to filter…">
+            </div>
+
+            <div class="small mute">
+              Only programmes that are <span class="pill">Active</span> and flagged for
+              <span class="pill">Jan 2026 boards</span> appear here.
+            </div>
           </div>
+        </div>
 
-          <div class="mb-2">
-            <div class="mute">Total programmes requiring Jan 2026 boards</div>
-            <div class="h5 mb-0" id="overallProgrammes">0</div>
+        <div class="card">
+          <div class="card-header bg-light fw-semibold">
+            Source breakdown
           </div>
-
-          <div class="mb-2">
-            <div class="mute">From Programme Verification</div>
-            <div class="h6 mb-0" id="overallVerCount">0</div>
-          </div>
-
-          <div class="mb-3">
-            <div class="mute">From Missing Programmes</div>
-            <div class="h6 mb-0" id="overallMissCount">0</div>
-          </div>
-
-          <hr>
-
-          <div class="mb-3">
-            <label class="form-label">Filter by school name</label>
-            <input type="text" id="schoolFilter" class="form-control" placeholder="Type to filter…">
-          </div>
-
-          <div class="small mute">
-            Only programmes that are <span class="pill">Active</span> and marked as requiring
-            an <span class="pill">Award/Progression Board in January 2026</span> are included.
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <span class="pill pill-source-ver me-2">Verification</span>
+              <div class="flex-grow-1">
+                <div class="stacked-bar mb-1">
+                  <span id="verBarSegment" class="stacked-segment" style="width:0%;background-color:#0d6efd;"></span>
+                </div>
+                <div class="small mute" id="verBarLabel">0 programmes</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <span class="pill pill-source-miss me-2">Missing</span>
+              <div class="flex-grow-1">
+                <div class="stacked-bar mb-1">
+                  <span id="missBarSegment" class="stacked-segment" style="width:0%;background-color:#dc3545;"></span>
+                </div>
+                <div class="small mute" id="missBarLabel">0 programmes</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -109,8 +160,9 @@
                 <tr>
                   <th>School</th>
                   <th class="text-end" style="width:90px;">Total</th>
-                  <th class="text-end" style="width:110px;">Verification</th>
-                  <th class="text-end" style="width:110px;">Missing Prog.</th>
+                  <th class="text-end" style="width:100px;">Verification</th>
+                  <th class="text-end" style="width:100px;">Missing Prog.</th>
+                  <th style="width:160px;">Source mix</th>
                 </tr>
               </thead>
               <tbody>
@@ -127,61 +179,48 @@
 
       <!-- Details for selected school -->
       <div class="card">
-        <div class="card-header bg-light fw-semibold">
-          Programmes for Selected School
+        <div class="card-header bg-light fw-semibold d-flex flex-column flex-lg-row justify-content-between align-items-lg-center">
+          <div>
+            Programmes for <span id="selectedSchool" class="fw-semibold">All schools</span>
+          </div>
+          <button class="btn btn-sm btn-outline-secondary mt-2 mt-lg-0" id="clearSelectionBtn">Show all schools</button>
         </div>
         <div class="card-body">
-          <div class="mb-2">
-            <span class="mute">Selected school:</span>
-            <span id="selectedSchool" class="fw-semibold">All schools</span>
-          </div>
-
-          <ul class="nav nav-tabs" id="detailTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="tab-all" data-bs-toggle="tab" data-bs-target="#panel-all" type="button" role="tab">
-                All Programmes
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab-jan" data-bs-toggle="tab" data-bs-target="#panel-jan" type="button" role="tab">
-                Jan 2026 Boards
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab-ver" data-bs-toggle="tab" data-bs-target="#panel-ver" type="button" role="tab">
-                Programme Verification
-              </button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tab-miss" data-bs-toggle="tab" data-bs-target="#panel-miss" type="button" role="tab">
-                Missing Programmes
-              </button>
-            </li>
-          </ul>
-
-          <div class="tab-content pt-3">
-            <div class="tab-pane fade show active" id="panel-all" role="tabpanel">
-              <div id="allContainer">
-                <div class="text-muted small">No programmes.</div>
+          <div class="row g-3">
+            <div class="col-md-5">
+              <div class="filter-label mb-1">Source filter</div>
+              <div class="btn-group btn-toggle-group" role="group" aria-label="Source filter">
+                <button type="button" class="btn btn-outline-secondary active" data-source="all">All</button>
+                <button type="button" class="btn btn-outline-secondary" data-source="Programme Verification">Verification</button>
+                <button type="button" class="btn btn-outline-secondary" data-source="Missing Programmes">Missing</button>
               </div>
             </div>
-            <div class="tab-pane fade" id="panel-jan" role="tabpanel">
-              <div id="janContainer">
-                <div class="text-muted small">No programmes.</div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="panel-ver" role="tabpanel">
-              <div id="verContainer">
-                <div class="text-muted small">No programmes.</div>
-              </div>
-            </div>
-            <div class="tab-pane fade" id="panel-miss" role="tabpanel">
-              <div id="missContainer">
-                <div class="text-muted small">No programmes.</div>
-              </div>
+            <div class="col-md-7">
+              <label for="programmeSearch" class="filter-label mb-1">Search code or title</label>
+              <input type="text" id="programmeSearch" class="form-control" placeholder="e.g. TU935, Applied Science">
             </div>
           </div>
 
+          <div class="small mute mt-3" id="programmeCountLabel">0 programme(s) match.</div>
+
+          <div class="table-responsive mt-2">
+            <table class="table table-sm table-striped programme-table">
+              <thead class="table-light">
+                <tr>
+                  <th style="width:120px;">Source</th>
+                  <th>Programme</th>
+                  <th style="width:120px;">Delivery</th>
+                  <th style="width:100px;">Status</th>
+                  <th style="width:130px;">Jan 2026 flag</th>
+                  <th style="width:160px;">Contact</th>
+                  <th style="width:240px;">Comment</th>
+                </tr>
+              </thead>
+              <tbody id="programmeTableBody">
+                <tr><td colspan="7" class="text-muted small">No programmes selected.</td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -189,17 +228,32 @@
   </div> <!-- row -->
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 const PROGRAMMES = [{"source":"Programme Verification","school":"Conservatoire","programme_code":"TU388","programme_title":"M.Mus (Performance/Conducting)","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"julie.maisel@tudublin.ie","comment":""},{"source":"Programme Verification","school":"Conservatoire","programme_code":"TU962","programme_title":"Drama (Performance)","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"tanya.dean@tudublin.ie","comment":"January Progression Board is not critical but normally one is held."},{"source":"Programme Verification","school":"Graduate Business School","programme_code":"TU353","programme_title":"Business Administration","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"ashley.odonoghue@tudublin.ie","comment":"Prog Title MBA Masters Business Administration (TU353 September Intake )"},{"source":"Programme Verification","school":"Graduate Business School","programme_code":"TU414","programme_title":"MSc Building Performance (EED)","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"kirk.mccormack@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU304","programme_title":"PG Dip Accounting","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Cormac.McMahon@tudublin.ie","comment":"Check complete. No Janaury Exam Board."},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU318","programme_title":"MSc in Finance","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Cormac.McMahon@tudublin.ie","comment":"Check Complete"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU324","programme_title":"MBS International Accounting","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Cormac.McMahon@tudublin.ie","comment":"Check Complete"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU5403","programme_title":"SP Lv 6 Cert Real Estate","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"MaryJane.Webberley@tudublin.ie","comment":"Should be in another School"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU5541","programme_title":"Diploma Fintech Risk & Complia","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"MaryJane.Webberley@tudublin.ie","comment":"Check Complete"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU788","programme_title":"Accounting and Finance","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"MaryJane.Webberley@tudublin.ie","comment":"Check Complete. Exams in January"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU905","programme_title":"Economics and Finance","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"clare.omahony@tudublin.ie","comment":"Check Complete. Exams in January"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU910","programme_title":"Accounting","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Cormac.McMahon@tudublin.ie","comment":"Check Complete. Exams in January"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU933","programme_title":"Accounting and Finance","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"MaryJane.Webberley@tudublin.ie","comment":"Check Complete. Exams in January"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU434","programme_title":"MSc in Financial Technology","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"MaryJane.Webberley@tudublin.ie","comment":"Check Complete. currently 1 Student Needs to registered on this programme, for 2526. NFees need to be agreed and setup for modules."},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU674","programme_title":"HCert in Business & Finance","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"clare.omahony@tudublin.ie","comment":"Check Complete. Exams in January"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU905A","programme_title":"Economics and Finance","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"clare.omahony@tudublin.ie","comment":"Check Complete. Exams in January"},{"source":"Programme Verification","school":"School of Accounting, Economics & Finance","programme_code":"TU910A","programme_title":"Accounting and Finance","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Cormac.McMahon@tudublin.ie","comment":"Check Complete. Exams in January"},{"source":"Programme Verification","school":"School of Architecture, Building and Environment","programme_code":"TU205","programme_title":"Sustainable Development","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"dave.oconnor@tudublin.ie","comment":"TU205 also has a part-time entry (formerly under the TU218 code)"},{"source":"Programme Verification","school":"School of Architecture, Building and Environment","programme_code":"TU282","programme_title":"Master of Architecture","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"emma.geoghegan@tudublin.ie","comment":"This is a three semester programme. The structure is correct in Akari with modules assigned to all three semesters. However in the Dashboard Akari Viewer there are no modules shown for Year Two Semester One"},{"source":"Programme Verification","school":"School of Architecture, Building and Environment","programme_code":"TU411","programme_title":"PDip Architectural Practice","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"emma.geoghegan@tudublin.ie","comment":"ARCH6201 runs year long September - May and January - January so has previously two separate CRNs to distinguish between the two cohorts"},{"source":"Programme Verification","school":"School of Art & Design","programme_code":"TU381","programme_title":"Graphic Design Practice","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Louise.Reddy@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Art & Design","programme_code":"TU481","programme_title":"Professional Design Practice","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"Andrew.Horan@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Art & Design","programme_code":"TU6143","programme_title":"Dip in Packaging Technology","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"Andrew.Horan@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Biological, Health & Sports Sciences","programme_code":"TU088","programme_title":"HDip in Medical science","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"jan.guerin@tudublin.ie","comment":"VC-4 HDip in Medical science(PT);  VC-6 TU888 Highr Diploma Medical Science (FT), Progression and Award Boards required Jan start programme"},{"source":"Programme Verification","school":"School of Biological, Health & Sports Sciences","programme_code":"TU287","programme_title":"MSc Clin Lab Sci","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"jan.guerin@tudublin.ie","comment":"VC-3 Award Board 1-2 students"},{"source":"Programme Verification","school":"School of Biological, Health & Sports Sciences","programme_code":"TU751","programme_title":"Biosciences","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"niamh.gilmartin@tudublin.ie","comment":"VC 3 Exit award unclassified award board for 3/4 students in TU751. VC- 4. Akari title BSc in Biosciences"},{"source":"Programme Verification","school":"School of Biological, Health & Sports Sciences","programme_code":"TU866","programme_title":"Biomed and Molecular Diag.","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"niamh.gilmartin@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Biological, Health & Sports Sciences","programme_code":"TU886","programme_title":"BSc Hons Biomolecular Science","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"niamh.gilmartin@tudublin.ie","comment":"VC 3 Award board for 1/2 student"},{"source":"Programme Verification","school":"School of Chemical & BioPharmaceutical Sciences","programme_code":"TU1157","programme_title":"Manufacture of Med Products","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"breda.noonan@tudublin.ie","comment":"VC4 - BSc in Manu Med Prod.  NOTE PROGRAMME CODE ON AKARI - TU5308"},{"source":"Programme Verification","school":"School of Chemical & BioPharmaceutical Sciences","programme_code":"TU258","programme_title":"Pharm.QA and Regulation","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"breda.noonan@tudublin.ie","comment":"VC4- MSc Pharm. QA and Regulation"},{"source":"Programme Verification","school":"School of Chemical & BioPharmaceutical Sciences","programme_code":"TU288","programme_title":"Pharm QA and Reg","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"breda.noonan@tudublin.ie","comment":"VC4 - MSc Pharm QA and Reg"},{"source":"Programme Verification","school":"School of Chemical & BioPharmaceutical Sciences","programme_code":"TU289","programme_title":"Pharmaceutical Validation Tech","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Chemical & BioPharmaceutical Sciences","programme_code":"TU5262","programme_title":"Certificate in Microbiology","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Electrical & Electronic Engineering","programme_code":"TU713","programme_title":"Computer Engineering","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"mark.deegan@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Electrical & Electronic Engineering","programme_code":"TU722","programme_title":"Process Inst and Auto","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"mark.deegan@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Electrical & Electronic Engineering","programme_code":"TU807","programme_title":"Computer Eng Mobile Systems","status":"ACTIVE","delivery_mode":"","jan26_flag":"Yes","email_contact":"mark.deegan@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU067","programme_title":"H.Dip. Science in Computing","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"","comment":"Semesters vary due to September and January starts"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU069F","programme_title":"B.Sc.(Hons) IT Management","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU090","programme_title":"B.Sc. Entr. Cloud Computing","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU096F","programme_title":"B.Sc. in Computing","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU097F","programme_title":"Computing","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":"Called \"Bachelor of Science (Honours) in Computing\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU278","programme_title":"MSc. Applied IT Architecture","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"","comment":"Called \"Master of Science in Software Solutions Architecture\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU428","programme_title":"MSC Comp Dev Operations","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU471","programme_title":"Comp in Human Ctrd Artif Intel","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":"Called \"Master of Science in Computing - Human Centered Artificial Intelligence\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU652","programme_title":"Computing","status":"ACTIVE","delivery_mode":"","jan26_flag":"Yes","email_contact":"","comment":"Called \"Higher Certificate in Science in Computing\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU756","programme_title":"Computing (General Entry)","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":"Called \"Bachelor of Science in Computing with options in AI and ML, Software Development, Cloud Computing\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU759","programme_title":"B.Sc. in IT Management","status":"ACTIVE","delivery_mode":"","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU859","programme_title":"B.Sc. (Honours) Computing","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":"Called \"Bachelor of Science (Honours) in Computing with options in AI and ML, Software Development, Cloud Computing\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU861","programme_title":"Computing (Language)","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":"Called \"Bachelor of Science (Honours) in Computing with Language (French/ German/ Spanish)\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU862","programme_title":"Comp - Mach Learn & Art Intel","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":"Called \"Bachelor of Science (Hons) in Computing with Machine Learning/Artificial Intelligence\" in Akari"},{"source":"Programme Verification","school":"School of Enterprise, Computing & Digital Transformation","programme_code":"TU865","programme_title":"Cloud Computing","status":"ACTIVE","delivery_mode":"","jan26_flag":"Yes","email_contact":"","comment":"Called \"Bachelor of Science (Honours) in Cloud Computing\" in Akari"},{"source":"Programme Verification","school":"School of Global Business","programme_code":"TU735","programme_title":"Sports Management and Coaching","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"david.gaul@tudublin.ie","comment":"TU735 has been revalidated June 2025 but AKARI listing is incorrect. Showing the NEW programme for all 3 Years which only Year 1 running. 4 exit awards"},{"source":"Programme Verification","school":"School of Global Business","programme_code":"TU935","programme_title":"Sports Management and Coaching","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"david.gaul@tudublin.ie","comment":"TU935 has been revalidated June 2025 but AKARI listing is incorrect. Showing the NEW programme for all 4 Years which only Year 1 running.1 exit award Short Title is \nBA Hons Sports Mgt & Coaching"},{"source":"Programme Verification","school":"School of Management, People & Organisations","programme_code":"TU363","programme_title":"PG Dip in Product Management","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"joseph.fitzgerald@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Management, People & Organisations","programme_code":"TU377","programme_title":"Human Resource Management","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"yanyi.wang@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Mathematics & Statistics","programme_code":"TU874","programme_title":"Mathematical Sciences","status":"ACTIVE","delivery_mode":"","jan26_flag":"Yes","email_contact":"carl.sullivan@tudublin.ie","comment":"VC3: no progression/award as standard but possibility of repeat students who complete missing programme credits by January requiring award or it is expected there will be an award board for this programme for students requesting exit award"},{"source":"Programme Verification","school":"School of Media","programme_code":"TU294","programme_title":"MSc in CDM&UX","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"","comment":""},{"source":"Programme Verification","school":"School of Physics, Clinical & Optometric Sciences","programme_code":"TU761","programme_title":"Ophthalmic Dispensing","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"declan.hovenden@tudublin.ie","comment":"Programme short title in Akari is \"BSc in Ophthalmic Dispensing\". Award Board not usually required in January but one is expected to be necessary in Jan 2026. OPYO 2812 is showing as a Sem 2 module in Akari but is deliverd and examined in Sem 1 (it is proposed to change back to Sem 2 in the ongoing Review)."},{"source":"Programme Verification","school":"School of Surveying & Construction Innovation","programme_code":"TU174","programme_title":"BIM (Digital Construction)","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"shannon.chance@tudublin.ie","comment":"Short title on Akari is \"B.Sc.(Hons) BIM(Digital Const)\""},{"source":"Programme Verification","school":"School of Surveying & Construction Innovation","programme_code":"TU268","programme_title":"Geographic Information Science","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"santos.fernandeznoguerol@tudublin.ie","comment":"Short title on Akari is \" M.Sc. in GIS\""},{"source":"Programme Verification","school":"School of Surveying & Construction Innovation","programme_code":"TU281","programme_title":"Real Estate","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"eimear.fallon@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Tourism & Hospitality Management","programme_code":"TU328","programme_title":"MSc. Tourism Management","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Gerard.dunne@tudublin.ie","comment":"Akari short title is \"M.Sc. Toursim Management\""},{"source":"Programme Verification","school":"School of Tourism & Hospitality Management","programme_code":"TU330","programme_title":"M.Sc. Hospitality Management","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"davin.dunlea@tudublin.ie","comment":""},{"source":"Programme Verification","school":"School of Transport & Civil Engineering","programme_code":"TU058","programme_title":"Eng/Dig C'struction Analytics","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"barry.mcauley@tudublin.ie","comment":"Programme should be in the School of Surveying and Construction Innovation Short title on Akari is \"TU058 Eng/Dig C'struction Ana\""},{"source":"Programme Verification","school":"School of Transport & Civil Engineering","programme_code":"TU213A","programme_title":"ME in Civil Engineering","status":"ACTIVE","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"niall.holmes@tudublin.ie","comment":"TU213A ME in Civil Engineering (Sustainable Infrastructure) replaced TU213"},{"source":"Programme Verification","school":"School of Transport & Civil Engineering","programme_code":"TU225","programme_title":"Spatial Planning","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"dave.oconnor@tudublin.ie","comment":"PLEASE ASSIGN TO SABE"},{"source":"Programme Verification","school":"School of Transport & Civil Engineering","programme_code":"TU226","programme_title":"Sustainable Trans and Mobility","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"dave.oconnor@tudublin.ie","comment":"PLEASE ASSIGN TO SABE"},{"source":"Missing Programmes","school":"School of Culinary Arts & Food Technology","programme_code":"TU5088","programme_title":"Single Subject Certificate School of Culinary Arts & Food Technology PG","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"dermot.seberry@tudublin.ie","comment":"Programme not on Akari. Legacy CPDs, single module certifications, special purpose awards, etc Modules to be associated with PG SCAFT programmes. Formally used CPDAT06P for these students"},{"source":"Missing Programmes","school":"School of Biological, Health & Sports Sciences","programme_code":"TU888","programme_title":"Higher Diploma in Medical Science","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"jan.guerin@tudublin.ie","comment":""},{"source":"Missing Programmes","school":"School of Informatics & Cybersecurity","programme_code":"TU252M","programme_title":"Master of Science in Computing in Applied Cyber Security (Research)","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"christina.thorpe@tudublin.ie","comment":"Current students on a Jan intake only, so Sept to Jan is semester 2"},{"source":"Missing Programmes","school":"School of Architecture, Building and Environment","programme_code":"TU205","programme_title":"MSc in Sustainable Development","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"dave.oconnor@tudublin.ie","comment":"part-time version of TU205 (FT version is listed accurately in the main Live spreadsheet)"},{"source":"Missing Programmes","school":"School of Management, People & Organisations","programme_code":"TU364","programme_title":"MSc Product Management","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"joseph.fitzgerald@tudublin.ie","comment":"Ref MP4: the BSMT 3414 and DGMG9000 should read as semster 2 on Akari (the programme is a Jan start, so the first semester for this programme is the Spring semester, which I believe should formally be stated as semester 2 in Akari)"},{"source":"Missing Programmes","school":"School of Informatics & Cybersecurity","programme_code":"TU5352_DS","programme_title":"Postgraduate Certificate in Computing in Cybersecurity","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"christina.thorpe@tudublin.ie","comment":"MP3: Minor award, so not part of March graduation ceremony- Workday students"},{"source":"Missing Programmes","school":"School of Informatics & Cybersecurity","programme_code":"TU5352_FS","programme_title":"Postgraduate Certificate in Cybersecurity (Forensic Specialist)","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"christina.thorpe@tudublin.ie","comment":"MP4, MP5: MACS H6011 should be a semester 2 module. Otherwise Akari correct for Sept intake, we also had a Jan 2025 intake. MP3: Minor award, so not part of March graduation ceremony. HCI funded microcredential"},{"source":"Missing Programmes","school":"School of Surveying & Construction Innovation","programme_code":"TU375","programme_title":"MSc in Real Estate","status":"ACTIVE","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"eimear.fallon@tudublin.ie","comment":"Full time programme TU281."},{"source":"Missing Programmes","school":"School of Chemical & BioPharmaceutical Sciences","programme_code":"TU289X","programme_title":"PG Dip in Pharmaceutical Validation Technology","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"patrice.behan@tudublin.ie","comment":"MP2: New code TU1216. Unconfirmed whether this is correct? Embedded with TU289"},{"source":"Missing Programmes","school":"School of Accounting, Economics & Finance","programme_code":"TU5547","programme_title":"Higher Diploma in Business in Regulatory Risk & Compliance","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"cormac.mcmahon@tudublin.ie","comment":"Exam board in January"},{"source":"Missing Programmes","school":"School of Accounting, Economics & Finance","programme_code":"TU442","programme_title":"Masters in International Strategic Accountancy (add-on) (Masters Research (Postgraduate))","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"cormac.mcmahon@tudublin.ie","comment":"Two students to be registred on this programme. Both will require an exam board in January"},{"source":"Missing Programmes","school":"School of Accounting, Economics & Finance","programme_code":"TU785","programme_title":"Bachelor of Business in Accounting & Finance (Add on) (Undergraduate General Degree)","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"MaryJane.Webberley@tudublin.ie","comment":"May be legacy studets on thiss programme that require an exam board."},{"source":"Missing Programmes","school":"School of Accounting, Economics & Finance","programme_code":"TU910B","programme_title":"Bachelor of Business (Honours) in Accounting","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"cormac.mcmahon@tudublin.ie","comment":"Exam Board in January Warrants discussion as needs to merged with TU910. Email to follow."},{"source":"Missing Programmes","school":"School of Global Business","programme_code":"TU771","programme_title":"Bachelor of Business","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Glenn.Mehta@TUDublin.ie","comment":"2 exit award from TU771 (subset of TU772), 2 exit awards from TU778 (subset of TU772)"},{"source":"Missing Programmes","school":"School of Global Business","programme_code":"TU778","programme_title":"Bachelor of Business International Business","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"Glenn.Mehta@TUDublin.ie","comment":"2 exit award from TU771 (subset of TU772), 2 exit awards from TU778 (subset of TU772)"},{"source":"Missing Programmes","school":"School of Art & Design","programme_code":"TU151D","programme_title":"Diploma in Painting and Drawing","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"John.walsh@tudublin.ie","comment":"TU151, old code, appears on the stage 2 verification spreadsheet"},{"source":"Missing Programmes","school":"School of Social Sciences, Law & Education","programme_code":"TU392","programme_title":"MA in Child, Family and Community Studies","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"kevin.lalor@tudublin.ie","comment":""},{"source":"Missing Programmes","school":"School of Social Sciences, Law & Education","programme_code":"TU373D","programme_title":"PG Dip in Criminology","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"kevin.lalor@tudubin.ie","comment":""},{"source":"Missing Programmes","school":"School of Social Sciences, Law & Education","programme_code":"TU373","programme_title":"MA in Criminology","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"kevin.lalor@tudublin.ie","comment":""},{"source":"Missing Programmes","school":"School of Social Sciences, Law & Education","programme_code":"TU394","programme_title":"MA in Social Care Leadership and Management","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"kevin.lalor@tudublin.ie","comment":""},{"source":"Missing Programmes","school":"School of Social Sciences, Law & Education","programme_code":"TU609","programme_title":"Certificate in Independent Living","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"lavinia.mclean@tudublin.ie","comment":""},{"source":"Missing Programmes","school":"School of Tourism & Hospitality Management","programme_code":"TU327","programme_title":"Master of Science in Event Management","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"theresa.ryan@tudublin.ie","comment":"January full/time intake- currently has students registered that need to be considered for Awards in January"},{"source":"Missing Programmes","school":"School of Tourism & Hospitality Management","programme_code":"TU368","programme_title":"Master of Science in Event Management","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"theresa.ryan@tudublin.ie","comment":"January part/time intake - currently has students registered that need to be considered for Awards in January"},{"source":"Missing Programmes","school":"School of Tourism & Hospitality Management","programme_code":"TU331","programme_title":"Master of Science in Hospitality Management","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"theresa.ryan@tudublin.ie","comment":"January full/time intake - currently has students registered that need to be considered for Awards in January"},{"source":"Missing Programmes","school":"School of Tourism & Hospitality Management","programme_code":"TU370","programme_title":"Master of Science in Hospitality Management","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"theresa.ryan@tudublin.ie","comment":"January part/time intake -currently has students registered that need to be considered for Awards in January"},{"source":"Missing Programmes","school":"School of Transport & Civil Engineering","programme_code":"TU824","programme_title":"Bachelors of Engineering (Honours) in Structural Engineering","status":"Active","delivery_mode":"Full-Time","jan26_flag":"Yes","email_contact":"niall.holmes@tudublin.ie","comment":""},{"source":"Missing Programmes","school":"School of Computer Science","programme_code":"TU5353","programme_title":"PG Cert in Science in Applied Machine Learning","status":"Active","delivery_mode":"Part-Time","jan26_flag":"Yes","email_contact":"jack.oneil@tudublin.ie","comment":"Exam Boards in Jan 26. Not in Banner"}];
 const SCHOOL_SUMMARY = [{"school":"Conservatoire","total":2,"verification":2,"missing":0},{"school":"Graduate Business School","total":2,"verification":2,"missing":0},{"school":"School of Accounting, Economics & Finance","total":17,"verification":13,"missing":4},{"school":"School of Architecture, Building and Environment","total":4,"verification":3,"missing":1},{"school":"School of Art & Design","total":4,"verification":3,"missing":1},{"school":"School of Biological, Health & Sports Sciences","total":6,"verification":5,"missing":1},{"school":"School of Chemical & BioPharmaceutical Sciences","total":6,"verification":5,"missing":1},{"school":"School of Computer Science","total":1,"verification":0,"missing":1},{"school":"School of Culinary Arts & Food Technology","total":1,"verification":0,"missing":1},{"school":"School of Electrical & Electronic Engineering","total":3,"verification":3,"missing":0},{"school":"School of Enterprise, Computing & Digital Transformation","total":15,"verification":15,"missing":0},{"school":"School of Global Business","total":4,"verification":2,"missing":2},{"school":"School of Informatics & Cybersecurity","total":3,"verification":0,"missing":3},{"school":"School of Management, People & Organisations","total":3,"verification":2,"missing":1},{"school":"School of Mathematics & Statistics","total":1,"verification":1,"missing":0},{"school":"School of Media","total":1,"verification":1,"missing":0},{"school":"School of Physics, Clinical & Optometric Sciences","total":1,"verification":1,"missing":0},{"school":"School of Social Sciences, Law & Education","total":5,"verification":0,"missing":5},{"school":"School of Surveying & Construction Innovation","total":4,"verification":3,"missing":1},{"school":"School of Tourism & Hospitality Management","total":6,"verification":2,"missing":4},{"school":"School of Transport & Civil Engineering","total":5,"verification":4,"missing":1}];
 const OVERALL = {"school_count":21,"total_programmes":94,"verification_count":67,"missing_count":27};
+const SOURCE_COLORS = {
+  "Programme Verification": "#0d6efd",
+  "Missing Programmes": "#dc3545",
+};
+
+let currentSchool = "";
+let currentSourceFilter = "all";
+let currentSearch = "";
 
 function renderOverall() {
   document.getElementById("overallSchools").textContent = OVERALL.school_count.toString();
   document.getElementById("overallProgrammes").textContent = OVERALL.total_programmes.toString();
   document.getElementById("overallVerCount").textContent = OVERALL.verification_count.toString();
   document.getElementById("overallMissCount").textContent = OVERALL.missing_count.toString();
+
+  const total = OVERALL.total_programmes || 0;
+  const verPct = total ? OVERALL.verification_count / total * 100 : 0;
+  const missPct = total ? OVERALL.missing_count / total * 100 : 0;
+  document.getElementById("verBarSegment").style.width = verPct.toFixed(1) + "%";
+  document.getElementById("verBarLabel").textContent = `${OVERALL.verification_count} programme(s)`;
+  document.getElementById("missBarSegment").style.width = missPct.toFixed(1) + "%";
+  document.getElementById("missBarLabel").textContent = `${OVERALL.missing_count} programme(s)`;
 
   const txt = OVERALL.total_programmes === 0
     ? "There are no active programmes currently flagged as requiring boards in January 2026."
@@ -217,9 +271,12 @@ function renderSchoolTable(filterText="") {
   const tbody = document.querySelector("#schoolTable tbody");
   tbody.innerHTML = "";
 
-  const rows = filteredSchools(filterText).slice().sort((a, b) => {
-    return a.school.localeCompare(b.school);
-  });
+  const rows = filteredSchools(filterText)
+    .slice()
+    .sort((a, b) => {
+      if (b.total !== a.total) return b.total - a.total;
+      return a.school.localeCompare(b.school);
+    });
 
   rows.forEach(row => {
     const tr = document.createElement("tr");
@@ -245,117 +302,143 @@ function renderSchoolTable(filterText="") {
     tdMiss.textContent = row.missing.toString();
     tr.appendChild(tdMiss);
 
+    const tdMix = document.createElement("td");
+    const bar = document.createElement("div");
+    bar.className = "stacked-bar mb-1";
+    const total = row.total || 0;
+    const verPct = total ? row.verification / total * 100 : 0;
+    const missPct = total ? row.missing / total * 100 : 0;
+    if (verPct > 0) {
+      const span = document.createElement("span");
+      span.className = "stacked-segment";
+      span.style.backgroundColor = SOURCE_COLORS["Programme Verification"];
+      span.style.width = verPct.toFixed(1) + "%";
+      bar.appendChild(span);
+    }
+    if (missPct > 0) {
+      const span = document.createElement("span");
+      span.className = "stacked-segment";
+      span.style.backgroundColor = SOURCE_COLORS["Missing Programmes"];
+      span.style.width = missPct.toFixed(1) + "%";
+      bar.appendChild(span);
+    }
+    tdMix.appendChild(bar);
+    const legend = document.createElement("div");
+    legend.className = "small mute";
+    legend.textContent = `${row.verification} Ver • ${row.missing} Missing`;
+    tdMix.appendChild(legend);
+    tr.appendChild(tdMix);
+
     tbody.appendChild(tr);
   });
 }
 
-function makeProgCard(p, includeSchoolLabel=false) {
-  const card = document.createElement("div");
-  card.className = "card prog-card";
-
-  const body = document.createElement("div");
-  body.className = "card-body";
-
-  if (includeSchoolLabel) {
-    const schoolLine = document.createElement("div");
-    schoolLine.className = "prog-meta mb-1";
-    schoolLine.innerHTML = "<span class='pill me-1'>" + (p.school || "Unknown / Unassigned") + "</span>";
-    body.appendChild(schoolLine);
-  }
-
-  const header = document.createElement("div");
-  header.className = "prog-header mb-1";
-  const code = p.programme_code || "(no code)";
-  const title = p.programme_title || "(no title)";
-  header.textContent = code + " — " + title;
-  body.appendChild(header);
-
-  const meta = document.createElement("div");
-  meta.className = "prog-meta mb-1";
-  meta.innerHTML =
-    "<span class='pill me-1'>" + (p.source || "") + "</span>" +
-    "<span class='pill me-1'>" + (p.delivery_mode || "No delivery mode") + "</span>" +
-    "<span class='pill me-1'>" + (p.status || "Status unknown") + "</span>";
-  body.appendChild(meta);
-
-  const janLine = document.createElement("div");
-  janLine.className = "prog-meta mb-1";
-  janLine.innerHTML = "<strong>Jan 2026 Board flag:</strong> " + (p.jan26_flag || "");
-  body.appendChild(janLine);
-
-  if (p.email_contact) {
-    const emailLine = document.createElement("div");
-    emailLine.className = "prog-meta mb-1";
-    emailLine.innerHTML = "<strong>Contact email:</strong> " + p.email_contact;
-    body.appendChild(emailLine);
-  }
-
-  if (p.comment) {
-    const commentLabel = document.createElement("div");
-    commentLabel.className = "prog-meta mute mb-1";
-    commentLabel.textContent = "Comment:";
-    body.appendChild(commentLabel);
-
-    const commentDiv = document.createElement("div");
-    commentDiv.className = "comment-block";
-    commentDiv.textContent = p.comment;
-    body.appendChild(commentDiv);
-  }
-
-  card.appendChild(body);
-  return card;
-}
-
-function renderProgrammeCards(containerId, programmes, includeSchoolLabel=false) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
-
-  if (!programmes.length) {
-    const div = document.createElement("div");
-    div.className = "text-muted small";
-    div.textContent = "No programmes in this category for the current selection.";
-    container.appendChild(div);
-    return;
-  }
-
-  const sorted = programmes.slice().sort((a, b) => {
+function getFilteredProgrammes() {
+  const term = currentSearch.trim().toLowerCase();
+  return PROGRAMMES.filter(p => {
+    if (currentSchool && p.school !== currentSchool) return false;
+    if (currentSourceFilter !== "all" && p.source !== currentSourceFilter) return false;
+    if (!term) return true;
+    const haystack = `${p.programme_code || ""} ${p.programme_title || ""}`.toLowerCase();
+    return haystack.includes(term);
+  }).sort((a, b) => {
     const s = (a.school || "").localeCompare(b.school || "");
     if (s !== 0) return s;
     return (a.programme_code || "").localeCompare(b.programme_code || "");
   });
+}
 
-  sorted.forEach(p => {
-    const card = makeProgCard(p, includeSchoolLabel);
-    container.appendChild(card);
+function updateSelectedSchoolLabel() {
+  const label = document.getElementById("selectedSchool");
+  label.textContent = currentSchool ? currentSchool : "All schools";
+}
+
+function renderProgrammeTable() {
+  const tbody = document.getElementById("programmeTableBody");
+  tbody.innerHTML = "";
+  const programmes = getFilteredProgrammes();
+
+  document.getElementById("programmeCountLabel").textContent =
+    `${programmes.length} programme(s) match these filters.`;
+
+  if (!programmes.length) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    td.colSpan = 7;
+    td.className = "text-muted small";
+    td.textContent = "No programmes match the current school/source/search filters.";
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    return;
+  }
+
+  programmes.forEach(p => {
+    const tr = document.createElement("tr");
+
+    const tdSource = document.createElement("td");
+    const pill = document.createElement("span");
+    pill.className = "pill " + (p.source === "Programme Verification" ? "pill-source-ver" : "pill-source-miss");
+    pill.textContent = p.source;
+    tdSource.appendChild(pill);
+    tr.appendChild(tdSource);
+
+    const tdProgramme = document.createElement("td");
+    const codeTitle = document.createElement("div");
+    codeTitle.className = "code-title";
+    const code = p.programme_code || "(no code)";
+    const title = p.programme_title || "(no title)";
+    codeTitle.textContent = `${code} — ${title}`;
+    const school = document.createElement("div");
+    school.className = "subtext";
+    school.textContent = p.school || "Unknown / Unassigned";
+    tdProgramme.appendChild(codeTitle);
+    tdProgramme.appendChild(school);
+    tr.appendChild(tdProgramme);
+
+    const tdDelivery = document.createElement("td");
+    tdDelivery.textContent = p.delivery_mode || "—";
+    tr.appendChild(tdDelivery);
+
+    const tdStatus = document.createElement("td");
+    tdStatus.textContent = p.status || "—";
+    tr.appendChild(tdStatus);
+
+    const tdFlag = document.createElement("td");
+    tdFlag.textContent = p.jan26_flag || "Yes";
+    tr.appendChild(tdFlag);
+
+    const tdContact = document.createElement("td");
+    tdContact.textContent = p.email_contact || "—";
+    tr.appendChild(tdContact);
+
+    const tdComment = document.createElement("td");
+    tdComment.className = "comment-cell";
+    tdComment.textContent = p.comment || "—";
+    tr.appendChild(tdComment);
+
+    tbody.appendChild(tr);
   });
 }
 
-function renderDetailsForSchool(schoolName) {
-  const label = document.getElementById("selectedSchool");
-  const usingAll = !schoolName;
-  label.textContent = usingAll ? "All schools" : schoolName;
+function setSchoolFilter(schoolName) {
+  currentSchool = schoolName;
+  updateSelectedSchoolLabel();
+  renderProgrammeTable();
+}
 
-  const progs = usingAll
-    ? PROGRAMMES.slice()
-    : PROGRAMMES.filter(p => p.school === schoolName);
-
-  const ver = progs.filter(p => p.source === "Programme Verification");
-  const miss = progs.filter(p => p.source === "Missing Programmes");
-
-  // All programmes tab: include school label
-  renderProgrammeCards("allContainer", progs, true);
-
-  // Jan 2026 Boards tab: same set, explicitly labelled, also with school label
-  renderProgrammeCards("janContainer", progs, true);
-
-  // Source-specific tabs
-  renderProgrammeCards("verContainer", ver, false);
-  renderProgrammeCards("missContainer", miss, false);
+function setSourceFilter(value) {
+  currentSourceFilter = value;
+  document.querySelectorAll(".btn-toggle-group .btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.source === value);
+  });
+  renderProgrammeTable();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   renderOverall();
   renderSchoolTable("");
+  updateSelectedSchoolLabel();
+  setSourceFilter("all");
 
   const filterInput = document.getElementById("schoolFilter");
   filterInput.addEventListener("input", () => {
@@ -367,11 +450,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const tr = ev.target.closest("tr.school-row");
     if (!tr) return;
     const school = tr.dataset.school || "";
-    renderDetailsForSchool(school);
+    setSchoolFilter(school);
   });
 
-  // Default view: all schools
-  renderDetailsForSchool("");
+  document.getElementById("clearSelectionBtn").addEventListener("click", () => {
+    setSchoolFilter("");
+  });
+
+  document.querySelectorAll(".btn-toggle-group .btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      setSourceFilter(btn.dataset.source);
+    });
+  });
+
+  document.getElementById("programmeSearch").addEventListener("input", (ev) => {
+    currentSearch = ev.target.value || "";
+    renderProgrammeTable();
+  });
 });
 </script>
 </body>
