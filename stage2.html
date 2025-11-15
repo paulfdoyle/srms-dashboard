@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Stage 2 – Creating a Baseline</title>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+<style>
+body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+.card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+.card.new-card { border:2px solid #dc3545 !important; }
+.badge { font-size:0.75rem; }
+.badge-updated { background-color:#ffc107; color:#212529; }
+.badge-new { background-color:#dc3545; color:#fff; }
+.badge-upcoming { background-color:#0d6efd; color:#fff; }
+.section-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); margin-bottom:24px; }
+.section-card .card-header { background:#f1f3f5; }
+</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='mb-3'>
+      <a href='index.html' class='btn btn-link'>&larr; Back to Stage overview</a>
+    </div>
+    <div class='card border-warning mb-4'>
+      <div class='card-body d-flex flex-wrap justify-content-between gap-3'>
+        <div>
+          <div class='text-muted'>Stage 2</div>
+          <h2 class='mb-1'>Creating a Baseline</h2>
+          <p class='text-muted mb-0'>Testing activities and comparison viewers used to stabilise Stage 2 submissions.</p>
+        </div>
+        <div class='align-self-center'>
+          <span class='badge badge-new me-2'>New</span>
+          <span class='badge bg-warning text-light'>In Progress</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class='row row-cols-1 row-cols-md-2 g-4 mb-3'>
+      <div class='col'>
+        <a href='MissingProgrammeInstructions.pdf' class='text-decoration-none text-dark' target='_blank'>
+          <div class='card h-100 border-info'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Stage 2 – Verification Test for Missing Programmes
+                <span class='badge bg-info text-dark ms-2'>PDF</span>
+              </h5>
+              <p class='card-text mb-0'>Instructions for verifying programmes that exist in your School but are missing from the Banner baseline.<br><a href="https://tudublin.sharepoint.com/:x:/s/CriticalSystemsRecovery/ERfohpYhAZBCvutiUX7flZYBYN8l82f6H-YQnAIK0eMjfw?e=7blGaf" target="_blank" class="text-primary fw-bold">LIVE SPREADSHEET — Missing Programmes</a></p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+        <a href='ProgrammeVerificationInstructions.pdf' class='text-decoration-none text-dark' target='_blank'>
+          <div class='card h-100 border-info'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Stage 2 – Verification Test for Existing Programmes
+                <span class='badge bg-info text-dark ms-2'>PDF</span>
+              </h5>
+              <p class='card-text mb-0'>Instructions for verifying programmes already listed in Banner to ensure alignment with Akari.<br><a href="https://tudublin.sharepoint.com/:x:/s/CriticalSystemsRecovery/EfE6l73_Co1DqYHtFLsXJ2IBIH92yVW0PY1PK5CUYwkXyg?e=uxwaL5" target="_blank" class="text-primary fw-bold">LIVE SPREADSHEET — Existing Programmes</a></p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+    </div>
+    <div class='row g-4 mt-3'>
+      <div class='col-12'>
+        <a href='viewer_jan2026_boards.html' class='text-decoration-none text-dark' target='_blank'>
+          <div class='card h-100 new-card'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Jan 2026 Award/Progression Boards Overview
+                <span class='badge badge-new ms-2'>NEW</span>
+              </h5>
+              <p class='card-text mb-0'>Summary of Stage 2 verification and Missing Programmes outcomes, highlighting the Award and Progression Boards required for 2026.</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class='row row-cols-1 row-cols-md-2 g-4 mt-3'>
+      <div class='col'>
+        <a href='viewer_stage2_completion.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 new-card'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Visualisation of Stage 2 Verification Activity
+                <span class='badge badge-new ms-2'>NEW</span>
+              </h5>
+              <p class='card-text mb-0'>Interactive visualisation showing completion progress for Stage 2 verification activities across Schools.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+        <a href='viewer_missingprogrammes.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 new-card'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Missing Programmes Progress Viewer
+                <span class='badge badge-new ms-2'>NEW</span>
+              </h5>
+              <p class='card-text mb-0'>Shows progress and summary for Schools with outstanding Missing Programmes files and submissions.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+    </div>
+    <div class='row mt-3'>
+      <div class='col'>
+        
+    <a href='analyser_stage2.html' class='text-decoration-none text-dark' target='_self'>
+      <div class='card h-100 border-success'>
+        <div class='card-body'>
+          <h5 class='card-title d-flex align-items-center'>
+            Stage 2 Worklist
+            <span class='badge badge-updated ms-2'>Updated</span>
+          </h5>
+          <p class='card-text mb-0'>Programme-level change log summarising outstanding actions.</p>
+        </div>
+      </div>
+    </a>
+    
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>

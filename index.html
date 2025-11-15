@@ -1,424 +1,259 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TU Dublin SRMS Dashboard</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>SRMS - Curriculum Cleaning - Staged Approach</title>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
 <style>
-body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: #f8f9fa;
-  padding: 20px;
-}
-h1 {
-  margin-bottom: 1.5rem;
-}
-.card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-.badge {
-  font-size: 0.75rem;
-}
-
-/* Make all NEW badges red */
-.badge.bg-primary {
-  background-color: #dc3545 !important;
-}
-
-/* Make all NEW cards clearly framed in red */
-.card.new-card {
-  border: 2px solid #dc3545 !important;
-}
-
-.update-banner {
-  font-weight: bold;
-  font-size: 1.1rem;
-  color: #0d6efd;
-  background: #e9f3ff;
-  border: 1px solid #b6daff;
-  padding: 10px 15px;
-  border-radius: 6px;
-  margin-bottom: 20px;
-}
+body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+.hero { background:#fff; padding:28px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; }
+.card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+.badge { font-size:0.75rem; }
+.stage-card-complete { border:2px solid #198754; }
+.stage-card-progress { border:2px solid #fd7e14; }
+.stage-card-upcoming { border:2px solid #0d6efd; }
+.badge-updated { background-color:#ffc107; color:#212529; }
+.badge-new { background-color:#dc3545; color:#fff; }
+.badge-upcoming { background-color:#0d6efd; color:#fff; }
 </style>
 </head>
 <body>
-
-<div class="container">
-  <div class="update-banner text-center">
-    DATA updated on 14th&nbsp;Nov&nbsp;2025
+  <div class='hero'>
+    <div class='d-flex justify-content-between flex-wrap gap-3'>
+      <div>
+        <h1 class='mb-2'>SRMS - Curriculum Cleaning - Staged Approach</h1>
+        <p class='text-muted mb-0'>Prototype layout linking each phase of the programme. Supporting documentation is available via the button below.</p>
+      </div>
+      <div class='align-self-start'>
+        <a class='btn btn-outline-primary' href='stage_info.html'>Supporting Documentation & Stage Overview</a>
+      </div>
+    </div>
   </div>
 
-  <div class="note-banner">
-    <strong>Note:</strong> All Classlists are now run directly from the <a href="https://www.tudublin.ie/intranet/student-experience-transformation-set-programme/srms-dashboard/" class="text-primary fw-bold" target="_blank">TU&nbsp;Dublin Intranet</a>.
-  </div>
-
-  <h1 class="mb-4">TU Dublin SRMS Dashboard</h1>
-
-
-  <div class="card mb-4">
-    <div class="card-body">
-      <h5 class="card-title mb-3">Stage 2 Progress Snapshot</h5>
-      <div class="table-responsive">
-        <table class="table table-sm align-middle mb-0">
+  
+  <div class='card mb-4'>
+    <div class='card-body'>
+      <h5 class='card-title mb-3'>Stage 2 Progress Snapshot</h5>
+      <div class='table-responsive'>
+        <table class='table table-sm align-middle mb-0'>
           <tbody>
             <tr>
-              <td style="width:35%">
-                <div class="fw-semibold">Missing Programmes</div>
-                <div class="text-muted small">103 programmes tracked</div>
+              <td style='width:35%'>
+                <div class='fw-semibold'>Missing Programmes</div>
+                <div class='text-muted small'>113 programmes tracked</div>
               </td>
               <td>
-                <div class="small text-muted">Field completion</div>
-                <div class="progress">
-                  <div class="progress-bar bg-success" style="width:89.3%"></div>
+                <div class='small text-muted'>Field completion</div>
+                <div class='progress'>
+                  <div class='progress-bar bg-success' style='width:92.1%'></div>
                 </div>
               </td>
-              <td class="text-end fw-semibold">89.3%</td>
+              <td class='text-end fw-semibold'>92.1%</td>
             </tr>
             <tr>
               <td>
-                <div class="fw-semibold">Programme Verification</div>
-                <div class="text-muted small">252 of 596 rows complete</div>
+                <div class='fw-semibold'>Programme Verification</div>
+                <div class='text-muted small'>265 of 596 rows complete</div>
               </td>
               <td>
-                <div class="small text-muted">Strict completion</div>
-                <div class="progress mb-1">
-                  <div class="progress-bar bg-warning" style="width:42.3%"></div>
+                <div class='small text-muted'>Strict completion</div>
+                <div class='progress mb-1'>
+                  <div class='progress-bar bg-warning' style='width:44.5%'></div>
                 </div>
-                <div class="small text-muted">Partial completion</div>
-                <div class="progress">
-                  <div class="progress-bar bg-warning" style="width:58.6%"></div>
+                <div class='small text-muted'>Partial completion</div>
+                <div class='progress'>
+                  <div class='progress-bar bg-warning' style='width:62.8%'></div>
                 </div>
               </td>
-              <td class="text-end fw-semibold">
-                <div>42.3% strict</div>
-                <div class="text-muted small">58.6% partial</div>
+              <td class='text-end fw-semibold'>
+                <div>44.5% strict</div>
+                <div class='text-muted small'>62.8% partial</div>
               </td>
             </tr>
             <tr>
               <td>
-                <div class="fw-semibold">Jan 2026 Boards</div>
-                <div class="text-muted small">Active programmes requiring boards</div>
+                <div class='fw-semibold'>Jan 2026 Boards</div>
+                <div class='text-muted small'>Active programmes requiring boards</div>
               </td>
               <td>
-                <div class="small text-muted mb-1">Source breakdown</div>
-                <div class="progress mb-1" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                  <div class="progress-bar" style="width:71.3%;background-color:#0d6efd;" aria-valuenow="71.3">
+                <div class='small text-muted mb-1'>Source breakdown</div>
+                <div class='progress mb-1' role='progressbar' aria-valuemin='0' aria-valuemax='100'>
+                  <div class='progress-bar' style='width:70.8%;background-color:#0d6efd;' aria-valuenow='70.8'>
                     In Banner
                   </div>
-                  <div class="progress-bar" style="width:28.7%;background-color:#dc3545;" aria-valuenow="28.7">
+                  <div class='progress-bar' style='width:29.2%;background-color:#dc3545;' aria-valuenow='29.2'>
                     Missing from Banner
                   </div>
                 </div>
-                <div class="stacked-bar mb-1">
-                  <span class="stacked-segment" style="width:71.3%;background-color:#0d6efd;"></span>
-                  <span class="stacked-segment" style="width:28.7%;background-color:#dc3545;"></span>
-                </div>
-                <div class="small text-muted">67 In Banner • 27 Missing from Banner</div>
+                <div class='small text-muted'>68 In Banner • 28 Missing from Banner</div>
               </td>
-              <td class="text-end fw-semibold">94 total</td>
+              <td class='text-end fw-semibold'>96 total</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
-  
 
-  <!-- ============================
-       NEW STUDENT RECORDS QUERY BOX
-  ============================ -->
-  <div class="row mb-4">
-    <div class="col">
-      <a href="https://www.tudublin.ie/intranet/student-experience-transformation-set-programme/srms-dashboard/student-records-query/" class="text-decoration-none text-dark">
-        <div class="card h-100 new-card">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              Student Records Query
-              <span class="badge bg-primary text-light ms-2">NEW</span>
+
+  <div class='mb-3 text-muted'>Select a stage to view its tools and status.</div>
+  <div class='row row-cols-1 row-cols-md-3 g-3 mb-5'>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage1.html'>
+        <div class='card h-100 stage-card-complete'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 1 &ndash; Reports</span>
+              <span class='badge bg-success text-light'>Completed</span>
             </h5>
-            <p class="card-text">
-              Search by student number or name to view all modules a student is registered on.
-            </p>
+            <p class='card-text text-muted small mb-3'>All baseline Banner extracts and key queries sit in this stage.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-updated'>Updated</span>
+            </div>
           </div>
         </div>
       </a>
     </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage2.html'>
+        <div class='card h-100 stage-card-progress'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 2 &ndash; Creating a Baseline</span>
+              <span class='badge bg-warning text-light'>In Progress</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>Testing activities and comparison viewers used to stabilise Stage 2 submissions.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-new'>New</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage3.html'>
+        <div class='card h-100 stage-card-upcoming'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 3 &ndash; Creating a Dashboard</span>
+              <span class='badge bg-primary text-light'>Not yet started</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>Design and build of consolidated dashboards.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-upcoming'>Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage4.html'>
+        <div class='card h-100 stage-card-upcoming'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 4 &ndash; Curriculum Change Requests</span>
+              <span class='badge bg-primary text-light'>Not yet started</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>Tracking curriculum updates flowing from Stage 1+2 findings.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-upcoming'>Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage5.html'>
+        <div class='card h-100 stage-card-upcoming'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 5 &ndash; Student Change Requests & Primary CRNs</span>
+              <span class='badge bg-primary text-light'>Not yet started</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>Student-level adjustments and identification of the primary CRN per learner.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-upcoming'>Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage6.html'>
+        <div class='card h-100 stage-card-upcoming'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 6 &ndash; Examinations Testing</span>
+              <span class='badge bg-primary text-light'>Not yet started</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>Dry-runs and regression tests for award/progression boards.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-upcoming'>Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage7.html'>
+        <div class='card h-100 stage-card-upcoming'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 7 &ndash; Full Year & Semester 2 Requests</span>
+              <span class='badge bg-primary text-light'>Not yet started</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>Wave of curriculum/student changes for semester two and remaining periods.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-upcoming'>Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage8.html'>
+        <div class='card h-100 stage-card-upcoming'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 8 &ndash; CRN Cleaning</span>
+              <span class='badge bg-primary text-light'>Not yet started</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>Final tidy-up of CRN usage and cross-term consistency checks.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-upcoming'>Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    <div class='col'>
+      <a class='text-decoration-none text-dark' href='stage9.html'>
+        <div class='card h-100 stage-card-upcoming'>
+          <div class='card-body'>
+            <h5 class='card-title d-flex justify-content-between align-items-center'>
+              <span>Stage 9 &ndash; Curriculum Validation & Exams</span>
+              <span class='badge bg-primary text-light'>Not yet started</span>
+            </h5>
+            <p class='card-text text-muted small mb-3'>End-to-end validation and June board testing.</p>
+            <div class='d-flex gap-2 flex-wrap'>
+              <span class='badge badge-upcoming'>Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    
   </div>
-
-  <!-- ============================
-       MAIN REPORTS SECTION
-  ============================ -->
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-
-    <!-- Module Code Query Viewer (NEW) -->
-    <div class="col">
-      <a href="modulecode_query.html" class="text-decoration-none text-dark">
-        <div class="card h-100 new-card">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              Module Code Query
-              <span class="badge bg-primary text-light ms-2">NEW</span>
-            </h5>
-            <p class="card-text">
-              Search by module code across both semesters. Displays programme, year, credits, school, CRN, and staff information.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Course Code Changes Viewer -->
-    <div class="col">
-      <a href="coursecodechanges_query.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-success">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              Course Code Changes Query
-              <span class="badge bg-warning text-dark ms-2">Updated</span>
-            </h5>
-            <p class="card-text">
-              Interactive viewer for Course Code Changes. Allows queries and filtering across programme updates.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Akari Viewer -->
-    <div class="col">
-      <a href="viewer_akari_by_school.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-success">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              Akari Viewer
-              <span class="badge bg-warning text-dark ms-2">Updated</span>
-            </h5>
-            <p class="card-text">
-              Displays Akari module and programme data after cleaning and transformation.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- R27 Viewer (October 2025) -->
-    <div class="col">
-      <a href="viewer_r27_202510.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-success">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              R27 Viewer (Oct 2025)
-              <span class="badge bg-warning text-dark ms-2">Updated</span>
-            </h5>
-            <p class="card-text">
-              Updated to show separate Part-Time and Full-Time CRNs for better reporting granularity.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- R27 Viewer (Feb 2025) -->
-    <div class="col">
-      <a href="viewer_r27_202520.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-success">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              R27 Viewer (Feb 2025)
-              <span class="badge bg-warning text-dark ms-2">Updated</span>
-            </h5>
-            <p class="card-text">
-              Latest version of the R27 dataset including additional breakdowns by School and Delivery Mode.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- GLR Viewer -->
-    <div class="col">
-      <a href="viewer_glr_school.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-success">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              General Learner Record Viewer
-              <span class="badge bg-warning text-dark ms-2">Updated</span>
-            </h5>
-            <p class="card-text">
-              Displays GLR programme-level totals and now includes registration breakdowns by year of study.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Password-Protected GLR Classlists Viewer -->
-    <div class="col">
-      <a href="https://www.tudublin.ie/intranet/student-experience-transformation-set-programme/srms-dashboard/viewer-gls-classlists" class="text-decoration-none text-dark">
-        <div class="card h-100 border-danger">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              GLR Classlists Viewer
-              <span class="badge bg-warning text-dark ms-2">Updated</span>
-            </h5>
-            <p class="card-text">
-              General Learner Record Classlists viewer.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- Akari vs R27 Differences Viewer -->
-    <div class="col">
-      <a href="viewer_akari_vs_r27_split.html" class="text-decoration-none text-dark">
-        <div class="card h-100 border-success">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              Akari vs R27 — Differences Viewer
-              <span class="badge bg-warning text-dark ms-2">Updated</span>
-            </h5>
-            <p class="card-text">
-              Improved mapping between Akari and R27 programme codes.
-              Highlights unmatched or inconsistent programme records.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- SRMS Process Flow (PDF) -->
-    <div class="col">
-      <a href="SRMS-Notes.pdf" class="text-decoration-none text-dark" target="_blank">
-        <div class="card h-100 border-secondary">
-          <div class="card-body">
-            <h5 class="card-title d-flex align-items-center">
-              SRMS Process Flow
-              <span class="badge bg-secondary text-light ms-2">PDF</span>
-            </h5>
-            <p class="card-text">
-              Overview of the SRMS end-to-end processing pipeline showing data flow and script dependencies.
-            </p>
-          </div>
-        </div>
-      </a>
-    </div>
-  </div> <!-- End of main reports grid -->
-
-  <!-- ============================
-       TEST SECTION (Below Reports)
-  ============================ -->
-  <div class="mt-5 pt-4 border-top">
-    <h4 class="text-primary mb-4">TEST SECTION — Verification Instructions</h4>
-
-    <!-- Row 1: PDF instructions -->
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-
-      <!-- Missing Programmes Instructions -->
-      <div class="col">
-        <a href="MissingProgrammeInstructions.pdf" class="text-decoration-none text-dark" target="_blank">
-          <div class="card h-100 border-info">
-            <div class="card-body">
-              <h5 class="card-title d-flex align-items-center">
-                Stage 2 – Verification Test for Missing Programmes
-                <span class="badge bg-info text-dark ms-2">PDF</span>
-              </h5>
-              <p class="card-text">
-                Instructions for verifying programmes that exist in your School but are missing from the Banner baseline.
-                <br><a href="https://tudublin.sharepoint.com/:x:/s/CriticalSystemsRecovery/ERfohpYhAZBCvutiUX7flZYBYN8l82f6H-YQnAIK0eMjfw?e=7blGaf" target="_blank" class="text-primary fw-bold">LIVE SPREADSHEET — Missing Programmes</a>
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Existing Programmes Instructions -->
-      <div class="col">
-        <a href="ProgrammeVerificationInstructions.pdf" class="text-decoration-none text-dark" target="_blank">
-          <div class="card h-100 border-info">
-            <div class="card-body">
-              <h5 class="card-title d-flex align-items-center">
-                Stage 2 – Verification Test for Existing Programmes
-                <span class="badge bg-info text-dark ms-2">PDF</span>
-              </h5>
-              <p class="card-text">
-                Instructions for verifying programmes already listed in Banner to ensure alignment with Akari.
-                <br><a href="https://tudublin.sharepoint.com/:x:/s/CriticalSystemsRecovery/EfE6l73_Co1DqYHtFLsXJ2IBIH92yVW0PY1PK5CUYwkXyg?e=uxwaL5" target="_blank" class="text-primary fw-bold">LIVE SPREADSHEET — Existing Programmes</a>
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-    </div> <!-- end row 1 -->
-
-    <!-- Row 2: Full-width Jan 2026 Boards viewer -->
-    <div class="row g-4 mt-3">
-      <div class="col-12">
-        <a href="viewer_jan2026_boards.html" class="text-decoration-none text-dark" target="_blank">
-          <div class="card h-100 new-card">
-            <div class="card-body">
-              <h5 class="card-title d-flex align-items-center">
-                Jan 2026 Award/Progression Boards Overview
-                <span class="badge bg-primary text-light ms-2">NEW</span>
-              </h5>
-              <p class="card-text">
-                Summary of Stage 2 verification and Missing Programmes outcomes, highlighting the Award and Progression Boards required for 2026.
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <!-- Row 3: Existing NEW test viewers -->
-    <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
-
-      <!-- NEW BUTTON: Visualisation of Stage 2 Verification Activity -->
-      <div class="col">
-        <a href="viewer_stage2_completion.html" class="text-decoration-none text-dark" target="_blank">
-          <div class="card h-100 new-card">
-            <div class="card-body">
-              <h5 class="card-title d-flex align-items-center">
-                Visualisation of Stage 2 Verification Activity
-                <span class="badge bg-primary text-light ms-2">NEW</span>
-              </h5>
-              <p class="card-text">
-                Interactive visualisation showing completion progress for Stage 2 verification activities across Schools.
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- NEW BUTTON: Missing Programmes Progress Viewer -->
-      <div class="col">
-        <a href="viewer_missingprogrammes.html" class="text-decoration-none text-dark" target="_blank">
-          <div class="card h-100 new-card">
-            <div class="card-body">
-              <h5 class="card-title d-flex align-items-center">
-                Missing Programmes Progress Viewer
-                <span class="badge bg-primary text-light ms-2">NEW</span>
-              </h5>
-              <p class="card-text">
-                Shows progress and summary for Schools with outstanding Missing Programmes files and submissions.
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-
-    </div> <!-- end row 3 -->
-
-  </div> <!-- end test section -->
-
-</div> <!-- end container -->
-
 </body>
 </html>
