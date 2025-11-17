@@ -42,34 +42,36 @@ body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Seg
             <tr>
               <td style='width:35%'>
                 <div class='fw-semibold'>Missing Programmes</div>
-                <div class='text-muted small'>113 programmes tracked</div>
+                <div class='text-muted small'>124 programmes tracked</div>
               </td>
               <td>
                 <div class='small text-muted'>Field completion</div>
                 <div class='progress'>
-                  <div class='progress-bar bg-success' style='width:92.1%'></div>
+                  <div class='progress-bar bg-success' style='width:89.9%'></div>
                 </div>
               </td>
-              <td class='text-end fw-semibold'>92.1%</td>
+              <td class='text-end fw-semibold'>89.9%</td>
             </tr>
             <tr>
               <td>
                 <div class='fw-semibold'>Programme Verification</div>
-                <div class='text-muted small'>265 of 596 rows complete</div>
+                <div class='text-muted small'>314 of 596 rows complete</div>
               </td>
               <td>
-                <div class='small text-muted'>Strict completion</div>
-                <div class='progress mb-1'>
-                  <div class='progress-bar bg-warning' style='width:44.5%'></div>
-                </div>
-                <div class='small text-muted'>Partial completion</div>
+                <div class='small text-muted'>Strict vs partial completion</div>
                 <div class='progress'>
-                  <div class='progress-bar bg-warning' style='width:62.8%'></div>
+                  <div class='progress-bar bg-warning' style='width:52.7%;' aria-label='Strict completion'>
+                  </div>
+                  <div class='progress-bar bg-warning-subtle text-dark' style='width:15.6%;' aria-label='Partial completion'>
+                  </div>
+                </div>
+                <div class='small text-muted mt-1'>
+                  52.7% strict • 68.3% partial
                 </div>
               </td>
               <td class='text-end fw-semibold'>
-                <div>44.5% strict</div>
-                <div class='text-muted small'>62.8% partial</div>
+                <div>52.7% strict</div>
+                <div class='text-muted small'>68.3% partial</div>
               </td>
             </tr>
             <tr>
@@ -80,22 +82,25 @@ body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Seg
               <td>
                 <div class='small text-muted mb-1'>Source breakdown</div>
                 <div class='progress mb-1' role='progressbar' aria-valuemin='0' aria-valuemax='100'>
-                  <div class='progress-bar' style='width:70.8%;background-color:#0d6efd;' aria-valuenow='70.8'>
+                  <div class='progress-bar' style='width:65.4%;background-color:#0d6efd;' aria-valuenow='65.4'>
                     In Banner
                   </div>
-                  <div class='progress-bar' style='width:29.2%;background-color:#dc3545;' aria-valuenow='29.2'>
+                  <div class='progress-bar' style='width:34.6%;background-color:#dc3545;' aria-valuenow='34.6'>
                     Missing from Banner
                   </div>
                 </div>
-                <div class='small text-muted'>68 In Banner • 28 Missing from Banner</div>
+                <div class='small text-muted'>70 In Banner • 37 Missing from Banner</div>
               </td>
-              <td class='text-end fw-semibold'>96 total</td>
+              <td class='text-end fw-semibold'>107 total</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
+  <p class='text-muted small mb-0 mt-2'>
+    <strong>Strict criteria.</strong> Missing Programmes completion tracks MP1&ndash;MP7 responses only, while Programme Verification strict counts require VC1&ndash;VC10 to be answered with Yes/No/N/A.
+  </p>
 
 
   <div class='mb-3 text-muted'>Select a stage to view its tools and status.</div>
@@ -137,15 +142,15 @@ body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Seg
     
     <div class='col'>
       <a class='text-decoration-none text-dark' href='stage3.html'>
-        <div class='card h-100 stage-card-upcoming'>
+        <div class='card h-100 stage-card-progress'>
           <div class='card-body'>
             <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 3 &ndash; Creating a Dashboard</span>
-              <span class='badge bg-primary text-light'>Not yet started</span>
+              <span>Stage 3 &ndash; SRMS Data Cleaning Dashboard</span>
+              <span class='badge bg-warning text-light'>In Progress</span>
             </h5>
             <p class='card-text text-muted small mb-3'>Design and build of consolidated dashboards.</p>
             <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-upcoming'>Upcoming</span>
+              <span class='badge badge-new'>New</span>
             </div>
           </div>
         </div>
