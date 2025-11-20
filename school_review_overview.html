@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Review – Completed Programmes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f8f9fa; padding:24px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .card { box-shadow:0 2px 6px rgba(0,0,0,0.08); border:none; }
+    .metric-value { font-size:1.75rem; font-weight:600; }
+    .scroll-box { max-height:320px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="mb-3">
+      <a href="index.html" class="btn btn-link">&larr; Back to Stage overview</a>
+    </div>
+    <div class="card mb-4">
+      <div class="card-body">
+        <h2 class="mb-1">Completed Programme Review</h2>
+      </div>
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="text-muted small text-uppercase">Total Programmes</div>
+            <div class="metric-value">606</div>
+          </div>
+          <div class="col">
+            <div class="text-muted small text-uppercase">Akari Modules Available</div>
+            <div class="metric-value">509</div>
+            <div class="text-muted small">84.0% coverage</div>
+          </div>
+          <div class="col">
+            <div class="text-muted small text-uppercase">Banner Modules Available</div>
+            <div class="metric-value">459</div>
+            <div class="text-muted small">75.7% coverage</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+      
+    <div class='col'>
+      <div class='card'>
+        <div class='card-body'>
+          <h6 class='card-title'>Active Programmes Summary</h6>
+          <ul class='list-group list-group-flush'>
+            
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <span>Programmes Missing from Banner (Stage&nbsp;2 Missing Programmes)</span>
+        <span class='fw-semibold'>131</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <span>Programmes already in Banner (Stage&nbsp;2 Verification)</span>
+        <span class='fw-semibold'>340</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <button class='btn btn-link p-0 text-muted small text-start' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-akari'>
+          Verification rows without Akari modules
+        </button>
+        <span class='fw-semibold text-muted'>18</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <button class='btn btn-link p-0 text-muted small text-start' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-wrong-school'>
+          Programmes flagged as wrong school
+        </button>
+        <span class='fw-semibold text-muted'>17</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <span class='fw-semibold'>Total in this group</span>
+        <span class='fw-semibold'>471</span>
+      </li>
+    
+          </ul>
+          <p class='text-muted small mt-2 mb-0'>Subset rows (without Akari modules or flagged wrong school) are part of the verification totals above.</p>
+        </div>
+      </div>
+    </div>
+    
+      
+    <div class='col'>
+      <div class='card'>
+        <div class='card-body'>
+          <h6 class='card-title'>Inactive Programmes Summary</h6>
+          <ul class='list-group list-group-flush'>
+            
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <span>Programmes Missing from Banner (Stage&nbsp;2 Missing Programmes)</span>
+        <span class='fw-semibold'>31</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <span>Programmes already in Banner (Stage&nbsp;2 Verification)</span>
+        <span class='fw-semibold'>104</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <button class='btn btn-link p-0 text-muted small text-start' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-akari'>
+          Verification rows without Akari modules
+        </button>
+        <span class='fw-semibold text-muted'>23</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <button class='btn btn-link p-0 text-muted small text-start' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-wrong-school'>
+          Programmes flagged as wrong school
+        </button>
+        <span class='fw-semibold text-muted'>8</span>
+      </li>
+      <li class='list-group-item d-flex justify-content-between align-items-center'>
+        <span class='fw-semibold'>Total in this group</span>
+        <span class='fw-semibold'>135</span>
+      </li>
+    
+          </ul>
+          <p class='text-muted small mt-2 mb-0'>Subset rows (without Akari modules or flagged wrong school) are part of the verification totals above.</p>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="card-title">Detailed Lists</h5>
+        <p class="text-muted small">Use the summary rows above or the buttons below to expand each list.</p>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-akari">Verification rows without Akari modules</button>
+          <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-wrong-school">Programmes flagged as wrong school</button>
+        </div>
+        <div class="collapse" id="collapse-akari">
+          <div class="scroll-box mt-3">
+            <div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU681 &ndash; Accounting</div><div class='text-muted small'>School of Accounting, Economics & Finance • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU1770 &ndash; Lv06 Business Accounting EXIT</div><div class='text-muted small'>School of Accounting, Economics & Finance • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU227 &ndash; Urban Regeneration and Dev.</div><div class='text-muted small'>School of Architecture, Building and Environment • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5413 &ndash; Whole Life Design Foundation</div><div class='text-muted small'>School of Architecture, Building and Environment • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU732 &ndash; Timber Product Technology</div><div class='text-muted small'>School of Architecture, Building and Environment • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU6143 &ndash; Dip in Packaging Technology</div><div class='text-muted small'>School of Art & Design • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU341 &ndash; Level 9 Science Sport Sci</div><div class='text-muted small'>School of Biological, Health & Sports Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU456 &ndash; M.Sc.(Bio) PharmaManufactTech</div><div class='text-muted small'>School of Chemical & BioPharmaceutical Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU6165 &ndash; eValidation</div><div class='text-muted small'>School of Chemical & BioPharmaceutical Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU1782 &ndash; Exchange Science Degree</div><div class='text-muted small'>School of Chemical & BioPharmaceutical Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU1862 &ndash; Higher Cert Sci DNAF Embedded</div><div class='text-muted small'>School of Chemical & BioPharmaceutical Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU476 &ndash; Level 9 Masters in Science Bio</div><div class='text-muted small'>School of Chemical & BioPharmaceutical Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU477 &ndash; Level 9 Masters in Science Che</div><div class='text-muted small'>School of Chemical & BioPharmaceutical Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU3112 &ndash; Erasmus (Sch_Culinary Arts & F</div><div class='text-muted small'>School of Culinary Arts & Food Technology • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU019 &ndash; Electrical Services Eng Tech</div><div class='text-muted small'>School of Electrical & Electronic Engineering • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU714 &ndash; Electronics and Comms Eng</div><div class='text-muted small'>School of Electrical & Electronic Engineering • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU279 &ndash; Level 9 Masters in Computing</div><div class='text-muted small'>School of Enterprise, Computing & Digital Transformation • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU865A &ndash; Cloud Computing and Dev Ops</div><div class='text-muted small'>School of Enterprise, Computing & Digital Transformation • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU269 &ndash; MSc Food Safety Mgt</div><div class='text-muted small'>School of Food Science & Environmental Health • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU379 &ndash; MSc in Food - DONT USE</div><div class='text-muted small'>School of Food Science & Environmental Health • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU310J &ndash; International Business</div><div class='text-muted small'>School of Global Business • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU3118 (formerly TU900) &ndash; Exchange Student Course</div><div class='text-muted small'>School of Global Business • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU312 &ndash; Business and Entrepreneurship</div><div class='text-muted small'>School of Marketing & Entrepreneurship • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU6110 &ndash; CPD School of Marketing</div><div class='text-muted small'>School of Marketing & Entrepreneurship • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU310 &ndash; International Business</div><div class='text-muted small'>School of Marketing & Entrepreneurship • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU325 &ndash; Digital Marketing</div><div class='text-muted small'>School of Marketing & Entrepreneurship • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5536 &ndash; Design, Entre & Innovation</div><div class='text-muted small'>School of Marketing & Entrepreneurship • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU6168 &ndash; Immersive Tech for Business</div><div class='text-muted small'>School of Marketing & Entrepreneurship • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU6169 &ndash; Digital Mark & Comm Mgmt</div><div class='text-muted small'>School of Marketing & Entrepreneurship • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU717 &ndash; Mechanical Engineering</div><div class='text-muted small'>School of Mechanical Engineering • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU809C &ndash; Nanjing Mech Eng (Hons)</div><div class='text-muted small'>School of Mechanical Engineering • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU710 &ndash; Eng Reliability Management</div><div class='text-muted small'>School of Mechanical Engineering • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU173 &ndash; Creative Leadership</div><div class='text-muted small'>School of Media • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU1799 &ndash; Level 6 Hum (AV Media)</div><div class='text-muted small'>School of Media • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU797 &ndash; Level 7 Abinitio Creat Dig Med</div><div class='text-muted small'>School of Media • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU284 &ndash; Level 9 MSc in Science Physics</div><div class='text-muted small'>School of Physics, Clinical & Optometric Sciences • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU268 &ndash; Geographic Information Science</div><div class='text-muted small'>School of Surveying & Construction Innovation • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5405 &ndash; GIS - Geographical Info Sys</div><div class='text-muted small'>School of Surveying & Construction Innovation • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU213 &ndash; ME in Sustainable Infrastructure</div><div class='text-muted small'>School of Transport & Civil Engineering • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU226 &ndash; Sustainable Trans and Mobility</div><div class='text-muted small'>School of Transport & Civil Engineering • n/a</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5018 &ndash; BIM in Civil & Struct Eng 1</div><div class='text-muted small'>School of Transport & Civil Engineering • n/a</div></div>
+          </div>
+        </div>
+        <div class="collapse" id="collapse-wrong-school">
+          <div class="scroll-box mt-3">
+            <div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU052 &ndash; Univ Learning and Teaching</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU058 &ndash; Eng/Dig C'struction Analytics</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU111 &ndash; BSc in Data Analytics Digt Mrk</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU225 &ndash; Spatial Planning</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU226 &ndash; Sustainable Trans and Mobility</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU248 &ndash; PG.Cert Applied Statistics</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU309 &ndash; MSc Strategic Management</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU310 &ndash; International Business</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU339 &ndash; PG Cert Digital Lead&Trans</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU413 &ndash; PG Dipl Building Perform (EED)</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU414 &ndash; MSc Building Performance (EED)</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5097 &ndash; Creating Successful Products</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5502 &ndash; Cert in Digital Enterprise</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5510 &ndash; Cert in Digital Mktg SP</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5511 &ndash; Cert in Social Media Mktg</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU5513 &ndash; Cert in Applied Digital Mktg</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU6168 &ndash; Immersive Tech for Business</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU6169 &ndash; Digital Mark & Comm Mgmt</div><div class='text-muted small'>Unknown school • Part-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU702 &ndash; B.Eng. Sus Energy & Env Eng</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU732 &ndash; Timber Product Technology</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU755 &ndash; Science (General Entry)</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU851 &ndash; Analytical Chemistry</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU854 &ndash; Science (General Entry)(Hons)</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU967 &ndash; Languages and Intl Tourism</div><div class='text-muted small'>Unknown school • Full-Time</div></div><div class='border rounded p-2 mb-2'><div class='fw-semibold'>TU987 &ndash; BA Hons Creative Digital Media</div><div class='text-muted small'>Unknown school • Full-Time</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
