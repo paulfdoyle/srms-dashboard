@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam Boards Required in January</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; font-size:16px; background:#f8f9fa; }
+    .table-sm td, .table-sm th { padding:.4rem .5rem; vertical-align:top; font-size: .92rem; }
+    .thead-small th { font-size:0.9rem; background:#f8f9fa; }
+    .filter-card { border-left:4px solid #0d6efd; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace; }
+    .compact-card .card-body { padding: 0.75rem 1rem; }
+    .detail-grid .label { font-size: 0.78rem; color: #6c757d; margin-bottom: 0; }
+    .detail-grid .value { font-weight: 600; font-size: 0.92rem; line-height: 1.2; }
+    .detail-grid .value.mono { font-size: 0.9rem; }
+    hr.detail-sep { margin: 0.5rem 0; }
+    .akari-pill { min-width: 110px; }
+    .progress-sm { height: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid px-0">
+    <div class="mb-3 d-flex flex-wrap gap-3">
+      <a class="btn btn-link p-0" href="stage2.html">&larr; Stage 2 &ndash; Creating a Baseline</a>
+      <a class="btn btn-link p-0" href="index.html">SRMS overview</a>
+    </div>
+
+    <div class="card border-primary mb-3">
+      <div class="card-body d-flex flex-wrap justify-content-between gap-3">
+        <div>
+          <div class="text-muted">Stage 2 academic programme review (CSV source (stage2_programmes_for_db.csv))</div>
+          <h3 class="mb-1">Exam Boards Required in January</h3>
+          <p class="text-muted small mb-0">Stage 2 programme review (reviewed only) for programmes flagged for January exam boards, including EIx fields. CSV fallback from stage2_programmes_for_db.csv until the Argos extract is restored.</p>
+        </div>
+        <div class="align-self-center">
+          <span class="badge bg-warning">CSV fallback</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-lg-4">
+        <div class="card filter-card h-100">
+          <div class="card-header bg-light fw-semibold">Filters</div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label mb-1">School (Banner)</label>
+              <select id="schoolSelect" class="form-select form-select-sm"></select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label mb-1">Board Options (EI1)</label>
+              <select id="ei1Select" class="form-select form-select-sm"></select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label mb-1">Delivery mode</label>
+              <select id="deliverySelect" class="form-select form-select-sm"></select>
+            </div>
+            <div class="d-flex gap-2">
+              <button id="btnSearch" class="btn btn-primary btn-sm">Apply filters</button>
+              <button id="btnClear" class="btn btn-outline-secondary btn-sm">Reset</button>
+            </div>
+            <div class="form-text mt-2">Report is pre-filtered to January exam board programmes with reviewed status.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card h-100">
+          <div class="card-header bg-light fw-semibold d-flex justify-content-between align-items-center">
+            <span>Summary (per selection)</span>
+            <span class="text-muted small" id="sumLoaded">Loading…</span>
+          </div>
+          <div class="card-body">
+            <div class="row g-2" id="summaryRow" style="display:none;">
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Programmes (shown)</div>
+                    <div class="h5 mb-0" id="sumTotal">0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Delivery: Full Time</div>
+                    <div class="h5 mb-0" id="sumFT">0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Delivery: Part Time</div>
+                    <div class="h5 mb-0" id="sumPT">0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Students (EI7 total)</div>
+                    <div class="h5 mb-0" id="sumStudents">0</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="akariSummary" class="mt-3" style="display:none;">
+              <div class="d-flex justify-content-between align-items-center mb-1 small text-muted">
+                <span>AKARI Checks breakdown (per selection)</span>
+                <span id="akariCounts"></span>
+              </div>
+              <div class="progress progress-sm">
+                <div id="akariOk" class="progress-bar bg-success" role="progressbar"></div>
+                <div id="akariPartial" class="progress-bar bg-warning text-dark" role="progressbar"></div>
+                <div id="akariNa" class="progress-bar bg-secondary" role="progressbar"></div>
+              </div>
+            </div>
+            <div class="text-muted small mt-2" id="summaryHint">Pre-filtered to January exam boards with reviewed status.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div id="detailCard" class="mb-3" style="display:none;"></div>
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered align-middle mb-0">
+            <thead class="thead-small">
+              <tr>
+                <th>School</th>
+                <th>Programme</th>
+                <th>Programme Title</th>
+                <th class="text-center" style="width:160px;">AKARI Checks</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr><td colspan="4" class="text-muted">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="payload" type="application/json">{"data_gz_b64": "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", "meta": {"path": "cleancsv_for_db_ingest/stage2_programmes_for_db.csv", "source": "csv"}, "summary": {"january_yes": 110, "reviewed": 110, "schools": 24, "total_programmes": 110}}</script>
+  <script>
+    (function(){
+      let RECORDS = [];
+      let SELECTED = null;
+      const DATA = (function(){
+        const payloadEl = document.getElementById("payload");
+        try {
+          return payloadEl ? JSON.parse(payloadEl.textContent || "{}") : {};
+        } catch (err) {
+          console.error(err);
+          return {};
+        }
+      })();
+
+      function esc(str) {
+        return String(str == null ? "" : str).replace(/[&<>"']/g, function (m) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+        });
+      }
+      function uniq(arr){
+        return Array.from(new Set(arr)).filter(v => v !== undefined && v !== null).sort();
+      }
+      function setSelect(el, options, placeholder, selected, defaultValue){
+        const opts = [`<option value="">${placeholder}</option>`].concat(
+          options.map(opt => `<option value="${esc(opt)}"${opt===selected ? " selected" : ""}>${esc(opt || "(Blank)")}</option>`)
+        );
+        el.innerHTML = opts.join("");
+        if (defaultValue && !selected && options.includes(defaultValue)){
+          el.value = defaultValue;
+        }
+      }
+
+      function setSelectCustom(el, options, placeholder, selected){
+        const opts = [`<option value="">${placeholder}</option>`].concat(
+          options.map(opt => `<option value="${esc(opt.value)}"${opt.value===selected ? " selected" : ""}>${esc(opt.label)}</option>`)
+        );
+        el.innerHTML = opts.join("");
+      }
+
+      function normFlag(val){
+        const text = (val == null ? "" : String(val)).trim().toLowerCase();
+        if (!text) return "missing";
+        if (["yes","y","true","1"].includes(text)) return "yes";
+        if (["no","n","false","0"].includes(text)) return "no";
+        if (["na","n/a","n\\a","not applicable"].includes(text)) return "na";
+        return "missing";
+      }
+
+      function ei1Category(val){
+        const text = (val == null ? "" : String(val)).trim().toLowerCase();
+        if (!text) return "blank";
+        if (["yes","y","true","1","old banner","old"].includes(text)) return "old";
+        if (["no","n","false","0","new banner","new"].includes(text)) return "new";
+        if (text.includes("maybe") || text.includes("unclear") || text.includes("?")) return "unclear";
+        return "unclear";
+      }
+
+      function akariStatus(rec){
+        const vals = [
+          rec.akari_sem1_correct,
+          rec.akari_sem2_correct,
+          rec.akari_yearlong_correct,
+          rec.akari_assessments_correct,
+        ];
+        let yes = 0, no = 0, na = 0, missing = 0;
+        vals.forEach(v => {
+          const f = normFlag(v);
+          if (f === "yes") yes += 1;
+          else if (f === "no") no += 1;
+          else if (f === "na") na += 1;
+          else missing += 1;
+        });
+
+        const total = yes + no + na + missing;
+        let variant = "danger";
+        let text = "Missing";
+
+        if (yes === 0 && no === 0 && missing === 0) {
+          variant = "success"; text = "AKARI N/A";
+        } else if (no === 0 && missing === 0) {
+          variant = "success"; text = "AKARI OK";
+        } else if (yes > 0 && no > 0) {
+          variant = "warning"; text = "Mixed";
+        } else if (yes > 0 && no === 0 && missing > 0) {
+          variant = "warning"; text = "Partial";
+        } else if (no > 0 && yes === 0 && missing === 0) {
+          variant = "danger"; text = "All No";
+        } else if (no > 0 && yes === 0) {
+          variant = "danger"; text = "Needs Fix";
+        } else if (missing === total) {
+          variant = "danger"; text = "Missing";
+        } else {
+          variant = "warning"; text = "Review";
+        }
+        return { variant, text };
+      }
+
+      function akariBadges(rec){
+        const fields = [
+          { key: "akari_sem1_correct", label: "Sem1" },
+          { key: "akari_sem2_correct", label: "Sem2" },
+          { key: "akari_yearlong_correct", label: "Yearlong" },
+          { key: "akari_assessments_correct", label: "Assessments" },
+        ];
+        const flags = fields.map(f => ({ label: f.label, flag: normFlag(rec[f.key]) }));
+        const allOk = flags.every(f => f.flag === "yes" || f.flag === "na");
+        if (allOk) return [{ variant: "success", text: "AKARI OK" }];
+        const allBad = flags.every(f => f.flag === "no" || f.flag === "missing");
+        if (allBad) return [{ variant: "danger", text: "AKARI not OK" }];
+        const badges = flags
+          .filter(f => !(f.flag === "yes" || f.flag === "na"))
+          .map(f => ({
+            variant: f.flag === "no" ? "warning" : "secondary",
+            text: `${f.label}: ${f.flag === "missing" ? "Missing" : "No"}`,
+          }));
+        return badges.length ? badges : [{ variant: "warning", text: "AKARI review" }];
+      }
+
+      function activeBadge(rec){
+        const banner = (rec.active_status_banner || "").trim();
+        const confirmed = (rec.active_status_confirmed || "").trim();
+        const same = banner && confirmed && banner.toLowerCase() === confirmed.toLowerCase();
+        if (same) return { variant: "success", text: confirmed || banner };
+        if (confirmed) return { variant: "warning", text: confirmed };
+        if (banner) return { variant: "secondary", text: banner };
+        return { variant: "secondary", text: "Active?" };
+      }
+
+      function bannerBadge(rec){
+        const flag = normFlag(rec.in_banner);
+        if (flag === "yes") return { variant: "success", text: "In Banner" };
+        if (flag === "no") return { variant: "danger", text: "Not in Banner" };
+        return null;
+      }
+
+      function schoolBadge(rec){
+        const confirmed = (rec.school_confirmed || "").trim().toLowerCase();
+        const banner = (rec.school_banner || "").trim().toLowerCase();
+        if (confirmed && banner && confirmed !== banner) {
+          return { variant: "danger", text: "School Wrong in Banner" };
+        }
+        return null;
+      }
+
+      function akariBreakdown(records){
+        let ok = 0, partial = 0, na = 0;
+        records.forEach(r => {
+          const status = akariStatus(r);
+          if (status.text && status.text.toLowerCase().includes("n/a")) {
+            na += 1;
+          } else if (status.variant === "success") {
+            ok += 1;
+          } else {
+            partial += 1;
+          }
+        });
+        const total = records.length || 1;
+        return {
+          ok, partial, na,
+          okPct: Math.round((ok / total) * 100),
+          partialPct: Math.round((partial / total) * 100),
+          naPct: Math.round((na / total) * 100),
+        };
+      }
+
+      function populateFilters(){
+        const schoolEl = document.getElementById("schoolSelect");
+        const ei1El = document.getElementById("ei1Select");
+        const deliveryEl = document.getElementById("deliverySelect");
+
+        const selected = {
+          school: schoolEl.value || "",
+          ei1: ei1El.value || "",
+          delivery: deliveryEl.value || "",
+        };
+
+        const schoolOpts = uniq(RECORDS.map(r => r.school || "(Blank)"));
+        setSelect(schoolEl, schoolOpts, "All schools", selected.school, "");
+
+        const ei1Opts = [
+          { value: "old", label: "Old Banner" },
+          { value: "new", label: "New Banner" },
+          { value: "unclear", label: "Unclear" },
+          { value: "blank", label: "Blank (no data)" },
+        ];
+        setSelectCustom(ei1El, ei1Opts, "Board Options (All)", selected.ei1);
+
+        const deliveryOpts = uniq(RECORDS.map(r => r.delivery_mode || "(Blank)"));
+        setSelect(deliveryEl, deliveryOpts, "All delivery modes", selected.delivery, "");
+      }
+
+      function metaLabel(){
+        if (!DATA.meta) return "";
+        if (DATA.meta.source === "csv") {
+          const parts = [];
+          if (DATA.meta.path) parts.push(`Source: ${DATA.meta.path}`);
+          return parts.join(" \u2022 ") || "Source: CSV";
+        }
+        if (DATA.meta.run_id) {
+          return `Run id: ${DATA.meta.run_id}`;
+        }
+        return "";
+      }
+
+      function render(){
+        const school = document.getElementById("schoolSelect").value;
+        const ei1 = document.getElementById("ei1Select").value;
+        const delivery = document.getElementById("deliverySelect").value;
+
+        let filtered = RECORDS.filter(r =>
+          (!school || (r.school || "(Blank)") === school) &&
+          (!ei1 || (r.ei1_option || "") === ei1) &&
+          (!delivery || (r.delivery_mode || "(Blank)") === delivery)
+        );
+
+        filtered.sort((a, b) => {
+          const schoolDiff = (a.school || "").localeCompare(b.school || "");
+          if (schoolDiff !== 0) return schoolDiff;
+          return (a.programme || "").localeCompare(b.programme || "");
+        });
+
+        document.getElementById("sumTotal").textContent = filtered.length;
+        document.getElementById("sumFT").textContent = filtered.filter(r => (r.delivery_mode || "").toLowerCase() === "full time").length;
+        document.getElementById("sumPT").textContent = filtered.filter(r => (r.delivery_mode || "").toLowerCase() === "part time").length;
+        const studentTotal = filtered.reduce((acc, r) => {
+          const raw = (r.ei7_students || "").toString().replace(/,/g, "");
+          const n = Number(raw);
+          return acc + (Number.isFinite(n) ? n : 0);
+        }, 0);
+        document.getElementById("sumStudents").textContent = studentTotal.toLocaleString();
+
+        const summaryRow = document.getElementById("summaryRow");
+        const summaryHint = document.getElementById("summaryHint");
+        summaryRow.style.display = filtered.length ? "" : "none";
+        summaryHint.textContent = filtered.length ? "Programmes matching current filters." : "No rows match the current filters.";
+
+        const akariBox = document.getElementById("akariSummary");
+        if (filtered.length) {
+          const ak = akariBreakdown(filtered);
+          document.getElementById("akariOk").style.width = `${ak.okPct}%`;
+          document.getElementById("akariPartial").style.width = `${ak.partialPct}%`;
+          document.getElementById("akariNa").style.width = `${ak.naPct}%`;
+          document.getElementById("akariCounts").textContent = `OK ${ak.ok} • Partial ${ak.partial} • Not reference ${ak.na}`;
+          akariBox.style.display = "";
+        } else {
+          akariBox.style.display = "none";
+          document.getElementById("akariCounts").textContent = "";
+        }
+
+        if (!SELECTED && filtered.length){
+          SELECTED = filtered[0];
+        } else if (SELECTED && !filtered.some(r => r.programme === SELECTED.programme)){
+          SELECTED = filtered[0] || null;
+        }
+
+        const detailEl = document.getElementById("detailCard");
+        if (SELECTED){
+          detailEl.style.display = "";
+          const metaText = metaLabel();
+          const akariList = akariBadges(SELECTED);
+          const active = activeBadge(SELECTED);
+          const inBanner = bannerBadge(SELECTED);
+          const missingBadge = (SELECTED.missing_reason || "").trim()
+            ? (!inBanner || inBanner.text !== "Not in Banner"
+                ? { variant: "secondary", text: "Not in Banner" }
+                : null)
+            : null;
+          const schoolMismatch = schoolBadge(SELECTED);
+          detailEl.innerHTML = `
+            <div class="card compact-card">
+              <div class="card-body">
+                <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+                  <div class="d-flex flex-wrap align-items-center gap-2">
+                    <div class="h6 mb-0 mono">${esc(SELECTED.programme || "")}</div>
+                    ${akariList.map(b => `<span class="badge bg-${b.variant}">${esc(b.text)}</span>`).join("")}
+                    <span class="badge bg-${active.variant}">${esc(active.text)}</span>
+                    ${inBanner ? `<span class="badge bg-${inBanner.variant}">${esc(inBanner.text)}</span>` : ""}
+                    ${missingBadge ? `<span class="badge bg-${missingBadge.variant}">${esc(missingBadge.text)}</span>` : ""}
+                    ${schoolMismatch ? `<span class="badge bg-${schoolMismatch.variant}">${esc(schoolMismatch.text)}</span>` : ""}
+                    <div class="fw-semibold mb-0">${esc(SELECTED.programme_title || "")}</div>
+                    <div class="text-muted small mb-0">${esc(SELECTED.school || "")}</div>
+                  </div>
+                  <div class="text-muted small text-end">${esc(metaText)}</div>
+                </div>
+                <hr class="detail-sep"/>
+                <div class="row g-1 detail-grid small">
+                  <div class="col-6 col-md-3"><div class="label">Delivery</div><div class="value">${esc(SELECTED.delivery_mode || "")}</div></div>
+                  <div class="col-12 col-md-6"><div class="label">Correct School Response</div><div class="value">${esc(SELECTED.correct_school_response || "")}</div></div>
+                </div>
+                <hr class="detail-sep"/>
+                <div class="row g-1 detail-grid small">
+                  <div class="col-6 col-lg-2"><div class="label">EI1 Target</div><div class="value">${esc(SELECTED.ei1_target_old_banner || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI2 Year</div><div class="value">${esc(SELECTED.ei2_year_of_program || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI3 Semester</div><div class="value">${esc(SELECTED.ei3_semester || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI4 Repeat Only</div><div class="value">${esc(SELECTED.ei4_repeat_only_students || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI5 Progression</div><div class="value">${esc(SELECTED.ei5_progression || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI6 Award</div><div class="value">${esc(SELECTED.ei6_award || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI7 Students</div><div class="value">${esc(SELECTED.ei7_students || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI8 Campus</div><div class="value">${esc(SELECTED.ei8_campus || "")}</div></div>
+                  <div class="col-6 col-lg-2"><div class="label">EI9 Award Type</div><div class="value">${esc(SELECTED.ei9_award_type || "")}</div></div>
+                </div>
+                <hr class="detail-sep"/>
+                <div class="row g-1 detail-grid small">
+                  <div class="col-12 col-md-6"><div class="label">Review Contact</div><div class="value">${esc(SELECTED.academic_review_contact || "")}</div></div>
+                  <div class="col-12 col-md-6"><div class="label">Comment</div><div class="value">${esc(SELECTED.academic_comment || "")}</div></div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          detailEl.style.display = "none";
+          detailEl.innerHTML = "";
+        }
+
+        const rows = filtered.map(r => {
+          const akari = akariStatus(r);
+          return `
+            <tr data-programme="${esc(r.programme || '')}" class="${SELECTED && SELECTED.programme === r.programme ? 'table-active' : ''}" style="cursor:pointer;">
+              <td>${esc(r.school || "")}</td>
+              <td class="mono">${esc(r.programme || "")}</td>
+              <td>${esc(r.programme_title || "")}</td>
+              <td class="text-center">
+                <button type="button" class="btn btn-sm btn-${akari.variant} akari-pill">${esc(akari.text)}</button>
+              </td>
+            </tr>
+          `;
+        }).join("");
+
+        const bodyEl = document.getElementById("tableBody");
+        if (filtered.length) {
+          bodyEl.innerHTML = rows;
+          Array.from(bodyEl.querySelectorAll("tr")).forEach(tr => {
+            tr.addEventListener("click", () => {
+              const pid = tr.getAttribute("data-programme") || "";
+              SELECTED = filtered.find(r => r.programme === pid) || null;
+              render();
+            });
+          });
+        } else {
+          bodyEl.innerHTML = '<tr><td colspan="7" class="text-muted">No rows match the current filters.</td></tr>';
+        }
+      }
+
+      document.getElementById("btnSearch").addEventListener("click", render);
+      document.getElementById("btnClear").addEventListener("click", () => {
+        document.getElementById("schoolSelect").value = "";
+        document.getElementById("ei1Select").value = "";
+        document.getElementById("deliverySelect").value = "";
+        render();
+      });
+      document.getElementById("schoolSelect").addEventListener("change", render);
+      document.getElementById("ei1Select").addEventListener("change", render);
+      document.getElementById("deliverySelect").addEventListener("change", render);
+
+      function base64ToBytes(b64){
+        const bin = atob(b64);
+        const len = bin.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
+        return bytes;
+      }
+
+      async function inflate(bytes){
+        if (typeof DecompressionStream !== "undefined") {
+          const ds = new DecompressionStream("gzip");
+          const stream = new Blob([bytes]).stream().pipeThrough(ds);
+          return await new Response(stream).text();
+        }
+        throw new Error("No gzip support available.");
+      }
+
+      (async function init(){
+        try {
+          const gz = DATA.data_gz_b64;
+          if (!gz) {
+            throw new Error("Missing payload.");
+          }
+          const bytes = base64ToBytes(gz);
+          const jsonStr = await inflate(bytes);
+          const parsed = JSON.parse(jsonStr);
+          RECORDS = (parsed.records || []).map(r => ({
+            ...r,
+            ei1_option: ei1Category(r.ei1_target_old_banner),
+          }));
+          document.getElementById("sumLoaded").textContent = `${RECORDS.length} rows`;
+          populateFilters();
+          render();
+        } catch (err){
+          console.error(err);
+          document.getElementById("sumLoaded").textContent = "Load failed";
+          document.getElementById("tableBody").innerHTML = '<tr><td colspan="24" class="text-danger">Load failed; open console for details.</td></tr>';
+        }
+      })();
+    })();
+  </script>
+</body>
+</html>

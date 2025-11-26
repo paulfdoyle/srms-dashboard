@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Stage 1 – Reports</title>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+<style>
+body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+.card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+.card.new-card { border:2px solid #dc3545 !important; }
+.badge { font-size:0.75rem; }
+.badge-updated { background-color:#ffc107; color:#212529; }
+.badge-new { background-color:#dc3545; color:#fff; }
+.badge-upcoming { background-color:#0d6efd; color:#fff; }
+.section-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); margin-bottom:24px; }
+.section-card .card-header { background:#f1f3f5; }
+</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='mb-3'>
+      <a href='index.html' class='btn btn-link'>&larr; Back to Stage overview</a>
+    </div>
+    <div class='card border-success mb-4'>
+      <div class='card-body d-flex flex-wrap justify-content-between gap-3'>
+        <div>
+          <div class='text-muted'>Stage 1</div>
+          <h2 class='mb-1'>Reports</h2>
+          <p class='text-muted mb-0'>All baseline Banner extracts and key queries sit in this stage.</p>
+        </div>
+        <div class='align-self-center'>
+          <span class='badge badge-updated me-2'>Updated</span>
+          <span class='badge bg-success text-light'>Completed</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class='row mb-4'>
+      <div class='col'>
+        
+        <a href='https://www.tudublin.ie/intranet/student-experience-transformation-set-programme/srms-dashboard/student-records-query/' class='text-decoration-none text-dark' target='_blank'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Student Records Query
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Search by student number or name to view all registered modules and CRNs directly on the TU Dublin intranet.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+    </div>
+    <div class='row row-cols-1 row-cols-md-2 g-4 mb-4'>
+      <div class='col'>
+
+        <a href='modulecode_query.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Module Code Query
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Search by module code across both semesters to see programme, year, credits, school, CRN, and staff information.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+
+        <a href='coursecodechanges_query.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Course Code Changes Query
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Interactive viewer for course code changes with filtering across programme updates.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+
+        <a href='viewer_akari_by_school_db.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Akari Viewer
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Displays Akari module and programme data after cleaning and transformation.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+
+        <a href='viewer_akari_vs_r27_split.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                Akari vs R27 &mdash; Differences Viewer
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Highlights unmatched or inconsistent programme records between Akari and R27 datasets.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+
+        <a href='viewer_r27_202510.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                R27 Viewer (Oct 2025)
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Shows separate Part-Time and Full-Time CRNs for additional reporting granularity.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+
+        <a href='viewer_r27_202520.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                R27 Viewer (Feb 2025)
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Includes additional breakdowns by School and Delivery Mode for the February term.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+
+        <a href='viewer_glr_school.html' class='text-decoration-none text-dark' target='_self'>
+          <div class='card h-100 border-success'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                General Learner Record Viewer
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Displays programme-level totals and registration breakdowns by year of study.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+      <div class='col'>
+
+        <a href='https://www.tudublin.ie/intranet/student-experience-transformation-set-programme/srms-dashboard/viewer-gls-classlists' class='text-decoration-none text-dark' target='_blank'>
+          <div class='card h-100 border-danger'>
+            <div class='card-body'>
+              <h5 class='card-title d-flex align-items-center'>
+                GLR Classlists Viewer
+                <span class='badge badge-updated ms-2'>Updated</span>
+              </h5>
+              <p class='card-text mb-0'>Password-protected classlists viewer hosted on the TU Dublin intranet.</p>
+            </div>
+          </div>
+        </a>
+        
+      </div>
+    </div>
+    
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'></script>
+</body>
+</html>

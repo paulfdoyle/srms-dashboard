@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>Stage 4 – Curriculum Change Requests</title>
+<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
+<style>
+body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+.card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+.card.new-card { border:2px solid #dc3545 !important; }
+.badge { font-size:0.75rem; }
+.badge-updated { background-color:#ffc107; color:#212529; }
+.badge-new { background-color:#dc3545; color:#fff; }
+.badge-upcoming { background-color:#0d6efd; color:#fff; }
+.section-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); margin-bottom:24px; }
+.section-card .card-header { background:#f1f3f5; }
+</style>
+</head>
+<body>
+  <div class='container'>
+    <div class='mb-3'>
+      <a href='index.html' class='btn btn-link'>&larr; Back to Stage overview</a>
+    </div>
+    <div class='card border-warning mb-4'>
+      <div class='card-body d-flex flex-wrap justify-content-between gap-3'>
+        <div>
+          <div class='text-muted'>Stage 4</div>
+          <h2 class='mb-1'>Curriculum Change Requests</h2>
+          <p class='text-muted mb-0'>Tracking curriculum updates flowing from Stage 1+2 findings.</p>
+        </div>
+        <div class='align-self-center'>
+          <span class='badge badge-new me-2'>New</span>
+          <span class='badge bg-warning text-light'>In Progress</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class='card border-info mb-4'>
+      <div class='card-body'>
+        <h5 class='card-title mb-2'>Active programmes requiring January 2026 boards</h5>
+        <p class='text-muted mb-3'>Breakdown of the strict Stage 3 dataset so Stage 4 can prioritise Banner change requests.</p>
+        <div class='accordion' id='stage4Accordion'>
+          
+        <div class='accordion-item'>
+          <h2 class='accordion-header' id='heading-collapse-missing'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-missing' aria-expanded='false' aria-controls='collapse-missing'>
+              Missing from Banner
+              <span class='badge bg-secondary ms-auto'>Total: 36</span>
+            </button>
+          </h2>
+          <div id='collapse-missing' class='accordion-collapse collapse' aria-labelledby='heading-collapse-missing' data-bs-parent='#stage4Accordion'>
+            <div class='accordion-body p-0'>
+              <ul class='list-group list-group-flush'>
+                <li class='list-group-item'><div class='fw-semibold'>TU048</div><div class='text-muted small'>Bachelor of Science in Computing with Information Technology Management • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU060</div><div class='text-muted small'>Master of Science in Computer Science • School of Computer Science</div></li><li class='list-group-item'><div class='fw-semibold'>TU066</div><div class='text-muted small'>B.Sc. (Honours) Cloud Computing with DevOps • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU068</div><div class='text-muted small'>Bachelor of Science (Honours) in Computing with Information Technology Management • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU069</div><div class='text-muted small'>Bachelor of Science (Honours) IT Management • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU098</div><div class='text-muted small'>Bachelor of Science in Computing with Software Development • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU099</div><div class='text-muted small'>Bachelor of Science (Honours) in Computing with Software Development • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU151D</div><div class='text-muted small'>Diploma in Painting and Drawing • School of Art & Design</div></li><li class='list-group-item'><div class='fw-semibold'>TU205</div><div class='text-muted small'>MSc in Sustainable Development • School of Architecture, Building and Environment</div></li><li class='list-group-item'><div class='fw-semibold'>TU243</div><div class='text-muted small'>Post Graduate Diploma in Professional Accountancy • School of Accounting, Economics & Finance</div></li><li class='list-group-item'><div class='fw-semibold'>TU252M</div><div class='text-muted small'>Master of Science in Computing in Applied Cyber Security (Research) • School of Informatics & Cybersecurity</div></li><li class='list-group-item'><div class='fw-semibold'>TU289X</div><div class='text-muted small'>PG Dip in Pharmaceutical Validation Technology • School of Chemical & BioPharmaceutical Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU327</div><div class='text-muted small'>Master of Science in Event Management • School of Tourism & Hospitality Management</div></li><li class='list-group-item'><div class='fw-semibold'>TU331</div><div class='text-muted small'>Master of Science in Hospitality Management • School of Tourism & Hospitality Management</div></li><li class='list-group-item'><div class='fw-semibold'>TU353A</div><div class='text-muted small'>MBA • Graduate Business School</div></li><li class='list-group-item'><div class='fw-semibold'>TU364</div><div class='text-muted small'>MSc Product Management • School of Management, People & Organisations</div></li><li class='list-group-item'><div class='fw-semibold'>TU368</div><div class='text-muted small'>Master of Science in Event Management • School of Tourism & Hospitality Management</div></li><li class='list-group-item'><div class='fw-semibold'>TU370</div><div class='text-muted small'>Master of Science in Hospitality Management • School of Tourism & Hospitality Management</div></li><li class='list-group-item'><div class='fw-semibold'>TU373</div><div class='text-muted small'>MA in Criminology • School of Social Sciences, Law & Education</div></li><li class='list-group-item'><div class='fw-semibold'>TU375</div><div class='text-muted small'>MSc in Real Estate • School of Surveying & Construction Innovation</div></li><li class='list-group-item'><div class='fw-semibold'>TU392</div><div class='text-muted small'>MA in Child, Family and Community Studies • School of Social Sciences, Law & Education</div></li><li class='list-group-item'><div class='fw-semibold'>TU394</div><div class='text-muted small'>MA in Social Care Leadership and Management • School of Social Sciences, Law & Education</div></li><li class='list-group-item'><div class='fw-semibold'>TU423A</div><div class='text-muted small'>MBA Life Sciences Leadership Jan entry • Graduate Business School</div></li><li class='list-group-item'><div class='fw-semibold'>TU442</div><div class='text-muted small'>Masters in International Strategic Accountancy (add-on) (Masters Research (Postgraduate)) • School of Accounting, Economics & Finance</div></li><li class='list-group-item'><div class='fw-semibold'>TU5088</div><div class='text-muted small'>Single Subject Certificate School of Culinary Arts & Food Technology PG • School of Culinary Arts & Food Technology</div></li><li class='list-group-item'><div class='fw-semibold'>TU5352_DS</div><div class='text-muted small'>Postgraduate Certificate in Computing in Cybersecurity • School of Informatics & Cybersecurity</div></li><li class='list-group-item'><div class='fw-semibold'>TU5352_FS</div><div class='text-muted small'>Postgraduate Certificate in Cybersecurity (Forensic Specialist) • School of Informatics & Cybersecurity</div></li><li class='list-group-item'><div class='fw-semibold'>TU5353</div><div class='text-muted small'>PG Cert in Science in Applied Machine Learning • School of Computer Science</div></li><li class='list-group-item'><div class='fw-semibold'>TU5547</div><div class='text-muted small'>Higher Diploma in Business in Regulatory Risk & Compliance • School of Accounting, Economics & Finance</div></li><li class='list-group-item'><div class='fw-semibold'>TU712</div><div class='text-muted small'>Bachelor of Engineering in Biomedical Design • School of Mechanical Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU733</div><div class='text-muted small'>Bachelor of Science in Computing with options in AI and ML, Software Development, Cloud Computing (Add On) • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU771</div><div class='text-muted small'>Bachelor of Business • School of Global Business</div></li><li class='list-group-item'><div class='fw-semibold'>TU778</div><div class='text-muted small'>Bachelor of Business International Business • School of Global Business</div></li><li class='list-group-item'><div class='fw-semibold'>TU824</div><div class='text-muted small'>Bachelors of Engineering (Honours) in Structural Engineering • School of Transport & Civil Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU849</div><div class='text-muted small'>Bachelor of Science (Honours) in Computing with options in AI and ML, Software Development, Cloud Computing (Add On) • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU888</div><div class='text-muted small'>Higher Diploma in Medical Science • School of Biological, Health & Sports Sciences</div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+          
+        <div class='accordion-item'>
+          <h2 class='accordion-header' id='heading-collapse-banner'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-banner' aria-expanded='false' aria-controls='collapse-banner'>
+              Already in Banner
+              <span class='badge bg-secondary ms-auto'>Total: 57</span>
+            </button>
+          </h2>
+          <div id='collapse-banner' class='accordion-collapse collapse' aria-labelledby='heading-collapse-banner' data-bs-parent='#stage4Accordion'>
+            <div class='accordion-body p-0'>
+              <ul class='list-group list-group-flush'>
+                <li class='list-group-item'><div class='fw-semibold'>TU058</div><div class='text-muted small'>Eng/Dig C'struction Analytics • School of Transport & Civil Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU059</div><div class='text-muted small'>Computing • School of Computer Science</div></li><li class='list-group-item'><div class='fw-semibold'>TU067</div><div class='text-muted small'>H.Dip. Science in Computing • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU069F</div><div class='text-muted small'>B.Sc.(Hons) IT Management • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU082</div><div class='text-muted small'>B.Sc. Info Sys & Info Tech • School of Computer Science</div></li><li class='list-group-item'><div class='fw-semibold'>TU088</div><div class='text-muted small'>HDip in Medical science • School of Biological, Health & Sports Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU090</div><div class='text-muted small'>B.Sc. Entr. Cloud Computing • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU1157</div><div class='text-muted small'>Manufacture of Med Products • School of Chemical & BioPharmaceutical Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU174</div><div class='text-muted small'>BIM (Digital Construction) • School of Surveying & Construction Innovation</div></li><li class='list-group-item'><div class='fw-semibold'>TU205</div><div class='text-muted small'>Sustainable Development • School of Architecture, Building and Environment</div></li><li class='list-group-item'><div class='fw-semibold'>TU213A</div><div class='text-muted small'>ME in Civil Engineering • School of Transport & Civil Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU225</div><div class='text-muted small'>Spatial Planning • School of Transport & Civil Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU226</div><div class='text-muted small'>Sustainable Trans and Mobility • School of Transport & Civil Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU258</div><div class='text-muted small'>Pharm.QA and Regulation • School of Chemical & BioPharmaceutical Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU268</div><div class='text-muted small'>Geographic Information Science • School of Surveying & Construction Innovation</div></li><li class='list-group-item'><div class='fw-semibold'>TU278</div><div class='text-muted small'>MSc. Applied IT Architecture • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU281</div><div class='text-muted small'>Real Estate • School of Surveying & Construction Innovation</div></li><li class='list-group-item'><div class='fw-semibold'>TU282</div><div class='text-muted small'>Master of Architecture • School of Architecture, Building and Environment</div></li><li class='list-group-item'><div class='fw-semibold'>TU287</div><div class='text-muted small'>MSc Clin Lab Sci • School of Biological, Health & Sports Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU288</div><div class='text-muted small'>Pharm QA and Reg • School of Chemical & BioPharmaceutical Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU289</div><div class='text-muted small'>Pharmaceutical Validation Tech • School of Chemical & BioPharmaceutical Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU294</div><div class='text-muted small'>MSc in CDM&UX • School of Media</div></li><li class='list-group-item'><div class='fw-semibold'>TU304</div><div class='text-muted small'>PG Dip Accounting • School of Accounting, Economics & Finance</div></li><li class='list-group-item'><div class='fw-semibold'>TU3118 (formerly TU900)</div><div class='text-muted small'>Exchange Student Course • School of Global Business</div></li><li class='list-group-item'><div class='fw-semibold'>TU318</div><div class='text-muted small'>MSc in Finance • School of Accounting, Economics & Finance</div></li><li class='list-group-item'><div class='fw-semibold'>TU321</div><div class='text-muted small'>Master of Arts in Criminology • School of Social Sciences, Law & Education</div></li><li class='list-group-item'><div class='fw-semibold'>TU321D</div><div class='text-muted small'>Criminology • School of Social Sciences, Law & Education</div></li><li class='list-group-item'><div class='fw-semibold'>TU324</div><div class='text-muted small'>MBS International Accounting • School of Accounting, Economics & Finance</div></li><li class='list-group-item'><div class='fw-semibold'>TU328</div><div class='text-muted small'>MSc. Tourism Management • School of Tourism & Hospitality Management</div></li><li class='list-group-item'><div class='fw-semibold'>TU330</div><div class='text-muted small'>M.Sc. Hospitality Management • School of Tourism & Hospitality Management</div></li><li class='list-group-item'><div class='fw-semibold'>TU363</div><div class='text-muted small'>PG Dip in Product Management • School of Management, People & Organisations</div></li><li class='list-group-item'><div class='fw-semibold'>TU381</div><div class='text-muted small'>Graphic Design Practice • School of Art & Design</div></li><li class='list-group-item'><div class='fw-semibold'>TU388</div><div class='text-muted small'>M.Mus (Performance/Conducting) • Conservatoire</div></li><li class='list-group-item'><div class='fw-semibold'>TU391</div><div class='text-muted small'>M.A. Child, Family & Comm Stud • School of Social Sciences, Law & Education</div></li><li class='list-group-item'><div class='fw-semibold'>TU411</div><div class='text-muted small'>PDip Architectural Practice • School of Architecture, Building and Environment</div></li><li class='list-group-item'><div class='fw-semibold'>TU414</div><div class='text-muted small'>MSc Building Performance (EED) • Graduate Business School</div></li><li class='list-group-item'><div class='fw-semibold'>TU471</div><div class='text-muted small'>Comp in Human Ctrd Artif Intel • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU481</div><div class='text-muted small'>Professional Design Practice • School of Art & Design</div></li><li class='list-group-item'><div class='fw-semibold'>TU5262</div><div class='text-muted small'>Certificate in Microbiology • School of Chemical & BioPharmaceutical Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU5541</div><div class='text-muted small'>Diploma Fintech Risk & Complia • School of Accounting, Economics & Finance</div></li><li class='list-group-item'><div class='fw-semibold'>TU606</div><div class='text-muted small'>H.Cert in Mech Engineering • School of Mechanical Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU6143</div><div class='text-muted small'>Dip in Packaging Technology • School of Art & Design</div></li><li class='list-group-item'><div class='fw-semibold'>TU652</div><div class='text-muted small'>Computing • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU703</div><div class='text-muted small'>Building Engineering • School of Mechanical Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU721</div><div class='text-muted small'>Aviation Technology • School of Transport & Civil Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU751</div><div class='text-muted small'>Biosciences • School of Biological, Health & Sports Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU756</div><div class='text-muted small'>Computing (General Entry) • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU761</div><div class='text-muted small'>Ophthalmic Dispensing • School of Physics, Clinical & Optometric Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU857</div><div class='text-muted small'>Comp Science (Infrastructure) • School of Computer Science</div></li><li class='list-group-item'><div class='fw-semibold'>TU858</div><div class='text-muted small'>Computer Science International • School of Computer Science</div></li><li class='list-group-item'><div class='fw-semibold'>TU859</div><div class='text-muted small'>B.Sc. (Honours) Computing • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU861</div><div class='text-muted small'>Computing (Language) • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU862</div><div class='text-muted small'>Comp - Mach Learn & Art Intel • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU865</div><div class='text-muted small'>Cloud Computing • School of Enterprise, Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU886</div><div class='text-muted small'>BSc Hons Biomolecular Science • School of Biological, Health & Sports Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU935</div><div class='text-muted small'>Sports Management and Coaching • School of Global Business</div></li><li class='list-group-item'><div class='fw-semibold'>TU995</div><div class='text-muted small'>Early Childhood Education • School of Social Sciences, Law & Education</div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+          
+        <div class='accordion-item'>
+          <h2 class='accordion-header' id='heading-collapse-wrong-school'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-wrong-school' aria-expanded='false' aria-controls='collapse-wrong-school'>
+              Flagged wrong school
+              <span class='badge bg-secondary ms-auto'>Total: 4</span>
+            </button>
+          </h2>
+          <div id='collapse-wrong-school' class='accordion-collapse collapse' aria-labelledby='heading-collapse-wrong-school' data-bs-parent='#stage4Accordion'>
+            <div class='accordion-body p-0'>
+              <ul class='list-group list-group-flush'>
+                <li class='list-group-item'><div class='fw-semibold'>TU058</div><div class='text-muted small mb-1'>Eng/Dig C'struction Analytics</div><div class='text-muted small'>Original school: School of Transport & Civil Engineering</div><div class='text-muted small'>Correct school: School of Surveying & Construction Innovation</div></li><li class='list-group-item'><div class='fw-semibold'>TU225</div><div class='text-muted small mb-1'>Spatial Planning</div><div class='text-muted small'>Original school: School of Transport & Civil Engineering</div><div class='text-muted small'>Correct school: School of Architecture, Building and Environment</div></li><li class='list-group-item'><div class='fw-semibold'>TU226</div><div class='text-muted small mb-1'>Sustainable Trans and Mobility</div><div class='text-muted small'>Original school: School of Transport & Civil Engineering</div><div class='text-muted small'>Correct school: School of Architecture, Building and Environment</div></li><li class='list-group-item'><div class='fw-semibold'>TU414</div><div class='text-muted small mb-1'>MSc Building Performance (EED)</div><div class='text-muted small'>Original school: Graduate Business School</div><div class='text-muted small'>Correct school: Architecture Building Environment</div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+          
+        <div class='accordion-item'>
+          <h2 class='accordion-header' id='heading-collapse-no-akari'>
+            <button class='accordion-button collapsed' type='button' data-bs-toggle='collapse' data-bs-target='#collapse-no-akari' aria-expanded='false' aria-controls='collapse-no-akari'>
+              Without Akari modules
+              <span class='badge bg-secondary ms-auto'>Total: 8</span>
+            </button>
+          </h2>
+          <div id='collapse-no-akari' class='accordion-collapse collapse' aria-labelledby='heading-collapse-no-akari' data-bs-parent='#stage4Accordion'>
+            <div class='accordion-body p-0'>
+              <ul class='list-group list-group-flush'>
+                <li class='list-group-item'><div class='fw-semibold'>TU226</div><div class='text-muted small'>Sustainable Trans and Mobility • School of Transport & Civil Engineering</div></li><li class='list-group-item'><div class='fw-semibold'>TU268</div><div class='text-muted small'>Geographic Information Science • School of Surveying & Construction Innovation</div></li><li class='list-group-item'><div class='fw-semibold'>TU289X</div><div class='text-muted small'>PG Dip in Pharmaceutical Validation Technology • School of Chemical & BioPharmaceutical Sciences</div></li><li class='list-group-item'><div class='fw-semibold'>TU3118 (formerly TU900)</div><div class='text-muted small'>Exchange Student Course • School of Global Business</div></li><li class='list-group-item'><div class='fw-semibold'>TU5088</div><div class='text-muted small'>Single Subject Certificate School of Culinary Arts & Food Technology PG • School of Culinary Arts & Food Technology</div></li><li class='list-group-item'><div class='fw-semibold'>TU6143</div><div class='text-muted small'>Dip in Packaging Technology • School of Art & Design</div></li><li class='list-group-item'><div class='fw-semibold'>TU733</div><div class='text-muted small'>Bachelor of Science in Computing with options in AI and ML, Software Development, Cloud Computing (Add On) • School of Enterprise Computing & Digital Transformation</div></li><li class='list-group-item'><div class='fw-semibold'>TU849</div><div class='text-muted small'>Bachelor of Science (Honours) in Computing with options in AI and ML, Software Development, Cloud Computing (Add On) • School of Enterprise Computing & Digital Transformation</div></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </div>
+    
+    <div class='card border-warning mb-4'>
+      <div class='card-body'>
+        <h5 class='card-title mb-2'>Stage 4 – Curriculum Change Requests</h5>
+        <p class='text-muted mb-3'>
+          Translate Stage 3 findings into actionable tickets for the Banner/backend teams.
+          Populate the grid below with real issues once identified.
+        </p>
+        <div class='table-responsive'>
+          <table class='table table-sm'>
+            <thead class='table-light'>
+              <tr>
+                <th>Issue</th>
+                <th>Programme / School</th>
+                <th>Owner</th>
+                <th>Status</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class='text-muted small'>Placeholder entry for Banner fixes</td>
+                <td class='text-muted small'>TBD</td>
+                <td class='text-muted small'>Unassigned</td>
+                <td><span class='badge bg-secondary'>Pending</span></td>
+                <td class='text-muted small'>Describe corrective action / ETA.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js'></script>
+</body>
+</html>

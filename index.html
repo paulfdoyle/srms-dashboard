@@ -1,269 +1,193 @@
-<!DOCTYPE html>
-<html lang='en'>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<title>SRMS - Curriculum Cleaning - Staged Approach (2025-11-21)</title>
-<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet'>
-<style>
-body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-.hero { background:#fff; padding:28px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; }
-.card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
-.card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
-.badge { font-size:0.75rem; }
-.stage-card-complete { border:2px solid #198754; }
-.stage-card-progress { border:2px solid #fd7e14; }
-.stage-card-upcoming { border:2px solid #0d6efd; }
-.badge-updated { background-color:#ffc107; color:#212529; }
-.badge-new { background-color:#dc3545; color:#fff; }
-.badge-upcoming { background-color:#0d6efd; color:#fff; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRMS - Curriculum Cleaning - Staged Approach</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .hero { background:#fff; padding:28px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+    .badge { font-size:0.75rem; }
+    .stage-card-complete { border:2px solid #198754; }
+    .stage-card-progress { border:2px solid #fd7e14; }
+    .stage-card-upcoming { border:2px solid #0d6efd; }
+    .badge-updated { background-color:#ffc107; color:#212529; }
+    .badge-new { background-color:#dc3545; color:#fff; }
+    .badge-upcoming { background-color:#0d6efd; color:#fff; }
+    .section-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .section-card .card-header { background:#f1f3f5; }
+  </style>
 </head>
 <body>
-  <div class='hero'>
-    <div class='d-flex justify-content-between flex-wrap gap-3'>
+  <div class="container-fluid px-0">
+    <div class="alert alert-success border-2 fs-6 fw-semibold text-center py-3 px-4">
+      Academic Programme Reviews to establish AKARI Baseline Completed — Detailed Exam Boards Review in Progress
+    </div>
+
+  <div class="hero">
+    <div class="d-flex justify-content-between flex-wrap gap-3">
       <div>
-        <h1 class='mb-2'>SRMS - Curriculum Cleaning - Staged Approach</h1>
-        <p class='text-muted mb-0'>Prototype layout linking each phase of the programme. Supporting documentation is available via the button below.</p>
-        <div class='text-muted small mt-2'>Last updated: 2025-11-21 22:33 GMT</div>
+        <h1 class="mb-2">SRMS - Curriculum Cleaning - Staged Approach</h1>
+        <p class="text-muted mb-0">UI Rebuilt using Integrated Databases sourced from Akari, Banner, Brightspace and Academic Review.</p>
+        <div class="text-muted small mt-2">Last updated: 2025-11-26 00:45:00Z</div>
       </div>
-      <div class='align-self-start'>
-        <a class='btn btn-outline-primary' href='stage_info.html'>Supporting Documentation & Stage Overview</a>
-      </div>
-    </div>
-  </div>
-
-  <div class='alert alert-danger border-2 border-danger fs-5 fw-semibold text-center py-3 px-4'>
-    Today is the last day for updates on the spreadsheets.
-  </div>
-
-  
-  <div class='card mb-4'>
-    <div class='card-body'>
-      <h5 class='card-title mb-3'>Stage 2 Progress Snapshot</h5>
-      <div class='table-responsive'>
-        <table class='table table-sm align-middle mb-0'>
-          <tbody>
-            <tr>
-              <td style='width:35%'>
-                <div class='fw-semibold'>Missing Programmes</div>
-                <div class='text-muted small'>202 programmes tracked</div>
-              </td>
-              <td>
-                <div class='small text-muted'>Field completion</div>
-                <div class='progress'>
-                  <div class='progress-bar bg-success' style='width:98.7%'></div>
-                </div>
-              </td>
-              <td class='text-end fw-semibold'>98.7%</td>
-            </tr>
-            <tr>
-              <td>
-                <div class='fw-semibold'>Programme Verification</div>
-                <div class='text-muted small'>548 of 596 rows complete</div>
-              </td>
-              <td>
-                <div class='small text-muted'>Strict vs partial completion</div>
-                <div class='progress'>
-                  <div class='progress-bar bg-warning' style='width:91.9%;' aria-label='Strict completion'>
-                  </div>
-                  <div class='progress-bar bg-warning-subtle text-dark' style='width:3.4%;' aria-label='Partial completion'>
-                  </div>
-                </div>
-                <div class='small text-muted mt-1'>
-                  91.9% strict • 95.3% partial
-                </div>
-              </td>
-              <td class='text-end fw-semibold'>
-                <div>91.9% strict</div>
-                <div class='text-muted small'>95.3% partial</div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class='fw-semibold'>Jan 2026 Boards</div>
-                <div class='text-muted small'>Active programmes requiring boards</div>
-              </td>
-              <td>
-                <div class='small text-muted mb-1'>Source breakdown</div>
-                <div class='progress mb-1' role='progressbar' aria-valuemin='0' aria-valuemax='100'>
-                  <div class='progress-bar' style='width:62.8%;background-color:#0d6efd;' aria-valuenow='62.8'>
-                    In Banner
-                  </div>
-                  <div class='progress-bar' style='width:37.2%;background-color:#dc3545;' aria-valuenow='37.2'>
-                    Missing from Banner
-                  </div>
-                </div>
-                <div class='small text-muted'>59 In Banner • 35 Missing from Banner</div>
-              </td>
-              <td class='text-end fw-semibold'>94 total</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="align-self-start d-flex gap-2 flex-wrap">
+        <a class="btn btn-outline-primary" href="../html/stage_info.html">Supporting Documentation & Stage Overview</a>
+        <a class="btn btn-outline-secondary" href="legacy_ui/index.html">Legacy UI</a>
       </div>
     </div>
   </div>
-  <p class='text-muted small mb-0 mt-2'>
-    <strong>Strict criteria.</strong> Missing Programmes completion tracks MP1&ndash;MP7 responses only, while Programme Verification strict counts require VC1&ndash;VC10 to be answered with Yes/No/N/A.
-  </p>
 
-
-  <div class='mb-3 text-muted'>Select a stage to view its tools and status.</div>
-  <div class='row row-cols-1 row-cols-md-3 g-3 mb-5'>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage1.html'>
-        <div class='card h-100 stage-card-complete'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 1 &ndash; Reports</span>
-              <span class='badge bg-success text-light'>Completed</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>All baseline Banner extracts and key queries sit in this stage.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-updated'>Updated</span>
+  <div class="mb-3 text-muted">Select a stage to view its tools and status.</div>
+  <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage1.html">
+          <div class="card h-100 stage-card-complete">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 1 – Reports</span>
+                <span class="badge bg-success text-light">Completed</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">All baseline Banner extracts and key queries sit in this stage.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-updated">Updated</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage2.html'>
-        <div class='card h-100 stage-card-progress'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 2 &ndash; Creating a Baseline</span>
-              <span class='badge bg-warning text-light'>In Progress</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>Testing activities and comparison viewers used to stabilise Stage 2 submissions.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-new'>New</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage2.html">
+          <div class="card h-100 stage-card-complete">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 2 – Creating a Baseline</span>
+                <span class="badge bg-success text-light">Completed</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">Testing activities and comparison viewers used to stabilise Stage 2 submissions.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage3.html'>
-        <div class='card h-100 stage-card-progress'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 3 &ndash; SRMS Data Cleaning Dashboard</span>
-              <span class='badge bg-warning text-light'>In Progress</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>Design and build of consolidated dashboards.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-new'>New</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage3.html">
+          <div class="card h-100 stage-card-progress">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 3 – SRMS Data Cleaning Dashboard</span>
+                <span class="badge bg-warning text-light">In Progress</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">In Development.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage4.html'>
-        <div class='card h-100 stage-card-progress'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 4 &ndash; Curriculum Change Requests</span>
-              <span class='badge bg-warning text-light'>In Progress</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>Tracking curriculum updates flowing from Stage 1+2 findings.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-new'>New</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage4.html">
+          <div class="card h-100 stage-card-progress">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 4 – Curriculum Change Requests</span>
+                <span class="badge bg-warning text-light">In Progress</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">In Development.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage5.html'>
-        <div class='card h-100 stage-card-upcoming'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 5 &ndash; Student Change Requests & Primary CRNs</span>
-              <span class='badge bg-primary text-light'>Not yet started</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>Student-level adjustments and identification of the primary CRN per learner.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-upcoming'>Upcoming</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage5.html">
+          <div class="card h-100 stage-card-progress">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 5 – Student Change Requests &amp; Primary CRNs</span>
+                <span class="badge bg-warning text-light">In Progress</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">In Development.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage6.html'>
-        <div class='card h-100 stage-card-upcoming'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 6 &ndash; Examinations Testing</span>
-              <span class='badge bg-primary text-light'>Not yet started</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>Dry-runs and regression tests for award/progression boards.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-upcoming'>Upcoming</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage6.html">
+          <div class="card h-100 stage-card-progress">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 6 – Examinations Testing</span>
+                <span class="badge bg-warning text-light">In Progress</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">In Development.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage7.html'>
-        <div class='card h-100 stage-card-upcoming'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 7 &ndash; Full Year & Semester 2 Requests</span>
-              <span class='badge bg-primary text-light'>Not yet started</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>Wave of curriculum/student changes for semester two and remaining periods.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-upcoming'>Upcoming</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage7.html">
+          <div class="card h-100 stage-card-progress">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 7 – Full Year &amp; Semester 2 Requests</span>
+                <span class="badge bg-warning text-light">In Progress</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">In Development.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage8.html'>
-        <div class='card h-100 stage-card-upcoming'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 8 &ndash; CRN Cleaning</span>
-              <span class='badge bg-primary text-light'>Not yet started</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>Final tidy-up of CRN usage and cross-term consistency checks.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-upcoming'>Upcoming</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage8.html">
+          <div class="card h-100 stage-card-progress">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 8 – CRN Cleaning</span>
+                <span class="badge bg-warning text-light">In Progress</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">In Development.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
-    <div class='col'>
-      <a class='text-decoration-none text-dark' href='stage9.html'>
-        <div class='card h-100 stage-card-upcoming'>
-          <div class='card-body'>
-            <h5 class='card-title d-flex justify-content-between align-items-center'>
-              <span>Stage 9 &ndash; Curriculum Validation & Exams</span>
-              <span class='badge bg-primary text-light'>Not yet started</span>
-            </h5>
-            <p class='card-text text-muted small mb-3'>End-to-end validation and June board testing.</p>
-            <div class='d-flex gap-2 flex-wrap'>
-              <span class='badge badge-upcoming'>Upcoming</span>
+        </a>
+      </div>
+      <div class="col">
+        <a class="text-decoration-none text-dark" href="stage9.html">
+          <div class="card h-100 stage-card-progress">
+            <div class="card-body">
+              <h5 class="card-title d-flex justify-content-between align-items-center">
+                <span>Stage 9 – Curriculum Validation &amp; Exams</span>
+                <span class="badge bg-warning text-light">In Progress</span>
+              </h5>
+              <p class="card-text text-muted small mb-3">In Development.</p>
+              <div class="d-flex gap-2 flex-wrap">
+                  <span class="badge badge-new">New</span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
-    </div>
-    
+        </a>
+      </div>
+  </div>
   </div>
 </body>
 </html>

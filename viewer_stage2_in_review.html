@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Cleaning - In Review</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; font-size:16px; background:#f8f9fa; }
+    .table-sm td, .table-sm th { padding:.4rem .5rem; vertical-align:top; font-size: .92rem; }
+    .thead-small th { font-size:0.9rem; background:#f8f9fa; }
+    .filter-card { border-left:4px solid #0d6efd; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace; }
+    .compact-card .card-body { padding: 0.75rem 1rem; }
+    .detail-grid .label { font-size: 0.78rem; color: #6c757d; margin-bottom: 0; }
+    .detail-grid .value { font-weight: 600; font-size: 0.92rem; line-height: 1.2; }
+    .detail-grid .value.mono { font-size: 0.9rem; }
+    hr.detail-sep { margin: 0.5rem 0; }
+    .akari-pill { min-width: 110px; }
+    .progress-sm { height: 14px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid px-0">
+    <div class="mb-3">
+      <a class="btn btn-outline-secondary btn-sm" href="index.html">Back to index</a>
+    </div>
+
+    <div class="card border-primary mb-3">
+      <div class="card-body d-flex flex-wrap justify-content-between gap-3">
+        <div>
+          <div class="text-muted">Stage 2 academic programme review (DB-backed)</div>
+          <h3 class="mb-1">Academic Cleaning - In Review</h3>
+          <p class="text-muted small mb-0">Programmes under review (academic_review_status=in_review).</p>
+        </div>
+        <div class="align-self-center">
+          <span class="badge bg-success">DB-backed</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-lg-4">
+        <div class="card filter-card h-100">
+          <div class="card-header bg-light fw-semibold">Filters</div>
+          <div class="card-body">
+            <div class="mb-3">
+              <label class="form-label mb-1">School (Banner)</label>
+              <select id="schoolSelect" class="form-select form-select-sm"></select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label mb-1">Delivery mode</label>
+              <select id="deliverySelect" class="form-select form-select-sm"></select>
+            </div>
+            <div class="d-flex gap-2">
+              <button id="btnSearch" class="btn btn-primary btn-sm">Apply filters</button>
+              <button id="btnClear" class="btn btn-outline-secondary btn-sm">Reset</button>
+            </div>
+            <div class="form-text mt-2">Report is pre-filtered to January exam board programmes with reviewed status.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card h-100">
+          <div class="card-header bg-light fw-semibold d-flex justify-content-between align-items-center">
+            <span>Summary (per selection)</span>
+            <span class="text-muted small" id="sumLoaded">Loading…</span>
+          </div>
+          <div class="card-body">
+            <div class="row g-2" id="summaryRow" style="display:none;">
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Programmes (shown)</div>
+                    <div class="h5 mb-0" id="sumTotal">0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Delivery: Full Time</div>
+                    <div class="h5 mb-0" id="sumFT">0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Delivery: Part Time</div>
+                    <div class="h5 mb-0" id="sumPT">0</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="card border-0 bg-light">
+                  <div class="card-body py-3">
+                    <div class="text-muted small">Students (EI7 total)</div>
+                    <div class="h5 mb-0" id="sumStudents">0</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="akariSummary" class="mt-3" style="display:none;">
+              <div class="d-flex justify-content-between align-items-center mb-1 small text-muted">
+                <span>AKARI Checks breakdown (per selection)</span>
+                <span id="akariCounts"></span>
+              </div>
+              <div class="progress progress-sm">
+                <div id="akariOk" class="progress-bar bg-success" role="progressbar"></div>
+                <div id="akariPartial" class="progress-bar bg-warning text-dark" role="progressbar"></div>
+                <div id="akariNa" class="progress-bar bg-secondary" role="progressbar"></div>
+              </div>
+            </div>
+            <div class="text-muted small mt-2" id="summaryHint">Pre-filtered to January exam boards with reviewed status.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div id="detailCard" class="mb-3" style="display:none;"></div>
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered align-middle mb-0">
+            <thead class="thead-small">
+              <tr>
+                <th>School</th>
+                <th>Programme</th>
+                <th>Programme Title</th>
+                <th class="text-center" style="width:160px;">AKARI Checks</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr><td colspan="4" class="text-muted">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="payload" type="application/json">{"data_gz_b64": "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", "meta": {"run_id": 16, "source": "db"}}</script>
+  <script>
+    (function(){
+      let RECORDS = [];
+      let SELECTED = null;
+      const DATA = (function(){
+        const payloadEl = document.getElementById("payload");
+        try {
+          return payloadEl ? JSON.parse(payloadEl.textContent || "{}") : {};
+        } catch (err) {
+          console.error(err);
+          return {};
+        }
+      })();
+
+      function esc(str) {
+        return String(str == null ? "" : str).replace(/[&<>"']/g, function (m) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+        });
+      }
+      function uniq(arr){
+        return Array.from(new Set(arr)).filter(v => v !== undefined && v !== null).sort();
+      }
+      function setSelect(el, options, placeholder, selected, defaultValue){
+        const opts = [`<option value="">${placeholder}</option>`].concat(
+          options.map(opt => `<option value="${esc(opt)}"${opt===selected ? " selected" : ""}>${esc(opt || "(Blank)")}</option>`)
+        );
+        el.innerHTML = opts.join("");
+        if (defaultValue && !selected && options.includes(defaultValue)){
+          el.value = defaultValue;
+        }
+      }
+
+      function setSelectCustom(el, options, placeholder, selected){
+        const opts = [`<option value="">${placeholder}</option>`].concat(
+          options.map(opt => `<option value="${esc(opt.value)}"${opt.value===selected ? " selected" : ""}>${esc(opt.label)}</option>`)
+        );
+        el.innerHTML = opts.join("");
+      }
+
+      function normFlag(val){
+        const text = (val == null ? "" : String(val)).trim().toLowerCase();
+        if (!text) return "missing";
+        if (["yes","y","true","1"].includes(text)) return "yes";
+        if (["no","n","false","0"].includes(text)) return "no";
+        if (["na","n/a","n\\a","not applicable"].includes(text)) return "na";
+        return "missing";
+      }
+
+      function akariStatus(rec){
+        const vals = [
+          rec.akari_sem1_correct,
+          rec.akari_sem2_correct,
+          rec.akari_yearlong_correct,
+          rec.akari_assessments_correct,
+        ];
+        let yes = 0, no = 0, na = 0, missing = 0;
+        vals.forEach(v => {
+          const f = normFlag(v);
+          if (f === "yes") yes += 1;
+          else if (f === "no") no += 1;
+          else if (f === "na") na += 1;
+          else missing += 1;
+        });
+
+        const total = yes + no + na + missing;
+        let variant = "danger";
+        let text = "Missing";
+
+        if (yes === 0 && no === 0 && missing === 0) {
+          variant = "success"; text = "AKARI N/A";
+        } else if (no === 0 && missing === 0) {
+          variant = "success"; text = "AKARI OK";
+        } else if (yes > 0 && no > 0) {
+          variant = "warning"; text = "Mixed";
+        } else if (yes > 0 && no === 0 && missing > 0) {
+          variant = "warning"; text = "Partial";
+        } else if (no > 0 && yes === 0 && missing === 0) {
+          variant = "danger"; text = "All No";
+        } else if (no > 0 && yes === 0) {
+          variant = "danger"; text = "Needs Fix";
+        } else if (missing === total) {
+          variant = "danger"; text = "Missing";
+        } else {
+          variant = "warning"; text = "Review";
+        }
+        return { variant, text };
+      }
+
+      function akariBadges(rec){
+        const fields = [
+          { key: "akari_sem1_correct", label: "Sem1" },
+          { key: "akari_sem2_correct", label: "Sem2" },
+          { key: "akari_yearlong_correct", label: "Yearlong" },
+          { key: "akari_assessments_correct", label: "Assessments" },
+        ];
+        const flags = fields.map(f => ({ label: f.label, flag: normFlag(rec[f.key]) }));
+        const allOk = flags.every(f => f.flag === "yes" || f.flag === "na");
+        if (allOk) return [{ variant: "success", text: "AKARI OK" }];
+        const allBad = flags.every(f => f.flag === "no" || f.flag === "missing");
+        if (allBad) return [{ variant: "danger", text: "AKARI not OK" }];
+        const badges = flags
+          .filter(f => !(f.flag === "yes" || f.flag === "na"))
+          .map(f => ({
+            variant: f.flag === "no" ? "warning" : "secondary",
+            text: `${f.label}: ${f.flag === "missing" ? "Missing" : "No"}`,
+          }));
+        return badges.length ? badges : [{ variant: "warning", text: "AKARI review" }];
+      }
+
+      function activeBadge(rec){
+        const banner = (rec.active_status_banner || "").trim();
+        const confirmed = (rec.active_status_confirmed || "").trim();
+        const same = banner && confirmed && banner.toLowerCase() === confirmed.toLowerCase();
+        if (same) return { variant: "success", text: confirmed || banner };
+        if (confirmed) return { variant: "warning", text: confirmed };
+        if (banner) return { variant: "secondary", text: banner };
+        return { variant: "secondary", text: "Active?" };
+      }
+
+      function bannerBadge(rec){
+        const flag = normFlag(rec.in_banner);
+        if (flag === "yes") return { variant: "success", text: "In Banner" };
+        if (flag === "no") return { variant: "danger", text: "Not in Banner" };
+        return null;
+      }
+
+      function schoolBadge(rec){
+        const confirmed = (rec.school_confirmed || "").trim().toLowerCase();
+        const banner = (rec.school_banner || "").trim().toLowerCase();
+        if (confirmed && banner && confirmed !== banner) {
+          return { variant: "danger", text: "School Wrong in Banner" };
+        }
+        return null;
+      }
+
+      function akariBreakdown(records){
+        let ok = 0, partial = 0, na = 0;
+        records.forEach(r => {
+          const status = akariStatus(r);
+          if (status.text && status.text.toLowerCase().includes("n/a")) {
+            na += 1;
+          } else if (status.variant === "success") {
+            ok += 1;
+          } else {
+            partial += 1;
+          }
+        });
+        const total = records.length || 1;
+        return {
+          ok, partial, na,
+          okPct: Math.round((ok / total) * 100),
+          partialPct: Math.round((partial / total) * 100),
+          naPct: Math.round((na / total) * 100),
+        };
+      }
+
+      function populateFilters(){
+        const schoolEl = document.getElementById("schoolSelect");
+        const deliveryEl = document.getElementById("deliverySelect");
+
+        const selected = {
+          school: schoolEl.value || "",
+          delivery: deliveryEl.value || "",
+        };
+
+        const schoolOpts = uniq(RECORDS.map(r => r.school || "(Blank)"));
+        setSelect(schoolEl, schoolOpts, "All schools", selected.school, "");
+
+        const deliveryOpts = uniq(RECORDS.map(r => r.delivery_mode || "(Blank)"));
+        setSelect(deliveryEl, deliveryOpts, "All delivery modes", selected.delivery, "");
+      }
+
+      function metaLabel(){
+        if (!DATA.meta) return "";
+        if (DATA.meta.source === "csv") {
+          const parts = [];
+          if (DATA.meta.path) parts.push(`Source: ${DATA.meta.path}`);
+          return parts.join(" \u2022 ") || "Source: CSV";
+        }
+        if (DATA.meta.run_id) {
+          return `Run id: ${DATA.meta.run_id}`;
+        }
+        return "";
+      }
+
+      function render(){
+        const school = document.getElementById("schoolSelect").value;
+        const delivery = document.getElementById("deliverySelect").value;
+
+        let filtered = RECORDS.filter(r =>
+          (!school || (r.school || "(Blank)") === school) &&
+          (!delivery || (r.delivery_mode || "(Blank)") === delivery)
+        );
+
+        filtered.sort((a, b) => {
+          const schoolDiff = (a.school || "").localeCompare(b.school || "");
+          if (schoolDiff !== 0) return schoolDiff;
+          return (a.programme || "").localeCompare(b.programme || "");
+        });
+
+        document.getElementById("sumTotal").textContent = filtered.length;
+        document.getElementById("sumFT").textContent = filtered.filter(r => (r.delivery_mode || "").toLowerCase() === "full time").length;
+        document.getElementById("sumPT").textContent = filtered.filter(r => (r.delivery_mode || "").toLowerCase() === "part time").length;
+        const studentTotal = filtered.reduce((acc, r) => {
+          const raw = (r.ei7_students || "").toString().replace(/,/g, "");
+          const n = Number(raw);
+          return acc + (Number.isFinite(n) ? n : 0);
+        }, 0);
+        document.getElementById("sumStudents").textContent = studentTotal.toLocaleString();
+
+        const summaryRow = document.getElementById("summaryRow");
+        const summaryHint = document.getElementById("summaryHint");
+        summaryRow.style.display = filtered.length ? "" : "none";
+        summaryHint.textContent = filtered.length ? "Programmes matching current filters." : "No rows match the current filters.";
+
+        const akariBox = document.getElementById("akariSummary");
+        if (filtered.length) {
+          const ak = akariBreakdown(filtered);
+          document.getElementById("akariOk").style.width = `${ak.okPct}%`;
+          document.getElementById("akariPartial").style.width = `${ak.partialPct}%`;
+          document.getElementById("akariNa").style.width = `${ak.naPct}%`;
+          document.getElementById("akariCounts").textContent = `OK ${ak.ok} • Partial ${ak.partial} • Not reference ${ak.na}`;
+          akariBox.style.display = "";
+        } else {
+          akariBox.style.display = "none";
+          document.getElementById("akariCounts").textContent = "";
+        }
+
+        if (!SELECTED && filtered.length){
+          SELECTED = filtered[0];
+        } else if (SELECTED && !filtered.some(r => r.programme === SELECTED.programme)){
+          SELECTED = filtered[0] || null;
+        }
+
+        const detailEl = document.getElementById("detailCard");
+        if (SELECTED){
+          detailEl.style.display = "";
+          const metaText = metaLabel();
+          const akariList = akariBadges(SELECTED);
+          const active = activeBadge(SELECTED);
+          const inBanner = bannerBadge(SELECTED);
+          const missingBadge = (SELECTED.missing_reason || "").trim()
+            ? (!inBanner || inBanner.text !== "Not in Banner"
+                ? { variant: "secondary", text: "Not in Banner" }
+                : null)
+            : null;
+          const schoolMismatch = schoolBadge(SELECTED);
+          detailEl.innerHTML = `
+            <div class="card compact-card">
+              <div class="card-body">
+                <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+                  <div class="d-flex flex-wrap align-items-center gap-2">
+                    <div class="h6 mb-0 mono">${esc(SELECTED.programme || "")}</div>
+                    ${akariList.map(b => `<span class="badge bg-${b.variant}">${esc(b.text)}</span>`).join("")}
+                    <span class="badge bg-${active.variant}">${esc(active.text)}</span>
+                    ${inBanner ? `<span class="badge bg-${inBanner.variant}">${esc(inBanner.text)}</span>` : ""}
+                    ${missingBadge ? `<span class="badge bg-${missingBadge.variant}">${esc(missingBadge.text)}</span>` : ""}
+                    ${schoolMismatch ? `<span class="badge bg-${schoolMismatch.variant}">${esc(schoolMismatch.text)}</span>` : ""}
+                    <div class="fw-semibold mb-0">${esc(SELECTED.programme_title || "")}</div>
+                    <div class="text-muted small mb-0">${esc(SELECTED.school || "")}</div>
+                  </div>
+                  <div class="text-muted small text-end">${esc(metaText)}</div>
+                </div>
+                <hr class="detail-sep"/>
+                <div class="row g-1 detail-grid small">
+                  <div class="col-6 col-md-3"><div class="label">Delivery</div><div class="value">${esc(SELECTED.delivery_mode || "")}</div></div>
+                  <div class="col-12 col-md-6"><div class="label">Correct School Response</div><div class="value">${esc(SELECTED.correct_school_response || "")}</div></div>
+                </div>
+                <div class="row g-1 detail-grid small">
+                  <div class="col-12 col-md-6"><div class="label">Review Contact</div><div class="value">${esc(SELECTED.academic_review_contact || "")}</div></div>
+                  <div class="col-12 col-md-6"><div class="label">Comment</div><div class="value">${esc(SELECTED.academic_comment || "")}</div></div>
+                </div>
+              </div>
+            </div>
+          `;
+        } else {
+          detailEl.style.display = "none";
+          detailEl.innerHTML = "";
+        }
+
+        const rows = filtered.map(r => {
+          const akari = akariStatus(r);
+          return `
+            <tr data-programme="${esc(r.programme || '')}" class="${SELECTED && SELECTED.programme === r.programme ? 'table-active' : ''}" style="cursor:pointer;">
+              <td>${esc(r.school || "")}</td>
+              <td class="mono">${esc(r.programme || "")}</td>
+              <td>${esc(r.programme_title || "")}</td>
+              <td class="text-center">
+                <button type="button" class="btn btn-sm btn-${akari.variant} akari-pill">${esc(akari.text)}</button>
+              </td>
+            </tr>
+          `;
+        }).join("");
+
+        const bodyEl = document.getElementById("tableBody");
+        if (filtered.length) {
+          bodyEl.innerHTML = rows;
+          Array.from(bodyEl.querySelectorAll("tr")).forEach(tr => {
+            tr.addEventListener("click", () => {
+              const pid = tr.getAttribute("data-programme") || "";
+              SELECTED = filtered.find(r => r.programme === pid) || null;
+              render();
+            });
+          });
+        } else {
+          bodyEl.innerHTML = '<tr><td colspan="7" class="text-muted">No rows match the current filters.</td></tr>';
+        }
+      }
+
+      document.getElementById("btnSearch").addEventListener("click", render);
+      document.getElementById("btnClear").addEventListener("click", () => {
+        document.getElementById("schoolSelect").value = "";
+        document.getElementById("deliverySelect").value = "";
+        render();
+      });
+      document.getElementById("schoolSelect").addEventListener("change", render);
+      document.getElementById("deliverySelect").addEventListener("change", render);
+
+      function base64ToBytes(b64){
+        const bin = atob(b64);
+        const len = bin.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
+        return bytes;
+      }
+
+      async function inflate(bytes){
+        if (typeof DecompressionStream !== "undefined") {
+          const ds = new DecompressionStream("gzip");
+          const stream = new Blob([bytes]).stream().pipeThrough(ds);
+          return await new Response(stream).text();
+        }
+        throw new Error("No gzip support available.");
+      }
+
+      (async function init(){
+        try {
+          const gz = DATA.data_gz_b64;
+          if (!gz) {
+            throw new Error("Missing payload.");
+          }
+          const bytes = base64ToBytes(gz);
+          const jsonStr = await inflate(bytes);
+          const parsed = JSON.parse(jsonStr);
+          RECORDS = (parsed.records || []);
+          document.getElementById("sumLoaded").textContent = `${RECORDS.length} rows`;
+          populateFilters();
+          render();
+        } catch (err){
+          console.error(err);
+          document.getElementById("sumLoaded").textContent = "Load failed";
+          document.getElementById("tableBody").innerHTML = '<tr><td colspan="24" class="text-danger">Load failed; open console for details.</td></tr>';
+        }
+      })();
+    })();
+  </script>
+</body>
+</html>

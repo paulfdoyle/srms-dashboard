@@ -1,271 +1,49 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stage 3 – SRMS Data Cleaning Dashboard</title>
+  <title>SRMS - Curriculum Cleaning - Staged Approach</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background:#f8f9fa; padding:24px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
-    .card { border:none; box-shadow:0 2px 6px rgba(0,0,0,0.08); }
-    .hero-card { border-top:4px solid #ffc107; }
-    .metric-value { font-size:1.75rem; font-weight:600; }
-    .progress-bar-missing { background-color:#0d6efd; }
-    .progress-bar-reviewed { background-color:#198754; }
-    .subset-box { background:#f8f9fa; border-radius:8px; padding:10px 12px; border:1px solid #dee2e6; }
-    .section-note { font-size:0.9rem; color:#495057; }
+    body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .hero { background:#fff; padding:28px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+    .badge { font-size:0.75rem; }
+    .stage-card-complete { border:2px solid #198754; }
+    .stage-card-progress { border:2px solid #fd7e14; }
+    .stage-card-upcoming { border:2px solid #0d6efd; }
+    .badge-updated { background-color:#ffc107; color:#212529; }
+    .badge-new { background-color:#dc3545; color:#fff; }
+    .badge-upcoming { background-color:#0d6efd; color:#fff; }
+    .section-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .section-card .card-header { background:#f1f3f5; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="mb-3">
-      <a href="index.html" class="btn btn-link">&larr; Back to Stage overview</a>
-    </div>
-
-    <div class="card hero-card mb-4">
-      <div class="card-body d-flex flex-wrap justify-content-between gap-3">
-        <div>
-          <div class="text-muted">Stage 3</div>
-          <h2 class="mb-1">SRMS Data Cleaning Dashboard</h2>
-          <p class="text-muted mb-0">Strict statistics derived from Stage 2 completion data.</p>
-        </div>
-        <div class="align-self-center">
-          <span class="badge bg-danger text-light me-2">New</span>
-          <span class="badge bg-warning text-dark">In Progress</span>
+  <div class="container-fluid px-0">
+  <div class="hero">
+    <div class="d-flex justify-content-between flex-wrap gap-3">
+      <div>
+        <h1 class="mb-2">Stage 3 – SRMS Data Cleaning Dashboard</h1>
+        <p class="text-muted mb-0">In Development.</p>
+        <div class="mt-2">
+          <span class="badge bg-warning text-light">In Progress</span>
         </div>
       </div>
-    </div>
-
-    <div class="card border-light mb-4">
-      <div class="card-body">
-        <h5 class="card-title">Stage 2 Completion Snapshot</h5>
-        <p class="text-muted small">Missing Programmes rows count as complete when MP1–MP7 are filled. Programme Verification rows require VC1–VC10 to contain Yes/No/N/A responses.</p>
-        <div class="row row-cols-1 row-cols-md-4 g-3 mb-3">
-          <div class="col">
-            <div class="text-muted small text-uppercase">Total Completed Programmes</div>
-            <div class="metric-value">743</div>
-            <div class="text-muted small">54 programmes still in review</div>
-          </div>
-          <div class="col">
-            <div class="text-muted small text-uppercase">Programmes with Akari reference</div>
-            <div class="metric-value">585</div>
-            <div class="text-muted small">78.7% coverage</div>
-          </div>
-          <div class="col">
-            <div class="text-muted small text-uppercase">Programmes with Banner reference</div>
-            <div class="metric-value">568</div>
-            <div class="text-muted small">76.4% coverage</div>
-          </div>
-          <div class="col">
-            <div class="text-muted small text-uppercase">Banner &amp; Akari overlap</div>
-            <div class="metric-value">479</div>
-            <div class="text-muted small">64.5% coverage</div>
-          </div>
-        </div>
-        <div>
-          <div class="d-flex justify-content-between small text-muted">
-            <span>Programmes Missing from Banner vs Programmes already in Banner</span>
-            <span>195 missing • 548 in Banner</span>
-          </div>
-          <div class="progress" style="height:0.9rem;">
-            <div class="progress-bar progress-bar-missing" style="width:26.2%"></div>
-            <div class="progress-bar progress-bar-reviewed" style="width:73.8%"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card border-info mb-4">
-      <div class="card-body">
-        <h5 class="card-title">Programmes requiring January 2026 boards</h5>
-        <p class="section-note mb-3">Breakdown of the strict active cohort so downstream teams can prioritise Banner changes and verifications.</p>
-        <div class="row row-cols-1 row-cols-md-2 g-3">
-          <div class="col">
-            <div class="card h-100 border-info">
-              <div class="card-body">
-                <h6 class="card-title">Active programmes</h6>
-                <ul class="list-group list-group-flush mb-3">
-                  <li class="list-group-item d-flex justify-content-between"><span>Missing from Banner</span><span class="fw-semibold">35</span></li>
-                  <li class="list-group-item d-flex justify-content-between"><span>Already in Banner</span><span class="fw-semibold">59</span></li>
-                  <li class="list-group-item d-flex justify-content-between"><span class="fw-semibold">Total</span><span class="fw-semibold">94</span></li>
-                </ul>
-                <div class="subset-box text-muted small">
-                  <div class="d-flex justify-content-between"><span>Verification rows without Akari</span><span class="fw-semibold">5</span></div>
-                  <div class="d-flex justify-content-between"><span>Flagged wrong school</span><span class="fw-semibold">7</span></div>
-                  <hr>
-                  <p class="mb-1">Module comparison (Semester 1)</p>
-                  <div class="d-flex justify-content-between"><span>Banner modules</span><span class="fw-semibold">1,193</span></div>
-                  <div class="text-muted small mb-2">Modules missing credits: 0</div>
-                  <div class="d-flex justify-content-between"><span>Akari modules</span><span class="fw-semibold">530</span></div>
-                  <div class="text-muted small mb-2">Modules missing credits: 13</div>
-                  <div class="d-flex justify-content-between"><span>Difference</span><span class="fw-semibold text-danger">55.6%</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card h-100 border-info">
-              <div class="card-body">
-                <h6 class="card-title">Inactive programmes</h6>
-                <ul class="list-group list-group-flush mb-3">
-                  <li class="list-group-item d-flex justify-content-between"><span>Missing from Banner</span><span class="fw-semibold">0</span></li>
-                  <li class="list-group-item d-flex justify-content-between"><span>Already in Banner</span><span class="fw-semibold">12</span></li>
-                  <li class="list-group-item d-flex justify-content-between"><span class="fw-semibold">Total</span><span class="fw-semibold">12</span></li>
-                </ul>
-                <div class="subset-box text-muted small">
-                  <div class="d-flex justify-content-between"><span>Verification rows without Akari</span><span class="fw-semibold">1</span></div>
-                  <div class="d-flex justify-content-between"><span>Flagged wrong school</span><span class="fw-semibold">2</span></div>
-                  <hr>
-                  <p class="mb-1">Module comparison (Semester 1)</p>
-                  <div class="d-flex justify-content-between"><span>Banner modules</span><span class="fw-semibold">117</span></div>
-                  <div class="text-muted small mb-2">Modules missing credits: 0</div>
-                  <div class="d-flex justify-content-between"><span>Akari modules</span><span class="fw-semibold">67</span></div>
-                  <div class="text-muted small mb-2">Modules missing credits: 2</div>
-                  <div class="d-flex justify-content-between"><span>Difference</span><span class="fw-semibold text-danger">42.7%</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="text-muted small mt-3 mb-0"><strong>Combined</strong> – 106 programmes requiring January boards.</p>
-      </div>
-    </div>
-
-    <div class="card border-secondary mb-4">
-      <div class="card-body">
-        <div class="accordion" id="nonboardAccordion">
-          <div class="accordion-item border-0">
-            <h2 class="accordion-header" id="nonboardHeading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nonboardCollapse" aria-expanded="false" aria-controls="nonboardCollapse">
-                Programmes not requiring January boards
-              </button>
-            </h2>
-            <div id="nonboardCollapse" class="accordion-collapse collapse" aria-labelledby="nonboardHeading" data-bs-parent="#nonboardAccordion">
-              <div class="accordion-body">
-                <p class="section-note mb-3">Wider cohort already tracked in Stage 3 but not prioritised for January boards.</p>
-                <div class="row row-cols-1 row-cols-md-2 g-3">
-                  <div class="col">
-                    <div class="card h-100 border-secondary">
-                      <div class="card-body">
-                        <h6 class="card-title">Active programmes</h6>
-                        <ul class="list-group list-group-flush mb-3">
-                          <li class="list-group-item d-flex justify-content-between"><span>Missing from Banner</span><span class="fw-semibold">128</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span>Already in Banner</span><span class="fw-semibold">345</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span class="fw-semibold">Total</span><span class="fw-semibold">473</span></li>
-                        </ul>
-                        <div class="subset-box text-muted small">
-                          <div class="d-flex justify-content-between"><span>Verification rows without Akari</span><span class="fw-semibold">39</span></div>
-                          <div class="d-flex justify-content-between"><span>Flagged wrong school</span><span class="fw-semibold">27</span></div>
-                          <hr>
-                          <p class="mb-1">Module comparison (Semester 1)</p>
-                          <div class="d-flex justify-content-between"><span>Banner modules</span><span class="fw-semibold">9,976</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 0</div>
-                          <div class="d-flex justify-content-between"><span>Akari modules</span><span class="fw-semibold">3,930</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 232</div>
-                          <div class="d-flex justify-content-between"><span>Difference</span><span class="fw-semibold text-danger">60.6%</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="card h-100 border-secondary">
-                      <div class="card-body">
-                        <h6 class="card-title">Inactive programmes</h6>
-                        <ul class="list-group list-group-flush mb-3">
-                          <li class="list-group-item d-flex justify-content-between"><span>Missing from Banner</span><span class="fw-semibold">32</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span>Already in Banner</span><span class="fw-semibold">132</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span class="fw-semibold">Total</span><span class="fw-semibold">164</span></li>
-                        </ul>
-                        <div class="subset-box text-muted small">
-                          <div class="d-flex justify-content-between"><span>Verification rows without Akari</span><span class="fw-semibold">38</span></div>
-                          <div class="d-flex justify-content-between"><span>Flagged wrong school</span><span class="fw-semibold">11</span></div>
-                          <hr>
-                          <p class="mb-1">Module comparison (Semester 1)</p>
-                          <div class="d-flex justify-content-between"><span>Banner modules</span><span class="fw-semibold">1,509</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 0</div>
-                          <div class="d-flex justify-content-between"><span>Akari modules</span><span class="fw-semibold">993</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 80</div>
-                          <div class="d-flex justify-content-between"><span>Difference</span><span class="fw-semibold text-danger">34.2%</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p class="text-muted small mt-3 mb-0"><strong>Combined</strong> – 637 programmes that do not require January boards.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="card border-light mb-4">
-      <div class="card-body">
-        <div class="accordion" id="summaryAccordion">
-          <div class="accordion-item border-0">
-            <h2 class="accordion-header" id="summaryHeading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#summaryCollapse" aria-expanded="false" aria-controls="summaryCollapse">
-                Totals by programme status
-              </button>
-            </h2>
-            <div id="summaryCollapse" class="accordion-collapse collapse" aria-labelledby="summaryHeading" data-bs-parent="#summaryAccordion">
-              <div class="accordion-body">
-                <p class="section-note mb-3">Overall strict counts split by active vs inactive programmes with the same module comparisons shown earlier.</p>
-                <div class="row row-cols-1 row-cols-md-2 g-3">
-                  <div class="col">
-                    <div class="card summary-card-active">
-                      <div class="card-body">
-                        <h6 class="card-title">Active programmes summary</h6>
-                        <ul class="list-group list-group-flush mb-3">
-                          <li class="list-group-item d-flex justify-content-between"><span>Missing from Banner</span><span class="fw-semibold">163</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span>Already in Banner</span><span class="fw-semibold">404</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span class="fw-semibold">Total</span><span class="fw-semibold">567</span></li>
-                        </ul>
-                        <div class="subset-box text-muted small">
-                          <div class="d-flex justify-content-between"><span>Verification rows without Akari</span><span class="fw-semibold">44</span></div>
-                          <div class="d-flex justify-content-between"><span>Flagged wrong school</span><span class="fw-semibold">34</span></div>
-                          <hr>
-                          <p class="mb-1">Module comparison (Semester 1)</p>
-                          <div class="d-flex justify-content-between"><span>Banner modules</span><span class="fw-semibold">11,169</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 0</div>
-                          <div class="d-flex justify-content-between"><span>Akari modules</span><span class="fw-semibold">4,460</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 245</div>
-                          <div class="d-flex justify-content-between"><span>Difference</span><span class="fw-semibold text-danger">60.1%</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <div class="card summary-card-inactive">
-                      <div class="card-body">
-                        <h6 class="card-title">Inactive programmes summary</h6>
-                        <ul class="list-group list-group-flush mb-3">
-                          <li class="list-group-item d-flex justify-content-between"><span>Missing from Banner</span><span class="fw-semibold">32</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span>Already in Banner</span><span class="fw-semibold">144</span></li>
-                          <li class="list-group-item d-flex justify-content-between"><span class="fw-semibold">Total</span><span class="fw-semibold">176</span></li>
-                        </ul>
-                        <div class="subset-box text-muted small">
-                          <div class="d-flex justify-content-between"><span>Verification rows without Akari</span><span class="fw-semibold">39</span></div>
-                          <div class="d-flex justify-content-between"><span>Flagged wrong school</span><span class="fw-semibold">13</span></div>
-                          <hr>
-                          <p class="mb-1">Module comparison (Semester 1)</p>
-                          <div class="d-flex justify-content-between"><span>Banner modules</span><span class="fw-semibold">1,626</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 0</div>
-                          <div class="d-flex justify-content-between"><span>Akari modules</span><span class="fw-semibold">1,060</span></div>
-                          <div class="text-muted small mb-2">Modules missing credits: 82</div>
-                          <div class="d-flex justify-content-between"><span>Difference</span><span class="fw-semibold text-danger">34.8%</span></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="align-self-start">
+        <a class="btn btn-outline-secondary" href="index.html">Back to index</a>
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <div class="card mb-4">
+    <div class="card-body">
+        <div class="row row-cols-1 row-cols-md-2 g-3 mt-2">
+        </div>
+    </div>
+  </div>
+  </div>
 </body>
 </html>
