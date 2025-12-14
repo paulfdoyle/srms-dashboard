@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BugMgmt Issues</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .hero { background:#fff; padding:24px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:20px; }
+    .card-flat { border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,0.04); }
+    .table thead th { background:#f8fafc; font-size:13px; }
+    .badge-pill { border-radius:999px; }
+    .status-open { background:#fee2e2; color:#991b1b; }
+    .status-in_progress { background:#e0f2fe; color:#075985; }
+    .status-closed { background:#dcfce7; color:#166534; }
+    .severity-critical { background:#581c87; color:#f8fafc; }
+    .severity-major { background:#b91c1c; color:#fef2f2; }
+    .severity-minor { background:#92400e; color:#fffbeb; }
+    .summary-badge { font-size:13px; }
+    .summary-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); border-radius:12px; }
+    .filter-hint { font-size:12px; color:#6c757d; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid px-0">
+    <div class="hero d-flex justify-content-between flex-wrap gap-3 align-items-start">
+      <div>
+        <h1 class="h4 mb-1">BugMgmt Issues</h1>
+        <div class="text-muted small">Repo-local tracker (offline) · PII-free only · Deterministic sort by status → project → severity → ID</div>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-secondary-subtle text-secondary-emphasis summary-badge" id="totalCount"></span>
+        <a class="btn btn-outline-secondary btn-sm" href="index.html">Back to index</a>
+      </div>
+    </div>
+
+    <div class="card card-flat mb-3">
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-sm-6 col-lg-2">
+            <label class="form-label small mb-1" for="project">Project</label>
+            <select id="project" class="form-select form-select-sm"></select>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <label class="form-label small mb-1" for="status">Status</label>
+            <select id="status" class="form-select form-select-sm"></select>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <label class="form-label small mb-1" for="severity">Severity</label>
+            <select id="severity" class="form-select form-select-sm"></select>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <label class="form-label small mb-1" for="phase">Phase</label>
+            <select id="phase" class="form-select form-select-sm"></select>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <label class="form-label small mb-1" for="stage">Stage</label>
+            <select id="stage" class="form-select form-select-sm"></select>
+          </div>
+          <div class="col-sm-6 col-lg-2">
+            <label class="form-label small mb-1" for="search">Search</label>
+            <input id="search" class="form-control form-control-sm" placeholder="Search text..." />
+          </div>
+          <div class="col-sm-6 col-lg-2 d-flex align-items-end justify-content-end">
+            <button id="resetFilters" class="btn btn-outline-secondary btn-sm w-100">Reset filters</button>
+          </div>
+        </div>
+        <div class="filter-hint mt-2">Source: issues/issues.jsonl · Regenerate via <code>python scripts/issues.py build-report</code></div>
+      </div>
+    </div>
+
+    <div class="row g-2 mb-3" id="summaryRow"></div>
+
+    <div class="card card-flat">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-sm mb-0 align-middle">
+            <thead>
+              <tr>
+                <th style="width: 120px;">ID</th>
+                <th style="width: 110px;">Status</th>
+                <th style="width: 110px;">Severity</th>
+                <th style="width: 110px;">Project</th>
+                <th style="width: 90px;">Phase</th>
+                <th style="width: 110px;">Stage</th>
+                <th style="width: 220px;">Area</th>
+                <th style="min-width: 420px;">Details</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const JSON_PATH = "../json-data/bugmgmt_issues.json";
+    const FALLBACK_ISSUES = [{"id": "BUG-2025-12-001", "project": "uibuilder", "area": "UI builder JSON safety", "phase": "05", "stage": "akari_r27_diff", "status": "closed", "severity": "major", "symptom": "Viewer JSON payloads can include NaN/Infinity, causing JSON.parse failures in browsers.", "root_cause": "Non-finite values not coerced before serialization in builder.", "proposed_fix": "Coerce NaN/Infinity to null/defaults and add JSON.parse smoke test in build step.", "qa_repro": "Run builder then attempt JSON.parse on emitted payload; page fails to load when NaN present.", "stage_action_link": "DOCS/projects/uibuilder/phases/phase05/actions/uibuilder_phase05_stage_akari_r27_diff_action.md", "pr_link": "", "opened_by": "QA", "opened_at": "2025-12-14", "owner": "", "qa_owner": "", "date_closed": "2025-12-14", "notes": "", "events": [{"ts": "2025-12-14T21:03:34Z", "actor": "QA", "action": "opened", "notes": "created via CLI"}, {"ts": "2025-12-14T21:23:25Z", "actor": "QA", "action": "update", "notes": "Bulk close per request"}]}, {"id": "BUG-2025-12-002", "project": "uibuilder", "area": "Build pipeline data freshness", "phase": "05", "stage": "akari_r27_diff", "status": "closed", "severity": "major", "symptom": "Stage 2 builds sometimes use stale databases leading to mismatched counts vs legacy outputs.", "root_cause": "Builder runs proceed against outdated databases/argos.db without confirming report_runs row counts.", "proposed_fix": "Check DB timestamp/report_runs before builds; rerun ingest when counts diverge; log selected run id in output.", "qa_repro": "Build using an older argos.db then compare counts to legacy HTML; mismatches appear.", "stage_action_link": "DOCS/projects/uibuilder/phases/phase05/actions/uibuilder_phase05_stage_akari_r27_diff_action.md", "pr_link": "", "opened_by": "QA", "opened_at": "2025-12-14", "owner": "", "qa_owner": "", "date_closed": "2025-12-14", "notes": "", "events": [{"ts": "2025-12-14T21:03:41Z", "actor": "QA", "action": "opened", "notes": "created via CLI"}, {"ts": "2025-12-14T21:23:29Z", "actor": "QA", "action": "update", "notes": "Bulk close per request"}]}, {"id": "UIB-2025-12-001", "project": "uibuilder", "phase": "05", "stage": "akari_r27_diff", "area": "Stage2 Akari vs Banner diff", "status": "closed", "severity": "major", "symptom": "Full-year (FY/1&2) modules appear in Akari catalogue but are missing from Stage 2 diff output.", "root_cause": "Akari and Banner loaders normalize semesters then drop anything not exactly '1', excluding FY modules.", "proposed_fix": "Allow semesters 1 and 1&2/FY in both loaders; keep normalization aligned; log module counts by semester before building diff.", "qa_repro": "Compare Akari catalogue vs Stage2 diff; note FY modules present only in Akari; loaders filter out FY rows.", "stage_action_link": "DOCS/projects/uibuilder/phases/phase05/actions/uibuilder_phase05_stage_akari_r27_diff_action.md", "pr_link": "", "opened_by": "QA", "opened_at": "2025-12-14", "owner": "", "qa_owner": "", "date_closed": "2025-12-14", "notes": "", "events": [{"ts": "2025-12-14T00:00:00Z", "actor": "QA", "action": "opened", "notes": ""}, {"ts": "2025-12-14T22:47:31Z", "actor": "QA", "action": "update", "notes": "Marked fixed per request"}]}, {"id": "UIB-2025-12-003", "project": "uibuilder", "area": "Stage2 Akari vs Banner diff", "phase": "05", "stage": "akari_r27_diff", "status": "closed", "severity": "major", "symptom": "Full-year (1&2/FY) modules are filtered out on the Akari loader so Banner rows show as banner-only (e.g., TU204 MECH 9018 appears banner-only)", "root_cause": "_load_akari_modules normalises semesters then skips any sem != '1', dropping FY/1&2 rows while Banner keeps part_of_term=1 rows, leading to misalignment", "proposed_fix": "Allow semesters 1 and 1&2/FY in both Akari and Banner loaders; keep semester normalisation consistent; rebuild diff", "qa_repro": "Open UI/viewer_stage2_akari_r27_diff.html → TU204 → Year 1; MECH 9018 shows in banner-only. Inspect argos: Akari has MECH 9018 as Semester 1 & 2; loader filters it out.", "stage_action_link": "DOCS/projects/uibuilder/phases/phase05/actions/uibuilder_phase05_stage_akari_r27_diff_action.md", "pr_link": "", "opened_by": "QA", "opened_at": "2025-12-14", "owner": "", "qa_owner": "", "date_closed": "2025-12-14", "notes": "", "events": [{"ts": "2025-12-14T22:33:23Z", "actor": "QA", "action": "opened", "notes": "created via CLI"}, {"ts": "2025-12-14T22:44:07Z", "actor": "Dev", "action": "update", "notes": "Include full-year (1&2/FY) semesters in Akari/Banner loaders; rebuilt via python -m sourcecode.uibuilder --build-stage2-akari-r27-diff"}, {"ts": "2025-12-14T22:47:35Z", "actor": "QA", "action": "update", "notes": "Marked fixed per request"}]}, {"id": "BUG-2025-12-003", "project": "uibuilder", "area": "Module dedupe/labeling", "phase": "05", "stage": "akari_r27_diff", "status": "closed", "severity": "minor", "symptom": "Duplicate module rows differing only by title confuse CRN/credits totals in Stage 2 diff.", "root_cause": "Loader keeps title variants without a default suppression toggle, so duplicates surface in totals.", "proposed_fix": "Keep UI toggle to suppress title-only duplicates default-on and log counts per mode; clarify in viewer copy.", "qa_repro": "Compare totals with/without duplicates by toggling suppression; totals shift when duplicates remain.", "stage_action_link": "DOCS/projects/uibuilder/phases/phase05/actions/uibuilder_phase05_stage_akari_r27_diff_action.md", "pr_link": "", "opened_by": "QA", "opened_at": "2025-12-14", "owner": "", "qa_owner": "", "date_closed": "2025-12-14", "notes": "", "events": [{"ts": "2025-12-14T21:03:47Z", "actor": "QA", "action": "opened", "notes": "created via CLI"}, {"ts": "2025-12-14T21:23:33Z", "actor": "QA", "action": "update", "notes": "Bulk close per request"}]}, {"id": "UIB-2025-12-002", "project": "uibuilder", "area": "Stage2 Akari vs Banner diff", "phase": "05", "stage": "akari_r27_diff", "status": "closed", "severity": "minor", "symptom": "Akari badge shows 'Akari not OK' when Akari flags are all Yes if diff has Banner-missing rows (e.g., TU225 year 1)", "root_cause": "Badge logic checks diff rows and marks Akari not OK whenever any status != ok, so Banner gaps override Akari CSV flags", "proposed_fix": "Drive Akari badge solely from Akari flags/status (akari_status_code); separate any Banner-missing indicator if needed, but don't downgrade Akari badge for Banner gaps", "qa_repro": "Open UI/viewer_stage2_akari_r27_diff.html, pick School of Architecture, Building and Environment -> TU225 -> Year 1; badge reads Akari not OK even though Akari_sem1/sem2/yearlong/assessments are Yes; missing_banner rows in diff trigger the badge", "stage_action_link": "DOCS/projects/uibuilder/phases/phase05/actions/uibuilder_phase05_stage_akari_r27_diff_action.md", "pr_link": "", "opened_by": "QA", "opened_at": "2025-12-14", "owner": "", "qa_owner": "", "date_closed": "2025-12-14", "notes": "", "events": [{"ts": "2025-12-14T21:49:09Z", "actor": "QA", "action": "opened", "notes": "created via CLI"}, {"ts": "2025-12-14T22:41:03Z", "actor": "Dev", "action": "update", "notes": "Akari badge now uses akari_status_code only, added Banner gaps badge, rebuilt with python -m sourcecode.uibuilder --build-stage2-akari-r27-diff"}, {"ts": "2025-12-14T22:42:37Z", "actor": "QA", "action": "update", "notes": "Marked fixed per request"}]}];
+    const severityWeight = { critical: 0, major: 1, minor: 2 };
+
+    let ISSUES = [];
+
+    const els = {
+      project: document.getElementById("project"),
+      phase: document.getElementById("phase"),
+      stage: document.getElementById("stage"),
+      status: document.getElementById("status"),
+      severity: document.getElementById("severity"),
+      search: document.getElementById("search"),
+      tableBody: document.getElementById("table-body"),
+      summaryRow: document.getElementById("summaryRow"),
+      totalCount: document.getElementById("totalCount"),
+    };
+
+    function statusScore(item) {
+      const key = norm(item.status).toLowerCase().replace(/\s+/g, "_");
+      const map = { open: 0, in_progress: 1, closed: 2 };
+      return (key in map) ? map[key] : 99;
+    }
+
+    function severityScore(item) {
+      const map = { critical: 0, major: 1, minor: 2 };
+      const key = norm(item.severity).toLowerCase();
+      return (key in map) ? map[key] : 99;
+    }
+
+    function closureNote(issue) {
+      if (normLower(issue.status) !== "closed") return "";
+      if (issue.close_note) return esc(issue.close_note);
+      if (Array.isArray(issue.events)) {
+        const lastWithNote = [...issue.events].reverse().find(evt => evt && evt.notes);
+        if (lastWithNote && lastWithNote.notes) return esc(lastWithNote.notes);
+      }
+      return "";
+    }
+
+    function sortIssues(list) {
+      return [...list].sort((a, b) => {
+        const aStatus = statusScore(a);
+        const bStatus = statusScore(b);
+        if (aStatus !== bStatus) return aStatus - bStatus;
+
+        const aProj = norm(a.project);
+        const bProj = norm(b.project);
+        if (aProj !== bProj) return aProj.localeCompare(bProj);
+
+        const aSev = severityScore(a);
+        const bSev = severityScore(b);
+        if (aSev !== bSev) return aSev - bSev;
+
+        return norm(a.id).localeCompare(norm(b.id));
+      });
+    }
+
+    const norm = (val) => (val === null || val === undefined) ? "" : String(val).trim();
+    const normLower = (val) => norm(val).toLowerCase();
+    function toStatusKey(status) {
+      return norm(status).toLowerCase().replace(/\s+/g, "_") || "open";
+    }
+
+    function uniqValues(key) {
+      const vals = new Set();
+      ISSUES.forEach(i => {
+        const v = norm(i[key]);
+        if (v) vals.add(v);
+      });
+      return Array.from(vals).sort();
+    }
+
+    function setOptions(select, values) {
+      const opts = ['<option value="">All</option>'].concat(values.map(v => `<option value="${v}">${v}</option>`));
+      select.innerHTML = opts.join("");
+      select.value = "";
+    }
+
+    function esc(text) {
+      return (text === null || text === undefined) ? "" : String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function badgeForStatus(status) {
+      const key = toStatusKey(status);
+      return `<span class="badge badge-pill status-${key}">${esc(status || "open")}</span>`;
+    }
+
+    function badgeForSeverity(sev) {
+      const key = (sev || "").toLowerCase();
+      const cls = key === "critical" ? "severity-critical" : key === "major" ? "severity-major" : "severity-minor";
+      return `<span class="badge badge-pill ${cls} text-uppercase">${esc(sev || "-")}</span>`;
+    }
+
+    function filterIssues() {
+      const search = normLower(els.search.value);
+      return ISSUES.filter(i => {
+        if (els.project.value && normLower(i.project) !== normLower(els.project.value)) return false;
+        if (els.phase.value && normLower(i.phase) !== normLower(els.phase.value)) return false;
+        if (els.stage.value && normLower(i.stage) !== normLower(els.stage.value)) return false;
+        if (els.status.value && normLower(i.status) !== normLower(els.status.value)) return false;
+        if (els.severity.value && normLower(i.severity) !== normLower(els.severity.value)) return false;
+        if (search) {
+          const blob = JSON.stringify(i).toLowerCase();
+          if (!blob.includes(search)) return false;
+        }
+        return true;
+      });
+    }
+
+    function renderSummary(list) {
+      const total = ISSUES.length;
+      const open = list.filter(i => (i.status || "").toLowerCase() === "open").length;
+      const inProgress = list.filter(i => (i.status || "").toLowerCase() === "in_progress").length;
+      const closed = list.filter(i => (i.status || "").toLowerCase() === "closed").length;
+      els.totalCount.textContent = `${list.length} shown / ${total} total`;
+      els.summaryRow.innerHTML = `
+        <div class="col-sm-4 col-lg-2">
+          <div class="card summary-card h-100">
+            <div class="card-body py-2">
+              <div class="text-muted small">Open</div>
+              <div class="h6 mb-0">${open}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-lg-2">
+          <div class="card summary-card h-100">
+            <div class="card-body py-2">
+              <div class="text-muted small">In Progress</div>
+              <div class="h6 mb-0">${inProgress}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 col-lg-2">
+          <div class="card summary-card h-100">
+            <div class="card-body py-2">
+              <div class="text-muted small">Closed</div>
+              <div class="h6 mb-0">${closed}</div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderTable(list) {
+      els.tableBody.innerHTML = list.map(i => {
+        return `
+          <tr>
+            <td class="fw-semibold">${esc(i.id)}</td>
+            <td>${badgeForStatus(i.status)}</td>
+            <td>${badgeForSeverity(i.severity)}</td>
+            <td>${esc(i.project)}</td>
+            <td>${esc(i.phase)}</td>
+            <td>${esc(i.stage)}</td>
+            <td>
+              <div class="fw-semibold">${esc(i.area)}</div>
+              <div class="small text-muted">${esc(i.symptom)}</div>
+            </td>
+            <td>
+              <div><strong>Root cause:</strong> ${esc(i.root_cause)}</div>
+              <div><strong>Proposed fix:</strong> ${esc(i.proposed_fix)}</div>
+              <div><strong>QA repro:</strong> ${esc(i.qa_repro)}</div>
+              ${closureNote(i) ? `<div><strong>Closure note:</strong> ${closureNote(i)}</div>` : ""}
+              <div class="small text-muted mt-1">Opened: ${esc(i.opened_at)}${i.date_closed ? " · Closed: " + esc(i.date_closed) : ""}</div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    function render() {
+      const list = filterIssues();
+      renderSummary(list);
+      renderTable(list);
+    }
+
+    async function loadIssues() {
+      if (!JSON_PATH) {
+        ISSUES = sortIssues(FALLBACK_ISSUES);
+        return;
+      }
+      try {
+        const res = await fetch(JSON_PATH);
+        if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+        const parsed = await res.json();
+        if (!Array.isArray(parsed)) throw new Error("Unexpected payload");
+        ISSUES = sortIssues(parsed);
+      } catch (err) {
+        console.warn("Using inline fallback issues due to fetch error:", err);
+        ISSUES = sortIssues(FALLBACK_ISSUES);
+      }
+    }
+
+    async function init() {
+      await loadIssues();
+      setOptions(els.project, uniqValues("project"));
+      setOptions(els.phase, uniqValues("phase"));
+      setOptions(els.stage, uniqValues("stage"));
+      setOptions(els.status, uniqValues("status"));
+      setOptions(els.severity, uniqValues("severity"));
+      [els.project, els.phase, els.stage, els.status, els.severity].forEach(el => {
+        el.addEventListener("change", render);
+        el.addEventListener("input", render);
+      });
+      els.search.addEventListener("input", render);
+      const resetBtn = document.getElementById("resetFilters");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", (evt) => {
+          evt.preventDefault();
+          els.project.value = "";
+          els.phase.value = "";
+          els.stage.value = "";
+          els.status.value = "";
+          els.severity.value = "";
+          els.search.value = "";
+          render();
+        });
+      }
+      render();
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>
