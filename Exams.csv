@@ -1,270 +1,270 @@
-School,Programme,ProgrammeTitle,Year,AkariStatus,Students,ExpectedStudents,CrosswalkedProgramme,StudentsCrosswalked
-Conservatoire,TU388,M.Mus (Performance/Conducting),1,AkariOK,16,1,TU388,16
-Graduate Business School,TU353A,MBA,1,AkariCheckRequired,0,10,TU353,14
-Graduate Business School,TU353A,MBA,2,AkariCheckRequired,0,10,TU353,9
-Graduate Business School,TU423A,MBA Life Sciences Leadership Jan entry,1,AkariCheckRequired,0,10,TU423,4
-Graduate Business School,TU423A,MBA Life Sciences Leadership Jan entry,2,AkariCheckRequired,0,10,TU423,1
-Language Studies,TU965,Intl Business and Languages,1,AkariOK,65,1,TU965,65
-Language Studies,TU965,Intl Business and Languages,2,AkariOK,69,1,TU965,69
-Language Studies,TU965,Intl Business and Languages,3,AkariOK,65,1,TU965,65
-Language Studies,TU965,Intl Business and Languages,4,AkariOK,60,1,TU965,60
-"School of Accounting, Economics & Finance",TU243,Post Graduate Diploma in Professional Accountancy,1,AkariOK,0,110,TU243,0
-"School of Accounting, Economics & Finance",TU304,PG Dip Accounting,1,AkariOK,33,3,TU304,33
-"School of Accounting, Economics & Finance",TU318,MSc in Finance,1,AkariOK,40,3,TU318,40
-"School of Accounting, Economics & Finance",TU324,MBS International Accounting,1,AkariOK,24,3,TU324,24
-"School of Accounting, Economics & Finance",TU324,MBS International Accounting,2,AkariOK,0,3,TU324,0
-"School of Accounting, Economics & Finance",TU442,Masters in International Strategic Accountancy (add-on) (Masters Research (Postgraduate)),2,AkariOK,0,2,TU442,0
-"School of Accounting, Economics & Finance",TU5541,Diploma Fintech Risk & Complia,1,AkariOK,37,60,TU5541,37
-"School of Accounting, Economics & Finance",TU5547,Higher Diploma in Business in Regulatory Risk & Compliance,1,AkariOK,0,64,TU5547,0
-"School of Accounting, Economics & Finance",TU905,Economics and Finance,1,AkariOK,63,1,TU905,63
-"School of Accounting, Economics & Finance",TU905,Economics and Finance,2,AkariOK,52,1,TU905,52
-"School of Accounting, Economics & Finance",TU905,Economics and Finance,3,AkariOK,56,1,TU905,56
-"School of Architecture, Building and Environment",TU205,Sustainable Development,1,AkariOK,39,8,TU205,39
-"School of Architecture, Building and Environment",TU207,MSc in Sustainable Development,1,AkariOK,31,TBC,TU207,31
-"School of Architecture, Building and Environment",TU225,Spatial Planning,1,AkariOK,13,11,TU225,13
-"School of Architecture, Building and Environment",TU225,Spatial Planning,2,AkariOK,13,11,TU225,13
-"School of Architecture, Building and Environment",TU225,Spatial Planning,3,AkariOK,11,11,TU225,11
-"School of Architecture, Building and Environment",TU226,Sustainable Trans and Mobility,1,AkariOK,0,9,TU226,0
-"School of Architecture, Building and Environment",TU226,Sustainable Trans and Mobility,2,AkariOK,0,9,TU226,0
-"School of Architecture, Building and Environment",TU228,Urban Regeneration and Develop,1,AkariOK,0,1,TU228,0
-"School of Architecture, Building and Environment",TU228,Urban Regeneration and Develop,2,AkariOK,0,1,TU228,0
-"School of Architecture, Building and Environment",TU282,Master of Architecture,1,AkariCheckRequired,18,17,TU282,18
-"School of Architecture, Building and Environment",TU282,Master of Architecture,2,AkariCheckRequired,17,17,TU282,17
-"School of Architecture, Building and Environment",TU411,PDip Architectural Practice,1,AkariOK,87,40,TU411,87
-"School of Architecture, Building and Environment",TU414,MSc Building Performance (EED),1,AkariOK,0,4,TU414,0
-"School of Architecture, Building and Environment",TU414,MSc Building Performance (EED),2,AkariOK,0,4,TU414,0
-"School of Architecture, Building and Environment",TU414,MSc Building Performance (EED),3,AkariOK,0,4,TU414,0
-School of Art & Design,TU151D,Diploma in Painting and Drawing,1,AkariOK,5,TBC,TU151D,5
-School of Art & Design,TU151D,Diploma in Painting and Drawing,2,AkariOK,0,TBC,TU151D,0
-School of Art & Design,TU381,Graphic Design Practice,1,AkariOK,11,12,TU381,11
-School of Art & Design,TU481,Professional Design Practice,1,AkariOK,0,6,TU481,0
-"School of Biological, Health & Sports Sciences",TU088,HDip in Medical science,1,AkariOK,4,6,TU088,4
-"School of Biological, Health & Sports Sciences",TU088,HDip in Medical science,2,AkariOK,1,6,TU088,1
-"School of Biological, Health & Sports Sciences",TU088,HDip in Medical science,3,AkariOK,0,6,TU088,0
-"School of Biological, Health & Sports Sciences",TU888,Higher Diploma in Medical Science,1,AkariOK,0,7,TU088,4
-"School of Biological, Health & Sports Sciences",TU888,Higher Diploma in Medical Science,2,AkariOK,0,7,TU088,1
-"School of Biological, Health & Sports Sciences",TU287,MSc Clin Lab Sci,1,AkariOK,26,2,TU287,26
-"School of Biological, Health & Sports Sciences",TU287,MSc Clin Lab Sci,2,AkariOK,4,2,TU287,4
-"School of Biological, Health & Sports Sciences",TU751,Biosciences,1,AkariOK,65,4,TU751,65
-"School of Biological, Health & Sports Sciences",TU751,Biosciences,2,AkariOK,38,4,TU751,38
-"School of Biological, Health & Sports Sciences",TU886,BSc Hons Biomolecular Science,4,AkariOK,17,2,TU886,17
-"School of Business Technology, Retail & Supply Chain",TU676,Retail Mgt and Marketing,1,AkariCheckRequired,0,1,TU676,0
-"School of Business Technology, Retail & Supply Chain",TU676,Retail Mgt and Marketing,2,AkariCheckRequired,1,1,TU676,1
-"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,1,AkariCheckRequired,50,1,TU914,50
-"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,2,AkariCheckRequired,36,1,TU914,36
-"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,3,AkariCheckRequired,42,1,TU914,42
-"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,4,AkariCheckRequired,36,1,TU914,36
-School of Chemical & BioPharmaceutical Sciences,TU062,Process Technologies,1,AkariCheckRequired,69,17,TU062,69
-School of Chemical & BioPharmaceutical Sciences,TU065,B.Sc.Pharmaceutical Technology,1,AkariCheckRequired,15,1,TU065,15
-School of Chemical & BioPharmaceutical Sciences,TU070,H.Dip. Food Science & Tech,1,AkariCheckRequired,27,7,TU070,27
-School of Chemical & BioPharmaceutical Sciences,TU071,Higher Diploma in Science,1,AkariCheckRequired,43,1,TU071,43
-School of Chemical & BioPharmaceutical Sciences,TU5308,Manufacture of Med Products,1,AkariCheckRequired,0,11,TU1157,0
-School of Chemical & BioPharmaceutical Sciences,TU5308,Manufacture of Med Products,2,AkariCheckRequired,0,11,TU1157,0
-School of Chemical & BioPharmaceutical Sciences,TU258,Pharm.QA and Regulation,1,AkariOK,31,5,TU258,31
-School of Chemical & BioPharmaceutical Sciences,TU258,Pharm.QA and Regulation,2,AkariOK,0,5,TU258,0
-School of Chemical & BioPharmaceutical Sciences,TU288,Pharm QA and Reg,1,AkariOK,32,7,TU288,32
-School of Chemical & BioPharmaceutical Sciences,TU288,Pharm QA and Reg,3,AkariOK,3,7,TU288,3
-School of Chemical & BioPharmaceutical Sciences,TU289,Pharmaceutical Validation Tech,1,AkariOK,0,15,TU289,0
-School of Chemical & BioPharmaceutical Sciences,TU289,Pharmaceutical Validation Tech,3,AkariOK,3,15,TU289,3
-School of Chemical & BioPharmaceutical Sciences,TU5262,Certificate in Microbiology,1,AkariOK,55,120,TU5262,55
-School of Chemical & BioPharmaceutical Sciences,TU5301,Cert in GMP & Pharmaceuticals,1,AkariOK,16,1,TU5301,16
-School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,1,AkariOK,24,27,TU851,24
-School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,2,AkariOK,19,27,TU851,19
-School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,3,AkariOK,30,27,TU851,30
-School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,4,AkariOK,35,27,TU851,35
-School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,1,AkariOK,29,21,TU852,29
-School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,2,AkariOK,29,21,TU852,29
-School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,3,AkariOK,22,21,TU852,22
-School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,4,AkariOK,37,21,TU852,37
-School of Computer Science,TU059,Computing,1,AkariOK,101,25,TU059,101
-School of Computer Science,TU059,Computing,2,AkariOK,11,25,TU059,11
-School of Computer Science,TU060,Master of Science in Computer Science,1,AkariOK,2,25,TU060,2
-School of Computer Science,TU060,Master of Science in Computer Science,2,AkariOK,10,25,TU060,10
-School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,1,AkariOK,30,10,TU082,30
-School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,2,AkariOK,24,10,TU082,24
-School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,3,AkariOK,14,10,TU082,14
-School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,4,AkariOK,11,10,TU082,11
-School of Computer Science,TU5353,PG Cert in Science in Applied Machine Learning,1,AkariOK,0,25,TU5353,0
-School of Computer Science,TU5353,PG Cert in Science in Applied Machine Learning,2,AkariOK,0,25,TU5353,0
-School of Computer Science,TU857,Comp Science (Infrastructure),3,AkariOK,0,5,TU856,209
-School of Computer Science,TU858,Computer Science International,3,AkariOK,3,2,TU856,209
-School of Electrical & Electronic Engineering,TU218,ME Sustainable Electric Energy,1,AkariOK,0,3,TU205,39
-School of Electrical & Electronic Engineering,TU218,ME Sustainable Electric Energy,2,AkariOK,0,3,TU205,1
-School of Electrical & Electronic Engineering,TU217,Energy Management,1,AkariOK,0,2,TU207,31
-School of Electrical & Electronic Engineering,TU217,Energy Management,2,AkariOK,0,2,TU207,2
-School of Electrical & Electronic Engineering,TU217,Energy Management,3,AkariOK,0,2,TU207,6
-"School of Enterprise, Computing & Digital Transformation",TU067,H.Dip. Science in Computing,1,AkariOK,85,12,TU067,85
-"School of Enterprise, Computing & Digital Transformation",TU067,H.Dip. Science in Computing,2,AkariOK,4,12,TU067,4
-"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,1,AkariCheckRequired,0,5,"TU068, TU068F",0
-"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,2,AkariCheckRequired,0,5,"TU068, TU068F",0
-"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,3,AkariCheckRequired,0,5,"TU068, TU068F",0
-"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,4,AkariCheckRequired,0,5,"TU068, TU068F",0
-"School of Enterprise, Computing & Digital Transformation","TU069, TU069F",Bachelor of Science (Honours) IT Management,4,AkariOK,0,5,"TU069, TU069F",0
-"School of Enterprise, Computing & Digital Transformation",TU090,B.Sc. Entr. Cloud Computing,1,AkariOK,0,5,TU090,0
-"School of Enterprise, Computing & Digital Transformation","TU098, TU098F",Bachelor of Science in Computing with Software Development,1,AkariOK,0,5,"TU098, TU098F",0
-"School of Enterprise, Computing & Digital Transformation","TU098, TU098F",Bachelor of Science in Computing with Software Development,2,AkariOK,0,5,"TU098, TU098F",0
-"School of Enterprise, Computing & Digital Transformation","TU098, TU098F",Bachelor of Science in Computing with Software Development,3,AkariOK,0,5,"TU098, TU098F",0
-"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,1,AkariOK,0,5,"TU099, TU099F",0
-"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,2,AkariOK,0,5,"TU099, TU099F",0
-"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,3,AkariOK,0,5,"TU099, TU099F",0
-"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,4,AkariOK,0,5,"TU099, TU099F",0
-"School of Enterprise, Computing & Digital Transformation",TU278,MSc. Applied IT Architecture,1,AkariOK,0,10,TU278,0
-"School of Enterprise, Computing & Digital Transformation",TU286,M.Sc.Computing Development Ope,1,AkariOK,0,12,TU286,0
-"School of Enterprise, Computing & Digital Transformation",TU5002,Cert in Strategic Project Mngt,1,AkariOK,0,45,TU5002,0
-"School of Enterprise, Computing & Digital Transformation",TU5354,"MC Ethics, Data & Future AI",1,AkariOK,11,79,TU5354,11
-"School of Enterprise, Computing & Digital Transformation",TU5517,Cert in Proj Mngt SP lvl 08,1,AkariOK,0,135,TU5517,0
-"School of Enterprise, Computing & Digital Transformation",TU652,Computing,2,AkariOK,11,2,TU652,11
-"School of Enterprise, Computing & Digital Transformation",TU756,Computing (General Entry),3,AkariOK,10,2,TU756,10
-"School of Enterprise, Computing & Digital Transformation",TU859,B.Sc. (Honours) Computing,4,AkariOK,57,2,TU859,57
-"School of Enterprise, Computing & Digital Transformation",TU861,Computing (Language),4,AkariOK,1,2,TU861,1
-"School of Enterprise, Computing & Digital Transformation",TU862,Comp - Mach Learn & Art Intel,4,AkariOK,8,2,TU862,8
-"School of Enterprise, Computing & Digital Transformation",TU865,Cloud Computing,4,AkariOK,10,2,TU865,10
-"School of Enterprise, Computing & Digital Transformation",TU066,B.Sc. (Honours) Cloud Computing with DevOps,1,AkariOK,0,5,TU865A,3
-School of Food Science & Environmental Health,TU657,Pharmacy Technician Studies,1,AkariOK,0,1,TU657,0
-School of Global Business,TU735,Sports Management and Coaching,1,AkariCheckRequired,38,4,TU735,38
-School of Global Business,TU735,Sports Management and Coaching,2,AkariCheckRequired,7,4,TU735,7
-School of Global Business,TU735,Sports Management and Coaching,3,AkariCheckRequired,17,4,TU735,17
-School of Global Business,TU771,Bachelor of Business,1,AkariCheckRequired,0,4,TU772,60
-School of Global Business,TU771,Bachelor of Business,2,AkariCheckRequired,0,4,TU772,19
-School of Global Business,TU771,Bachelor of Business,3,AkariCheckRequired,0,4,TU772,25
-School of Global Business,TU778,Bachelor of Business International Business,1,AkariCheckRequired,0,2,TU778,0
-School of Global Business,TU778,Bachelor of Business International Business,2,AkariCheckRequired,0,2,TU778,0
-School of Global Business,TU778,Bachelor of Business International Business,3,AkariCheckRequired,0,2,TU778,0
-School of Global Business,TU915,Bachelor of Business (Honours) International Business,1,AkariCheckRequired,0,1,TU915,0
-School of Global Business,TU915,Bachelor of Business (Honours) International Business,2,AkariCheckRequired,0,1,TU915,0
-School of Global Business,TU915,Bachelor of Business (Honours) International Business,3,AkariCheckRequired,0,1,TU915,0
-School of Global Business,TU915,Bachelor of Business (Honours) International Business,4,AkariCheckRequired,0,1,TU915,0
-School of Global Business,TU935,Sports Management and Coaching,1,AkariCheckRequired,52,1,TU935,52
-School of Global Business,TU935,Sports Management and Coaching,2,AkariCheckRequired,25,1,TU935,25
-School of Global Business,TU935,Sports Management and Coaching,3,AkariCheckRequired,32,1,TU935,32
-School of Global Business,TU935,Sports Management and Coaching,4,AkariCheckRequired,31,1,TU935,31
-School of Informatics & Cybersecurity,TU252M,Master of Science in Computing in Applied Cyber Security (Research),1,AkariOK,0,12,TU252M,0
-School of Informatics & Cybersecurity,TU252R,M.Sc. Comp Applied Cyber Sec,1,AkariCheckRequired,95,1,TU252R,95
-School of Informatics & Cybersecurity,TU5352_DS,Postgraduate Certificate in Computing in Cybersecurity,1,AkariOK,0,16,TU5352_DS,0
-School of Informatics & Cybersecurity,TU5352_DS,Postgraduate Certificate in Computing in Cybersecurity,2,AkariOK,0,16,TU5352_DS,0
-School of Informatics & Cybersecurity,TU5352_FS,Postgraduate Certificate in Cybersecurity (Forensic Specialist),1,AkariCheckRequired,0,7,TU5352_FS,0
-School of Informatics & Cybersecurity,TU655,Computing (Networking Techs),1,AkariOK,33,1,TU655,33
-School of Informatics & Cybersecurity,TU655,Computing (Networking Techs),2,AkariOK,18,1,TU655,18
-School of Informatics & Cybersecurity,TU757,Computing (Information Tech),1,AkariOK,21,1,TU757,21
-School of Informatics & Cybersecurity,TU757,Computing (Information Tech),2,AkariOK,22,1,TU757,22
-School of Informatics & Cybersecurity,TU757,Computing (Information Tech),3,AkariOK,15,1,TU757,15
-School of Informatics & Cybersecurity,TU860,Computing (Information Tech),1,AkariOK,32,2,TU860,32
-School of Informatics & Cybersecurity,TU860,Computing (Information Tech),2,AkariOK,30,2,TU860,30
-School of Informatics & Cybersecurity,TU860,Computing (Information Tech),3,AkariOK,36,2,TU860,36
-School of Informatics & Cybersecurity,TU860,Computing (Information Tech),4,AkariOK,45,2,TU860,45
-School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,1,AkariCheckRequired,97,2,TU863,97
-School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,2,AkariCheckRequired,76,2,TU863,76
-School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,3,AkariCheckRequired,71,2,TU863,71
-School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,4,AkariCheckRequired,67,2,TU863,67
-"School of Management, People & Organisations",TU133,Mgt and Aeronautical Studies,3,AkariCheckRequired,0,4,TU133,0
-"School of Management, People & Organisations",TU377,Human Resource Management,1,AkariOK,32,1,TU356,32
-"School of Management, People & Organisations",TU363,PG Dip in Product Management,1,AkariOK,19,20,TU363,19
-"School of Management, People & Organisations",TU364,MSc Product Management,1,AkariCheckRequired,2,4,TU364,2
-"School of Management, People & Organisations",TU673,Business Management,1,AkariCheckRequired,86,5,TU673,86
-"School of Management, People & Organisations",TU673,Business Management,2,AkariCheckRequired,59,5,TU673,59
-"School of Management, People & Organisations",TU906,Human Resource Management,1,AkariOK,69,2,TU906,69
-"School of Management, People & Organisations",TU906,Human Resource Management,2,AkariOK,72,2,TU906,72
-"School of Management, People & Organisations",TU906,Human Resource Management,3,AkariOK,52,2,TU906,52
-"School of Management, People & Organisations",TU906,Human Resource Management,4,AkariOK,70,2,TU906,70
-School of Marketing & Entrepreneurship,TU325A,Digital and Content Marketing,1,AkariOK,23,1,TU325A,23
-School of Marketing & Entrepreneurship,TU360,Management & Marketing,1,AkariOK,35,1,TU360,35
-School of Marketing & Entrepreneurship,TU356,Postgraduate Diploma in International sales,1,AkariOK,32,3,TU377,32
-School of Marketing & Entrepreneurship,TU356,Postgraduate Diploma in International sales,2,AkariOK,4,3,TU377,4
-School of Marketing & Entrepreneurship,TU922,Marketing,1,AkariOK,104,1,TU922,104
-School of Marketing & Entrepreneurship,TU922,Marketing,2,AkariOK,104,1,TU922,104
-School of Marketing & Entrepreneurship,TU922,Marketing,3,AkariOK,111,1,TU922,111
-School of Marketing & Entrepreneurship,TU922,Marketing,4,AkariOK,109,1,TU922,109
-School of Mathematics & Statistics,TU248,PG.Cert Applied Statistics,1,AkariOK,30,1,TU248,30
-School of Mathematics & Statistics,TU5294,Data Analysis for Profess,1,AkariOK,22,1,TU5294,22
-School of Mechanical Engineering,TU204,M.Eng. Mechanical Engineering,1,AkariOK,41,4,TU204,41
-School of Mechanical Engineering,TU606,H.Cert in Mech Engineering,1,AkariCheckRequired,0,1,TU606,0
-School of Mechanical Engineering,TU606,H.Cert in Mech Engineering,2,AkariCheckRequired,0,1,TU606,0
-School of Mechanical Engineering,TU701,Automation Engineering,1,AkariOK,45,3,TU701,45
-School of Mechanical Engineering,TU701,Automation Engineering,2,AkariOK,32,3,TU701,32
-School of Mechanical Engineering,TU701,Automation Engineering,3,AkariOK,11,3,TU701,11
-School of Mechanical Engineering,TU703,Building Engineering,1,AkariOK,52,2,TU703,52
-School of Mechanical Engineering,TU703,Building Engineering,2,AkariOK,40,2,TU703,40
-School of Mechanical Engineering,TU703,Building Engineering,3,AkariOK,23,2,TU703,23
-School of Mechanical Engineering,TU712,Bachelor of Engineering in Biomedical Design,1,AkariOK,0,2,TU725,34
-School of Mechanical Engineering,TU712,Bachelor of Engineering in Biomedical Design,2,AkariOK,0,2,TU725,5
-School of Mechanical Engineering,TU712,Bachelor of Engineering in Biomedical Design,3,AkariOK,0,2,TU725,13
-School of Mechanical Engineering,TU822,Bachelor of Engineering (Honours) in Mechanical Engineering,2,AkariOK,0,1,TU805,233
-School of Mechanical Engineering,TU822,Bachelor of Engineering (Honours) in Mechanical Engineering,3,AkariOK,1,1,TU805,282
-School of Mechanical Engineering,TU822,Bachelor of Engineering (Honours) in Mechanical Engineering,4,AkariOK,0,1,TU805,231
-School of Mechanical Engineering,TU825,Bachelor of Engineering (Honours) in Building Engineering,3,AkariOK,4,1,TU805,282
-School of Mechanical Engineering,TU825,Bachelor of Engineering (Honours) in Building Engineering,4,AkariOK,0,1,TU805,231
-School of Media,TU294,MSc in CDM&UX,1,AkariOK,25,10,TU294,25
-"School of Physics, Clinical & Optometric Sciences",TU761,Ophthalmic Dispensing,3,AkariCheckRequired,8,1,TU761,8
-"School of Social Sciences, Law & Education",TU321,Master of Arts in Criminology,1,AkariOK,10,10,TU321,10
-"School of Social Sciences, Law & Education",TU373,MA in Criminology,1,AkariOK,0,5,TU321,10
-"School of Social Sciences, Law & Education",TU373,MA in Criminology,2,AkariOK,0,5,TU321,0
-"School of Social Sciences, Law & Education",TU391,"M.A. Child, Family & Comm Stud",1,AkariOK,26,10,TU391,26
-"School of Social Sciences, Law & Education",TU392,"MA in Child, Family and Community Studies",1,AkariOK,0,5,TU391,26
-"School of Social Sciences, Law & Education",TU392,"MA in Child, Family and Community Studies",2,AkariOK,0,5,TU391,6
-"School of Social Sciences, Law & Education",TU394,MA in Social Care Leadership and Management,1,AkariOK,12,5,TU394,12
-"School of Social Sciences, Law & Education",TU394,MA in Social Care Leadership and Management,2,AkariOK,4,5,TU394,4
-"School of Social Sciences, Law & Education",TU609,Independent Living Skills,1,AkariOK,0,13,TU609,0
-"School of Social Sciences, Law & Education",TU609,Independent Living Skills,2,AkariOK,0,13,TU609,0
-School of Surveying & Construction Innovation,TU058,Eng/Dig C'struction Analytics,1,AkariOK,20,12,TU058,20
-School of Surveying & Construction Innovation,TU085,Property Economics,1,AkariOK,2,1,TU085,2
-School of Surveying & Construction Innovation,TU085,Property Economics,2,AkariOK,0,1,TU085,0
-School of Surveying & Construction Innovation,TU085,Property Economics,3,AkariOK,7,1,TU085,7
-School of Surveying & Construction Innovation,TU085,Property Economics,4,AkariOK,13,1,TU085,13
-School of Surveying & Construction Innovation,TU085,Property Economics,5,AkariOK,28,1,TU085,28
-School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,1,AkariOK,0,1,TU087,0
-School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,2,AkariOK,31,1,TU087,31
-School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,3,AkariOK,35,1,TU087,35
-School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,4,AkariOK,25,1,TU087,25
-School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,5,AkariOK,21,1,TU087,21
-School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,1,AkariOK,0,1,TU089A,0
-School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,2,AkariOK,0,1,TU089A,0
-School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,3,AkariOK,0,1,TU089A,0
-School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,4,AkariOK,0,1,TU089A,0
-School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,5,AkariOK,0,1,TU089A,0
-School of Surveying & Construction Innovation,TU174,BIM (Digital Construction),1,AkariOK,30,22,TU174,30
-School of Surveying & Construction Innovation,TU281,Real Estate,1,AkariOK,52,25,TU281,52
-School of Surveying & Construction Innovation,TU375,MSc in Real Estate,1,AkariOK,0,25,TU281,52
-School of Surveying & Construction Innovation,TU375,MSc in Real Estate,2,AkariOK,0,25,TU281,8
-School of Surveying & Construction Innovation,TU375,MSc in Real Estate,3,AkariOK,0,25,TU281,13
-School of Surveying & Construction Innovation,TU415,M.Sc. a BIMM,1,AkariOK,31,1,TU415,31
-School of Surveying & Construction Innovation,TU415,M.Sc. a BIMM,2,AkariOK,9,1,TU415,9
-School of Surveying & Construction Innovation,TU415,M.Sc. a BIMM,3,AkariOK,15,1,TU415,15
-School of Surveying & Construction Innovation,TU731,"Auct, Val and Estate Agency",1,AkariOK,63,2,TU731,63
-School of Surveying & Construction Innovation,TU731,"Auct, Val and Estate Agency",2,AkariOK,30,2,TU731,30
-School of Surveying & Construction Innovation,TU731,"Auct, Val and Estate Agency",3,AkariOK,28,2,TU731,28
-School of Surveying & Construction Innovation,TU833,Construction Management,1,AkariCheckRequired,61,1,TU833,61
-School of Surveying & Construction Innovation,TU833,Construction Management,2,AkariCheckRequired,46,1,TU833,46
-School of Surveying & Construction Innovation,TU833,Construction Management,3,AkariCheckRequired,54,1,TU833,54
-School of Surveying & Construction Innovation,TU833,Construction Management,4,AkariCheckRequired,34,1,TU833,34
-School of Tourism & Hospitality Management,TU326,MSc Event Management,1,AkariOK,5,5,TU326,5
-School of Tourism & Hospitality Management,TU327,Master of Science in Event Management,1,AkariOK,0,5,TU326,5
-School of Tourism & Hospitality Management,TU368,Master of Science in Event Management,1,AkariOK,0,5,TU326,5
-School of Tourism & Hospitality Management,TU328,MSc. Tourism Management,1,AkariOK,2,1,TU328,2
-School of Tourism & Hospitality Management,TU329,Tourism Management,1,AkariOK,0,1,TU329,0
-School of Tourism & Hospitality Management,TU330,M.Sc. Hospitality Management,1,AkariOK,15,4,TU330,15
-School of Tourism & Hospitality Management,TU331,Master of Science in Hospitality Management,1,AkariOK,0,4,TU330,15
-School of Tourism & Hospitality Management,TU370,Master of Science in Hospitality Management,1,AkariOK,0,4,TU330,15
-School of Tourism & Hospitality Management,TU5752,Cert in Hospitality Studies,1,AkariOK,16,159,TU5752,16
-School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,1,AkariOK,12,1,TU951,12
-School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,2,AkariOK,7,1,TU951,7
-School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,3,AkariOK,4,1,TU951,4
-School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,4,AkariOK,10,1,TU951,10
-School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,1,AkariOK,63,1,TU955,63
-School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,2,AkariOK,32,1,TU955,32
-School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,3,AkariOK,21,1,TU955,21
-School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,4,AkariOK,13,1,TU955,13
-School of Transport & Civil Engineering,TU026,Civil Engineering,3,AkariOK,11,1,TU026,11
-School of Transport & Civil Engineering,TU213A,ME in Sustainable Infrastructure,1,AkariOK,34,5,TU213A,34
-School of Transport & Civil Engineering,TU704,Civil Engineering,1,AkariOK,59,1,TU704,59
-School of Transport & Civil Engineering,TU704,Civil Engineering,2,AkariOK,46,1,TU704,46
-School of Transport & Civil Engineering,TU704,Civil Engineering,3,AkariOK,41,1,TU704,41
-School of Transport & Civil Engineering,TU721,Aviation Technology,2,AkariOK,48,1,TU721,48
-School of Transport & Civil Engineering,TU721,Aviation Technology,3,AkariOK,40,1,TU721,40
-School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,1,AkariOK,0,1,TU805,207
-School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,2,AkariOK,0,1,TU805,233
-School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,3,AkariOK,0,1,TU805,282
-School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,4,AkariOK,0,1,TU805,231
-School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,1,AkariOK,0,1,TU805,207
-School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,2,AkariOK,0,1,TU805,233
-School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,3,AkariOK,1,1,TU805,282
-School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,4,AkariOK,0,1,TU805,231
+School,Programme,ProgrammeTitle,Year,AkariStatus,Students,ExpectedStudents,Campus,AwardType,Category,CrosswalkedProgramme,StudentsCrosswalked
+Conservatoire,TU388,M.Mus (Performance/Conducting),1,AkariOK,16,1,City,Masters,G,TU388,16
+Graduate Business School,TU353A,MBA,1,AkariCheckRequired,0,10,City,MBA,A,TU353,14
+Graduate Business School,TU353A,MBA,2,AkariCheckRequired,0,10,City,MBA,A,TU353,9
+Graduate Business School,TU423A,MBA Life Sciences Leadership Jan entry,1,AkariCheckRequired,0,10,City,masters,A,TU423,4
+Graduate Business School,TU423A,MBA Life Sciences Leadership Jan entry,2,AkariCheckRequired,0,10,City,masters,A,TU423,1
+Language Studies,TU965,Intl Business and Languages,1,AkariOK,65,1,City,Bachelor (Hons),G,TU965,65
+Language Studies,TU965,Intl Business and Languages,2,AkariOK,69,1,City,Bachelor (Hons),G,TU965,69
+Language Studies,TU965,Intl Business and Languages,3,AkariOK,65,1,City,Bachelor (Hons),G,TU965,65
+Language Studies,TU965,Intl Business and Languages,4,AkariOK,60,1,City,Bachelor (Hons),G,TU965,60
+"School of Accounting, Economics & Finance",TU243,Post Graduate Diploma in Professional Accountancy,1,AkariOK,0,110,Tallaght,PG Dip,B,TU243,0
+"School of Accounting, Economics & Finance",TU304,PG Dip Accounting,1,AkariOK,33,3,City,PG Dip,G,TU304,33
+"School of Accounting, Economics & Finance",TU318,MSc in Finance,1,AkariOK,40,3,City,Masters,G,TU318,40
+"School of Accounting, Economics & Finance",TU324,MBS International Accounting,1,AkariOK,24,3,City,Masters,G,TU324,24
+"School of Accounting, Economics & Finance",TU324,MBS International Accounting,2,AkariOK,0,3,City,Masters,G,TU324,0
+"School of Accounting, Economics & Finance",TU442,Masters in International Strategic Accountancy (add-on) (Masters Research (Postgraduate)),2,AkariOK,0,2,Tallaght,Masters,C,TU442,0
+"School of Accounting, Economics & Finance",TU5541,Diploma Fintech Risk & Complia,1,AkariOK,37,60,Tallaght,Minor,B,TU5541,37
+"School of Accounting, Economics & Finance",TU5547,Higher Diploma in Business in Regulatory Risk & Compliance,1,AkariOK,0,64,Tallaght,H Dip,B,TU5547,0
+"School of Accounting, Economics & Finance",TU905,Economics and Finance,1,AkariOK,63,1,City,Bachelor (Hons),G,TU905,63
+"School of Accounting, Economics & Finance",TU905,Economics and Finance,2,AkariOK,52,1,City,Bachelor (Hons),G,TU905,52
+"School of Accounting, Economics & Finance",TU905,Economics and Finance,3,AkariOK,56,1,City,Bachelor (Hons),G,TU905,56
+"School of Architecture, Building and Environment",TU205,Sustainable Development,1,AkariOK,39,8,City,Masters,C,TU205,39
+"School of Architecture, Building and Environment",TU207,MSc in Sustainable Development,1,AkariOK,31,TBC,City,masters,G,TU207,31
+"School of Architecture, Building and Environment",TU225,Spatial Planning,1,AkariOK,13,11,City,Masters,C,TU225,13
+"School of Architecture, Building and Environment",TU225,Spatial Planning,2,AkariOK,13,11,City,Masters,C,TU225,13
+"School of Architecture, Building and Environment",TU225,Spatial Planning,3,AkariOK,11,11,City,Masters,C,TU225,11
+"School of Architecture, Building and Environment",TU226,Sustainable Trans and Mobility,1,AkariOK,0,9,City,Masters,A,TU226,0
+"School of Architecture, Building and Environment",TU226,Sustainable Trans and Mobility,2,AkariOK,0,9,City,Masters,A,TU226,0
+"School of Architecture, Building and Environment",TU228,Urban Regeneration and Develop,1,AkariOK,0,1,City,Masters,G,TU228,0
+"School of Architecture, Building and Environment",TU228,Urban Regeneration and Develop,2,AkariOK,0,1,City,Masters,G,TU228,0
+"School of Architecture, Building and Environment",TU282,Master of Architecture,1,AkariCheckRequired,18,17,City,Masters,C,TU282,18
+"School of Architecture, Building and Environment",TU282,Master of Architecture,2,AkariCheckRequired,17,17,City,Masters,C,TU282,17
+"School of Architecture, Building and Environment",TU411,PDip Architectural Practice,1,AkariOK,87,40,City,PG Dip,C,TU411,87
+"School of Architecture, Building and Environment",TU414,MSc Building Performance (EED),1,AkariOK,0,4,City,Masters,A,TU414,0
+"School of Architecture, Building and Environment",TU414,MSc Building Performance (EED),2,AkariOK,0,4,City,Masters,A,TU414,0
+"School of Architecture, Building and Environment",TU414,MSc Building Performance (EED),3,AkariOK,0,4,City,Masters,A,TU414,0
+School of Art & Design,TU151D,Diploma in Painting and Drawing,1,AkariOK,5,TBC,City,Minor,F,TU151D,5
+School of Art & Design,TU151D,Diploma in Painting and Drawing,2,AkariOK,0,TBC,City,Minor,F,TU151D,0
+School of Art & Design,TU381,Graphic Design Practice,1,AkariOK,11,12,City,Masters,C,TU381,11
+School of Art & Design,TU481,Professional Design Practice,1,AkariOK,0,6,City,Masters,C,TU481,0
+"School of Biological, Health & Sports Sciences",TU088,HDip in Medical science,1,AkariOK,4,6,City,H Dip,A,TU088,4
+"School of Biological, Health & Sports Sciences",TU088,HDip in Medical science,2,AkariOK,1,6,City,H Dip,A,TU088,1
+"School of Biological, Health & Sports Sciences",TU088,HDip in Medical science,3,AkariOK,0,6,City,H Dip,A,TU088,0
+"School of Biological, Health & Sports Sciences",TU888,Higher Diploma in Medical Science,1,AkariOK,0,7,City,H Dip,A,TU088,4
+"School of Biological, Health & Sports Sciences",TU888,Higher Diploma in Medical Science,2,AkariOK,0,7,City,H Dip,A,TU088,1
+"School of Biological, Health & Sports Sciences",TU287,MSc Clin Lab Sci,1,AkariOK,26,2,City,Masters,G,TU287,26
+"School of Biological, Health & Sports Sciences",TU287,MSc Clin Lab Sci,2,AkariOK,4,2,City,Masters,G,TU287,4
+"School of Biological, Health & Sports Sciences",TU751,Biosciences,1,AkariOK,65,4,City,Bachelors,D,TU751,65
+"School of Biological, Health & Sports Sciences",TU751,Biosciences,2,AkariOK,38,4,City,Bachelors,D,TU751,38
+"School of Biological, Health & Sports Sciences",TU886,BSc Hons Biomolecular Science,4,AkariOK,17,2,City,Bachelor (Hons),G,TU886,17
+"School of Business Technology, Retail & Supply Chain",TU676,Retail Mgt and Marketing,1,AkariCheckRequired,0,1,City,Higher Cert,G,TU676,0
+"School of Business Technology, Retail & Supply Chain",TU676,Retail Mgt and Marketing,2,AkariCheckRequired,1,1,City,Higher Cert,G,TU676,1
+"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,1,AkariCheckRequired,50,1,City,Bachelor (Hons),G,TU914,50
+"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,2,AkariCheckRequired,36,1,City,Bachelor (Hons),G,TU914,36
+"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,3,AkariCheckRequired,42,1,City,Bachelor (Hons),G,TU914,42
+"School of Business Technology, Retail & Supply Chain",TU914,Business Computing,4,AkariCheckRequired,36,1,City,Bachelor (Hons),G,TU914,36
+School of Chemical & BioPharmaceutical Sciences,TU062,Process Technologies,1,AkariCheckRequired,69,17,Tallaght,Bachelors,D,TU062,69
+School of Chemical & BioPharmaceutical Sciences,TU065,B.Sc.Pharmaceutical Technology,1,AkariCheckRequired,15,1,Tallaght,Bachelors,D,TU065,15
+School of Chemical & BioPharmaceutical Sciences,TU070,H.Dip. Food Science & Tech,1,AkariCheckRequired,27,7,Tallaght,H Dip,D,TU070,27
+School of Chemical & BioPharmaceutical Sciences,TU071,Higher Diploma in Science,1,AkariCheckRequired,43,1,Tallaght,H Dip,D,TU071,43
+School of Chemical & BioPharmaceutical Sciences,TU5308,Manufacture of Med Products,1,AkariCheckRequired,0,11,City,Bachelor (Hons),A,TU1157,0
+School of Chemical & BioPharmaceutical Sciences,TU5308,Manufacture of Med Products,2,AkariCheckRequired,0,11,City,Bachelor (Hons),A,TU1157,0
+School of Chemical & BioPharmaceutical Sciences,TU258,Pharm.QA and Regulation,1,AkariOK,31,5,City,Masters,C,TU258,31
+School of Chemical & BioPharmaceutical Sciences,TU258,Pharm.QA and Regulation,2,AkariOK,0,5,City,Masters,C,TU258,0
+School of Chemical & BioPharmaceutical Sciences,TU288,Pharm QA and Reg,1,AkariOK,32,7,City,Masters,C,TU288,32
+School of Chemical & BioPharmaceutical Sciences,TU288,Pharm QA and Reg,3,AkariOK,3,7,City,Masters,C,TU288,3
+School of Chemical & BioPharmaceutical Sciences,TU289,Pharmaceutical Validation Tech,1,AkariOK,0,15,City,Masters,A,TU289,0
+School of Chemical & BioPharmaceutical Sciences,TU289,Pharmaceutical Validation Tech,3,AkariOK,3,15,City,Masters,A,TU289,3
+School of Chemical & BioPharmaceutical Sciences,TU5262,Certificate in Microbiology,1,AkariOK,55,120,Tallaght,Minor,F,TU5262,55
+School of Chemical & BioPharmaceutical Sciences,TU5301,Cert in GMP & Pharmaceuticals,1,AkariOK,16,1,Tallaght,Minor,F,TU5301,16
+School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,1,AkariOK,24,27,City,Bachelor (Hons),H,TU851,24
+School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,2,AkariOK,19,27,City,Bachelor (Hons),H,TU851,19
+School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,3,AkariOK,30,27,City,Bachelor (Hons),H,TU851,30
+School of Chemical & BioPharmaceutical Sciences,TU851,Analytical Chemistry,4,AkariOK,35,27,City,Bachelor (Hons),H,TU851,35
+School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,1,AkariOK,29,21,City,Bachelor (Hons),H,TU852,29
+School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,2,AkariOK,29,21,City,Bachelor (Hons),H,TU852,29
+School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,3,AkariOK,22,21,City,Bachelor (Hons),H,TU852,22
+School of Chemical & BioPharmaceutical Sciences,TU852,Medicinal Chemistry,4,AkariOK,37,21,City,Bachelor (Hons),H,TU852,37
+School of Computer Science,TU059,Computing,1,AkariOK,101,25,City,Masters,C,TU059,101
+School of Computer Science,TU059,Computing,2,AkariOK,11,25,City,Masters,C,TU059,11
+School of Computer Science,TU060,Master of Science in Computer Science,1,AkariOK,2,25,City,Masters,C,TU060,2
+School of Computer Science,TU060,Master of Science in Computer Science,2,AkariOK,10,25,City,Masters,C,TU060,10
+School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,1,AkariOK,30,10,City,Bachelor (Hons),D,TU082,30
+School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,2,AkariOK,24,10,City,Bachelor (Hons),D,TU082,24
+School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,3,AkariOK,14,10,City,Bachelor (Hons),D,TU082,14
+School of Computer Science,TU082,B.Sc. Info Sys & Info Tech,4,AkariOK,11,10,City,Bachelor (Hons),D,TU082,11
+School of Computer Science,TU5353,PG Cert in Science in Applied Machine Learning,1,AkariOK,0,25,City,Minor,F,TU5353,0
+School of Computer Science,TU5353,PG Cert in Science in Applied Machine Learning,2,AkariOK,0,25,City,Minor,F,TU5353,0
+School of Computer Science,TU857,Comp Science (Infrastructure),3,AkariOK,0,5,City,Bachelor (Hons),G,TU856,209
+School of Computer Science,TU858,Computer Science International,3,AkariOK,3,2,City,Bachelor (Hons),G,TU856,209
+School of Electrical & Electronic Engineering,TU218,ME Sustainable Electric Energy,1,AkariOK,0,3,City,Masters,C,TU205,39
+School of Electrical & Electronic Engineering,TU218,ME Sustainable Electric Energy,2,AkariOK,0,3,City,Masters,C,TU205,1
+School of Electrical & Electronic Engineering,TU217,Energy Management,1,AkariOK,0,2,City,Masters,C,TU207,31
+School of Electrical & Electronic Engineering,TU217,Energy Management,2,AkariOK,0,2,City,Masters,C,TU207,2
+School of Electrical & Electronic Engineering,TU217,Energy Management,3,AkariOK,0,2,City,Masters,C,TU207,6
+"School of Enterprise, Computing & Digital Transformation",TU067,H.Dip. Science in Computing,1,AkariOK,85,12,Tallaght,H Dip,B,TU067,85
+"School of Enterprise, Computing & Digital Transformation",TU067,H.Dip. Science in Computing,2,AkariOK,4,12,Tallaght,H Dip,B,TU067,4
+"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,1,AkariCheckRequired,0,5,Tallaght,Bachelor (Hons),G,"TU068, TU068F",0
+"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,2,AkariCheckRequired,0,5,Tallaght,Bachelor (Hons),G,"TU068, TU068F",0
+"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,3,AkariCheckRequired,0,5,Tallaght,Bachelor (Hons),G,"TU068, TU068F",0
+"School of Enterprise, Computing & Digital Transformation","TU068, TU068F",Bachelor of Science (Honours) in Computing with Information Technology Management,4,AkariCheckRequired,0,5,Tallaght,Bachelor (Hons),G,"TU068, TU068F",0
+"School of Enterprise, Computing & Digital Transformation","TU069, TU069F",Bachelor of Science (Honours) IT Management,4,AkariOK,0,5,Tallaght,Bachelor (Hons),G,"TU069, TU069F",0
+"School of Enterprise, Computing & Digital Transformation",TU090,B.Sc. Entr. Cloud Computing,1,AkariOK,0,5,Tallaght,Bachelors,D,TU090,0
+"School of Enterprise, Computing & Digital Transformation","TU098, TU098F",Bachelor of Science in Computing with Software Development,1,AkariOK,0,5,Tallaght,Bachelor (Hons),G,"TU098, TU098F",0
+"School of Enterprise, Computing & Digital Transformation","TU098, TU098F",Bachelor of Science in Computing with Software Development,2,AkariOK,0,5,Tallaght,Bachelor (Hons),G,"TU098, TU098F",0
+"School of Enterprise, Computing & Digital Transformation","TU098, TU098F",Bachelor of Science in Computing with Software Development,3,AkariOK,0,5,Tallaght,Bachelor (Hons),G,"TU098, TU098F",0
+"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,1,AkariOK,0,5,Tallaght,Bachelors,G,"TU099, TU099F",0
+"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,2,AkariOK,0,5,Tallaght,Bachelors,G,"TU099, TU099F",0
+"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,3,AkariOK,0,5,Tallaght,Bachelors,G,"TU099, TU099F",0
+"School of Enterprise, Computing & Digital Transformation","TU099, TU099F",Bachelor of Science (Honours) in Computing with Software Development,4,AkariOK,0,5,Tallaght,Bachelors,G,"TU099, TU099F",0
+"School of Enterprise, Computing & Digital Transformation",TU278,MSc. Applied IT Architecture,1,AkariOK,0,10,Tallaght,Masters,B,TU278,0
+"School of Enterprise, Computing & Digital Transformation",TU286,M.Sc.Computing Development Ope,1,AkariOK,0,12,Tallaght,Masters,B,TU286,0
+"School of Enterprise, Computing & Digital Transformation",TU5002,Cert in Strategic Project Mngt,1,AkariOK,0,45,Tallaght,Minor,F,TU5002,0
+"School of Enterprise, Computing & Digital Transformation",TU5354,"MC Ethics, Data & Future AI",1,AkariOK,11,79,Tallaght,Minor,F,TU5354,11
+"School of Enterprise, Computing & Digital Transformation",TU5517,Cert in Proj Mngt SP lvl 08,1,AkariOK,0,135,Tallaght,Minor,F,TU5517,0
+"School of Enterprise, Computing & Digital Transformation",TU652,Computing,2,AkariOK,11,2,Tallaght,Higher Cert,D,TU652,11
+"School of Enterprise, Computing & Digital Transformation",TU756,Computing (General Entry),3,AkariOK,10,2,Tallaght,Bachelors,D,TU756,10
+"School of Enterprise, Computing & Digital Transformation",TU859,B.Sc. (Honours) Computing,4,AkariOK,57,2,Tallaght,Bachelor (Hons),D,TU859,57
+"School of Enterprise, Computing & Digital Transformation",TU861,Computing (Language),4,AkariOK,1,2,Tallaght,Bachelor (Hons),D,TU861,1
+"School of Enterprise, Computing & Digital Transformation",TU862,Comp - Mach Learn & Art Intel,4,AkariOK,8,2,Tallaght,Bachelor (Hons),D,TU862,8
+"School of Enterprise, Computing & Digital Transformation",TU865,Cloud Computing,4,AkariOK,10,2,Tallaght,Bachelor (Hons),D,TU865,10
+"School of Enterprise, Computing & Digital Transformation",TU066,B.Sc. (Honours) Cloud Computing with DevOps,1,AkariOK,0,5,Tallaght,Bachelor (Hons),G,TU865A,3
+School of Food Science & Environmental Health,TU657,Pharmacy Technician Studies,1,AkariOK,0,1,City,Higher Cert,G,TU657,0
+School of Global Business,TU735,Sports Management and Coaching,1,AkariCheckRequired,38,4,Blanchardstown,Bachelors,D,TU735,38
+School of Global Business,TU735,Sports Management and Coaching,2,AkariCheckRequired,7,4,Blanchardstown,Bachelors,D,TU735,7
+School of Global Business,TU735,Sports Management and Coaching,3,AkariCheckRequired,17,4,Blanchardstown,Bachelors,D,TU735,17
+School of Global Business,TU771,Bachelor of Business,1,AkariCheckRequired,0,4,Blanchardstown,Bachelors,D,TU772,60
+School of Global Business,TU771,Bachelor of Business,2,AkariCheckRequired,0,4,Blanchardstown,Bachelors,D,TU772,19
+School of Global Business,TU771,Bachelor of Business,3,AkariCheckRequired,0,4,Blanchardstown,Bachelors,D,TU772,25
+School of Global Business,TU778,Bachelor of Business International Business,1,AkariCheckRequired,0,2,Blanchardstown,Bachelors,D,TU778,0
+School of Global Business,TU778,Bachelor of Business International Business,2,AkariCheckRequired,0,2,Blanchardstown,Bachelors,D,TU778,0
+School of Global Business,TU778,Bachelor of Business International Business,3,AkariCheckRequired,0,2,Blanchardstown,Bachelors,D,TU778,0
+School of Global Business,TU915,Bachelor of Business (Honours) International Business,1,AkariCheckRequired,0,1,Blanchardstown,Bachelor (Hons),G,TU915,0
+School of Global Business,TU915,Bachelor of Business (Honours) International Business,2,AkariCheckRequired,0,1,Blanchardstown,Bachelor (Hons),G,TU915,0
+School of Global Business,TU915,Bachelor of Business (Honours) International Business,3,AkariCheckRequired,0,1,Blanchardstown,Bachelor (Hons),G,TU915,0
+School of Global Business,TU915,Bachelor of Business (Honours) International Business,4,AkariCheckRequired,0,1,Blanchardstown,Bachelor (Hons),G,TU915,0
+School of Global Business,TU935,Sports Management and Coaching,1,AkariCheckRequired,52,1,Blanchardstown,Bachelor (Hons),G,TU935,52
+School of Global Business,TU935,Sports Management and Coaching,2,AkariCheckRequired,25,1,Blanchardstown,Bachelor (Hons),G,TU935,25
+School of Global Business,TU935,Sports Management and Coaching,3,AkariCheckRequired,32,1,Blanchardstown,Bachelor (Hons),G,TU935,32
+School of Global Business,TU935,Sports Management and Coaching,4,AkariCheckRequired,31,1,Blanchardstown,Bachelor (Hons),G,TU935,31
+School of Informatics & Cybersecurity,TU252M,Master of Science in Computing in Applied Cyber Security (Research),1,AkariOK,0,12,Blanchardstown,Masters,B,TU252M,0
+School of Informatics & Cybersecurity,TU252R,M.Sc. Comp Applied Cyber Sec,1,AkariCheckRequired,95,1,Blanchardstown,Minor,E,TU252R,95
+School of Informatics & Cybersecurity,TU5352_DS,Postgraduate Certificate in Computing in Cybersecurity,1,AkariOK,0,16,Blanchardstown,Minor,F,TU5352_DS,0
+School of Informatics & Cybersecurity,TU5352_DS,Postgraduate Certificate in Computing in Cybersecurity,2,AkariOK,0,16,Blanchardstown,Minor,F,TU5352_DS,0
+School of Informatics & Cybersecurity,TU5352_FS,Postgraduate Certificate in Cybersecurity (Forensic Specialist),1,AkariCheckRequired,0,7,Blanchardstown,Minor,F,TU5352_FS,0
+School of Informatics & Cybersecurity,TU655,Computing (Networking Techs),1,AkariOK,33,1,Blanchardstown,Higher Cert,G,TU655,33
+School of Informatics & Cybersecurity,TU655,Computing (Networking Techs),2,AkariOK,18,1,Blanchardstown,Higher Cert,G,TU655,18
+School of Informatics & Cybersecurity,TU757,Computing (Information Tech),1,AkariOK,21,1,Blanchardstown,bachelors,G,TU757,21
+School of Informatics & Cybersecurity,TU757,Computing (Information Tech),2,AkariOK,22,1,Blanchardstown,bachelors,G,TU757,22
+School of Informatics & Cybersecurity,TU757,Computing (Information Tech),3,AkariOK,15,1,Blanchardstown,bachelors,G,TU757,15
+School of Informatics & Cybersecurity,TU860,Computing (Information Tech),1,AkariOK,32,2,Blanchardstown,Bachelor (Hons),D,TU860,32
+School of Informatics & Cybersecurity,TU860,Computing (Information Tech),2,AkariOK,30,2,Blanchardstown,Bachelor (Hons),D,TU860,30
+School of Informatics & Cybersecurity,TU860,Computing (Information Tech),3,AkariOK,36,2,Blanchardstown,Bachelor (Hons),D,TU860,36
+School of Informatics & Cybersecurity,TU860,Computing (Information Tech),4,AkariOK,45,2,Blanchardstown,Bachelor (Hons),D,TU860,45
+School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,1,AkariCheckRequired,97,2,Blanchardstown,Bachelor (Hons),D,TU863,97
+School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,2,AkariCheckRequired,76,2,Blanchardstown,Bachelor (Hons),D,TU863,76
+School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,3,AkariCheckRequired,71,2,Blanchardstown,Bachelor (Hons),D,TU863,71
+School of Informatics & Cybersecurity,TU863,Dig Forensics and Cyber Sec,4,AkariCheckRequired,67,2,Blanchardstown,Bachelor (Hons),D,TU863,67
+"School of Management, People & Organisations",TU133,Mgt and Aeronautical Studies,3,AkariCheckRequired,0,4,City,Bachelors,G,TU133,0
+"School of Management, People & Organisations",TU377,Human Resource Management,1,AkariOK,32,1,City,Masters,G,TU356,32
+"School of Management, People & Organisations",TU363,PG Dip in Product Management,1,AkariOK,19,20,City,PG Dip,A,TU363,19
+"School of Management, People & Organisations",TU364,MSc Product Management,1,AkariCheckRequired,2,4,City,Masters,A,TU364,2
+"School of Management, People & Organisations",TU673,Business Management,1,AkariCheckRequired,86,5,City,Higher Cert,G,TU673,86
+"School of Management, People & Organisations",TU673,Business Management,2,AkariCheckRequired,59,5,City,Higher Cert,G,TU673,59
+"School of Management, People & Organisations",TU906,Human Resource Management,1,AkariOK,69,2,City,Bachelor (Hons),G,TU906,69
+"School of Management, People & Organisations",TU906,Human Resource Management,2,AkariOK,72,2,City,Bachelor (Hons),G,TU906,72
+"School of Management, People & Organisations",TU906,Human Resource Management,3,AkariOK,52,2,City,Bachelor (Hons),G,TU906,52
+"School of Management, People & Organisations",TU906,Human Resource Management,4,AkariOK,70,2,City,Bachelor (Hons),G,TU906,70
+School of Marketing & Entrepreneurship,TU325A,Digital and Content Marketing,1,AkariOK,23,1,City,masters,G,TU325A,23
+School of Marketing & Entrepreneurship,TU360,Management & Marketing,1,AkariOK,35,1,City,PG Dip,G,TU360,35
+School of Marketing & Entrepreneurship,TU356,Postgraduate Diploma in International sales,1,AkariOK,32,3,City,masters,G,TU377,32
+School of Marketing & Entrepreneurship,TU356,Postgraduate Diploma in International sales,2,AkariOK,4,3,City,masters,G,TU377,4
+School of Marketing & Entrepreneurship,TU922,Marketing,1,AkariOK,104,1,City,Bachelor (Hons),G,TU922,104
+School of Marketing & Entrepreneurship,TU922,Marketing,2,AkariOK,104,1,City,Bachelor (Hons),G,TU922,104
+School of Marketing & Entrepreneurship,TU922,Marketing,3,AkariOK,111,1,City,Bachelor (Hons),G,TU922,111
+School of Marketing & Entrepreneurship,TU922,Marketing,4,AkariOK,109,1,City,Bachelor (Hons),G,TU922,109
+School of Mathematics & Statistics,TU248,PG.Cert Applied Statistics,1,AkariOK,30,1,City,Minor,G,TU248,30
+School of Mathematics & Statistics,TU5294,Data Analysis for Profess,1,AkariOK,22,1,City,Minor,G,TU5294,22
+School of Mechanical Engineering,TU204,M.Eng. Mechanical Engineering,1,AkariOK,41,4,City,Masters,C,TU204,41
+School of Mechanical Engineering,TU606,H.Cert in Mech Engineering,1,AkariCheckRequired,0,1,Tallaght,Higher Cert,D,TU606,0
+School of Mechanical Engineering,TU606,H.Cert in Mech Engineering,2,AkariCheckRequired,0,1,Tallaght,Higher Cert,D,TU606,0
+School of Mechanical Engineering,TU701,Automation Engineering,1,AkariOK,45,3,City,bachelors,G,TU701,45
+School of Mechanical Engineering,TU701,Automation Engineering,2,AkariOK,32,3,City,bachelors,G,TU701,32
+School of Mechanical Engineering,TU701,Automation Engineering,3,AkariOK,11,3,City,bachelors,G,TU701,11
+School of Mechanical Engineering,TU703,Building Engineering,1,AkariOK,52,2,City,Bachelors,D,TU703,52
+School of Mechanical Engineering,TU703,Building Engineering,2,AkariOK,40,2,City,Bachelors,D,TU703,40
+School of Mechanical Engineering,TU703,Building Engineering,3,AkariOK,23,2,City,Bachelors,D,TU703,23
+School of Mechanical Engineering,TU712,Bachelor of Engineering in Biomedical Design,1,AkariOK,0,2,Tallaght,Bachelors,D,TU725,34
+School of Mechanical Engineering,TU712,Bachelor of Engineering in Biomedical Design,2,AkariOK,0,2,Tallaght,Bachelors,D,TU725,5
+School of Mechanical Engineering,TU712,Bachelor of Engineering in Biomedical Design,3,AkariOK,0,2,Tallaght,Bachelors,D,TU725,13
+School of Mechanical Engineering,TU822,Bachelor of Engineering (Honours) in Mechanical Engineering,2,AkariOK,0,1,City,Bachelor (Hons),G,TU805,233
+School of Mechanical Engineering,TU822,Bachelor of Engineering (Honours) in Mechanical Engineering,3,AkariOK,1,1,City,Bachelor (Hons),G,TU805,282
+School of Mechanical Engineering,TU822,Bachelor of Engineering (Honours) in Mechanical Engineering,4,AkariOK,0,1,City,Bachelor (Hons),G,TU805,231
+School of Mechanical Engineering,TU825,Bachelor of Engineering (Honours) in Building Engineering,3,AkariOK,4,1,City,Bachelor (Hons),G,TU805,282
+School of Mechanical Engineering,TU825,Bachelor of Engineering (Honours) in Building Engineering,4,AkariOK,0,1,City,Bachelor (Hons),G,TU805,231
+School of Media,TU294,MSc in CDM&UX,1,AkariOK,25,10,City,Masters,C,TU294,25
+"School of Physics, Clinical & Optometric Sciences",TU761,Ophthalmic Dispensing,3,AkariCheckRequired,8,1,City,Bachelors,D,TU761,8
+"School of Social Sciences, Law & Education",TU321,Master of Arts in Criminology,1,AkariOK,10,10,City,Masters,C,TU321,10
+"School of Social Sciences, Law & Education",TU373,MA in Criminology,1,AkariOK,0,5,City,Masters,C,TU321,10
+"School of Social Sciences, Law & Education",TU373,MA in Criminology,2,AkariOK,0,5,City,Masters,C,TU321,0
+"School of Social Sciences, Law & Education",TU391,"M.A. Child, Family & Comm Stud",1,AkariOK,26,10,City,Masters,C,TU391,26
+"School of Social Sciences, Law & Education",TU392,"MA in Child, Family and Community Studies",1,AkariOK,0,5,City,Masters,C,TU391,26
+"School of Social Sciences, Law & Education",TU392,"MA in Child, Family and Community Studies",2,AkariOK,0,5,City,Masters,C,TU391,6
+"School of Social Sciences, Law & Education",TU394,MA in Social Care Leadership and Management,1,AkariOK,12,5,City,Masters,C,TU394,12
+"School of Social Sciences, Law & Education",TU394,MA in Social Care Leadership and Management,2,AkariOK,4,5,City,Masters,C,TU394,4
+"School of Social Sciences, Law & Education",TU609,Independent Living Skills,1,AkariOK,0,13,Tallaght,Minor,F,TU609,0
+"School of Social Sciences, Law & Education",TU609,Independent Living Skills,2,AkariOK,0,13,Tallaght,Minor,F,TU609,0
+School of Surveying & Construction Innovation,TU058,Eng/Dig C'struction Analytics,1,AkariOK,20,12,City,Minor,F,TU058,20
+School of Surveying & Construction Innovation,TU085,Property Economics,1,AkariOK,2,1,City,bachelors,G,TU085,2
+School of Surveying & Construction Innovation,TU085,Property Economics,2,AkariOK,0,1,City,bachelors,G,TU085,0
+School of Surveying & Construction Innovation,TU085,Property Economics,3,AkariOK,7,1,City,bachelors,G,TU085,7
+School of Surveying & Construction Innovation,TU085,Property Economics,4,AkariOK,13,1,City,bachelors,G,TU085,13
+School of Surveying & Construction Innovation,TU085,Property Economics,5,AkariOK,28,1,City,bachelors,G,TU085,28
+School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,1,AkariOK,0,1,City,Bachelor (Hons),G,TU087,0
+School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,2,AkariOK,31,1,City,Bachelor (Hons),G,TU087,31
+School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,3,AkariOK,35,1,City,Bachelor (Hons),G,TU087,35
+School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,4,AkariOK,25,1,City,Bachelor (Hons),G,TU087,25
+School of Surveying & Construction Innovation,TU087,Quantity Surv & Construct Econ,5,AkariOK,21,1,City,Bachelor (Hons),G,TU087,21
+School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,1,AkariOK,0,1,City,Bachelor (Hons),G,TU089A,0
+School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,2,AkariOK,0,1,City,Bachelor (Hons),G,TU089A,0
+School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,3,AkariOK,0,1,City,Bachelor (Hons),G,TU089A,0
+School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,4,AkariOK,0,1,City,Bachelor (Hons),G,TU089A,0
+School of Surveying & Construction Innovation,TU089A,Geospatial Surveying,5,AkariOK,0,1,City,Bachelor (Hons),G,TU089A,0
+School of Surveying & Construction Innovation,TU174,BIM (Digital Construction),1,AkariOK,30,22,City,Bachelor (Hons),A,TU174,30
+School of Surveying & Construction Innovation,TU281,Real Estate,1,AkariOK,52,25,City,Masters,,TU281,52
+School of Surveying & Construction Innovation,TU375,MSc in Real Estate,1,AkariOK,0,25,City,Masters,C,TU281,52
+School of Surveying & Construction Innovation,TU375,MSc in Real Estate,2,AkariOK,0,25,City,Masters,C,TU281,8
+School of Surveying & Construction Innovation,TU375,MSc in Real Estate,3,AkariOK,0,25,City,Masters,C,TU281,13
+School of Surveying & Construction Innovation,TU415,M.Sc. a BIMM,1,AkariOK,31,1,City,masters,G,TU415,31
+School of Surveying & Construction Innovation,TU415,M.Sc. a BIMM,2,AkariOK,9,1,City,masters,G,TU415,9
+School of Surveying & Construction Innovation,TU415,M.Sc. a BIMM,3,AkariOK,15,1,City,masters,G,TU415,15
+School of Surveying & Construction Innovation,TU731,"Auct, Val and Estate Agency",1,AkariOK,63,2,City,bachelors,G,TU731,63
+School of Surveying & Construction Innovation,TU731,"Auct, Val and Estate Agency",2,AkariOK,30,2,City,bachelors,G,TU731,30
+School of Surveying & Construction Innovation,TU731,"Auct, Val and Estate Agency",3,AkariOK,28,2,City,bachelors,G,TU731,28
+School of Surveying & Construction Innovation,TU833,Construction Management,1,AkariCheckRequired,61,1,City,Bachelor (Hons),G,TU833,61
+School of Surveying & Construction Innovation,TU833,Construction Management,2,AkariCheckRequired,46,1,City,Bachelor (Hons),G,TU833,46
+School of Surveying & Construction Innovation,TU833,Construction Management,3,AkariCheckRequired,54,1,City,Bachelor (Hons),G,TU833,54
+School of Surveying & Construction Innovation,TU833,Construction Management,4,AkariCheckRequired,34,1,City,Bachelor (Hons),G,TU833,34
+School of Tourism & Hospitality Management,TU326,MSc Event Management,1,AkariOK,5,5,City,Masters,A,TU326,5
+School of Tourism & Hospitality Management,TU327,Master of Science in Event Management,1,AkariOK,0,5,City,Masters,A,TU326,5
+School of Tourism & Hospitality Management,TU368,Master of Science in Event Management,1,AkariOK,0,5,City,Masters,A,TU326,5
+School of Tourism & Hospitality Management,TU328,MSc. Tourism Management,1,AkariOK,2,1,City,Masters,A,TU328,2
+School of Tourism & Hospitality Management,TU329,Tourism Management,1,AkariOK,0,1,City,Masters,A,TU329,0
+School of Tourism & Hospitality Management,TU330,M.Sc. Hospitality Management,1,AkariOK,15,4,City,Masters,A,TU330,15
+School of Tourism & Hospitality Management,TU331,Master of Science in Hospitality Management,1,AkariOK,0,4,City,Masters,A,TU330,15
+School of Tourism & Hospitality Management,TU370,Master of Science in Hospitality Management,1,AkariOK,0,4,City,Masters,A,TU330,15
+School of Tourism & Hospitality Management,TU5752,Cert in Hospitality Studies,1,AkariOK,16,159,City,Minor,F,TU5752,16
+School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,1,AkariOK,12,1,Tallaght,Bachelors,G,TU951,12
+School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,2,AkariOK,7,1,Tallaght,Bachelors,G,TU951,7
+School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,3,AkariOK,4,1,Tallaght,Bachelors,G,TU951,4
+School of Tourism & Hospitality Management,TU951,Intl Hosp and Tourism Mgt,4,AkariOK,10,1,Tallaght,Bachelors,G,TU951,10
+School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,1,AkariOK,63,1,City,Bachelors,G,TU955,63
+School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,2,AkariOK,32,1,City,Bachelors,G,TU955,32
+School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,3,AkariOK,21,1,City,Bachelors,G,TU955,21
+School of Tourism & Hospitality Management,TU955,Sports and Leisure Management,4,AkariOK,13,1,City,Bachelors,G,TU955,13
+School of Transport & Civil Engineering,TU026,Civil Engineering,3,AkariOK,11,1,City,Bachelors,G,TU026,11
+School of Transport & Civil Engineering,TU213A,ME in Sustainable Infrastructure,1,AkariOK,34,5,City,Masters,G,TU213A,34
+School of Transport & Civil Engineering,TU704,Civil Engineering,1,AkariOK,59,1,City,Bachelors,G,TU704,59
+School of Transport & Civil Engineering,TU704,Civil Engineering,2,AkariOK,46,1,City,Bachelors,G,TU704,46
+School of Transport & Civil Engineering,TU704,Civil Engineering,3,AkariOK,41,1,City,Bachelors,G,TU704,41
+School of Transport & Civil Engineering,TU721,Aviation Technology,2,AkariOK,48,1,City,Bachelors,G,TU721,48
+School of Transport & Civil Engineering,TU721,Aviation Technology,3,AkariOK,40,1,City,Bachelors,G,TU721,40
+School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,1,AkariOK,0,1,City,Bachelor (Hons),G,TU805,207
+School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,2,AkariOK,0,1,City,Bachelor (Hons),G,TU805,233
+School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,3,AkariOK,0,1,City,Bachelor (Hons),G,TU805,282
+School of Transport & Civil Engineering,TU824,Bachelors of Engineering (Honours) in Structural Engineering,4,AkariOK,0,1,City,Bachelor (Hons),G,TU805,231
+School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,1,AkariOK,0,1,City,Bachelor (Hons),G,TU805,207
+School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,2,AkariOK,0,1,City,Bachelor (Hons),G,TU805,233
+School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,3,AkariOK,1,1,City,Bachelor (Hons),G,TU805,282
+School of Transport & Civil Engineering,TU826,Bachelors of Engineering (Honours) in Civil Engineering,4,AkariOK,0,1,City,Bachelor (Hons),G,TU805,231
