@@ -15,6 +15,7 @@
     .summary-pill .value { font-weight:700; }
     .muted-note { color:#6c757d; font-size:.9rem; }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace; }
+    .filter-bar { gap: .5rem; flex-wrap: wrap; }
   </style>
 </head>
 <body>
@@ -32,7 +33,7 @@
           <div id="sourceNote" class="muted-note"></div>
         </div>
         <div class="d-flex flex-wrap gap-2 align-items-start">
-          <a class="btn btn-primary btn-sm" href="Exams.csv" download>Download Exams.csv</a>
+          <button id="btnDownload" type="button" class="btn btn-primary btn-sm" data-filename="Exams.csv">Download Exams.csv</button>
           <a class="btn btn-outline-secondary btn-sm" href="viewer_stage2_akari_r27_diff.html">Akari review</a>
           <span class="badge bg-warning align-self-center">CSV fallback</span>
         </div>
@@ -67,6 +68,15 @@
               <li>AkariStatus reflects the Akari accuracy flags: AkariOK or AkariCheckRequired.</li>
               <li>Year hints: blank years use Akari module years only; programmes with no Akari years are omitted.</li>
               <li>Dedup: unique per School + Programme + CrosswalkedProgramme + Year to show aliases without duplicates.</li>
+              <li>Categories:</li>
+              <ul class="text-muted mb-2" style="padding-left: 1.2rem;">
+                <li><strong>A</strong>: January start (City); mid-stage; operate under legacy assessment regulations in legacy Banner.</li>
+                <li><strong>B</strong>: January start (Tallaght/Blanchardstown); mid-stage; operate under legacy assessment regs in legacy Banner or outside new Banner.</li>
+                <li><strong>C</strong>: Postgraduate requiring January module/award boards for Spring graduation; exit boards on usual timeline; repeat-only generally excluded unless requested by School.</li>
+                <li><strong>D</strong>: Undergraduate requiring January module/award boards for Spring graduation; repeat-only generally excluded unless requested by School.</li>
+                <li><strong>F</strong>: Minor awards needing module/award boards asap; not constrained by Spring graduation date.</li>
+                <li><strong>G</strong>: Programme boards only for repeating students; typically defer to June unless recategorised (e.g., CORU needs).</li>
+              </ul>
               <li>Download uses the same dataset shown below (<code>Exams.csv</code>).</li>
             </ul>
           </div>
@@ -80,6 +90,26 @@
         <span class="text-muted small" id="rowCount">Loading…</span>
       </div>
       <div class="card-body">
+        <div class="d-flex align-items-center mb-3 filter-bar">
+          <div class="d-flex align-items-center gap-2">
+            <label class="text-muted small mb-0" for="filterCategory">Category</label>
+            <select id="filterCategory" class="form-select form-select-sm" style="width:180px;">
+              <option value="">All</option>
+            </select>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <label class="text-muted small mb-0" for="filterCampus">Campus</label>
+            <select id="filterCampus" class="form-select form-select-sm" style="width:200px;">
+              <option value="">All</option>
+            </select>
+          </div>
+          <div class="d-flex align-items-center gap-2">
+            <label class="text-muted small mb-0" for="filterSchool">School</label>
+            <select id="filterSchool" class="form-select form-select-sm" style="width:240px;">
+              <option value="">All</option>
+            </select>
+          </div>
+        </div>
         <div class="table-responsive">
           <table class="table table-sm table-bordered align-middle mb-0">
             <thead class="thead-small">
@@ -91,12 +121,15 @@
                 <th style="width:8%;" class="text-center">Students</th>
                 <th style="width:8%;" class="text-center">Expected students</th>
                 <th style="width:10%;" class="text-center">Akari status</th>
+                <th style="width:10%;">Campus</th>
+                <th style="width:10%;">Award type</th>
+                <th style="width:8%;">Category</th>
                 <th style="width:10%;">Programme (crosswalked alternative)</th>
                 <th style="width:8%;" class="text-center">Students (crosswalked)</th>
               </tr>
             </thead>
             <tbody id="tableBody">
-              <tr><td colspan="8" class="text-muted">Loading…</td></tr>
+              <tr><td colspan="12" class="text-muted">Loading…</td></tr>
             </tbody>
           </table>
         </div>
@@ -104,10 +137,12 @@
     </div>
   </div>
 
-  <script id="payload" type="application/json">{"data_gz_b64": "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", "meta": {"akari": {"run_id": 14}, "akari_programmes": {"count": 0, "run_id": 14}, "banner": {"authoritative_run_id": 10, "run_id": 1, "term_code": "202510"}, "counts": {"akari_check": 56, "akari_ok": 213, "missing_glr": 103, "missing_glr_canonical": 64, "missing_glr_programme": 103, "rows": 269, "schools": 25, "skipped_missing_year": 0, "total_expected_students": 2193, "total_students": 5411, "total_students_canonical": 9411, "total_students_programme": 5411}, "output": {"csv": "UI/Exams.csv"}, "stage2": {"count": 153, "run_id": null, "source": "csv"}}}</script>
+  <script id="payload" type="application/json">{"data_gz_b64": "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", "meta": {"akari": {"run_id": 14}, "akari_programmes": {"count": 0, "run_id": 14}, "banner": {"authoritative_run_id": 10, "run_id": 1, "term_code": "202510"}, "campuses": ["Blanchardstown", "City", "Tallaght"], "categories": ["A", "B", "C", "D", "E", "F", "G", "H"], "counts": {"akari_check": 56, "akari_ok": 213, "missing_glr": 103, "missing_glr_canonical": 64, "missing_glr_programme": 103, "rows": 269, "schools": 25, "skipped_missing_year": 0, "total_expected_students": 2193, "total_students": 5411, "total_students_canonical": 9411, "total_students_programme": 5411}, "output": {"csv": "UI/Exams.csv"}, "schools": ["Conservatoire", "Graduate Business School", "Language Studies", "School of Accounting, Economics \u0026 Finance", "School of Architecture, Building and Environment", "School of Art \u0026 Design", "School of Biological, Health \u0026 Sports Sciences", "School of Business Technology, Retail \u0026 Supply Chain", "School of Chemical \u0026 BioPharmaceutical Sciences", "School of Computer Science", "School of Electrical \u0026 Electronic Engineering", "School of Enterprise, Computing \u0026 Digital Transformation", "School of Food Science \u0026 Environmental Health", "School of Global Business", "School of Informatics \u0026 Cybersecurity", "School of Management, People \u0026 Organisations", "School of Marketing \u0026 Entrepreneurship", "School of Mathematics \u0026 Statistics", "School of Mechanical Engineering", "School of Media", "School of Physics, Clinical \u0026 Optometric Sciences", "School of Social Sciences, Law \u0026 Education", "School of Surveying \u0026 Construction Innovation", "School of Tourism \u0026 Hospitality Management", "School of Transport \u0026 Civil Engineering"], "stage2": {"count": 153, "run_id": null, "source": "csv"}}}</script>
   <script>
     (function(){
       const PAYLOAD_EL = document.getElementById("payload");
+      let ALL_RECORDS = [];
+      let LAST_FILTERED = [];
 
       function esc(str){
         return String(str == null ? "" : str).replace(/[&<>"']/g, function (m) {
@@ -175,7 +210,7 @@
       function renderTable(records){
         const tbody = document.getElementById("tableBody");
         if (!records || !records.length){
-          tbody.innerHTML = '<tr><td colspan="8" class="text-muted">No rows found.</td></tr>';
+          tbody.innerHTML = '<tr><td colspan="12" class="text-muted">No rows found.</td></tr>';
           document.getElementById("rowCount").textContent = "0 rows";
           return;
         }
@@ -187,6 +222,9 @@
           const year = rec.Year === 0 ? "0" : esc(rec.Year);
           const students = (rec.Students == null || rec.Students === "") ? 0 : Number(rec.Students);
           const expected = rec.ExpectedStudents == null ? "" : esc(rec.ExpectedStudents);
+          const award = rec.AwardType || "";
+          const category = rec.Category || "";
+          const campus = rec.Campus || "";
           const studentsCrosswalked = (rec.StudentsCrosswalked == null || rec.StudentsCrosswalked === "") ? 0 : Number(rec.StudentsCrosswalked);
           return `<tr>
             <td>${esc(school)}</td>
@@ -196,12 +234,76 @@
             <td class="text-center">${Number.isFinite(students) ? students : 0}</td>
             <td class="text-center">${expected}</td>
             <td class="text-center">${statusBadge(rec.AkariStatus)}</td>
+            <td>${esc(campus)}</td>
+            <td>${esc(award)}</td>
+            <td>${esc(category)}</td>
             <td class="mono">${esc(crosswalked)}</td>
             <td class="text-center">${Number.isFinite(studentsCrosswalked) ? studentsCrosswalked : 0}</td>
           </tr>`;
         });
         tbody.innerHTML = rows.join("");
         document.getElementById("rowCount").textContent = `${records.length} rows`;
+      }
+
+      function populateFilters(meta){
+        const catSelect = document.getElementById("filterCategory");
+        const campusSelect = document.getElementById("filterCampus");
+        const schoolSelect = document.getElementById("filterSchool");
+        const categories = (meta && meta.categories) || [];
+        const campuses = (meta && meta.campuses) || [];
+        const schools = (meta && meta.schools) || [];
+        if (catSelect){
+          catSelect.innerHTML = '<option value=\"\">All</option>' + categories.map(c => `<option value=\"${esc(c)}\">${esc(c)}</option>`).join('');
+        }
+        if (campusSelect){
+          campusSelect.innerHTML = '<option value=\"\">All</option>' + campuses.map(c => `<option value=\"${esc(c)}\">${esc(c)}</option>`).join('');
+        }
+        if (schoolSelect){
+          schoolSelect.innerHTML = '<option value=\"\">All</option>' + schools.map(c => `<option value=\"${esc(c)}\">${esc(c)}</option>`).join('');
+        }
+      }
+
+      function applyFilters(records){
+        const catVal = document.getElementById("filterCategory")?.value || "";
+        const campusVal = document.getElementById("filterCampus")?.value || "";
+        const schoolVal = document.getElementById("filterSchool")?.value || "";
+        return records.filter(rec => {
+          const catOk = !catVal || String(rec.Category || "").toLowerCase() === catVal.toLowerCase();
+          const campusOk = !campusVal || String(rec.Campus || "").toLowerCase() === campusVal.toLowerCase();
+          const schoolOk = !schoolVal || String(rec.School || "").toLowerCase() === schoolVal.toLowerCase();
+          return catOk && campusOk && schoolOk;
+        });
+      }
+
+      function toCsv(records){
+        const headers = ["School","Programme","ProgrammeTitle","Year","AkariStatus","Students","ExpectedStudents","Campus","AwardType","Category","CrosswalkedProgramme","StudentsCrosswalked"];
+        const escapeCsv = (val) => {
+          const s = val == null ? "" : String(val);
+          if (/[",\n]/.test(s)) {
+            return `"${s.replace(/"/g, '""')}"`;
+          }
+          return s;
+        };
+        const lines = [headers.join(",")];
+        for (const rec of records){
+          lines.push(headers.map(h => escapeCsv(rec[h] ?? "")).join(","));
+        }
+        return lines.join("\n");
+      }
+
+      function triggerDownload(){
+        const filename = document.getElementById("btnDownload")?.dataset.filename || "Exams.csv";
+        const rows = (LAST_FILTERED && LAST_FILTERED.length) ? LAST_FILTERED : ALL_RECORDS;
+        const csv = toCsv(rows);
+        const blob = new Blob([csv], {type: "text/csv"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
       }
 
       (async function init(){
@@ -213,8 +315,19 @@
           const jsonStr = await inflate(bytes);
           const parsed = JSON.parse(jsonStr);
           const records = parsed.records || [];
-          renderSummary(parsed.meta || {}, records);
-          renderTable(records);
+          ALL_RECORDS = records;
+          populateFilters(parsed.meta || {});
+          const applyAndRender = () => {
+            const filtered = applyFilters(records);
+            LAST_FILTERED = filtered;
+            renderSummary(parsed.meta || {}, filtered);
+            renderTable(filtered);
+          };
+          document.getElementById("filterCategory")?.addEventListener("change", applyAndRender);
+          document.getElementById("filterCampus")?.addEventListener("change", applyAndRender);
+          document.getElementById("filterSchool")?.addEventListener("change", applyAndRender);
+          document.getElementById("btnDownload")?.addEventListener("click", triggerDownload);
+          applyAndRender();
         } catch (err){
           console.error(err);
           document.getElementById("rowCount").textContent = "Load failed";
