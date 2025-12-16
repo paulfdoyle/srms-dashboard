@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stage 2 – Exams Export</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; font-size:16px; background:#f8f9fa; }
+    .card-header { font-weight:600; }
+    .table-sm td, .table-sm th { padding:.45rem .5rem; vertical-align:middle; font-size: .94rem; }
+    .thead-small th { font-size:0.9rem; background:#f8f9fa; }
+    .summary-pill { display:flex; justify-content:space-between; align-items:center; padding:.6rem .75rem; background:#f1f3f5; border-radius:.5rem; margin-bottom:.4rem; }
+    .summary-pill .label { color:#6c757d; font-size:.9rem; }
+    .summary-pill .value { font-weight:700; }
+    .muted-note { color:#6c757d; font-size:.9rem; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid px-0">
+    <div class="mb-3">
+      <a class="btn btn-outline-secondary btn-sm" href="index.html">Back to index</a>
+    </div>
+
+    <div class="card border-primary mb-3">
+      <div class="card-body d-flex flex-wrap justify-content-between gap-3 align-items-start">
+        <div>
+          <div class="text-muted small">Stage 2 exams export (January Akari vs Banner selection)</div>
+          <h3 class="mb-1">Stage 2 – Exams Export</h3>
+          <p class="text-muted small mb-1">January Akari vs Banner selection (one row per School/Programme/Year) with canonical programme mapping, Akari titles, and GLR student counts. Blank year hints derive years from Akari; programmes with no Akari years are omitted.</p>
+          <div id="sourceNote" class="muted-note"></div>
+        </div>
+        <div class="d-flex flex-wrap gap-2 align-items-start">
+          <a class="btn btn-primary btn-sm" href="Exams.csv" download>Download Exams.csv</a>
+          <a class="btn btn-outline-secondary btn-sm" href="viewer_stage2_akari_r27_diff.html">Akari review</a>
+          <span class="badge bg-warning align-self-center">CSV fallback</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-3">
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-header bg-light">Summary</div>
+          <div class="card-body">
+            <div class="summary-pill"><span class="label">Rows</span><span id="sumRows" class="value">0</span></div>
+            <div class="summary-pill"><span class="label">Schools</span><span id="sumSchools" class="value">0</span></div>
+            <div class="summary-pill"><span class="label">Akari OK</span><span id="sumOk" class="value text-success">0</span></div>
+            <div class="summary-pill"><span class="label">Akari Check Required</span><span id="sumCheck" class="value text-warning">0</span></div>
+            <div class="summary-pill"><span class="label">Skipped (missing year)</span><span id="sumSkippedYear" class="value text-secondary">0</span></div>
+            <div class="summary-pill"><span class="label">Students (GLR – programme)</span><span id="sumStudents" class="value">0</span></div>
+            <div class="summary-pill"><span class="label">Students (GLR – crosswalked alternative)</span><span id="sumStudentsCrosswalked" class="value">0</span></div>
+            <div class="summary-pill"><span class="label">Expected students</span><span id="sumExpectedStudents" class="value">0</span></div>
+            <div class="muted-note mt-2">Blank year hints derive years from Akari; programmes with no Akari year tokens are omitted.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card h-100">
+          <div class="card-header bg-light">Notes</div>
+          <div class="card-body">
+            <ul class="text-muted mb-0" style="padding-left: 1.1rem;">
+              <li>Rows are derived from the January Akari vs Banner selection (one per School/Programme/Year).</li>
+              <li>Programme = Stage 2 code; CrosswalkedProgramme = resolver (programme_id_resolver) canonical code (e.g., TU826 → TU805).</li>
+              <li>Students/StudentsCrosswalked come from GLR term 202510 (unique learners per Programme/Year and CrosswalkedProgramme/Year); 0 means no GLR count.</li>
+              <li>AkariStatus reflects the Akari accuracy flags: AkariOK or AkariCheckRequired.</li>
+              <li>Year hints: blank years use Akari module years only; programmes with no Akari years are omitted.</li>
+              <li>Dedup: unique per School + Programme + CrosswalkedProgramme + Year to show aliases without duplicates.</li>
+              <li>Download uses the same dataset shown below (<code>Exams.csv</code>).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header bg-light d-flex justify-content-between align-items-center">
+        <span>Exams selection</span>
+        <span class="text-muted small" id="rowCount">Loading…</span>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-sm table-bordered align-middle mb-0">
+            <thead class="thead-small">
+              <tr>
+                <th style="width:20%;">School</th>
+                <th style="width:18%;">Programme</th>
+                <th style="width:20%;">Programme title (Akari)</th>
+                <th style="width:6%;" class="text-center">Year</th>
+                <th style="width:8%;" class="text-center">Students</th>
+                <th style="width:8%;" class="text-center">Expected students</th>
+                <th style="width:10%;" class="text-center">Akari status</th>
+                <th style="width:10%;">Programme (crosswalked alternative)</th>
+                <th style="width:8%;" class="text-center">Students (crosswalked)</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <tr><td colspan="8" class="text-muted">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script id="payload" type="application/json">{"data_gz_b64": "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", "meta": {"akari": {"run_id": 14}, "akari_programmes": {"count": 0, "run_id": 14}, "banner": {"authoritative_run_id": 10, "run_id": 1, "term_code": "202510"}, "counts": {"akari_check": 56, "akari_ok": 213, "missing_glr": 103, "missing_glr_canonical": 64, "missing_glr_programme": 103, "rows": 269, "schools": 25, "skipped_missing_year": 0, "total_expected_students": 2193, "total_students": 5411, "total_students_canonical": 9411, "total_students_programme": 5411}, "output": {"csv": "UI/Exams.csv"}, "stage2": {"count": 153, "run_id": null, "source": "csv"}}}</script>
+  <script>
+    (function(){
+      const PAYLOAD_EL = document.getElementById("payload");
+
+      function esc(str){
+        return String(str == null ? "" : str).replace(/[&<>"']/g, function (m) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m];
+        });
+      }
+
+      function base64ToBytes(b64){
+        const bin = atob(b64);
+        const len = bin.length;
+        const bytes = new Uint8Array(len);
+        for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
+        return bytes;
+      }
+
+      async function inflate(bytes){
+        if (typeof DecompressionStream !== "undefined") {
+          const ds = new DecompressionStream("gzip");
+          const stream = new Blob([bytes]).stream().pipeThrough(ds);
+          return await new Response(stream).text();
+        }
+        throw new Error("No gzip support available.");
+      }
+
+      function renderSummary(meta, records){
+        const counts = (meta && meta.counts) || {};
+        document.getElementById("sumRows").textContent = counts.rows ?? records.length ?? 0;
+        document.getElementById("sumSchools").textContent = counts.schools ?? 0;
+        document.getElementById("sumOk").textContent = counts.akari_ok ?? 0;
+        document.getElementById("sumCheck").textContent = counts.akari_check ?? 0;
+        document.getElementById("sumSkippedYear").textContent = counts.skipped_missing_year ?? 0;
+        document.getElementById("sumStudents").textContent = counts.total_students_programme ?? counts.total_students ?? 0;
+        document.getElementById("sumStudentsCrosswalked").textContent = counts.total_students_canonical ?? 0;
+        document.getElementById("sumExpectedStudents").textContent = counts.total_expected_students ?? 0;
+
+        const stage2 = meta && meta.stage2 || {};
+        const akari = meta && meta.akari || {};
+        const banner = meta && meta.banner || {};
+        const akariProg = meta && meta.akari_programmes || {};
+        const parts = [];
+        if (stage2.source){
+          parts.push(`Stage2 source: ${stage2.source}`);
+        }
+        if (stage2.run_id){
+          parts.push(`Stage2 run ${stage2.run_id}`);
+        }
+        if (akari.run_id){
+          parts.push(`Akari run ${akari.run_id}`);
+        }
+        if (akariProg.run_id){
+          parts.push(`Akari programmes run ${akariProg.run_id}`);
+        }
+        if (banner.run_id){
+          parts.push(`Banner run ${banner.run_id}${banner.term_code ? " (term " + banner.term_code + ")" : ""}`);
+        }
+        document.getElementById("sourceNote").textContent = parts.join(" • ");
+      }
+
+      function statusBadge(status){
+        const code = (status || "").toLowerCase();
+        const variant = code === "akariok" ? "success" : "warning";
+        return `<span class="badge bg-${variant}">${esc(status || "AkariCheckRequired")}</span>`;
+      }
+
+      function renderTable(records){
+        const tbody = document.getElementById("tableBody");
+        if (!records || !records.length){
+          tbody.innerHTML = '<tr><td colspan="8" class="text-muted">No rows found.</td></tr>';
+          document.getElementById("rowCount").textContent = "0 rows";
+          return;
+        }
+        const rows = records.map(rec => {
+          const school = rec.School || "(Blank)";
+          const programme = rec.Programme || "(Blank)";
+          const crosswalked = rec.CrosswalkedProgramme || programme || "(Blank)";
+          const title = rec.ProgrammeTitle || "";
+          const year = rec.Year === 0 ? "0" : esc(rec.Year);
+          const students = (rec.Students == null || rec.Students === "") ? 0 : Number(rec.Students);
+          const expected = rec.ExpectedStudents == null ? "" : esc(rec.ExpectedStudents);
+          const studentsCrosswalked = (rec.StudentsCrosswalked == null || rec.StudentsCrosswalked === "") ? 0 : Number(rec.StudentsCrosswalked);
+          return `<tr>
+            <td>${esc(school)}</td>
+            <td class="mono">${esc(programme)}</td>
+            <td>${esc(title)}</td>
+            <td class="text-center">${year}</td>
+            <td class="text-center">${Number.isFinite(students) ? students : 0}</td>
+            <td class="text-center">${expected}</td>
+            <td class="text-center">${statusBadge(rec.AkariStatus)}</td>
+            <td class="mono">${esc(crosswalked)}</td>
+            <td class="text-center">${Number.isFinite(studentsCrosswalked) ? studentsCrosswalked : 0}</td>
+          </tr>`;
+        });
+        tbody.innerHTML = rows.join("");
+        document.getElementById("rowCount").textContent = `${records.length} rows`;
+      }
+
+      (async function init(){
+        try {
+          const payload = PAYLOAD_EL ? JSON.parse(PAYLOAD_EL.textContent || "{}") : {};
+          const gz = payload.data_gz_b64;
+          if (!gz) throw new Error("Missing payload.");
+          const bytes = base64ToBytes(gz);
+          const jsonStr = await inflate(bytes);
+          const parsed = JSON.parse(jsonStr);
+          const records = parsed.records || [];
+          renderSummary(parsed.meta || {}, records);
+          renderTable(records);
+        } catch (err){
+          console.error(err);
+          document.getElementById("rowCount").textContent = "Load failed";
+          document.getElementById("tableBody").innerHTML = '<tr><td colspan="5" class="text-danger">Load failed; open console for details.</td></tr>';
+        }
+      })();
+    })();
+  </script>
+</body>
+</html>
