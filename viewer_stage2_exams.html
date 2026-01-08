@@ -32,13 +32,13 @@
         <div>
           <div class="text-muted small">Stage 2 exams export (January Akari vs Banner selection)</div>
           <h3 class="mb-1">Stage 2 – Exams Export</h3>
-          <p class="text-muted small mb-1">January Akari vs Banner selection (one row per School/Programme/Year) with canonical programme mapping, Akari titles, and GLR student counts. Blank year hints derive years from Akari; programmes with no Akari years are omitted.</p>
+          <p class="text-muted small mb-1">Exams.csv input (one row per School/Programme/Year) with programme mappings and student counts. Source is the curated CSV copied into databases/.</p>
           <div id="sourceNote" class="muted-note"></div>
         </div>
         <div class="d-flex flex-wrap gap-2 align-items-start">
           <button id="btnDownload" type="button" class="btn btn-primary btn-sm" data-filename="Exams.csv">Download Exams.csv</button>
           <a class="btn btn-outline-secondary btn-sm" href="viewer_stage2_akari_r27_diff.html">Akari review</a>
-          <span class="badge bg-warning align-self-center">CSV fallback</span>
+          <span class="badge bg-warning align-self-center">External CSV</span>
         </div>
       </div>
     </div>
@@ -71,15 +71,106 @@
               <li>AkariStatus reflects the Akari accuracy flags: AkariOK or AkariCheckRequired.</li>
               <li>Year hints: blank years use Akari module years only; programmes with no Akari years are omitted.</li>
               <li>Dedup: unique per School + Programme + CrosswalkedProgramme + Year to show aliases without duplicates.</li>
-              <li>Categories:</li>
-              <ul class="text-muted mb-2" style="padding-left: 1.2rem;">
-                <li><strong>A</strong>: January start (City); mid-stage; operate under legacy assessment regulations in legacy Banner.</li>
-                <li><strong>B</strong>: January start (Tallaght/Blanchardstown); mid-stage; operate under legacy assessment regs in legacy Banner or outside new Banner.</li>
-                <li><strong>C</strong>: Postgraduate requiring January module/award boards for Spring graduation; exit boards on usual timeline; repeat-only generally excluded unless requested by School.</li>
-                <li><strong>D</strong>: Undergraduate requiring January module/award boards for Spring graduation; repeat-only generally excluded unless requested by School.</li>
-                <li><strong>F</strong>: Minor awards needing module/award boards asap; not constrained by Spring graduation date.</li>
-                <li><strong>G</strong>: Programme boards only for repeating students; typically defer to June unless recategorised (e.g., CORU needs).</li>
-              </ul>
+              <li>
+                January 2026 prioritised student categories:
+                <div class="table-responsive mb-2">
+                  <table class="table table-sm table-bordered align-middle mb-0">
+                  <thead class="thead-small">
+                    <tr>
+                      <th>Category</th>
+                      <th>Programme type</th>
+                      <th colspan="3" class="text-center">Estimated students and programme count</th>
+                      <th>Regs</th>
+                      <th>Grading system</th>
+                    </tr>
+                    <tr>
+                      <th></th>
+                      <th></th>
+                      <th>Blanchardstown</th>
+                      <th>City</th>
+                      <th>Tallaght</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center"><strong>A</strong></td>
+                      <td>January Start Prog (City)</td>
+                      <td></td>
+                      <td>14 prg., 150 ST.</td>
+                      <td></td>
+                      <td>LEGACY</td>
+                      <td>LEGACY</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><strong>B</strong></td>
+                      <td>January Start Prog (BL &amp; TA)</td>
+                      <td>1 prg., 12 ST.</td>
+                      <td></td>
+                      <td>7 prg., 290 ST.</td>
+                      <td>LEGACY</td>
+                      <td>LEGACY GPA</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><strong>C</strong></td>
+                      <td>PG Prog req. MAB &amp; PAB for SPR GRAD</td>
+                      <td>1 prg., 8 ST.</td>
+                      <td>19 prg., 225 ST.</td>
+                      <td>1 prg., 2 ST.</td>
+                      <td>LEGACY</td>
+                      <td>LEGACY/LEGACY GPA</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><strong>D</strong></td>
+                      <td>UG Prog req. MAB &amp; PAB for SPR GRAD</td>
+                      <td>5 prg., 14 ST.</td>
+                      <td>4 prg., 17 ST.</td>
+                      <td>14 prg., 48 ST.</td>
+                      <td>LEGACY</td>
+                      <td>LEGACY/LEGACY GPA</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><strong>E</strong></td>
+                      <td>Erasmus exchange students*</td>
+                      <td>2 prg., 5 ST.</td>
+                      <td>7 prg., 91 ST.</td>
+                      <td>2 prg., 12 ST.</td>
+                      <td>UAR</td>
+                      <td>GPA</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><strong>F</strong></td>
+                      <td>Minor award prog, REQ. MAB &amp; PAB, NO GRAD**</td>
+                      <td>2 prg., 23 ST.</td>
+                      <td>5 prg., &gt;205 ST.</td>
+                      <td>7 prg., 423 ST.</td>
+                      <td>UAR/Legacy</td>
+                      <td>LEGACY/LEG. GPA/UAF</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><strong>G</strong></td>
+                      <td>Prog req PABS only for repeating students</td>
+                      <td>5 prg., 5 ST.</td>
+                      <td>29 prg., &gt;35 ST.</td>
+                      <td>7 prg., 31 ST.</td>
+                      <td>LEGACY</td>
+                      <td>LEGACY</td>
+                    </tr>
+                    <tr>
+                      <td class="text-center"><strong>H</strong></td>
+                      <td>Prog req progress to placement boards.</td>
+                      <td></td>
+                      <td>2 prg., 48 ST.</td>
+                      <td></td>
+                      <td>UAR</td>
+                      <td>PASS TO PROG</td>
+                    </tr>
+                  </tbody>
+                  </table>
+                </div>
+              </li>
+              <li>Boards requirement: A, B, C, D, F, G require R09 boards; E requires a transcript only; H requires only R01 boards.</li>
               <li>Download uses the same dataset shown below (<code>Exams.csv</code>).</li>
             </ul>
           </div>
@@ -140,7 +231,7 @@
     </div>
   </div>
 
-  <script id="payload" type="application/json">{"data_gz_b64": "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", "meta": {"akari": {"run_id": 14}, "akari_programmes": {"count": 0, "run_id": 14}, "banner": {"authoritative_run_id": 10, "run_id": 1, "term_code": "202510"}, "campuses": ["Blanchardstown", "City", "Tallaght"], "categories": ["A", "B", "C", "D", "E", "F", "G", "H"], "counts": {"akari_check": 56, "akari_ok": 213, "missing_glr": 103, "missing_glr_canonical": 64, "missing_glr_programme": 103, "rows": 269, "schools": 25, "skipped_missing_year": 0, "total_expected_students": 2193, "total_students": 5411, "total_students_canonical": 9411, "total_students_programme": 5411}, "output": {"csv": "UI/Exams.csv"}, "schools": ["Conservatoire", "Graduate Business School", "Language Studies", "School of Accounting, Economics \u0026 Finance", "School of Architecture, Building and Environment", "School of Art \u0026 Design", "School of Biological, Health \u0026 Sports Sciences", "School of Business Technology, Retail \u0026 Supply Chain", "School of Chemical \u0026 BioPharmaceutical Sciences", "School of Computer Science", "School of Electrical \u0026 Electronic Engineering", "School of Enterprise, Computing \u0026 Digital Transformation", "School of Food Science \u0026 Environmental Health", "School of Global Business", "School of Informatics \u0026 Cybersecurity", "School of Management, People \u0026 Organisations", "School of Marketing \u0026 Entrepreneurship", "School of Mathematics \u0026 Statistics", "School of Mechanical Engineering", "School of Media", "School of Physics, Clinical \u0026 Optometric Sciences", "School of Social Sciences, Law \u0026 Education", "School of Surveying \u0026 Construction Innovation", "School of Tourism \u0026 Hospitality Management", "School of Transport \u0026 Civil Engineering"], "stage2": {"count": 153, "run_id": null, "source": "csv"}}}</script>
+  <script id="payload" type="application/json">{"data_gz_b64": "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", "meta": {"campuses": ["Blanchardstown", "City", "Tallaght"], "categories": ["A", "B", "C", "D", "E", "F", "G", "H"], "counts": {"akari_check": 56, "akari_ok": 213, "missing_glr": 0, "missing_glr_canonical": 0, "missing_glr_programme": 0, "rows": 269, "schools": 25, "skipped_missing_year": 0, "total_expected_students": 2193, "total_students": 5411, "total_students_canonical": 9411, "total_students_programme": 5411}, "exams_csv": "databases/Exams.csv", "output": {"csv": "databases/Exams.csv"}, "schools": ["Conservatoire", "Graduate Business School", "Language Studies", "School of Accounting, Economics \u0026 Finance", "School of Architecture, Building and Environment", "School of Art \u0026 Design", "School of Biological, Health \u0026 Sports Sciences", "School of Business Technology, Retail \u0026 Supply Chain", "School of Chemical \u0026 BioPharmaceutical Sciences", "School of Computer Science", "School of Electrical \u0026 Electronic Engineering", "School of Enterprise, Computing \u0026 Digital Transformation", "School of Food Science \u0026 Environmental Health", "School of Global Business", "School of Informatics \u0026 Cybersecurity", "School of Management, People \u0026 Organisations", "School of Marketing \u0026 Entrepreneurship", "School of Mathematics \u0026 Statistics", "School of Mechanical Engineering", "School of Media", "School of Physics, Clinical \u0026 Optometric Sciences", "School of Social Sciences, Law \u0026 Education", "School of Surveying \u0026 Construction Innovation", "School of Tourism \u0026 Hospitality Management", "School of Transport \u0026 Civil Engineering"], "source": "exams_csv", "stage2": {"path": "databases/Exams.csv", "source": "Exams.csv"}}}</script>
   <script>
     (function(){
       const PAYLOAD_EL = document.getElementById("payload");
@@ -185,9 +276,13 @@
         const akari = meta && meta.akari || {};
         const banner = meta && meta.banner || {};
         const akariProg = meta && meta.akari_programmes || {};
+        const examsCsv = meta && meta.exams_csv || "";
         const parts = [];
         if (stage2.source){
           parts.push(`Stage2 source: ${stage2.source}`);
+        }
+        if (examsCsv){
+          parts.push(`Exams CSV: ${examsCsv}`);
         }
         if (stage2.run_id){
           parts.push(`Stage2 run ${stage2.run_id}`);
