@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stage 4 – SRMS Data Cleaning Dashboard - School Of Culinary Arts &amp; Food Technology (Priority baseline (reviewed))</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .hero { background:#fff; padding:28px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+    .badge { font-size:0.75rem; }
+    .stage-card-complete { border:2px solid #198754; }
+    .stage-card-progress { border:2px solid #fd7e14; }
+    .stage-card-upcoming { border:2px solid #0d6efd; }
+    .stage-card-not-started { border:2px solid #dc3545; }
+    .badge-updated { background-color:#ffc107; color:#212529; }
+    .badge-new { background-color:#dc3545; color:#fff; }
+    .badge-upcoming { background-color:#0d6efd; color:#fff; }
+    .section-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .section-card .card-header { background:#f1f3f5; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid px-0">
+  <style>
+    .stage-dashboard-card { background:#f8f9fa; border:1px solid #e9ecef; }
+    .progress-sm { height:12px; }
+    .progress-xs { height:8px; }
+    .semester-chip {
+      min-width:120px;
+      padding:8px 10px;
+      border-radius:10px;
+      background:#fff;
+      border:1px solid #e9ecef;
+    }
+    .programme-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:12px;
+    }
+    .programme-card {
+      border:1px solid #e9ecef;
+      border-radius:10px;
+      padding:12px;
+      background:#fdfdfd;
+    }
+    .programme-title {
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+  </style>
+  <div class="hero">
+    <div class="d-flex justify-content-between flex-wrap gap-3">
+      <div>
+        <h1 class="mb-2">School Of Culinary Arts &amp; Food Technology</h1>
+        <p class="text-muted mb-0">Stage 4 – SRMS Data Cleaning Dashboard</p>
+        <div class="mt-2">
+          <span class="badge bg-warning text-light">In Progress</span>
+        </div>
+        <div class="small text-muted mt-2">Programmes complete: 3/16</div>
+        <div class="text-muted small mt-2">Generated: 2026-01-12 01:20</div>
+      </div>
+      <div class="align-self-start">
+        <a class="btn btn-outline-secondary" href="stage4.html">Back to Stage 4</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <div class="alert alert-light border">
+        <div class="row g-2">
+          <div class="col-md-3">
+            <div class="small text-muted">Baseline start</div>
+            <div class="fw-semibold">2026-01-12 00:56</div>
+          </div>
+          <div class="col-md-3">
+            <div class="small text-muted">Baseline group</div>
+            <div class="fw-semibold">Priority baseline (reviewed)</div>
+          </div>
+          <div class="col-md-3">
+            <div class="small text-muted">Source</div>
+            <div class="fw-semibold">cleancsv_for_db_ingest/stage2_programmes_for_db.csv</div>
+          </div>
+          <div class="col-md-3">
+            <div class="small text-muted">Terms</div>
+            <div class="fw-semibold">202510, 202520, 202530</div>
+          </div>
+        </div>
+        <div class="small text-muted mt-2">Programme match: programme_id (raw Banner, no crosswalk)</div>
+        <details class="small text-muted mt-1">
+          <summary>Run IDs</summary>
+          Akari 17 · Banner 9, 10, 11 (latest per term)
+        </details>
+        <div class="small text-muted">Deltas compare to the baseline start.</div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Programme match</div>
+              <div class="h5 mb-0">18.8%</div>
+              <div class="small text-muted">Delta 0%</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Module OK</div>
+              <div class="h5 mb-0">88.7%</div>
+              <div class="small text-muted">Delta 0%</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Modules compared</div>
+              <div class="h5 mb-0">282</div>
+              <div class="small text-muted">Delta 0</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Missing in Banner</div>
+              <div class="h5 mb-0">32</div>
+              <div class="small text-muted">Delta 0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-4">
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Banner-only</div>
+              <div class="h5 mb-0">26</div>
+              <div class="small text-muted">Delta 0</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Programmes tracked</div>
+              <div class="h5 mb-0">16</div>
+              <div class="small text-muted">Complete: 3</div>
+              <div class="small text-muted">Baseline programmes (this group): 0</div>
+              <div class="small text-muted">Missing in Akari: 0 (0.0%)</div>
+              <a class="small text-decoration-none" href="viewer_stage2_akari_match_candidates.html">Open match candidates</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Baseline coverage</div>
+              <div class="small">In Akari + Banner: 0 (0.0%)</div>
+              <div class="small">In Akari only: 0 (0.0%)</div>
+              <div class="small">Banner only: 0 (0.0%)</div>
+              <div class="small">Missing in both: 0 (0.0%)</div>
+              <div class="small text-muted mt-2">Compliance totals include baseline programmes found in Akari.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Credits mismatch</div>
+              <div class="h5 mb-0">4</div>
+              <div class="small text-muted">Across compared modules.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card stage-dashboard-card h-100">
+            <div class="card-body">
+              <div class="text-muted small mb-1">Preferred CRNs missing</div>
+              <div class="h5 mb-0">18</div>
+              <div class="small text-muted">Banner rows with CRNs but no preferred CRN.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-light border small">
+        <div class="fw-semibold">Banner-only outside baseline</div>
+        <div class="text-muted">29 programmes in Banner were not found in Akari or the Stage 2 baseline. See Stage 4 summary for the list.</div>
+        <a class="text-decoration-none" href="stage4.html#banner-outside">View programme list</a>
+      </div>
+
+      <h5 class="mb-2">Semester coverage</h5>
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <div class="semester-chip">
+          <div class="small text-muted">Semester 1</div>
+          <div class="progress progress-xs mt-1">
+            <div class="progress-bar bg-success" style="width: 90.8%"></div>
+          </div>
+          <div class="small mt-1">
+              128/141 (90.8%)
+          </div>
+        </div>
+        <div class="semester-chip">
+          <div class="small text-muted">Semester 2</div>
+          <div class="progress progress-xs mt-1">
+            <div class="progress-bar bg-warning" style="width: 85.3%"></div>
+          </div>
+          <div class="small mt-1">
+              110/129 (85.3%)
+          </div>
+        </div>
+        <div class="semester-chip">
+          <div class="small text-muted">Semester 3</div>
+          <div class="progress progress-xs mt-1">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small mt-1">
+              1/1 (100.0%)
+          </div>
+        </div>
+        <div class="semester-chip">
+          <div class="small text-muted">Full year / overlap</div>
+          <div class="progress progress-xs mt-1">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small mt-1">
+              11/11 (100.0%)
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive mb-4">
+        <table class="table table-sm mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Semester</th>
+              <th class="text-end">Modules</th>
+              <th class="text-end">Missing</th>
+              <th class="text-end">Banner-only</th>
+              <th class="text-end">Credits mismatch</th>
+              <th class="text-end">Preferred missing</th>
+              <th class="text-end">OK %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Semester 1</td>
+              <td class="text-end">141</td>
+              <td class="text-end">13</td>
+              <td class="text-end">15</td>
+              <td class="text-end">2</td>
+              <td class="text-end">5</td>
+              <td class="text-end">90.8%</td>
+            </tr>
+            <tr>
+              <td>Semester 2</td>
+              <td class="text-end">129</td>
+              <td class="text-end">19</td>
+              <td class="text-end">11</td>
+              <td class="text-end">2</td>
+              <td class="text-end">13</td>
+              <td class="text-end">85.3%</td>
+            </tr>
+            <tr>
+              <td>Semester 3</td>
+              <td class="text-end">1</td>
+              <td class="text-end">0</td>
+              <td class="text-end">0</td>
+              <td class="text-end">0</td>
+              <td class="text-end">0</td>
+              <td class="text-end">100.0%</td>
+            </tr>
+            <tr>
+              <td>Full year / overlap</td>
+              <td class="text-end">11</td>
+              <td class="text-end">0</td>
+              <td class="text-end">0</td>
+              <td class="text-end">0</td>
+              <td class="text-end">0</td>
+              <td class="text-end">100.0%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h5 class="mb-2">Programme dashboard</h5>
+      <div class="programme-grid">
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU5159</div>
+              <div class="small text-muted programme-title">Certificate in Science Plant Identification</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">0.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 0/2</div>
+          <div class="small text-muted">Missing: 2 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU5160</div>
+              <div class="small text-muted programme-title">Certificate in Science in Sustainable Horticulture</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">0.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 0/4</div>
+          <div class="small text-muted">Missing: 4 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU945</div>
+              <div class="small text-muted programme-title">BSc(Hons) Baking &amp; Pastry Arts</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">0.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 0/8</div>
+          <div class="small text-muted">Missing: 8 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU280</div>
+              <div class="small text-muted programme-title">MSc in App Culinary Nutrition</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">55.6%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-danger" style="width: 55.6%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 5/9</div>
+          <div class="small text-muted">Missing: 4 · Banner-only: 4</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU884</div>
+              <div class="small text-muted programme-title">B.Sc. (Honours) Horticulture</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">84.6%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-warning" style="width: 84.6%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 11/13</div>
+          <div class="small text-muted">Missing: 2 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 1</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU942</div>
+              <div class="small text-muted programme-title">Culinary Arts</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">89.8%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-warning" style="width: 89.8%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 44/49</div>
+          <div class="small text-muted">Missing: 5 · Banner-only: 2</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU608</div>
+              <div class="small text-muted programme-title">H.Cert in Arts Prof Cookery</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">90.9%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 90.9%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 20/22</div>
+          <div class="small text-muted">Missing: 2 · Banner-only: 1</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU741</div>
+              <div class="small text-muted programme-title">Baking and Pastry Arts Mgt</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">93.5%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 93.5%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 29/31</div>
+          <div class="small text-muted">Missing: 2 · Banner-only: 2</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 2</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU943</div>
+              <div class="small text-muted programme-title">Culinary Entrepreneurship</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">94.7%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 94.7%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 36/38</div>
+          <div class="small text-muted">Missing: 2 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU742</div>
+              <div class="small text-muted programme-title">Culinary Arts</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">96.6%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 96.6%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 28/29</div>
+          <div class="small text-muted">Missing: 1 · Banner-only: 1</div>
+          <div class="small text-muted">Credits mismatch: 4 · Preferred missing: 1</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU075</div>
+              <div class="small text-muted programme-title">B.S.c. in Horticulture</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">100.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 16/16</div>
+          <div class="small text-muted">Missing: 0 · Banner-only: 12</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 3</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU1209</div>
+              <div class="small text-muted programme-title">Culinary Innovation</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">100.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 5/5</div>
+          <div class="small text-muted">Missing: 0 · Banner-only: 4</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU231</div>
+              <div class="small text-muted programme-title">Cul. Inov. and Food Prod. Dev.</div>
+            </div>
+              <span class="badge bg-success">Complete</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">100.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 13/13</div>
+          <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU237</div>
+              <div class="small text-muted programme-title">Gastronomy and Food Studies</div>
+            </div>
+              <span class="badge bg-success">Complete</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">100.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 13/13</div>
+          <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU5093</div>
+              <div class="small text-muted programme-title">Cert in Food Entrepreneurship</div>
+            </div>
+              <span class="badge bg-success">Complete</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">100.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 2/2</div>
+          <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+        </div>
+        <div class="programme-card">
+          <div class="d-flex justify-content-between align-items-start gap-2">
+            <div>
+              <div class="fw-semibold">TU743</div>
+              <div class="small text-muted programme-title">BA Culinary Arts (CDP Apprent)</div>
+            </div>
+              <span class="badge bg-warning text-dark">Gaps</span>
+          </div>
+          <div class="d-flex justify-content-between small mt-2">
+            <span class="text-muted">Module OK</span>
+            <span class="fw-semibold">100.0%</span>
+          </div>
+          <div class="progress progress-xs">
+            <div class="progress-bar bg-success" style="width: 100.0%"></div>
+          </div>
+          <div class="small text-muted mt-2">OK: 28/28</div>
+          <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+          <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 11</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
