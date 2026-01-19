@@ -151,7 +151,91 @@
       overflow-y:auto;
       padding-right:6px;
     }
+    .integrity-term-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-term-title { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+    .integrity-term-title .term { font-weight:700; }
+    .integrity-term-title .meta { color:#6c757d; font-size:0.8rem; }
+    .integrity-kpi { display:flex; justify-content:space-between; gap:10px; }
+    .integrity-kpi .k { color:#6c757d; }
+    .integrity-kpi .v { text-align:right; white-space:nowrap; }
+    .integrity-kpi .sub { color:#6c757d; font-size:0.8rem; }
+    .integrity-gap { display:flex; align-items:center; gap:8px; }
+    .integrity-gap .lbl { width:120px; color:#6c757d; font-size:0.8rem; }
+    .integrity-gap .pct { width:46px; text-align:right; color:#6c757d; font-size:0.8rem; }
+    .integrity-summary-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-summary-title { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+    .integrity-summary-title .term { font-weight:800; }
+    .integrity-summary-title .meta { color:#6c757d; font-size:0.8rem; }
+    .integrity-kpi-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px; margin-top:8px; }
+    .integrity-kpi-box { border:1px solid #e9ecef; border-radius:10px; padding:8px 10px; background:#fdfdfd; }
+    .integrity-kpi-box .k { color:#6c757d; font-size:0.75rem; }
+    .integrity-kpi-box .v { font-weight:800; font-size:1.05rem; line-height:1.1; }
+    .integrity-kpi-box .d { font-size:0.75rem; }
+    .integrity-metrics { display:grid; gap:6px; margin-top:8px; }
+    .integrity-metrics-header {
+      display:grid;
+      grid-template-columns:160px repeat(3, minmax(0, 1fr));
+      gap:10px;
+      align-items:end;
+      padding:0 0 6px 0;
+      border-bottom:1px solid #f1f3f5;
+      margin-top:8px;
+    }
+    .integrity-metrics-header .h {
+      color:#6c757d;
+      font-size:0.8rem;
+      font-weight:700;
+    }
+    .integrity-metrics-row {
+      display:grid;
+      grid-template-columns:160px repeat(3, minmax(0, 1fr));
+      gap:10px;
+      align-items:start;
+      padding:8px 0;
+      border-top:1px solid #f1f3f5;
+    }
+    .integrity-metrics-row:first-child { border-top:none; }
+    .integrity-metrics-label { color:#6c757d; font-size:0.85rem; padding-top:18px; }
+    .integrity-term-chip {
+      display:inline-block;
+      font-size:0.75rem;
+      color:#6c757d;
+      border:1px solid #e9ecef;
+      border-radius:999px;
+      padding:2px 8px;
+      background:#fff;
+      margin-bottom:4px;
+    }
+    .integrity-term-val { display:flex; justify-content:space-between; gap:8px; font-size:0.85rem; }
+    .integrity-term-val .v { font-weight:700; white-space:nowrap; }
+    .integrity-term-val .d { white-space:nowrap; }
+    .integrity-section-title { font-size:0.95rem; font-weight:700; margin-top:14px; }
+    .integrity-reg-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; margin-top:8px; }
+    .integrity-reg-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-reg-title { display:flex; justify-content:space-between; gap:10px; align-items:baseline; }
+    .integrity-reg-title .t { font-weight:700; }
+    .integrity-reg-title .n { color:#6c757d; font-size:0.8rem; }
+    .integrity-gap-metric .lbl { width:240px; font-size:0.85rem; color:#495057; }
+    .integrity-gap-metric .pct { width:150px; text-align:right; color:#6c757d; font-size:0.8rem; }
+    .integrity-term-wide { border:1px solid #e9ecef; border-radius:12px; background:#fff; padding:12px; }
+    .integrity-metric-box { border:1px solid #e9ecef; border-radius:10px; background:#fdfdfd; padding:10px; height:100%; }
+    .integrity-metric-box-title { font-weight:700; font-size:0.85rem; }
+    .integrity-metric-line { display:flex; align-items:center; gap:8px; padding:4px 0; }
+    .integrity-metric-line .lbl { width:150px; color:#6c757d; font-size:0.8rem; }
+    .integrity-metric-line .rhs { width:120px; text-align:right; color:#6c757d; font-size:0.8rem; white-space:nowrap; }
+    .integrity-metric-line .rhs strong { color:#212529; font-weight:700; }
+    .collapse-chevron {
+      display:inline-block;
+      transition:transform 0.15s ease;
+      font-size:1.05rem;
+      opacity:0.95;
+      line-height:1;
+      padding-left:10px;
+    }
+    button[aria-expanded="true"] .collapse-chevron { transform:rotate(180deg); }
   </style>
+
+
 
 
   <div class="hero">
@@ -162,7 +246,7 @@
         <div class="mt-2">
           <span class="badge bg-success text-light">Completed</span>
         </div>
-        <div class="text-muted small mt-2">Generated: 2026-01-12 01:20</div>
+        <div class="text-muted small mt-2">Generated: 2026-01-19 00:37</div>
       </div>
       <div class="align-self-start">
         <a class="btn btn-outline-secondary" href="index.html">Back to index</a>
@@ -170,18 +254,20 @@
     </div>
   </div>
 
+
+
   <div class="card mb-4">
     <div class="card-body">
-          <div class="card section-card mt-3 border-success border-2">
-            <div class="card-header bg-success text-white">
-              <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
-                <div>
-                  <div class="fw-semibold">Argos Reports</div>
-                  <div class="small">Baseline Argos extracts and queries.</div>
-                </div>
+	          <div class="card section-card mt-3 border-success border-2">
+              <div class="card-header bg-success text-white">
+                  <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+                    <div>
+                      <div class="fw-semibold">Argos Reports</div>
+                      <div class="small">Baseline Argos extracts and queries.</div>
+                    </div>
+                  </div>
               </div>
-            </div>
-            <div class="card-body">
+              <div class="card-body">
               <div class="row row-cols-1 row-cols-md-2 g-3">
                   <div class="col">
                     <a class="text-decoration-none text-dark" href="module_code_query.html">
@@ -290,16 +376,16 @@
               </div>
             </div>
           </div>
-          <div class="card section-card mt-3 border-info border-2">
-            <div class="card-header bg-info text-dark">
-              <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
-                <div>
-                  <div class="fw-semibold">Akari Reports</div>
-                  <div class="small">Akari catalogue views.</div>
-                </div>
+	          <div class="card section-card mt-3 border-info border-2">
+              <div class="card-header bg-info text-dark">
+                  <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+                    <div>
+                      <div class="fw-semibold">Akari Reports</div>
+                      <div class="small">Akari catalogue views.</div>
+                    </div>
+                  </div>
               </div>
-            </div>
-            <div class="card-body">
+              <div class="card-body">
               <div class="row row-cols-1 row-cols-md-2 g-3">
                   <div class="col">
                     <a class="text-decoration-none text-dark" href="viewer_akari_by_school.html">
@@ -317,16 +403,16 @@
               </div>
             </div>
           </div>
-          <div class="card section-card mt-3 border-warning border-2">
-            <div class="card-header bg-warning text-dark">
-              <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
-                <div>
-                  <div class="fw-semibold">Timetable Reports</div>
-                  <div class="small">Scientia timetable overlays (coming soon).</div>
-                </div>
+	          <div class="card section-card mt-3 border-warning border-2">
+              <div class="card-header bg-warning text-dark">
+                  <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+                    <div>
+                      <div class="fw-semibold">Timetable Reports</div>
+                      <div class="small">Scientia timetable overlays (coming soon).</div>
+                    </div>
+                  </div>
               </div>
-            </div>
-            <div class="card-body">
+              <div class="card-body">
               <div class="row row-cols-1 row-cols-md-2 g-3">
                   <div class="col">
                     <a class="text-decoration-none text-dark" href="#">

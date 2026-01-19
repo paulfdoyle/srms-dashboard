@@ -151,7 +151,91 @@
       overflow-y:auto;
       padding-right:6px;
     }
+    .integrity-term-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-term-title { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+    .integrity-term-title .term { font-weight:700; }
+    .integrity-term-title .meta { color:#6c757d; font-size:0.8rem; }
+    .integrity-kpi { display:flex; justify-content:space-between; gap:10px; }
+    .integrity-kpi .k { color:#6c757d; }
+    .integrity-kpi .v { text-align:right; white-space:nowrap; }
+    .integrity-kpi .sub { color:#6c757d; font-size:0.8rem; }
+    .integrity-gap { display:flex; align-items:center; gap:8px; }
+    .integrity-gap .lbl { width:120px; color:#6c757d; font-size:0.8rem; }
+    .integrity-gap .pct { width:46px; text-align:right; color:#6c757d; font-size:0.8rem; }
+    .integrity-summary-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-summary-title { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+    .integrity-summary-title .term { font-weight:800; }
+    .integrity-summary-title .meta { color:#6c757d; font-size:0.8rem; }
+    .integrity-kpi-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px; margin-top:8px; }
+    .integrity-kpi-box { border:1px solid #e9ecef; border-radius:10px; padding:8px 10px; background:#fdfdfd; }
+    .integrity-kpi-box .k { color:#6c757d; font-size:0.75rem; }
+    .integrity-kpi-box .v { font-weight:800; font-size:1.05rem; line-height:1.1; }
+    .integrity-kpi-box .d { font-size:0.75rem; }
+    .integrity-metrics { display:grid; gap:6px; margin-top:8px; }
+    .integrity-metrics-header {
+      display:grid;
+      grid-template-columns:160px repeat(3, minmax(0, 1fr));
+      gap:10px;
+      align-items:end;
+      padding:0 0 6px 0;
+      border-bottom:1px solid #f1f3f5;
+      margin-top:8px;
+    }
+    .integrity-metrics-header .h {
+      color:#6c757d;
+      font-size:0.8rem;
+      font-weight:700;
+    }
+    .integrity-metrics-row {
+      display:grid;
+      grid-template-columns:160px repeat(3, minmax(0, 1fr));
+      gap:10px;
+      align-items:start;
+      padding:8px 0;
+      border-top:1px solid #f1f3f5;
+    }
+    .integrity-metrics-row:first-child { border-top:none; }
+    .integrity-metrics-label { color:#6c757d; font-size:0.85rem; padding-top:18px; }
+    .integrity-term-chip {
+      display:inline-block;
+      font-size:0.75rem;
+      color:#6c757d;
+      border:1px solid #e9ecef;
+      border-radius:999px;
+      padding:2px 8px;
+      background:#fff;
+      margin-bottom:4px;
+    }
+    .integrity-term-val { display:flex; justify-content:space-between; gap:8px; font-size:0.85rem; }
+    .integrity-term-val .v { font-weight:700; white-space:nowrap; }
+    .integrity-term-val .d { white-space:nowrap; }
+    .integrity-section-title { font-size:0.95rem; font-weight:700; margin-top:14px; }
+    .integrity-reg-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; margin-top:8px; }
+    .integrity-reg-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-reg-title { display:flex; justify-content:space-between; gap:10px; align-items:baseline; }
+    .integrity-reg-title .t { font-weight:700; }
+    .integrity-reg-title .n { color:#6c757d; font-size:0.8rem; }
+    .integrity-gap-metric .lbl { width:240px; font-size:0.85rem; color:#495057; }
+    .integrity-gap-metric .pct { width:150px; text-align:right; color:#6c757d; font-size:0.8rem; }
+    .integrity-term-wide { border:1px solid #e9ecef; border-radius:12px; background:#fff; padding:12px; }
+    .integrity-metric-box { border:1px solid #e9ecef; border-radius:10px; background:#fdfdfd; padding:10px; height:100%; }
+    .integrity-metric-box-title { font-weight:700; font-size:0.85rem; }
+    .integrity-metric-line { display:flex; align-items:center; gap:8px; padding:4px 0; }
+    .integrity-metric-line .lbl { width:150px; color:#6c757d; font-size:0.8rem; }
+    .integrity-metric-line .rhs { width:120px; text-align:right; color:#6c757d; font-size:0.8rem; white-space:nowrap; }
+    .integrity-metric-line .rhs strong { color:#212529; font-weight:700; }
+    .collapse-chevron {
+      display:inline-block;
+      transition:transform 0.15s ease;
+      font-size:1.05rem;
+      opacity:0.95;
+      line-height:1;
+      padding-left:10px;
+    }
+    button[aria-expanded="true"] .collapse-chevron { transform:rotate(180deg); }
   </style>
+
+
 
 
   <div class="hero">
@@ -162,7 +246,7 @@
         <div class="mt-2">
           <span class="badge bg-success text-light">Completed</span>
         </div>
-        <div class="text-muted small mt-2">Generated: 2026-01-12 01:20</div>
+        <div class="text-muted small mt-2">Generated: 2026-01-19 00:37</div>
       </div>
       <div class="align-self-start">
         <a class="btn btn-outline-secondary" href="index.html">Back to index</a>
@@ -170,360 +254,418 @@
     </div>
   </div>
 
+
+
   <div class="card mb-4">
     <div class="card-body">
-          <div class="card section-card mt-3 border-success border-2">
-            <div class="card-header bg-success text-white">
-              <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
-                <div>
-                  <div class="fw-semibold">Academic Baseline</div>
-                  <div class="small">Summary of the academic review of programmes in Banner compared with Akari.</div>
-                </div>
+	          <div class="card section-card mt-3 border-success border-2">
+              <div class="card-header bg-success text-white">
+                <button class="btn text-reset text-start w-100 p-0 border-0 bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#stage2-section-1" aria-expanded="true" aria-controls="stage2-section-1">
+                  <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+                    <div>
+                      <div class="fw-semibold">Academic Baseline</div>
+                      <div class="small">Summary of the academic review of programmes in Banner compared with Akari.</div>
+                    </div>
+                  </div>
+                </button>
               </div>
-            </div>
-            <div class="card-body">
-                
-                  <div class="card stage-dashboard-card mb-3">
-                    <div class="card-body">
-                      <div class="fw-semibold">Step overview</div>
-                      <div class="small text-muted mt-1">Donuts show the programme mix within each step. Step 1 splits review completion, Step 2 shows the non-priority baseline, Step 3 breaks down priority programme types.</div>
-                      <div class="row g-3 mt-2">
-                        <div class="col-lg-4">
-                          <div class="small text-muted fw-semibold">
-Step 1: Academic review                          </div>
-                          <div class="d-flex align-items-center gap-3 mt-2">
-                            <div class="stage-donut" style="--p1: 94.3; --p2: 5.7; --p3: 0; --p4: 0; --c1: #198754; --c2: #dc3545; --c3: #6c757d; --c4: #6c757d;">
-                              <div class="stage-donut-center">
-                                <div class="fw-semibold">809</div>
-                                <div class="small text-muted">Programmes</div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="small mt-2">
-                              <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="legend-dot" style="background: #198754;"></span>
-                                <span>Review Complete: 763 (94.3%)</span>
-                              </div>
-                              <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="legend-dot" style="background: #dc3545;"></span>
-                                <span>Review Incomplete: 46 (5.7%)</span>
-                              </div>
-                          </div>
+              <div id="stage2-section-1" class="collapse show">
+                <div class="card-body">
+
+                    <div class="card stage-dashboard-card mb-3">
+                      <div class="card-body">
+                        <div class="fw-semibold">Creating a Baseline with Academic Staff</div>
+                        <div class="small text-muted mt-1">
+                          <p class="mb-0">Academic staff reviewed all Banner programmes as of Oct 25 to identify missing programmes and confirm which active programmes need Banner curriculum cleanup. That review produced two baseline lists: Priority Baseline (operationally required this academic year) and Non-Priority Baseline (inactive or not part of assessment/registration). We also track two dynamic lists: Banner-only programmes not on the baseline lists and Akari-only programmes not on the baseline lists.</p>
                         </div>
-                        <div class="col-lg-4">
-                          <div class="small text-muted fw-semibold">
-Step 2: Non-priority baseline                          </div>
-                          <div class="d-flex align-items-center gap-3 mt-2">
-                            <div class="stage-donut" style="--p1: 100.0; --p2: 0; --p3: 0; --p4: 0; --c1: #ffc107; --c2: #ffc107; --c3: #6c757d; --c4: #6c757d;">
-                              <div class="stage-donut-center">
-                                <div class="fw-semibold">184</div>
-                                <div class="small text-muted">Programmes</div>
+                        <div class="row g-3 mt-2">
+                          <div class="col-lg-4">
+                            <div class="small text-muted fw-semibold">
+Step 1: Academic review                            </div>
+                            <div class="d-flex align-items-center gap-3 mt-2">
+                              <div class="stage-donut" style="--p1: 94.3; --p2: 5.7; --p3: 0; --p4: 0; --c1: #198754; --c2: #dc3545; --c3: #6c757d; --c4: #6c757d;">
+                                <div class="stage-donut-center">
+                                  <div class="fw-semibold">809</div>
+                                  <div class="small text-muted">Programmes</div>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="small mt-2">
-                              <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="legend-dot" style="background: #ffc107;"></span>
-                                <span>Non-priority baseline: 184 (24.1% of Review Complete)</span>
-                              </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="small text-muted fw-semibold">
-Step 3: Priority baseline                          </div>
-                          <div class="d-flex align-items-center gap-3 mt-2">
-                            <div class="stage-donut" style="--p1: 69.9; --p2: 25.4; --p3: 0.9; --p4: 3.8; --c1: #0d6efd; --c2: #198754; --c3: #ffc107; --c4: #6c757d;">
-                              <div class="stage-donut-center">
-                                <div class="fw-semibold">579</div>
-                                <div class="small text-muted">Programmes</div>
-                              </div>
+                            <div class="small mt-2">
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                  <span class="legend-dot" style="background: #198754;"></span>
+                                  <span>Review Complete: 763 (94.3%)</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                  <span class="legend-dot" style="background: #dc3545;"></span>
+                                  <span>Review Incomplete: 46 (5.7%)</span>
+                                </div>
                             </div>
                           </div>
-                          <div class="small mt-2">
-                              <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="legend-dot" style="background: #0d6efd;"></span>
-                                <span>Active (no exam boards): 405 (69.9%)</span>
+                          <div class="col-lg-4">
+                            <div class="small text-muted fw-semibold">
+Step 2: Non-priority baseline                            </div>
+                            <div class="d-flex align-items-center gap-3 mt-2">
+                              <div class="stage-donut" style="--p1: 100.0; --p2: 0; --p3: 0; --p4: 0; --c1: #ffc107; --c2: #ffc107; --c3: #6c757d; --c4: #6c757d;">
+                                <div class="stage-donut-center">
+                                  <div class="fw-semibold">184</div>
+                                  <div class="small text-muted">Programmes</div>
+                                </div>
                               </div>
-                              <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="legend-dot" style="background: #198754;"></span>
-                                <span>Active (exam boards): 147 (25.4%)</span>
+                            </div>
+                            <div class="small mt-2">
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                  <span class="legend-dot" style="background: #ffc107;"></span>
+                                  <span>Non-priority baseline: 184 (24.1% of Review Complete)</span>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4">
+                            <div class="small text-muted fw-semibold">
+Step 3: Priority baseline                            </div>
+                            <div class="d-flex align-items-center gap-3 mt-2">
+                              <div class="stage-donut" style="--p1: 69.9; --p2: 25.4; --p3: 0.9; --p4: 3.8; --c1: #0d6efd; --c2: #198754; --c3: #ffc107; --c4: #6c757d;">
+                                <div class="stage-donut-center">
+                                  <div class="fw-semibold">579</div>
+                                  <div class="small text-muted">Programmes</div>
+                                </div>
                               </div>
-                              <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="legend-dot" style="background: #ffc107;"></span>
-                                <span>Inactive (exam boards): 5 (0.9%)</span>
-                              </div>
-                              <div class="d-flex align-items-center gap-2 mb-1">
-                                <span class="legend-dot" style="background: #6c757d;"></span>
-                                <span>Active status missing: 22 (3.8%)</span>
-                              </div>
-                              <div class="text-muted mt-1">Share of Review Complete: 75.9%</div>
+                            </div>
+                            <div class="small mt-2">
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                  <span class="legend-dot" style="background: #0d6efd;"></span>
+                                  <span>Active (no exam boards): 405 (69.9%)</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                  <span class="legend-dot" style="background: #198754;"></span>
+                                  <span>Active (exam boards): 147 (25.4%)</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                  <span class="legend-dot" style="background: #ffc107;"></span>
+                                  <span>Inactive (exam boards): 5 (0.9%)</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-1">
+                                  <span class="legend-dot" style="background: #6c757d;"></span>
+                                  <span>Active status missing: 22 (3.8%)</span>
+                                </div>
+                                <div class="text-muted mt-1">Share of Review Complete: 75.9%</div>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <div class="small text-muted mt-2">Step details include review splits, Akari checks, and Akari match comparisons.</div>
-                      <div class="accordion mt-3" id="stage2StepDetailsAccordion">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="stage2StepDetailsHeading">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stage2StepDetails" aria-expanded="false" aria-controls="stage2StepDetails">
-                              <span class="fw-semibold">Step details: review splits, Akari checks, and match comparisons</span>
-                            </button>
-                          </h2>
-                          <div id="stage2StepDetails" class="accordion-collapse collapse" aria-labelledby="stage2StepDetailsHeading" data-bs-parent="#stage2StepDetailsAccordion">
-                            <div class="accordion-body">
-                              <div class="row g-3 mb-3">
-                                <div class="col-12">
-                                  <div class="card stage-dashboard-card">
-                                    <div class="card-body">
-                                  <div class="fw-semibold mb-1">Step 1: Academic Programme Review (809 programmes)</div>
-                                  <div class="small text-muted mb-3">Review completion breakdown</div>
-                                  <div class="row g-3 align-items-start">
-                                    <div class="col-lg-4">
-                                      <div class="d-flex flex-wrap gap-3 align-items-center">
-                                        <div class="stage-donut stage-donut-lg" style="--p1: 94.3; --p2: 5.7; --p3: 0; --p4: 0; --c1: #198754; --c2: #dc3545; --c3: #6c757d; --c4: #6c757d;">
-                                          <div class="stage-donut-center">
-                                            <div class="fw-semibold">809</div>
-                                            <div class="small text-muted">Programmes</div>
+                    </div>
+                    <div class="card stage-dashboard-card mb-3">
+                      <div class="card-body">
+                        <div class="fw-semibold">Programmes outside the baseline lists</div>
+                        <div class="small text-muted mt-1">Programmes present only in Banner or only in Akari, excluding priority/non-priority baseline programmes.</div>
+                        <div class="d-flex flex-wrap gap-3 align-items-center mt-2">
+                          <div class="stage-donut" style="--p1: 9.5; --p2: 90.5; --p3: 0; --p4: 0; --c1: #dc3545; --c2: #0d6efd; --c3: #6c757d; --c4: #6c757d;">
+                            <div class="stage-donut-center">
+                              <div class="fw-semibold">306</div>
+                              <div class="small text-muted">Programmes</div>
+                            </div>
+                          </div>
+                          <div class="small">
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                              <span class="legend-dot" style="background: #dc3545;"></span>
+                              <span>Banner-only (not on baseline lists): 29 (9.5%)</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 mb-1">
+                              <span class="legend-dot" style="background: #0d6efd;"></span>
+                              <span>Akari-only (not on baseline lists): 277 (90.5%)</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row g-3 mt-3">
+                          <div class="col-lg-6">
+                            <details>
+                              <summary class="small text-muted">Banner-only programme list</summary>
+                              <div class="small text-muted mt-1">TU002, TU053, TU089, TU1128, TU120, TU1747, TU1748, TU1780, TU1786, TU1804, TU1981, TU213, TU400, TU407, TU408, TU461, TU500, TU502, TU5040, TU5085, TU5272, TU5352, TU6112, TU6123, TU671, TU698, TU827, TU900, TU932</div>
+                            </details>
+                          </div>
+                          <div class="col-lg-6">
+                            <details>
+                              <summary class="small text-muted">Akari-only programme list</summary>
+                              <div class="small text-muted mt-1">BN118, BN_BACFN_7, BN_BACFN_8, BN_BACFN_B, BN_BBITL_D, BN_BBSIS_B, BN_BBSSL_8, BN_BBSSL_B, BN_BBSST_XCM, BN_BCAPD_Q, BN_BCFGG_Q, BN_BCOMM_7, BN_BCOMM_8, BN_BDMKT_XDE, BN_BDMSM_QWE, BN_BGENS_E, BN_BHORT_B, BN_BIATI_Q, BN_BINTL_C, BN_BLISM_Q, BN_BMSBS_R, BN_DDMED_QWE, BN_DDMED_XWC, BN_EBSEE_B, BN_EBSEH_B, BN_EBSEI_B, BN_ECCTS_Q, BN_ECEBL_Q, BN_ECIES_Q, BN_EEDRT_Q, BN_EEEHS_Q, BN_EELTC_8, BN_EELTC_B, BN_EESIA_7, BN_EESIA_8, BN_EESIA_B, BN_EESIA_D, BN_ELEBC_Q, BN_ELSSG_Q, BN_EMECH_8, BN_EMECH_B, BN_ESECT_7, BN_ESELT_C, BN_EWMAS_Q, BN_HAPSS_8, BN_HAPSS_B, BN_HAPSS_D, BN_HAPSW_D, BN_HASW1_7, BN_HECHC_7, BN_HIPAP_C, BN_HLANE_R, BN_HLANF_G, BN_HLANF_R, BN_HLANG_G, BN_HLANG_R, BN_HMOAS_Q, BN_HPSLF_G, BN_HPSLG_G, BN_HSACD_7, BN_HSACD_B, BN_KCCNP_Q, BN_KCFSM_D, BN_KCICS_Q, BN_KCICS_QWE, BN_KCPDA_Q, BN_KCSMT_B, BN_KCSVP_Q, BN_KITSU_C, BN_KITSU_CA, BN_KITSU_D, BN_KJWAD_Q, BN_KMCTS_Q, BN_KMSCI_R, BN_KNSC2_Q, BN_KNSEC_Q, BN_KPCNA_QWE, BN_SHORB_D, BN_SHORK_D, BN_SHORW_D, BN_SHTSC_XLD, BN_SHTSC_XOH, BN_SHTSC_XPS, N/A, NEW, TA_ACCIN_I, TA_BAFIN_B, TA_BAFIN_D, TA_BAMCO_C, TA_BAPICS_C, TA_BDAMKT_D, TA_BIDMS_D, TA_BMKTG_P, TA_BTECH_B, TA_BTECH_D, TA_EADTE_B, TA_EAMEC_M_X, TA_EESAD_C, TA_HBAQS_PD, TA_HHOTM_C, TA_HHOTM_D_X, TA_HPMCR_D, TA_HPVOL_C, TA_KACTM_C, TA_KAITM_B, TA_KCOMP_P, TA_KDMCO_M, TA_KDMCO_PD, TA_KITMG_C, TA_KITMG_PD, TA_KMWDM_C, TA_SABIO_B, TA_SABIO_B_X, TA_SBIOL_P, TA_SCHEM_B (ADDON), TA_SCHEM_C, TA_SCHEM_D (ADDON), TA_SCHEM_P, TA_SMFDM_B, TA_SMGMP_C, TA_SMMDM_B, TA_SMPHA_B, TA_SPHAR_M_XX, TA_SPHSC_M, TA_SSPPM_C, TU004, TU707A, TU010, TU801A, TU022, TU028F, TU028, TU036, TU048, TU048P, TU061, TU759, TU068A, TU859B, TU072, TU472, TU073, TU876C, TU078B, TU083, TU086, TU096, TU096F, TU108, TU209P, TU211, TU211P, TU212, TU212P, TU214, TU216, TU229, TU232, TU233, TU235, TU235A, TU236P, TU250, TU253M, TU261, TU272, TU272P, TU273, TU273P, TU291M, TU292P, TU292R, TU293, TU306/1, TU308, TU336, TU336A, TU339J, TU357, TU359, TU366, TU383, TU384, TU389, TU393, TU410, TU429, TU451, TU452, TU453, TU453P, TU471, TU471P, TU5095, TU5151, TU5151F, TU5152, TU5252, TU5253, TU5254, TU5257, TU5285, TU5297, TU5300, TU5302, TU5305, TU5309, TU5310, TU5311, TU5352_RS, TU5454, TU5456, TU5459, TU5508, TU5509, TU5516, TU5519, TU5540, TU5544, TU5546, TU5550, TU5902, TU5952, TU5993, TU5997, TU601, TU003, TU603P, TU610, TU642P, TU642, TU651, TU651P, TU652, TU652P, TU670, TU670P, TU672, TU680, TU680P, TU682, TU682P, TU685, TU697, TU698, TU702, TU006, TU723, TU724, TU738, TU742A, TU031, TU752, TU752P, TU756A, TU756B, TU760A, TU760B, TU766, TU774, TU774A, TU776, TU101, TU776A, TU102, TU777, TU779, TU779P, TU780, TU780P, TU782, TU103, TU783A, TU785P, TU786, TU790/ TU790P, TU794, TU801, TU801P, TU803, TU803P, TU803A, TU009, TU803C, TU008, TU806, TU806P, TU808A, TU809A, TU012, TU809_, TU813A, TU015, TU816, TU841, TU848, TU859E, TU859F, TU861, TU861P, TU862A, TU862B, TU864, TU864P, TU865, TU865P, TU8822, TU887, TU887P, TU908, TU105, TU908A, TU106, TU911, TU107, TU913, TU916, TU916P, TU923, TU923A, TU923P, TU923, TU934, TU934P, TU941, TU941P, TU960, TU988, TU990, TU993, TU994, TU997, TU997P</div>
+                            </details>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+              <div class="row row-cols-1 row-cols-md-2 g-3">
+              </div>
+                </div>
+              </div>
+          </div>
+	          <div class="card section-card mt-3 border-warning border-2">
+              <div class="card-header bg-warning text-dark">
+                <button class="btn text-reset text-start w-100 p-0 border-0 bg-transparent collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stage2-section-2" aria-expanded="false" aria-controls="stage2-section-2">
+                  <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+                    <div>
+                      <div class="fw-semibold">Academic Baseline Detailed Review</div>
+                      <div class="small">Expanded step breakdowns covering review splits, Akari checks, and match comparisons.</div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div id="stage2-section-2" class="collapse">
+                <div class="card-body">
+
+                    <div class="card stage-dashboard-card mb-3">
+                      <div class="card-body">
+                        <div class="row g-3 mb-3">
+                          <div class="col-12">
+                            <div class="card stage-dashboard-card">
+                              <div class="card-body">
+                                    <div class="fw-semibold mb-1">Step 1: Academic Programme Review (809 programmes)</div>
+                                    <div class="small text-muted mb-3">Review completion breakdown</div>
+                                    <div class="row g-3 align-items-start">
+                                      <div class="col-lg-4">
+                                        <div class="d-flex flex-wrap gap-3 align-items-center">
+                                          <div class="stage-donut stage-donut-lg" style="--p1: 94.3; --p2: 5.7; --p3: 0; --p4: 0; --c1: #198754; --c2: #dc3545; --c3: #6c757d; --c4: #6c757d;">
+                                            <div class="stage-donut-center">
+                                              <div class="fw-semibold">809</div>
+                                              <div class="small text-muted">Programmes</div>
+                                            </div>
+                                          </div>
+                                          <div class="small">
+                                            <div class="d-flex align-items-center gap-2 mb-1">
+                                              <span class="legend-dot" style="background: #198754;"></span>
+                                              <span>Review Complete: 763 (94.3%)</span>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-2 mb-1">
+                                              <span class="legend-dot" style="background: #dc3545;"></span>
+                                              <span>Review Incomplete: 46 (5.7%)</span>
+                                            </div>
                                           </div>
                                         </div>
-                                        <div class="small">
+                                      </div>
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Akari checks — Review Complete only</div>
+                                        <div class="small text-muted mt-1">Reviewed: 763</div>
+                                        <div class="progress progress-sm mt-2">
+                                          <div class="progress-bar bg-success" style="width: 71.2%"></div>
+                                          <div class="progress-bar bg-danger" style="width: 26.9%"></div>
+                                          <div class="progress-bar bg-secondary" style="width: 2.0%"></div>
+                                        </div>
+                                        <div class="small mt-2">
                                           <div class="d-flex align-items-center gap-2 mb-1">
                                             <span class="legend-dot" style="background: #198754;"></span>
-                                            <span>Review Complete: 763 (94.3%)</span>
+                                            <span>Akari OK: 543 (71.2%)</span>
                                           </div>
                                           <div class="d-flex align-items-center gap-2 mb-1">
                                             <span class="legend-dot" style="background: #dc3545;"></span>
-                                            <span>Review Incomplete: 46 (5.7%)</span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Akari checks — Review Complete only</div>
-                                      <div class="small text-muted mt-1">Reviewed: 763</div>
-                                      <div class="progress progress-sm mt-2">
-                                        <div class="progress-bar bg-success" style="width: 71.2%"></div>
-                                        <div class="progress-bar bg-danger" style="width: 26.9%"></div>
-                                        <div class="progress-bar bg-secondary" style="width: 2.0%"></div>
-                                      </div>
-                                      <div class="small mt-2">
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #198754;"></span>
-                                          <span>Akari OK: 543 (71.2%)</span>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #dc3545;"></span>
-                                          <span>Not found in Akari: 205 (26.9%)</span>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #6c757d;"></span>
-                                          <span>N/A: 15 (2.0%)</span>
-                                        </div>
-                                      </div>
-                                      <div class="small text-muted mt-1">From academic review flags (Akari correctness fields); this reflects reviewer checks in Akari, not a Banner/Akari match. N/A means every Akari check field was marked N/A.</div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Academic review vs Akari — Review Complete only</div>
-                                      <div class="small text-muted mt-1">Unique codes: 743</div>
-                                      <div class="progress progress-sm mt-2">
-                                        <div class="progress-bar bg-success" style="width: 69.3%"></div>
-                                        <div class="progress-bar bg-danger" style="width: 30.7%"></div>
-                                      </div>
-                                      <div class="small mt-2">
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #198754;"></span>
-                                          <span>Matched in Akari: 515 (69.3%)</span>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #dc3545;"></span>
-                                          <span>Not matched in Akari: 228 (30.7%)</span>
-                                        </div>
-                                      </div>
-                                      <div class="small text-muted mt-1">Possible matches: 103 · No hints: 125</div>
-                                      <div class="small text-muted mt-1">Compares review-complete programme codes to the Akari programme catalogue; counts unique codes (deduped) as matched if the code exists in Akari.</div>
-                                    </div>
-                                  </div>
-                                </div>
-                                  </div>
-                                </div>
-                                <div class="col-12">
-                                  <div class="card stage-dashboard-card">
-                                    <div class="card-body">
-                                  <div class="fw-semibold mb-1">Step 2: Identify Non-Priority Baseline Programmes</div>
-                                  <div class="small text-muted mb-3">Baseline split from 763 Review Complete programmes</div>
-                                  <div class="row g-3 align-items-start">
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Included programmes</div>
-                                      <div class="d-flex flex-wrap gap-3 align-items-center mt-2">
-                                        <div class="stage-donut stage-donut-lg" style="--p1: 100.0; --p2: 0; --p3: 0; --p4: 0; --c1: #ffc107; --c2: #ffc107; --c3: #6c757d; --c4: #6c757d;">
-                                          <div class="stage-donut-center">
-                                            <div class="fw-semibold">184</div>
-                                            <div class="small text-muted">Programmes</div>
-                                          </div>
-                                        </div>
-                                        <div class="small">
-                                          <div class="d-flex align-items-center gap-2 mb-1">
-                                            <span class="legend-dot" style="background: #ffc107;"></span>
-                                            <span>Non-Priority baseline: 184 (100.0%)</span>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="small text-muted mt-1">Included: 184 (24.1% of Review Complete programmes)</div>
-                                      <div class="small text-muted mt-1">Review Complete + Inactive where exam boards are not required.</div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Akari checks — Non-priority baseline</div>
-                                      <div class="small text-muted mt-1">Reviewed: 184</div>
-                                      <div class="progress progress-sm mt-2">
-                                        <div class="progress-bar bg-success" style="width: 57.6%"></div>
-                                        <div class="progress-bar bg-danger" style="width: 38.6%"></div>
-                                        <div class="progress-bar bg-secondary" style="width: 3.8%"></div>
-                                      </div>
-                                      <div class="small mt-2">
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #198754;"></span>
-                                          <span>Akari OK: 106 (57.6%)</span>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #dc3545;"></span>
-                                          <span>Not found in Akari: 71 (38.6%)</span>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #6c757d;"></span>
-                                          <span>N/A: 7 (3.8%)</span>
-                                        </div>
-                                      </div>
-                                      <div class="small text-muted mt-1">From academic review flags (Akari correctness fields); this reflects reviewer checks in Akari, not a Banner/Akari match. N/A means every Akari check field was marked N/A.</div>
-                                    </div>
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Academic review vs Akari — Non-priority baseline</div>
-                                      <div class="small text-muted mt-1">Unique codes: 179</div>
-                                      <div class="progress progress-sm mt-2">
-                                        <div class="progress-bar bg-success" style="width: 47.5%"></div>
-                                        <div class="progress-bar bg-danger" style="width: 52.5%"></div>
-                                      </div>
-                                      <div class="small mt-2">
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #198754;"></span>
-                                          <span>Matched in Akari: 85 (47.5%)</span>
-                                        </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #dc3545;"></span>
-                                          <span>Not matched in Akari: 94 (52.5%)</span>
-                                        </div>
-                                      </div>
-                                      <div class="small text-muted mt-1">Possible matches: 43 · No hints: 51</div>
-                                      <div class="small text-muted mt-1">Compares review-complete programme codes to the Akari programme catalogue; counts unique codes (deduped) as matched if the code exists in Akari.</div>
-                                    </div>
-                                  </div>
-                                </div>
-                                  </div>
-                                </div>
-                                <div class="col-12">
-                                  <div class="card stage-dashboard-card">
-                                    <div class="card-body">
-                                  <div class="fw-semibold mb-1">Step 3: Identify Priority Baseline Programmes</div>
-                                  <div class="small text-muted mb-3">Baseline split from 763 Review Complete programmes</div>
-                                  <div class="row g-3 align-items-start">
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Included programme types</div>
-                                      <div class="d-flex flex-wrap gap-3 align-items-center mt-2">
-                                        <div class="stage-donut stage-donut-lg" style="--p1: 69.9; --p2: 25.4; --p3: 0.9; --p4: 3.8; --c1: #0d6efd; --c2: #198754; --c3: #ffc107; --c4: #6c757d;">
-                                          <div class="stage-donut-center">
-                                            <div class="fw-semibold">579</div>
-                                            <div class="small text-muted">Programmes</div>
-                                          </div>
-                                        </div>
-                                        <div class="small">
-                                          <div class="d-flex align-items-center gap-2 mb-1">
-                                            <span class="legend-dot" style="background: #0d6efd;"></span>
-                                            <span>Active (no exam boards): 405 (69.9%)</span>
-                                          </div>
-                                          <div class="d-flex align-items-center gap-2 mb-1">
-                                            <span class="legend-dot" style="background: #198754;"></span>
-                                            <span>Active (exam boards): 147 (25.4%)</span>
-                                          </div>
-                                          <div class="d-flex align-items-center gap-2 mb-1">
-                                            <span class="legend-dot" style="background: #ffc107;"></span>
-                                            <span>Inactive (exam boards): 5 (0.9%)</span>
+                                            <span>Not found in Akari: 205 (26.9%)</span>
                                           </div>
                                           <div class="d-flex align-items-center gap-2 mb-1">
                                             <span class="legend-dot" style="background: #6c757d;"></span>
-                                            <span>Active status missing: 22 (3.8%)</span>
+                                            <span>N/A: 15 (2.0%)</span>
                                           </div>
                                         </div>
+                                        <div class="small text-muted mt-1">From academic review flags (Akari correctness fields); this reflects reviewer checks in Akari, not a Banner/Akari match. N/A means every Akari check field was marked N/A.</div>
                                       </div>
-                                      <div class="small text-muted mt-1">Included: 579 (75.9% of Review Complete programmes)</div>
-                                      <div class="small text-muted mt-1">Review Complete + Active, plus Review Complete + Inactive where exam boards are required, plus Active status missing.</div>
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Academic review vs Akari — Review Complete only</div>
+                                        <div class="small text-muted mt-1">Unique codes: 743</div>
+                                        <div class="progress progress-sm mt-2">
+                                          <div class="progress-bar bg-success" style="width: 69.3%"></div>
+                                          <div class="progress-bar bg-danger" style="width: 30.7%"></div>
+                                        </div>
+                                        <div class="small mt-2">
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #198754;"></span>
+                                            <span>Matched in Akari: 515 (69.3%)</span>
+                                          </div>
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #dc3545;"></span>
+                                            <span>Not matched in Akari: 228 (30.7%)</span>
+                                          </div>
+                                        </div>
+                                        <div class="small text-muted mt-1">Possible matches: 103 · No hints: 125</div>
+                                        <div class="small text-muted mt-1">Compares review-complete programme codes to the Akari programme catalogue; counts unique codes (deduped) as matched if the code exists in Akari.</div>
+                                      </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Akari checks — Priority baseline</div>
-                                      <div class="small text-muted mt-1">Reviewed: 579</div>
-                                      <div class="progress progress-sm mt-2">
-                                        <div class="progress-bar bg-success" style="width: 75.5%"></div>
-                                        <div class="progress-bar bg-danger" style="width: 23.1%"></div>
-                                        <div class="progress-bar bg-secondary" style="width: 1.4%"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="card stage-dashboard-card">
+                              <div class="card-body">
+                                    <div class="fw-semibold mb-1">Step 2: Identify Non-Priority Baseline Programmes</div>
+                                    <div class="small text-muted mb-3">Baseline split from 763 Review Complete programmes</div>
+                                    <div class="row g-3 align-items-start">
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Included programmes</div>
+                                        <div class="d-flex flex-wrap gap-3 align-items-center mt-2">
+                                          <div class="stage-donut stage-donut-lg" style="--p1: 100.0; --p2: 0; --p3: 0; --p4: 0; --c1: #ffc107; --c2: #ffc107; --c3: #6c757d; --c4: #6c757d;">
+                                            <div class="stage-donut-center">
+                                              <div class="fw-semibold">184</div>
+                                              <div class="small text-muted">Programmes</div>
+                                            </div>
+                                          </div>
+                                          <div class="small">
+                                            <div class="d-flex align-items-center gap-2 mb-1">
+                                              <span class="legend-dot" style="background: #ffc107;"></span>
+                                              <span>Non-Priority baseline: 184 (100.0%)</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                        <div class="small text-muted mt-1">Included: 184 (24.1% of Review Complete programmes)</div>
+                                        <div class="small text-muted mt-1">Review Complete + Inactive where exam boards are not required.</div>
                                       </div>
-                                      <div class="small mt-2">
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #198754;"></span>
-                                          <span>Akari OK: 437 (75.5%)</span>
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Akari checks — Non-priority baseline</div>
+                                        <div class="small text-muted mt-1">Reviewed: 184</div>
+                                        <div class="progress progress-sm mt-2">
+                                          <div class="progress-bar bg-success" style="width: 57.6%"></div>
+                                          <div class="progress-bar bg-danger" style="width: 38.6%"></div>
+                                          <div class="progress-bar bg-secondary" style="width: 3.8%"></div>
                                         </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #dc3545;"></span>
-                                          <span>Not found in Akari: 134 (23.1%)</span>
+                                        <div class="small mt-2">
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #198754;"></span>
+                                            <span>Akari OK: 106 (57.6%)</span>
+                                          </div>
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #dc3545;"></span>
+                                            <span>Not found in Akari: 71 (38.6%)</span>
+                                          </div>
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #6c757d;"></span>
+                                            <span>N/A: 7 (3.8%)</span>
+                                          </div>
                                         </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #6c757d;"></span>
-                                          <span>N/A: 8 (1.4%)</span>
-                                        </div>
+                                        <div class="small text-muted mt-1">From academic review flags (Akari correctness fields); this reflects reviewer checks in Akari, not a Banner/Akari match. N/A means every Akari check field was marked N/A.</div>
                                       </div>
-                                      <div class="small text-muted mt-1">From academic review flags (Akari correctness fields); this reflects reviewer checks in Akari, not a Banner/Akari match. N/A means every Akari check field was marked N/A.</div>
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Academic review vs Akari — Non-priority baseline</div>
+                                        <div class="small text-muted mt-1">Unique codes: 179</div>
+                                        <div class="progress progress-sm mt-2">
+                                          <div class="progress-bar bg-success" style="width: 47.5%"></div>
+                                          <div class="progress-bar bg-danger" style="width: 52.5%"></div>
+                                        </div>
+                                        <div class="small mt-2">
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #198754;"></span>
+                                            <span>Matched in Akari: 85 (47.5%)</span>
+                                          </div>
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #dc3545;"></span>
+                                            <span>Not matched in Akari: 94 (52.5%)</span>
+                                          </div>
+                                        </div>
+                                        <div class="small text-muted mt-1">Possible matches: 43 · No hints: 51</div>
+                                        <div class="small text-muted mt-1">Compares review-complete programme codes to the Akari programme catalogue; counts unique codes (deduped) as matched if the code exists in Akari.</div>
+                                      </div>
                                     </div>
-                                    <div class="col-lg-4">
-                                      <div class="small text-muted">Academic review vs Akari — Priority baseline</div>
-                                      <div class="small text-muted mt-1">Unique codes: 564</div>
-                                      <div class="progress progress-sm mt-2">
-                                        <div class="progress-bar bg-success" style="width: 76.2%"></div>
-                                        <div class="progress-bar bg-danger" style="width: 23.8%"></div>
-                                      </div>
-                                      <div class="small mt-2">
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #198754;"></span>
-                                          <span>Matched in Akari: 430 (76.2%)</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="card stage-dashboard-card">
+                              <div class="card-body">
+                                    <div class="fw-semibold mb-1">Step 3: Identify Priority Baseline Programmes</div>
+                                    <div class="small text-muted mb-3">Baseline split from 763 Review Complete programmes</div>
+                                    <div class="row g-3 align-items-start">
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Included programme types</div>
+                                        <div class="d-flex flex-wrap gap-3 align-items-center mt-2">
+                                          <div class="stage-donut stage-donut-lg" style="--p1: 69.9; --p2: 25.4; --p3: 0.9; --p4: 3.8; --c1: #0d6efd; --c2: #198754; --c3: #ffc107; --c4: #6c757d;">
+                                            <div class="stage-donut-center">
+                                              <div class="fw-semibold">579</div>
+                                              <div class="small text-muted">Programmes</div>
+                                            </div>
+                                          </div>
+                                          <div class="small">
+                                            <div class="d-flex align-items-center gap-2 mb-1">
+                                              <span class="legend-dot" style="background: #0d6efd;"></span>
+                                              <span>Active (no exam boards): 405 (69.9%)</span>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-2 mb-1">
+                                              <span class="legend-dot" style="background: #198754;"></span>
+                                              <span>Active (exam boards): 147 (25.4%)</span>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-2 mb-1">
+                                              <span class="legend-dot" style="background: #ffc107;"></span>
+                                              <span>Inactive (exam boards): 5 (0.9%)</span>
+                                            </div>
+                                            <div class="d-flex align-items-center gap-2 mb-1">
+                                              <span class="legend-dot" style="background: #6c757d;"></span>
+                                              <span>Active status missing: 22 (3.8%)</span>
+                                            </div>
+                                          </div>
                                         </div>
-                                        <div class="d-flex align-items-center gap-2 mb-1">
-                                          <span class="legend-dot" style="background: #dc3545;"></span>
-                                          <span>Not matched in Akari: 134 (23.8%)</span>
-                                        </div>
+                                        <div class="small text-muted mt-1">Included: 579 (75.9% of Review Complete programmes)</div>
+                                        <div class="small text-muted mt-1">Review Complete + Active, plus Review Complete + Inactive where exam boards are required, plus Active status missing.</div>
                                       </div>
-                                      <div class="small text-muted mt-1">Possible matches: 60 · No hints: 74</div>
-                                      <div class="small text-muted mt-1">Compares review-complete programme codes to the Akari programme catalogue; counts unique codes (deduped) as matched if the code exists in Akari.</div>
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Akari checks — Priority baseline</div>
+                                        <div class="small text-muted mt-1">Reviewed: 579</div>
+                                        <div class="progress progress-sm mt-2">
+                                          <div class="progress-bar bg-success" style="width: 75.5%"></div>
+                                          <div class="progress-bar bg-danger" style="width: 23.1%"></div>
+                                          <div class="progress-bar bg-secondary" style="width: 1.4%"></div>
+                                        </div>
+                                        <div class="small mt-2">
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #198754;"></span>
+                                            <span>Akari OK: 437 (75.5%)</span>
+                                          </div>
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #dc3545;"></span>
+                                            <span>Not found in Akari: 134 (23.1%)</span>
+                                          </div>
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #6c757d;"></span>
+                                            <span>N/A: 8 (1.4%)</span>
+                                          </div>
+                                        </div>
+                                        <div class="small text-muted mt-1">From academic review flags (Akari correctness fields); this reflects reviewer checks in Akari, not a Banner/Akari match. N/A means every Akari check field was marked N/A.</div>
+                                      </div>
+                                      <div class="col-lg-4">
+                                        <div class="small text-muted">Academic review vs Akari — Priority baseline</div>
+                                        <div class="small text-muted mt-1">Unique codes: 564</div>
+                                        <div class="progress progress-sm mt-2">
+                                          <div class="progress-bar bg-success" style="width: 76.2%"></div>
+                                          <div class="progress-bar bg-danger" style="width: 23.8%"></div>
+                                        </div>
+                                        <div class="small mt-2">
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #198754;"></span>
+                                            <span>Matched in Akari: 430 (76.2%)</span>
+                                          </div>
+                                          <div class="d-flex align-items-center gap-2 mb-1">
+                                            <span class="legend-dot" style="background: #dc3545;"></span>
+                                            <span>Not matched in Akari: 134 (23.8%)</span>
+                                          </div>
+                                        </div>
+                                        <div class="small text-muted mt-1">Possible matches: 60 · No hints: 74</div>
+                                        <div class="small text-muted mt-1">Compares review-complete programme codes to the Akari programme catalogue; counts unique codes (deduped) as matched if the code exists in Akari.</div>
+                                      </div>
                                     </div>
-                                  </div>
-                                </div>
-                                  </div>
-                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
               <div class="row row-cols-1 row-cols-md-2 g-3">
               </div>
-            </div>
-          </div>
-          <div class="card section-card mt-3 border-info border-2">
-            <div class="card-header bg-info text-dark">
-              <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
-                <div>
-                  <div class="fw-semibold">Academic Baseline Reports</div>
-                  <div class="small">Stage 2 baseline reports and comparison viewers.</div>
                 </div>
               </div>
-            </div>
-            <div class="card-body">
+          </div>
+	          <div class="card section-card mt-3 border-info border-2">
+              <div class="card-header bg-info text-dark">
+                <button class="btn text-reset text-start w-100 p-0 border-0 bg-transparent collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#stage2-section-3" aria-expanded="false" aria-controls="stage2-section-3">
+                  <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+                    <div>
+                      <div class="fw-semibold">Academic Baseline Reports</div>
+                      <div class="small">Stage 2 baseline reports and comparison viewers.</div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+              <div id="stage2-section-3" class="collapse">
+                <div class="card-body">
               <div class="row row-cols-1 row-cols-md-2 g-3">
                   <div class="col">
                     <a class="text-decoration-none text-dark" href="viewer_stage2_review_status.html">
@@ -565,7 +707,8 @@ Step 3: Priority baseline                          </div>
                     </a>
                   </div>
               </div>
-            </div>
+                </div>
+              </div>
           </div>
     </div>
   </div>

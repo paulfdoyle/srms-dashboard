@@ -151,18 +151,102 @@
       overflow-y:auto;
       padding-right:6px;
     }
+    .integrity-term-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-term-title { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+    .integrity-term-title .term { font-weight:700; }
+    .integrity-term-title .meta { color:#6c757d; font-size:0.8rem; }
+    .integrity-kpi { display:flex; justify-content:space-between; gap:10px; }
+    .integrity-kpi .k { color:#6c757d; }
+    .integrity-kpi .v { text-align:right; white-space:nowrap; }
+    .integrity-kpi .sub { color:#6c757d; font-size:0.8rem; }
+    .integrity-gap { display:flex; align-items:center; gap:8px; }
+    .integrity-gap .lbl { width:120px; color:#6c757d; font-size:0.8rem; }
+    .integrity-gap .pct { width:46px; text-align:right; color:#6c757d; font-size:0.8rem; }
+    .integrity-summary-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-summary-title { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+    .integrity-summary-title .term { font-weight:800; }
+    .integrity-summary-title .meta { color:#6c757d; font-size:0.8rem; }
+    .integrity-kpi-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px; margin-top:8px; }
+    .integrity-kpi-box { border:1px solid #e9ecef; border-radius:10px; padding:8px 10px; background:#fdfdfd; }
+    .integrity-kpi-box .k { color:#6c757d; font-size:0.75rem; }
+    .integrity-kpi-box .v { font-weight:800; font-size:1.05rem; line-height:1.1; }
+    .integrity-kpi-box .d { font-size:0.75rem; }
+    .integrity-metrics { display:grid; gap:6px; margin-top:8px; }
+    .integrity-metrics-header {
+      display:grid;
+      grid-template-columns:160px repeat(3, minmax(0, 1fr));
+      gap:10px;
+      align-items:end;
+      padding:0 0 6px 0;
+      border-bottom:1px solid #f1f3f5;
+      margin-top:8px;
+    }
+    .integrity-metrics-header .h {
+      color:#6c757d;
+      font-size:0.8rem;
+      font-weight:700;
+    }
+    .integrity-metrics-row {
+      display:grid;
+      grid-template-columns:160px repeat(3, minmax(0, 1fr));
+      gap:10px;
+      align-items:start;
+      padding:8px 0;
+      border-top:1px solid #f1f3f5;
+    }
+    .integrity-metrics-row:first-child { border-top:none; }
+    .integrity-metrics-label { color:#6c757d; font-size:0.85rem; padding-top:18px; }
+    .integrity-term-chip {
+      display:inline-block;
+      font-size:0.75rem;
+      color:#6c757d;
+      border:1px solid #e9ecef;
+      border-radius:999px;
+      padding:2px 8px;
+      background:#fff;
+      margin-bottom:4px;
+    }
+    .integrity-term-val { display:flex; justify-content:space-between; gap:8px; font-size:0.85rem; }
+    .integrity-term-val .v { font-weight:700; white-space:nowrap; }
+    .integrity-term-val .d { white-space:nowrap; }
+    .integrity-section-title { font-size:0.95rem; font-weight:700; margin-top:14px; }
+    .integrity-reg-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:10px; margin-top:8px; }
+    .integrity-reg-card { border:1px solid #e9ecef; border-radius:10px; background:#fff; padding:10px; }
+    .integrity-reg-title { display:flex; justify-content:space-between; gap:10px; align-items:baseline; }
+    .integrity-reg-title .t { font-weight:700; }
+    .integrity-reg-title .n { color:#6c757d; font-size:0.8rem; }
+    .integrity-gap-metric .lbl { width:240px; font-size:0.85rem; color:#495057; }
+    .integrity-gap-metric .pct { width:150px; text-align:right; color:#6c757d; font-size:0.8rem; }
+    .integrity-term-wide { border:1px solid #e9ecef; border-radius:12px; background:#fff; padding:12px; }
+    .integrity-metric-box { border:1px solid #e9ecef; border-radius:10px; background:#fdfdfd; padding:10px; height:100%; }
+    .integrity-metric-box-title { font-weight:700; font-size:0.85rem; }
+    .integrity-metric-line { display:flex; align-items:center; gap:8px; padding:4px 0; }
+    .integrity-metric-line .lbl { width:150px; color:#6c757d; font-size:0.8rem; }
+    .integrity-metric-line .rhs { width:120px; text-align:right; color:#6c757d; font-size:0.8rem; white-space:nowrap; }
+    .integrity-metric-line .rhs strong { color:#212529; font-weight:700; }
+    .collapse-chevron {
+      display:inline-block;
+      transition:transform 0.15s ease;
+      font-size:1.05rem;
+      opacity:0.95;
+      line-height:1;
+      padding-left:10px;
+    }
+    button[aria-expanded="true"] .collapse-chevron { transform:rotate(180deg); }
   </style>
+
+
 
 
   <div class="hero">
     <div class="d-flex justify-content-between flex-wrap gap-3">
       <div>
         <h1 class="mb-2">Stage 4 – SRMS Data Cleaning Dashboard</h1>
-        <p class="text-muted mb-0">Baseline compliance dashboard for Akari vs Banner module coverage.</p>
+        <p class="text-muted mb-0">Banner integrity dashboard.</p>
         <div class="mt-2">
-          <span class="badge bg-warning text-light">In Progress</span>
+          <span class="badge bg-success text-light">Completed</span>
         </div>
-        <div class="text-muted small mt-2">Generated: 2026-01-12 01:20</div>
+        <div class="text-muted small mt-2">Generated: 2026-01-19 00:37</div>
       </div>
       <div class="align-self-start">
         <a class="btn btn-outline-secondary" href="index.html">Back to index</a>
@@ -170,1713 +254,899 @@
     </div>
   </div>
 
+      <div class="card section-card mb-4 border-success border-2">
+        <div class="card-header bg-success text-white">
+          <button
+            class="btn btn-link text-decoration-none p-0 w-100 text-start text-white"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#stage4IntegrityCollapse"
+            aria-expanded="true"
+            aria-controls="stage4IntegrityCollapse"
+            title="Click to show/hide"
+          >
+            <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+              <div>
+                <div class="fw-semibold">Banner Integrity Checking Dashboard</div>
+                <div class="small">High-level integrity counts for learners, programmes, and modules, highlighting key gaps.</div>
+              </div>
+              <span class="collapse-chevron" aria-hidden="true">▾</span>
+            </div>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="collapse show" id="stage4IntegrityCollapse">
+                <div class="row row-cols-1 row-cols-md-3 g-2 mb-3">
+      <div class="col">
+        <div class="integrity-summary-card h-100">
+          <div class="integrity-summary-title">
+            <div class="term">202510</div>
+            <div class="meta">
+            </div>
+          </div>
+	          <div class="integrity-kpi-grid">
+	            <div class="integrity-kpi-box">
+	              <div class="k">Learners</div>
+	              <div class="v">29,328</div>
+	            </div>
+	            <div class="integrity-kpi-box">
+	              <div class="k">Scheduled programmes</div>
+	              <div class="v">620</div>
+	            </div>
+	            <div class="integrity-kpi-box">
+	              <div class="k">Scheduled modules</div>
+	              <div class="v">5,320</div>
+	            </div>
+	          </div>
+	        </div>
+      </div>
+      <div class="col">
+        <div class="integrity-summary-card h-100">
+          <div class="integrity-summary-title">
+            <div class="term">202520</div>
+            <div class="meta">
+            </div>
+          </div>
+	          <div class="integrity-kpi-grid">
+	            <div class="integrity-kpi-box">
+	              <div class="k">Learners</div>
+	              <div class="v">938</div>
+	            </div>
+	            <div class="integrity-kpi-box">
+	              <div class="k">Scheduled programmes</div>
+	              <div class="v">558</div>
+	            </div>
+	            <div class="integrity-kpi-box">
+	              <div class="k">Scheduled modules</div>
+	              <div class="v">3,788</div>
+	            </div>
+	          </div>
+	        </div>
+      </div>
+      <div class="col">
+        <div class="integrity-summary-card h-100">
+          <div class="integrity-summary-title">
+            <div class="term">202530</div>
+            <div class="meta">
+            </div>
+          </div>
+	          <div class="integrity-kpi-grid">
+	            <div class="integrity-kpi-box">
+	              <div class="k">Learners</div>
+	              <div class="v">2</div>
+	            </div>
+	            <div class="integrity-kpi-box">
+	              <div class="k">Scheduled programmes</div>
+	              <div class="v">23</div>
+	            </div>
+	            <div class="integrity-kpi-box">
+	              <div class="k">Scheduled modules</div>
+	              <div class="v">36</div>
+	            </div>
+	          </div>
+	        </div>
+      </div>
+    </div>
+
+    <div class="integrity-section-title">Registration Status</div>
+    <div class="integrity-reg-grid">
+        <div class="integrity-reg-card">
+          <div class="integrity-reg-title mb-2">
+            <div class="t">202510</div>
+            <div class="n">29,328 learners</div>
+          </div>
+            <div class="integrity-gap">
+              <div class="lbl">ES</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 74.92157665030005%"></div>
+                </div>
+              </div>
+              <div class="pct">74.9%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">EL</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 13.51268412438625%"></div>
+                </div>
+              </div>
+              <div class="pct">13.5%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">(blank)</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 9.120976541189307%"></div>
+                </div>
+              </div>
+              <div class="pct">9.1%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">SW</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 1.1763502454991817%"></div>
+                </div>
+              </div>
+              <div class="pct">1.2%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">SI</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 0.7024004364429897%"></div>
+                </div>
+              </div>
+              <div class="pct">0.7%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">NS</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 0.334151663938898%"></div>
+                </div>
+              </div>
+              <div class="pct">0.3%</div>
+            </div>
+        </div>
+        <div class="integrity-reg-card">
+          <div class="integrity-reg-title mb-2">
+            <div class="t">202520</div>
+            <div class="n">938 learners</div>
+          </div>
+            <div class="integrity-gap">
+              <div class="lbl">ES</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 64.0724946695096%"></div>
+                </div>
+              </div>
+              <div class="pct">64.1%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">(blank)</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 20.362473347547976%"></div>
+                </div>
+              </div>
+              <div class="pct">20.4%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">EL</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 13.965884861407249%"></div>
+                </div>
+              </div>
+              <div class="pct">14.0%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">NS</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 1.4925373134328357%"></div>
+                </div>
+              </div>
+              <div class="pct">1.5%</div>
+            </div>
+            <div class="integrity-gap">
+              <div class="lbl">SW</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 0.10660980810234541%"></div>
+                </div>
+              </div>
+              <div class="pct">0.1%</div>
+            </div>
+        </div>
+        <div class="integrity-reg-card">
+          <div class="integrity-reg-title mb-2">
+            <div class="t">202530</div>
+            <div class="n">2 learners</div>
+          </div>
+            <div class="integrity-gap">
+              <div class="lbl">(blank)</div>
+              <div class="flex-grow-1">
+                <div class="progress progress-xs">
+                  <div class="progress-bar bg-primary" style="width: 100%"></div>
+                </div>
+              </div>
+              <div class="pct">100.0%</div>
+            </div>
+        </div>
+      </div>
+
+	    <div class="integrity-section-title">Registration Readiness (ES/EL)</div>
+	    <div class="integrity-reg-card">
+	      <div class="integrity-reg-title mb-2">
+	        <div class="t">All terms</div>
+	        <div class="n">Fully Registered = ES · Eligible to Register = EL</div>
+	      </div>
+	        <div class="small text-muted mb-2">Each learner is counted once using their latest term record across 202510, 202520, 202530.</div>
+
+	      <div class="small fw-semibold mb-1">By faculty (college)</div>
+	      <div class="table-responsive mb-3">
+	        <table class="table table-sm align-middle mb-0">
+	          <thead class="table-light">
+	            <tr>
+	              <th>Faculty</th>
+	              <th class="text-end">Total</th>
+	              <th class="text-end">ES</th>
+	              <th class="text-end">%ES</th>
+	              <th class="text-end">EL</th>
+	              <th class="text-end">%EL</th>
+	              <th class="text-end">Reg.</th>
+	              <th class="text-end">%Reg.</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	              <tr>
+	                <td>Engineering &amp; Built Env</td>
+	                <td class="text-end">8,152</td>
+	                <td class="text-end">6,030</td>
+	                <td class="text-end">74</td>
+	                <td class="text-end">973</td>
+	                <td class="text-end">12</td>
+	                <td class="text-end">7,003</td>
+	                <td class="text-end">86</td>
+	              </tr>
+	              <tr>
+	                <td>Arts &amp; Humanities</td>
+	                <td class="text-end">7,390</td>
+	                <td class="text-end">5,636</td>
+	                <td class="text-end">76</td>
+	                <td class="text-end">1,003</td>
+	                <td class="text-end">14</td>
+	                <td class="text-end">6,639</td>
+	                <td class="text-end">90</td>
+	              </tr>
+	              <tr>
+	                <td>Business</td>
+	                <td class="text-end">6,206</td>
+	                <td class="text-end">4,413</td>
+	                <td class="text-end">71</td>
+	                <td class="text-end">1,143</td>
+	                <td class="text-end">18</td>
+	                <td class="text-end">5,556</td>
+	                <td class="text-end">90</td>
+	              </tr>
+	              <tr>
+	                <td>Sciences &amp; Health</td>
+	                <td class="text-end">4,270</td>
+	                <td class="text-end">3,338</td>
+	                <td class="text-end">78</td>
+	                <td class="text-end">424</td>
+	                <td class="text-end">10</td>
+	                <td class="text-end">3,762</td>
+	                <td class="text-end">88</td>
+	              </tr>
+	              <tr>
+	                <td>Computing, Digital &amp; Data</td>
+	                <td class="text-end">3,320</td>
+	                <td class="text-end">2,326</td>
+	                <td class="text-end">70</td>
+	                <td class="text-end">493</td>
+	                <td class="text-end">15</td>
+	                <td class="text-end">2,819</td>
+	                <td class="text-end">85</td>
+	              </tr>
+	              <tr>
+	                <td>University Level</td>
+	                <td class="text-end">792</td>
+	                <td class="text-end">760</td>
+	                <td class="text-end">96</td>
+	                <td class="text-end">16</td>
+	                <td class="text-end">2</td>
+	                <td class="text-end">776</td>
+	                <td class="text-end">98</td>
+	              </tr>
+	              <tr>
+	                <td>No College Designated</td>
+	                <td class="text-end">63</td>
+	                <td class="text-end">39</td>
+	                <td class="text-end">62</td>
+	                <td class="text-end">20</td>
+	                <td class="text-end">32</td>
+	                <td class="text-end">59</td>
+	                <td class="text-end">94</td>
+	              </tr>
+	              <tr class="table-light fw-semibold">
+	                <td>Total</td>
+	                <td class="text-end">30,193</td>
+	                <td class="text-end">22,542</td>
+	                <td class="text-end">75</td>
+	                <td class="text-end">4,072</td>
+	                <td class="text-end">14</td>
+	                <td class="text-end">26,614</td>
+	                <td class="text-end">88</td>
+	              </tr>
+	          </tbody>
+	        </table>
+	      </div>
+
+	      <div class="small fw-semibold mb-1">By study mode</div>
+	      <div class="table-responsive">
+	        <table class="table table-sm align-middle mb-0">
+	          <thead class="table-light">
+	            <tr>
+	              <th>Mode</th>
+	              <th class="text-end">Total</th>
+	              <th class="text-end">ES</th>
+	              <th class="text-end">%ES</th>
+	              <th class="text-end">EL</th>
+	              <th class="text-end">%EL</th>
+	              <th class="text-end">Reg.</th>
+	              <th class="text-end">%Reg.</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	              <tr>
+	                <td>FT</td>
+	                <td class="text-end">22,740</td>
+	                <td class="text-end">17,958</td>
+	                <td class="text-end">79</td>
+	                <td class="text-end">2,761</td>
+	                <td class="text-end">12</td>
+	                <td class="text-end">20,719</td>
+	                <td class="text-end">91</td>
+	              </tr>
+	              <tr>
+	                <td>PT</td>
+	                <td class="text-end">7,401</td>
+	                <td class="text-end">4,568</td>
+	                <td class="text-end">62</td>
+	                <td class="text-end">1,299</td>
+	                <td class="text-end">18</td>
+	                <td class="text-end">5,867</td>
+	                <td class="text-end">79</td>
+	              </tr>
+	              <tr>
+	                <td>(blank)</td>
+	                <td class="text-end">52</td>
+	                <td class="text-end">16</td>
+	                <td class="text-end">31</td>
+	                <td class="text-end">12</td>
+	                <td class="text-end">23</td>
+	                <td class="text-end">28</td>
+	                <td class="text-end">54</td>
+	              </tr>
+	              <tr class="table-light fw-semibold">
+	                <td>Total</td>
+	                <td class="text-end">30,193</td>
+	                <td class="text-end">22,542</td>
+	                <td class="text-end">75</td>
+	                <td class="text-end">4,072</td>
+	                <td class="text-end">14</td>
+	                <td class="text-end">26,614</td>
+	                <td class="text-end">88</td>
+	              </tr>
+	          </tbody>
+	        </table>
+	      </div>
+	    </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="card section-card mb-4 border-info border-2">
+        <div class="card-header bg-info text-dark">
+          <button
+            class="btn btn-link text-decoration-none p-0 w-100 text-start text-dark"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#stage4IntegrityMetricsCollapse"
+            aria-expanded="true"
+            aria-controls="stage4IntegrityMetricsCollapse"
+            title="Click to show/hide"
+          >
+            <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+              <div>
+                <div class="fw-semibold">Banner Integrity Metrics</div>
+                <div class="small">Programme, module, and learner gap metrics across terms.</div>
+              </div>
+              <span class="collapse-chevron" aria-hidden="true">▾</span>
+            </div>
+          </button>
+        </div>
+        <div class="card-body">
+          <div class="collapse show" id="stage4IntegrityMetricsCollapse">
+            	      <div class="integrity-reg-card mb-3">
+	        <div class="integrity-reg-title mb-2">
+	          <div class="t">202510</div>
+	          <div class="n">
+	            29,328 learners ·
+	            620 scheduled programmes ·
+	            5,320 scheduled modules
+	          </div>
+	        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Programmes without learners</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 32.25806451612903%"></div>
+            </div>
+          </div>
+          <div class="pct">200 (32.3%)</div>
+        </div>
+
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Scheduled programmes missing school</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 13.535031847133757%"></div>
+              </div>
+            </div>
+            <div class="pct">170 (13.5%)</div>
+          </div>
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Unscheduled programmes missing school (has learners)</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 4.856687898089172%"></div>
+              </div>
+            </div>
+            <div class="pct">61 (4.9%)</div>
+          </div>
+
+	          <div class="integrity-gap integrity-gap-metric">
+	            <div class="lbl">Programmes missing school (no learners or schedule)</div>
+	            <div class="flex-grow-1">
+	              <div class="progress progress-xs">
+	                <div class="progress-bar bg-secondary" style="width: 81.60828025477707%"></div>
+	              </div>
+	            </div>
+	            <div class="pct">1,025 (81.6%)</div>
+	          </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">GLR programmes missing schedule</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 17.4852652259332%"></div>
+            </div>
+          </div>
+          <div class="pct">89 (17.5%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Learners in programmes missing schedule</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 5.677168576104746%"></div>
+            </div>
+          </div>
+          <div class="pct">1,665 (5.7%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Modules without enrolments</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 35.244360902255636%"></div>
+            </div>
+          </div>
+          <div class="pct">1,875 (35.2%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Modules with multiple CRNs</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-primary" style="width: 70.82706766917293%"></div>
+            </div>
+          </div>
+          <div class="pct">3,768 (70.8%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">CRNs without enrolments</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 53.49815001681802%"></div>
+            </div>
+          </div>
+          <div class="pct">9,543 (53.5%)</div>
+        </div>
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing programme</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners with multiple programmes</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-warning" style="width: 0.18071467539552646%"></div>
+              </div>
+            </div>
+            <div class="pct">53 (0.2%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing school</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-danger" style="width: 21.808510638297875%"></div>
+              </div>
+            </div>
+            <div class="pct">6,396 (21.8%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing campus</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-warning" style="width: 0.02386797599563557%"></div>
+              </div>
+            </div>
+            <div class="pct">7 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing enrolments</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-danger" style="width: 28.812056737588655%"></div>
+              </div>
+            </div>
+            <div class="pct">8,450 (28.8%)</div>
+          </div>
+      </div>
+	      <div class="integrity-reg-card mb-3">
+	        <div class="integrity-reg-title mb-2">
+	          <div class="t">202520</div>
+	          <div class="n">
+	            938 learners ·
+	            558 scheduled programmes ·
+	            3,788 scheduled modules
+	          </div>
+	        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Programmes without learners</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 90.32258064516128%"></div>
+            </div>
+          </div>
+          <div class="pct">504 (90.3%)</div>
+        </div>
+
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Scheduled programmes missing school</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 12.261146496815286%"></div>
+              </div>
+            </div>
+            <div class="pct">154 (12.3%)</div>
+          </div>
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Unscheduled programmes missing school (has learners)</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 2.8662420382165608%"></div>
+              </div>
+            </div>
+            <div class="pct">36 (2.9%)</div>
+          </div>
+
+	          <div class="integrity-gap integrity-gap-metric">
+	            <div class="lbl">Programmes missing school (no learners or schedule)</div>
+	            <div class="flex-grow-1">
+	              <div class="progress progress-xs">
+	                <div class="progress-bar bg-secondary" style="width: 84.87261146496814%"></div>
+	              </div>
+	            </div>
+	            <div class="pct">1,066 (84.9%)</div>
+	          </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">GLR programmes missing schedule</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 42.5531914893617%"></div>
+            </div>
+          </div>
+          <div class="pct">40 (42.6%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Learners in programmes missing schedule</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 65.13859275053305%"></div>
+            </div>
+          </div>
+          <div class="pct">611 (65.1%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Modules without enrolments</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-secondary" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="pct">n/a</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Modules with multiple CRNs</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-primary" style="width: 84.23970432946146%"></div>
+            </div>
+          </div>
+          <div class="pct">3,191 (84.2%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">CRNs without enrolments</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-secondary" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="pct">n/a</div>
+        </div>
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing programme</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners with multiple programmes</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing school</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-danger" style="width: 85.18123667377398%"></div>
+              </div>
+            </div>
+            <div class="pct">799 (85.2%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing campus</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing enrolments</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-secondary" style="width:100%"></div>
+              </div>
+            </div>
+            <div class="pct">n/a</div>
+          </div>
+      </div>
+	      <div class="integrity-reg-card mb-3">
+	        <div class="integrity-reg-title mb-2">
+	          <div class="t">202530</div>
+	          <div class="n">
+	            2 learners ·
+	            23 scheduled programmes ·
+	            36 scheduled modules
+	          </div>
+	        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Programmes without learners</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 95.65217391304348%"></div>
+            </div>
+          </div>
+          <div class="pct">22 (95.7%)</div>
+        </div>
+
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Scheduled programmes missing school</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 0.07961783439490447%"></div>
+              </div>
+            </div>
+            <div class="pct">1 (0.1%)</div>
+          </div>
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Unscheduled programmes missing school (has learners)</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+
+	          <div class="integrity-gap integrity-gap-metric">
+	            <div class="lbl">Programmes missing school (no learners or schedule)</div>
+	            <div class="flex-grow-1">
+	              <div class="progress progress-xs">
+	                <div class="progress-bar bg-secondary" style="width: 99.92038216560509%"></div>
+	              </div>
+	            </div>
+	            <div class="pct">1,255 (99.9%)</div>
+	          </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">GLR programmes missing schedule</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 50.0%"></div>
+            </div>
+          </div>
+          <div class="pct">1 (50.0%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Learners in programmes missing schedule</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 50.0%"></div>
+            </div>
+          </div>
+          <div class="pct">1 (50.0%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Modules without enrolments</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-secondary" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="pct">n/a</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">Modules with multiple CRNs</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-primary" style="width: 36.11111111111111%"></div>
+            </div>
+          </div>
+          <div class="pct">13 (36.1%)</div>
+        </div>
+
+        <div class="integrity-gap integrity-gap-metric">
+          <div class="lbl">CRNs without enrolments</div>
+          <div class="flex-grow-1">
+            <div class="progress progress-xs">
+                <div class="progress-bar bg-secondary" style="width:100%"></div>
+            </div>
+          </div>
+          <div class="pct">n/a</div>
+        </div>
+
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing programme</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners with multiple programmes</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing school</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing campus</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-success" style="width: 0.0%"></div>
+              </div>
+            </div>
+            <div class="pct">0 (0.0%)</div>
+          </div>
+          <div class="integrity-gap integrity-gap-metric">
+            <div class="lbl">Learners missing enrolments</div>
+            <div class="flex-grow-1">
+              <div class="progress progress-xs">
+                  <div class="progress-bar bg-secondary" style="width:100%"></div>
+              </div>
+            </div>
+            <div class="pct">n/a</div>
+          </div>
+      </div>
+
+    <details class="small text-muted mt-3">
+      <summary>Definitions</summary>
+      <div class="mt-2">
+        <div><span class="fw-semibold">Learners</span>: distinct learners in the latest GLR snapshot for the term.</div>
+        <div><span class="fw-semibold">Scheduled programmes</span>: distinct programme codes in the latest Banner schedule snapshot for the term.</div>
+        <div class="ms-3"><span class="fw-semibold">Programmes without learners</span>: scheduled programmes that do not appear on any learner record for the term.</div>
+        <div class="ms-3"><span class="fw-semibold">Scheduled programmes missing school</span>: scheduled programmes whose Banner school code is blank.</div>
+        <div class="ms-3"><span class="fw-semibold">Unscheduled programmes missing school (has learners)</span>: programmes with learners but not scheduled for the term, whose Banner school code is blank.</div>
+        <div class="ms-3"><span class="fw-semibold">Programmes missing school (no learners or schedule)</span>: programmes with blank Banner school code and no activity in schedule or learners for the term.</div>
+        <div class="ms-3"><span class="fw-semibold">GLR programmes missing schedule</span>: programme codes present on learner records but not present in the schedule snapshot for the term.</div>
+        <div><span class="fw-semibold">Scheduled modules</span>: distinct module codes in the latest Banner schedule snapshot for the term (not CRNs).</div>
+        <div class="ms-3"><span class="fw-semibold">Modules without enrolments</span>: scheduled module codes that do not appear in classlists for the term.</div>
+        <div class="ms-3">“with multiple CRNs”: module codes that appear with more than one CRN in the schedule for the term.</div>
+        <div class="ms-3"><span class="fw-semibold">CRNs</span>: distinct CRNs in the Banner schedule snapshot; “w/o enrol.” compares to classlists CRNs for the term.</div>
+        <div class="mt-2"><span class="fw-semibold">Learner Metrics</span>:</div>
+        <div class="ms-3"><span class="fw-semibold">Missing programme</span>: learners with no programme recorded for the term.</div>
+        <div class="ms-3"><span class="fw-semibold">Multiple programmes</span>: learners linked to more than one programme for the term.</div>
+        <div class="ms-3"><span class="fw-semibold">Missing school</span>: learners whose programme has no school assigned.</div>
+        <div class="ms-3"><span class="fw-semibold">Missing campus</span>: learners with no campus recorded.</div>
+        <div class="ms-3"><span class="fw-semibold">Learners in programmes missing schedule</span>: learners whose programme is not present in the schedule snapshot for the term.</div>
+        <div class="ms-3"><span class="fw-semibold">Missing enrolments</span>: learners with no module enrolments in classlists for the term; <code>n/a</code> when classlists are unavailable.</div>
+      </div>
+    </details>
+
+          </div>
+        </div>
+      </div>
+
+
+
   <div class="card mb-4">
     <div class="card-body">
-          <div class="card section-card mt-3 border-primary border-2">
-            <div class="card-header bg-primary text-white">
-              <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
-                <div>
-                  <div class="fw-semibold">Akari vs Banner compliance baseline</div>
-                  <div class="small">All-school coverage comparing Akari vs Banner modules for programmes listed in stage2_programmes_for_db.csv; deltas measured from the baseline snapshot.</div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body">
-                
-                  <ul class="nav nav-tabs" id="baselineGroupTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="baselineGroupTab-priority" data-bs-toggle="tab" data-bs-target="#baselineGroupPane-priority" type="button" role="tab" aria-controls="baselineGroupPane-priority" aria-selected="true">
-                        Priority baseline (reviewed)
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link " id="baselineGroupTab-non_priority" data-bs-toggle="tab" data-bs-target="#baselineGroupPane-non_priority" type="button" role="tab" aria-controls="baselineGroupPane-non_priority" aria-selected="false">
-                        Non-priority baseline (reviewed)
-                      </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="baselineGroupTab-banner-outside" data-bs-toggle="tab" data-bs-target="#baselineGroupPane-banner-outside" type="button" role="tab" aria-controls="baselineGroupPane-banner-outside" aria-selected="false">
-                        Banner-only outside baseline
-                      </button>
-                    </li>
-                  </ul>
-                  <div class="tab-content border border-top-0 rounded-bottom p-3 bg-white" id="baselineGroupTabContent">
-                    <div class="tab-pane fade show active" id="baselineGroupPane-priority" role="tabpanel" aria-labelledby="baselineGroupTab-priority">
-                          <div class="school-tabs">
-      <ul class="nav nav-tabs" id="schoolViewTabs-priority" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="tab-summary-priority" data-bs-toggle="tab" data-bs-target="#view-summary-priority" type="button" role="tab" aria-controls="view-summary-priority" aria-selected="true">Summary</button>
-        </li>
-      </ul>
-      <div class="tab-content border border-top-0 rounded-bottom p-3 bg-white" id="schoolViewContent-priority">
-        <div class="tab-pane fade show active" id="view-summary-priority" role="tabpanel" aria-labelledby="tab-summary-priority">
-          <div class="alert alert-light border d-flex flex-wrap gap-3 align-items-center justify-content-between">
-            <div class="flex-grow-1">
-              <div class="row g-2">
-                <div class="col-md-3">
-                  <div class="small text-muted">Baseline start</div>
-                  <div class="fw-semibold">2026-01-12 00:56</div>
-                </div>
-                <div class="col-md-3">
-                  <div class="small text-muted">Baseline group</div>
-                  <div class="fw-semibold">Priority baseline (reviewed)</div>
-                </div>
-                <div class="col-md-3">
-                  <div class="small text-muted">Source</div>
-                  <div class="fw-semibold">cleancsv_for_db_ingest/stage2_programmes_for_db.csv</div>
-                </div>
-                <div class="col-md-3">
-                  <div class="small text-muted">Terms</div>
-                  <div class="fw-semibold">202510, 202520, 202530</div>
-                </div>
-              </div>
-              <div class="small text-muted mt-2">Programme match: programme_id (raw Banner, no crosswalk)</div>
-              <div class="small text-muted">Schools list uses programmes from this baseline group (Stage 2). Deltas compare to the baseline start.</div>
-              <details class="small text-muted mt-1">
-                <summary>Run IDs</summary>
-                Akari 17 · Banner 9, 10, 11 (latest per term)
-              </details>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 mb-3">
-            <div class="col">
-              <div class="card stage-dashboard-card h-100">
-                <div class="card-body">
-                  <div class="text-muted small mb-1">Baseline coverage</div>
-                  <div class="h5 mb-0">564</div>
-                  <div class="small text-muted">Baseline: stage2_programmes_for_db.csv (Priority baseline (reviewed)).</div>
-                  <div class="small mt-2">In Akari + Banner: 358 (63.5%)</div>
-                  <div class="small">In Akari only: 72 (12.8%)</div>
-                  <div class="small">Banner only: 65 (11.5%)</div>
-                  <div class="small">Missing in both: 69 (12.2%)</div>
-                  <div class="small text-muted mt-2">Missing in Akari: 134 (23.8%)</div>
-                  <div class="small text-muted">Compliance totals include baseline programmes found in Akari.</div>
-                  <a class="small text-decoration-none" href="viewer_stage2_akari_match_candidates.html">Open match candidates</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion mb-3" id="allSchoolsDetailAccordion-priority">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="allSchoolsDetailHeading-priority">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allSchoolsDetail-priority" aria-expanded="false" aria-controls="allSchoolsDetail-priority">
-                  All-school detail
-                </button>
-              </h2>
-              <div id="allSchoolsDetail-priority" class="accordion-collapse collapse" aria-labelledby="allSchoolsDetailHeading-priority" data-bs-parent="#allSchoolsDetailAccordion-priority">
-                <div class="accordion-body">
-                  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Programme match</div>
-                          <div class="h5 mb-0">21.9%</div>
-                          <div class="small text-muted">Delta 0%</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Module OK</div>
-                          <div class="h5 mb-0">72.0%</div>
-                          <div class="small text-muted">Delta 0%</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Modules compared</div>
-                          <div class="h5 mb-0">10716</div>
-                          <div class="small text-muted">Delta 0</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Missing in Banner</div>
-                          <div class="h5 mb-0">2998</div>
-                          <div class="small text-muted">Delta 0</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Banner-only</div>
-                          <div class="h5 mb-0">1092</div>
-                          <div class="small text-muted">Delta 0</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Programmes tracked</div>
-                          <div class="h5 mb-0">429</div>
-                          <div class="small text-muted">Complete: 94</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Credits mismatch</div>
-                          <div class="h5 mb-0">85</div>
-                          <div class="small text-muted">Across compared modules.</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Preferred CRNs missing</div>
-                          <div class="h5 mb-0">326</div>
-                          <div class="small text-muted">Banner rows with CRNs but no preferred CRN.</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h6 class="mb-2">Semester coverage</h6>
-                  <div class="d-flex flex-wrap gap-2 mb-3">
-                    <div class="semester-chip">
-                      <div class="small text-muted">Semester 1</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-danger" style="width: 72.0%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          3357/4665 (72.0%)
-                      </div>
-                    </div>
-                    <div class="semester-chip">
-                      <div class="small text-muted">Semester 2</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-danger" style="width: 68.7%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          2943/4283 (68.7%)
-                      </div>
-                    </div>
-                    <div class="semester-chip">
-                      <div class="small text-muted">Semester 3</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-danger" style="width: 69.4%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          34/49 (69.4%)
-                      </div>
-                    </div>
-                    <div class="semester-chip">
-                      <div class="small text-muted">Full year / overlap</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-warning" style="width: 80.5%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          1384/1719 (80.5%)
-                      </div>
-                    </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table table-sm mb-0">
-                      <thead class="table-light">
-                        <tr>
-                          <th>Semester</th>
-                          <th class="text-end">Modules</th>
-                          <th class="text-end">Missing</th>
-                          <th class="text-end">Banner-only</th>
-                          <th class="text-end">Credits mismatch</th>
-                          <th class="text-end">Preferred missing</th>
-                          <th class="text-end">OK %</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Semester 1</td>
-                          <td class="text-end">4665</td>
-                          <td class="text-end">1308</td>
-                          <td class="text-end">503</td>
-                          <td class="text-end">39</td>
-                          <td class="text-end">75</td>
-                          <td class="text-end">72.0%</td>
-                        </tr>
-                        <tr>
-                          <td>Semester 2</td>
-                          <td class="text-end">4283</td>
-                          <td class="text-end">1340</td>
-                          <td class="text-end">546</td>
-                          <td class="text-end">32</td>
-                          <td class="text-end">173</td>
-                          <td class="text-end">68.7%</td>
-                        </tr>
-                        <tr>
-                          <td>Semester 3</td>
-                          <td class="text-end">49</td>
-                          <td class="text-end">15</td>
-                          <td class="text-end">43</td>
-                          <td class="text-end">1</td>
-                          <td class="text-end">12</td>
-                          <td class="text-end">69.4%</td>
-                        </tr>
-                        <tr>
-                          <td>Full year / overlap</td>
-                          <td class="text-end">1719</td>
-                          <td class="text-end">335</td>
-                          <td class="text-end">0</td>
-                          <td class="text-end">13</td>
-                          <td class="text-end">66</td>
-                          <td class="text-end">80.5%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-            <div class="combo-grid mb-3">
-              <div class="combo-card text-start" style="--prog-color: #dc3545; --mod-color: #dc3545;">
-                <div class="fw-semibold">All schools</div>
-                <div class="small text-muted">Programmes complete: 94/429</div>
-                <div class="small text-muted mt-2">Programme compliance</div>
-                <div class="d-flex align-items-center gap-2">
-                  <div class="progress progress-xs flex-grow-1">
-                    <div class="progress-bar bg-danger" style="width: 21.9%"></div>
-                  </div>
-                  <div class="small text-muted">21.9%</div>
-                </div>
-                <div class="small text-muted mt-2">Module compliance</div>
-                <div class="d-flex align-items-center gap-2">
-                  <div class="progress progress-xs flex-grow-1">
-                    <div class="progress-bar bg-danger" style="width: 72.0%"></div>
-                  </div>
-                  <div class="small text-muted">72.0%</div>
-                </div>
-              </div>
-            </div>
-            <h5 class="mb-2">Programme dashboard</h5>
-            <div class="table-responsive">
-              <table class="table table-sm align-middle mb-0">
-                <thead class="table-light">
-                  <tr>
-                    <th>School</th>
-                    <th>Programme compliance</th>
-                    <th>Module compliance</th>
-                    <th class="text-end">Programmes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_conservatoire__priority.html">Conservatoire</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 20.0%"></div>
-                        </div>
-                        <div class="small text-muted">20.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 79.1%"></div>
-                        </div>
-                        <div class="small text-muted">79.1%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">5</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_graduate-business-school__priority.html">Graduate Business School</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 31.2%"></div>
-                        </div>
-                        <div class="small text-muted">31.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">8</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_language-studies__priority.html">Language Studies</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-success" style="width: 90.2%"></div>
-                        </div>
-                        <div class="small text-muted">90.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">2</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-accounting-economics-finance__priority.html">School Of Accounting, Economics &amp; Finance</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 27.8%"></div>
-                        </div>
-                        <div class="small text-muted">27.8%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 88.9%"></div>
-                        </div>
-                        <div class="small text-muted">88.9%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">18</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-architecture-building-environment__priority.html">School Of Architecture, Building &amp; Environment</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 28.6%"></div>
-                        </div>
-                        <div class="small text-muted">28.6%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 79.9%"></div>
-                        </div>
-                        <div class="small text-muted">79.9%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">14</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-art-design__priority.html">School Of Art &amp; Design</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 27.3%"></div>
-                        </div>
-                        <div class="small text-muted">27.3%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-success" style="width: 96.1%"></div>
-                        </div>
-                        <div class="small text-muted">96.1%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">11</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-biological-health-sports-sciences__priority.html">School Of Biological, Health &amp; Sports Sciences</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 27.3%"></div>
-                        </div>
-                        <div class="small text-muted">27.3%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 80.8%"></div>
-                        </div>
-                        <div class="small text-muted">80.8%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">22</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-business-technology-retail-supply-chain__priority.html">School Of Business Technology, Retail &amp; Supply Chain</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 79.6%"></div>
-                        </div>
-                        <div class="small text-muted">79.6%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">10</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-chemical-biopharmaceutical-sciences__priority.html">School Of Chemical &amp; Biopharmaceutical Sciences</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 14.8%"></div>
-                        </div>
-                        <div class="small text-muted">14.8%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 81.2%"></div>
-                        </div>
-                        <div class="small text-muted">81.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">27</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-computer-science__priority.html">School Of Computer Science</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 30.8%"></div>
-                        </div>
-                        <div class="small text-muted">30.8%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-success" style="width: 91.7%"></div>
-                        </div>
-                        <div class="small text-muted">91.7%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">13</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-culinary-arts-food-technology__priority.html">School Of Culinary Arts &amp; Food Technology</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 18.8%"></div>
-                        </div>
-                        <div class="small text-muted">18.8%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 88.7%"></div>
-                        </div>
-                        <div class="small text-muted">88.7%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">16</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-electrical-electronic-engineering__priority.html">School Of Electrical &amp; Electronic Engineering</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 34.6%"></div>
-                        </div>
-                        <div class="small text-muted">34.6%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 58.7%"></div>
-                        </div>
-                        <div class="small text-muted">58.7%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">26</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-enterprise-computing-digital-transformation__priority.html">School Of Enterprise, Computing &amp; Digital Transformation</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 4.8%"></div>
-                        </div>
-                        <div class="small text-muted">4.8%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 37.6%"></div>
-                        </div>
-                        <div class="small text-muted">37.6%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">21</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-food-science-environmental-health__priority.html">School Of Food Science &amp; Environmental Health</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 33.3%"></div>
-                        </div>
-                        <div class="small text-muted">33.3%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 88.6%"></div>
-                        </div>
-                        <div class="small text-muted">88.6%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">18</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-global-business__priority.html">School Of Global Business</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 20.8%"></div>
-                        </div>
-                        <div class="small text-muted">20.8%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">13</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-informatics-cybersecurity__priority.html">School Of Informatics &amp; Cybersecurity</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 19.0%"></div>
-                        </div>
-                        <div class="small text-muted">19.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 56.1%"></div>
-                        </div>
-                        <div class="small text-muted">56.1%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">21</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-management-people-organisations__priority.html">School Of Management, People &amp; Organisations</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 12.5%"></div>
-                        </div>
-                        <div class="small text-muted">12.5%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 66.0%"></div>
-                        </div>
-                        <div class="small text-muted">66.0%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">16</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-marketing-entrepreneurship__priority.html">School Of Marketing &amp; Entrepreneurship</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 15.0%"></div>
-                        </div>
-                        <div class="small text-muted">15.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 73.1%"></div>
-                        </div>
-                        <div class="small text-muted">73.1%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">20</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-mathematics-statistics__priority.html">School Of Mathematics &amp; Statistics</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 78.3%"></div>
-                        </div>
-                        <div class="small text-muted">78.3%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">5</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-mechanical-engineering__priority.html">School Of Mechanical Engineering</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 32.0%"></div>
-                        </div>
-                        <div class="small text-muted">32.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 60.9%"></div>
-                        </div>
-                        <div class="small text-muted">60.9%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">25</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-media__priority.html">School Of Media</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 17.6%"></div>
-                        </div>
-                        <div class="small text-muted">17.6%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 80.6%"></div>
-                        </div>
-                        <div class="small text-muted">80.6%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">17</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-physics-clinical-optometric-sciences__priority.html">School Of Physics, Clinical &amp; Optometric Sciences</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 9.1%"></div>
-                        </div>
-                        <div class="small text-muted">9.1%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 86.5%"></div>
-                        </div>
-                        <div class="small text-muted">86.5%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">11</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-social-sciences-law-education__priority.html">School Of Social Sciences, Law &amp; Education</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 21.2%"></div>
-                        </div>
-                        <div class="small text-muted">21.2%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 78.4%"></div>
-                        </div>
-                        <div class="small text-muted">78.4%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">33</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-surveying-construction-innovation__priority.html">School Of Surveying &amp; Construction Innovation</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 35.0%"></div>
-                        </div>
-                        <div class="small text-muted">35.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 76.2%"></div>
-                        </div>
-                        <div class="small text-muted">76.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">20</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-tourism-hospitality-management__priority.html">School Of Tourism &amp; Hospitality Management</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 37.0%"></div>
-                        </div>
-                        <div class="small text-muted">37.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 84.2%"></div>
-                        </div>
-                        <div class="small text-muted">84.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">27</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-transport-civil-engineering__priority.html">School Of Transport &amp; Civil Engineering</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 30.0%"></div>
-                        </div>
-                        <div class="small text-muted">30.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 53.8%"></div>
-                        </div>
-                        <div class="small text-muted">53.8%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">10</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="small text-muted mt-2">Deltas compare the current snapshot to the baseline start.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-                    </div>
-                    <div class="tab-pane fade " id="baselineGroupPane-non_priority" role="tabpanel" aria-labelledby="baselineGroupTab-non_priority">
-                          <div class="school-tabs">
-      <ul class="nav nav-tabs" id="schoolViewTabs-non_priority" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="tab-summary-non_priority" data-bs-toggle="tab" data-bs-target="#view-summary-non_priority" type="button" role="tab" aria-controls="view-summary-non_priority" aria-selected="true">Summary</button>
-        </li>
-      </ul>
-      <div class="tab-content border border-top-0 rounded-bottom p-3 bg-white" id="schoolViewContent-non_priority">
-        <div class="tab-pane fade show active" id="view-summary-non_priority" role="tabpanel" aria-labelledby="tab-summary-non_priority">
-          <div class="alert alert-light border d-flex flex-wrap gap-3 align-items-center justify-content-between">
-            <div class="flex-grow-1">
-              <div class="row g-2">
-                <div class="col-md-3">
-                  <div class="small text-muted">Baseline start</div>
-                  <div class="fw-semibold">2026-01-12 00:56</div>
-                </div>
-                <div class="col-md-3">
-                  <div class="small text-muted">Baseline group</div>
-                  <div class="fw-semibold">Non-priority baseline (reviewed)</div>
-                </div>
-                <div class="col-md-3">
-                  <div class="small text-muted">Source</div>
-                  <div class="fw-semibold">cleancsv_for_db_ingest/stage2_programmes_for_db.csv</div>
-                </div>
-                <div class="col-md-3">
-                  <div class="small text-muted">Terms</div>
-                  <div class="fw-semibold">202510, 202520, 202530</div>
-                </div>
-              </div>
-              <div class="small text-muted mt-2">Programme match: programme_id (raw Banner, no crosswalk)</div>
-              <div class="small text-muted">Schools list uses programmes from this baseline group (Stage 2). Deltas compare to the baseline start.</div>
-              <details class="small text-muted mt-1">
-                <summary>Run IDs</summary>
-                Akari 17 · Banner 9, 10, 11 (latest per term)
-              </details>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3 mb-3">
-            <div class="col">
-              <div class="card stage-dashboard-card h-100">
-                <div class="card-body">
-                  <div class="text-muted small mb-1">Baseline coverage</div>
-                  <div class="h5 mb-0">182</div>
-                  <div class="small text-muted">Baseline: stage2_programmes_for_db.csv (Non-priority baseline (reviewed)).</div>
-                  <div class="small mt-2">In Akari + Banner: 78 (42.9%)</div>
-                  <div class="small">In Akari only: 9 (4.9%)</div>
-                  <div class="small">Banner only: 78 (42.9%)</div>
-                  <div class="small">Missing in both: 17 (9.3%)</div>
-                  <div class="small text-muted mt-2">Missing in Akari: 95 (52.2%)</div>
-                  <div class="small text-muted">Compliance totals include baseline programmes found in Akari.</div>
-                  <a class="small text-decoration-none" href="viewer_stage2_akari_match_candidates.html">Open match candidates</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="accordion mb-3" id="allSchoolsDetailAccordion-non_priority">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="allSchoolsDetailHeading-non_priority">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allSchoolsDetail-non_priority" aria-expanded="false" aria-controls="allSchoolsDetail-non_priority">
-                  All-school detail
-                </button>
-              </h2>
-              <div id="allSchoolsDetail-non_priority" class="accordion-collapse collapse" aria-labelledby="allSchoolsDetailHeading-non_priority" data-bs-parent="#allSchoolsDetailAccordion-non_priority">
-                <div class="accordion-body">
-                  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Programme match</div>
-                          <div class="h5 mb-0">18.8%</div>
-                          <div class="small text-muted">Delta 0%</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Module OK</div>
-                          <div class="h5 mb-0">66.2%</div>
-                          <div class="small text-muted">Delta 0%</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Modules compared</div>
-                          <div class="h5 mb-0">1204</div>
-                          <div class="small text-muted">Delta 0</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Missing in Banner</div>
-                          <div class="h5 mb-0">407</div>
-                          <div class="small text-muted">Delta 0</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-3 mb-3">
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Banner-only</div>
-                          <div class="h5 mb-0">98</div>
-                          <div class="small text-muted">Delta 0</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Programmes tracked</div>
-                          <div class="h5 mb-0">85</div>
-                          <div class="small text-muted">Complete: 16</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Credits mismatch</div>
-                          <div class="h5 mb-0">28</div>
-                          <div class="small text-muted">Across compared modules.</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col">
-                      <div class="card stage-dashboard-card h-100">
-                        <div class="card-body">
-                          <div class="text-muted small mb-1">Preferred CRNs missing</div>
-                          <div class="h5 mb-0">10</div>
-                          <div class="small text-muted">Banner rows with CRNs but no preferred CRN.</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <h6 class="mb-2">Semester coverage</h6>
-                  <div class="d-flex flex-wrap gap-2 mb-3">
-                    <div class="semester-chip">
-                      <div class="small text-muted">Semester 1</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-danger" style="width: 74.6%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          456/611 (74.6%)
-                      </div>
-                    </div>
-                    <div class="semester-chip">
-                      <div class="small text-muted">Semester 2</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-danger" style="width: 55.4%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          274/495 (55.4%)
-                      </div>
-                    </div>
-                    <div class="semester-chip">
-                      <div class="small text-muted">Semester 3</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          0/18 (0.0%)
-                      </div>
-                    </div>
-                    <div class="semester-chip">
-                      <div class="small text-muted">Full year / overlap</div>
-                      <div class="progress progress-xs mt-1">
-                        <div class="progress-bar bg-warning" style="width: 83.8%"></div>
-                      </div>
-                      <div class="small mt-1">
-                          67/80 (83.8%)
-                      </div>
-                    </div>
-                  </div>
-                  <div class="table-responsive">
-                    <table class="table table-sm mb-0">
-                      <thead class="table-light">
-                        <tr>
-                          <th>Semester</th>
-                          <th class="text-end">Modules</th>
-                          <th class="text-end">Missing</th>
-                          <th class="text-end">Banner-only</th>
-                          <th class="text-end">Credits mismatch</th>
-                          <th class="text-end">Preferred missing</th>
-                          <th class="text-end">OK %</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Semester 1</td>
-                          <td class="text-end">611</td>
-                          <td class="text-end">155</td>
-                          <td class="text-end">56</td>
-                          <td class="text-end">14</td>
-                          <td class="text-end">1</td>
-                          <td class="text-end">74.6%</td>
-                        </tr>
-                        <tr>
-                          <td>Semester 2</td>
-                          <td class="text-end">495</td>
-                          <td class="text-end">221</td>
-                          <td class="text-end">42</td>
-                          <td class="text-end">13</td>
-                          <td class="text-end">3</td>
-                          <td class="text-end">55.4%</td>
-                        </tr>
-                        <tr>
-                          <td>Semester 3</td>
-                          <td class="text-end">18</td>
-                          <td class="text-end">18</td>
-                          <td class="text-end">0</td>
-                          <td class="text-end">0</td>
-                          <td class="text-end">0</td>
-                          <td class="text-end">0.0%</td>
-                        </tr>
-                        <tr>
-                          <td>Full year / overlap</td>
-                          <td class="text-end">80</td>
-                          <td class="text-end">13</td>
-                          <td class="text-end">0</td>
-                          <td class="text-end">1</td>
-                          <td class="text-end">6</td>
-                          <td class="text-end">83.8%</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-            <div class="combo-grid mb-3">
-              <div class="combo-card text-start" style="--prog-color: #dc3545; --mod-color: #dc3545;">
-                <div class="fw-semibold">All schools</div>
-                <div class="small text-muted">Programmes complete: 16/85</div>
-                <div class="small text-muted mt-2">Programme compliance</div>
-                <div class="d-flex align-items-center gap-2">
-                  <div class="progress progress-xs flex-grow-1">
-                    <div class="progress-bar bg-danger" style="width: 18.8%"></div>
-                  </div>
-                  <div class="small text-muted">18.8%</div>
-                </div>
-                <div class="small text-muted mt-2">Module compliance</div>
-                <div class="d-flex align-items-center gap-2">
-                  <div class="progress progress-xs flex-grow-1">
-                    <div class="progress-bar bg-danger" style="width: 66.2%"></div>
-                  </div>
-                  <div class="small text-muted">66.2%</div>
-                </div>
-              </div>
-            </div>
-            <h5 class="mb-2">Programme dashboard</h5>
-            <div class="table-responsive">
-              <table class="table table-sm align-middle mb-0">
-                <thead class="table-light">
-                  <tr>
-                    <th>School</th>
-                    <th>Programme compliance</th>
-                    <th>Module compliance</th>
-                    <th class="text-end">Programmes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_conservatoire__non_priority.html">Conservatoire</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 60.0%"></div>
-                        </div>
-                        <div class="small text-muted">60.0%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">1</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_language-studies__non_priority.html">Language Studies</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-success" style="width: 92.6%"></div>
-                        </div>
-                        <div class="small text-muted">92.6%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">1</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-accounting-economics-finance__non_priority.html">School Of Accounting, Economics &amp; Finance</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 88.2%"></div>
-                        </div>
-                        <div class="small text-muted">88.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">2</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-business-technology-retail-supply-chain__non_priority.html">School Of Business Technology, Retail &amp; Supply Chain</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-success" style="width: 100.0%"></div>
-                        </div>
-                        <div class="small text-muted">100.0%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">1</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-chemical-biopharmaceutical-sciences__non_priority.html">School Of Chemical &amp; Biopharmaceutical Sciences</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 26.7%"></div>
-                        </div>
-                        <div class="small text-muted">26.7%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 60.2%"></div>
-                        </div>
-                        <div class="small text-muted">60.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">15</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-culinary-arts-food-technology__non_priority.html">School Of Culinary Arts &amp; Food Technology</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 33.3%"></div>
-                        </div>
-                        <div class="small text-muted">33.3%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 72.4%"></div>
-                        </div>
-                        <div class="small text-muted">72.4%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">9</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-electrical-electronic-engineering__non_priority.html">School Of Electrical &amp; Electronic Engineering</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 72.6%"></div>
-                        </div>
-                        <div class="small text-muted">72.6%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">4</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-enterprise-computing-digital-transformation__non_priority.html">School Of Enterprise, Computing &amp; Digital Transformation</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 63.6%"></div>
-                        </div>
-                        <div class="small text-muted">63.6%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-success" style="width: 98.3%"></div>
-                        </div>
-                        <div class="small text-muted">98.3%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">11</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-food-science-environmental-health__non_priority.html">School Of Food Science &amp; Environmental Health</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">1</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-global-business__non_priority.html">School Of Global Business</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 15.2%"></div>
-                        </div>
-                        <div class="small text-muted">15.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">4</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-informatics-cybersecurity__non_priority.html">School Of Informatics &amp; Cybersecurity</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 51.0%"></div>
-                        </div>
-                        <div class="small text-muted">51.0%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">3</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-marketing-entrepreneurship__non_priority.html">School Of Marketing &amp; Entrepreneurship</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 16.7%"></div>
-                        </div>
-                        <div class="small text-muted">16.7%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 37.0%"></div>
-                        </div>
-                        <div class="small text-muted">37.0%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">6</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-mathematics-statistics__non_priority.html">School Of Mathematics &amp; Statistics</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 26.3%"></div>
-                        </div>
-                        <div class="small text-muted">26.3%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">3</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-mechanical-engineering__non_priority.html">School Of Mechanical Engineering</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 12.5%"></div>
-                        </div>
-                        <div class="small text-muted">12.5%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 21.2%"></div>
-                        </div>
-                        <div class="small text-muted">21.2%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">8</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-media__non_priority.html">School Of Media</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 87.1%"></div>
-                        </div>
-                        <div class="small text-muted">87.1%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">3</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-social-sciences-law-education__non_priority.html">School Of Social Sciences, Law &amp; Education</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 86.0%"></div>
-                        </div>
-                        <div class="small text-muted">86.0%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">4</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-surveying-construction-innovation__non_priority.html">School Of Surveying &amp; Construction Innovation</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 73.8%"></div>
-                        </div>
-                        <div class="small text-muted">73.8%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">5</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-tourism-hospitality-management__non_priority.html">School Of Tourism &amp; Hospitality Management</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-danger" style="width: 67.7%"></div>
-                        </div>
-                        <div class="small text-muted">67.7%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">3</td>
-                  </tr>
-                  <tr>
-                    <td><a class="text-decoration-none" href="stage4_school_school-of-transport-civil-engineering__non_priority.html">School Of Transport &amp; Civil Engineering</a></td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
-                        </div>
-                        <div class="small text-muted">0.0%</div>
-                      </div>
-                    </td>
-                    <td>
-                      <div class="d-flex align-items-center gap-2">
-                        <div class="progress progress-xs flex-grow-1">
-                          <div class="progress-bar bg-warning" style="width: 83.8%"></div>
-                        </div>
-                        <div class="small text-muted">83.8%</div>
-                      </div>
-                    </td>
-                    <td class="text-end">1</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="small text-muted mt-2">Deltas compare the current snapshot to the baseline start.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-                    </div>
-                    <div class="tab-pane fade" id="baselineGroupPane-banner-outside" role="tabpanel" aria-labelledby="baselineGroupTab-banner-outside">
-                      <div class="small text-muted mb-2">Programmes in Banner not found in Akari or Stage 2 priority/non-priority baseline groups.</div>
-                      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
-                        <div class="col" id="banner-outside">
-                          <div class="card stage-dashboard-card h-100">
-                            <div class="card-body">
-                              <div class="text-muted small mb-1">Banner-only outside baseline</div>
-                              <div class="h5 mb-0">29</div>
-                              <div class="small text-muted mt-2">Top school codes:</div>
-                              <div class="small text-muted">
-                                  Unknown (29)                              </div>
-                              <details class="mt-2">
-                                <summary class="small text-muted">View programmes</summary>
-                                <div class="small text-muted mt-1">School codes use dim_programme.school_code (Banner metadata).</div>
-                                <div class="table-responsive mt-2">
-                                  <table class="table table-sm mb-0">
-                                    <thead class="table-light">
-                                      <tr>
-                                        <th>Programme</th>
-                                        <th>School code</th>
-                                        <th>Description</th>
-                                        <th class="text-end">Modules</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                          <td>TU002</td>
-                                          <td>Unknown</td>
-                                          <td>Apprentice  Electricians</td>
-                                          <td class="text-end">4</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU053</td>
-                                          <td>Unknown</td>
-                                          <td>University Learning &amp; Teaching</td>
-                                          <td class="text-end">1</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU089</td>
-                                          <td>Unknown</td>
-                                          <td>Bachelor of Science in Geographic Science/Geospatial Surveying</td>
-                                          <td class="text-end">63</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU1128</td>
-                                          <td>Unknown</td>
-                                          <td>Assessor and Membership of the Institute of Automotive Engineers Assessors</td>
-                                          <td class="text-end">1</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU120</td>
-                                          <td>Unknown</td>
-                                          <td>Level 8 Science (Tech Mngt)</td>
-                                          <td class="text-end">4</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU1747</td>
-                                          <td>Unknown</td>
-                                          <td>MBS by Research in Marketing</td>
-                                          <td class="text-end">2</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU1748</td>
-                                          <td>Unknown</td>
-                                          <td>PhD in Business in Marketing</td>
-                                          <td class="text-end">2</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU1780</td>
-                                          <td>Unknown</td>
-                                          <td>Exchange Computing Degree</td>
-                                          <td class="text-end">162</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU1786</td>
-                                          <td>Unknown</td>
-                                          <td>Cert Mediation &amp; Confl Reso SP</td>
-                                          <td class="text-end">2</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU1804</td>
-                                          <td>Unknown</td>
-                                          <td>Erasmus Business Degree</td>
-                                          <td class="text-end">466</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU1981</td>
-                                          <td>Unknown</td>
-                                          <td>New Frontiers Programme</td>
-                                          <td class="text-end">1</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU213</td>
-                                          <td>Unknown</td>
-                                          <td>Master of Engineering in Sustainable Infrastructure</td>
-                                          <td class="text-end">36</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU400</td>
-                                          <td>Unknown</td>
-                                          <td>Level 10 Electronic Eng</td>
-                                          <td class="text-end">2</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU407</td>
-                                          <td>Unknown</td>
-                                          <td>Level 10 PhD Science (Physics)</td>
-                                          <td class="text-end">2</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU408</td>
-                                          <td>Unknown</td>
-                                          <td>Level 10 PhD in Biology</td>
-                                          <td class="text-end">2</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU461</td>
-                                          <td>Unknown</td>
-                                          <td>NFQ Level 10 Science-Chemistry</td>
-                                          <td class="text-end">10</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU500</td>
-                                          <td>Unknown</td>
-                                          <td>Doctor of Philosophy</td>
-                                          <td class="text-end">1480</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU502</td>
-                                          <td>Unknown</td>
-                                          <td>Master of Philosophy</td>
-                                          <td class="text-end">8</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU5040</td>
-                                          <td>Unknown</td>
-                                          <td>Safety Management at Work</td>
-                                          <td class="text-end">10</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU5085</td>
-                                          <td>Unknown</td>
-                                          <td>Media SSC UG</td>
-                                          <td class="text-end">1</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU5272</td>
-                                          <td>Unknown</td>
-                                          <td>Certificate in Pharmaceutical and Medical Device Operations</td>
-                                          <td class="text-end">16</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU5352</td>
-                                          <td>Unknown</td>
-                                          <td>Postgraduate Certificate in Science in Computing in Cyber Security</td>
-                                          <td class="text-end">12</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU6112</td>
-                                          <td>Unknown</td>
-                                          <td>Architecture CPD PG Certs</td>
-                                          <td class="text-end">2</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU6123</td>
-                                          <td>Unknown</td>
-                                          <td>Learning, Teaching and Technology Centre Certificates (MIN)</td>
-                                          <td class="text-end">4</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU671</td>
-                                          <td>Unknown</td>
-                                          <td>HC in Business L6</td>
-                                          <td class="text-end">43</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU698</td>
-                                          <td>Unknown</td>
-                                          <td>Int Foundation Cert SPA</td>
-                                          <td class="text-end">54</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU827</td>
-                                          <td>Unknown</td>
-                                          <td>Computer and Commns Eng</td>
-                                          <td class="text-end">45</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU900</td>
-                                          <td>Unknown</td>
-                                          <td>Exchange Student Course</td>
-                                          <td class="text-end">113</td>
-                                        </tr>
-                                        <tr>
-                                          <td>TU932</td>
-                                          <td>Unknown</td>
-                                          <td>Bachelor of Business (Honours) [General Entry]</td>
-                                          <td class="text-end">191</td>
-                                        </tr>
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </details>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <script>
-                    (function(){
-                      if (!window.bootstrap || !bootstrap.Tooltip) return;
-                      const tooltips = Array.from(document.querySelectorAll("[data-bs-toggle=\"tooltip\"]"));
-                      tooltips.forEach(el => new bootstrap.Tooltip(el));
-                    })();
-                  </script>
-              <div class="row row-cols-1 row-cols-md-2 g-3">
-              </div>
-            </div>
-          </div>
     </div>
   </div>
   </div>

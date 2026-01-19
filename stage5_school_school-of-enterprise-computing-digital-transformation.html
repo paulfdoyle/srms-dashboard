@@ -1,0 +1,1543 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stage 5 - School Dashboards - School Of Enterprise, Computing &amp; Digital Transformation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background:#f8f9fa; padding:20px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+    .hero { background:#fff; padding:28px; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .card { transition:transform 0.2s ease, box-shadow 0.2s ease; }
+    .card:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+    .badge { font-size:0.75rem; }
+    .stage-card-complete { border:2px solid #198754; }
+    .stage-card-progress { border:2px solid #fd7e14; }
+    .stage-card-upcoming { border:2px solid #0d6efd; }
+    .stage-card-not-started { border:2px solid #dc3545; }
+    .badge-updated { background-color:#ffc107; color:#212529; }
+    .badge-new { background-color:#dc3545; color:#fff; }
+    .badge-upcoming { background-color:#0d6efd; color:#fff; }
+    .section-card { border:none; box-shadow:0 1px 6px rgba(0,0,0,0.05); margin-bottom:24px; }
+    .section-card .card-header { background:#f1f3f5; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid px-0">
+  <style>
+    .stage-dashboard-card { background:#f8f9fa; border:1px solid #e9ecef; }
+    .progress-xs { height:8px; }
+    .collapse-chevron {
+      display:inline-block;
+      transition:transform 0.15s ease;
+      font-size:1.05rem;
+      opacity:0.95;
+      line-height:1;
+      padding-left:10px;
+    }
+    button[aria-expanded="true"] .collapse-chevron { transform:rotate(180deg); }
+    .semester-chip {
+      min-width:120px;
+      padding:8px 10px;
+      border-radius:10px;
+      background:#fff;
+      border:1px solid #e9ecef;
+    }
+    .programme-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+      gap:12px;
+    }
+    .programme-card {
+      border:1px solid #e9ecef;
+      border-radius:10px;
+      padding:12px;
+      background:#fdfdfd;
+    }
+    .programme-title {
+      display:-webkit-box;
+      -webkit-line-clamp:2;
+      -webkit-box-orient:vertical;
+      overflow:hidden;
+    }
+  </style>
+
+  <div class="hero">
+    <div class="d-flex justify-content-between flex-wrap gap-3">
+      <div>
+        <h1 class="mb-2">School Of Enterprise, Computing &amp; Digital Transformation</h1>
+        <p class="text-muted mb-0">Stage 5 - School Dashboards</p>
+        <div class="mt-2">
+          <span class="badge bg-success text-light">Completed</span>
+        </div>
+        <div class="text-muted small mt-2">Generated: 2026-01-19 00:37</div>
+      </div>
+      <div class="align-self-start">
+        <a class="btn btn-outline-secondary" href="stage5.html">Back to School Dashboards</a>
+      </div>
+    </div>
+  </div>
+
+    <div class="card section-card mb-4 border-primary border-2">
+      <div class="card-header bg-primary text-light">
+        <button
+          class="btn btn-link text-decoration-none p-0 w-100 text-start text-light"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#schoolProgrammeDashboardCollapse"
+          aria-expanded="true"
+          aria-controls="schoolProgrammeDashboardCollapse"
+          title="Click to show/hide"
+        >
+          <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+            <div>
+              <div class="fw-semibold">Programme Summary Review</div>
+              <div class="small">Headline status across the academic review sets.</div>
+            </div>
+            <span class="collapse-chevron" aria-hidden="true">▾</span>
+          </div>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="collapse show" id="schoolProgrammeDashboardCollapse">
+
+          <div class="row g-2 mb-3">
+            <div class="col-12 col-md-4">
+              <button class="btn btn-light border w-100 text-start h-100" type="button" data-bs-toggle="tab" data-bs-target="#panePriority">
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <div class="fw-semibold">Priority</div>
+                  <div class="text-muted small">39</div>
+                </div>
+                <div class="small text-muted">Programme aligned 21 · Needs review 18</div>
+                <div class="small text-muted mt-1">Module alignment (aligned programmes only)</div>
+                  <div class="progress progress-xs mt-1">
+                    <div class="progress-bar bg-danger" style="width: 37.6%"></div>
+                  </div>
+                  <div class="small text-muted mt-1">149/396 (37.6%)</div>
+                <div class="small text-muted mt-1">Credits mismatch 9 · Preferred CRNs missing 16</div>
+              </button>
+            </div>
+            <div class="col-12 col-md-4">
+              <button class="btn btn-light border w-100 text-start h-100" type="button" data-bs-toggle="tab" data-bs-target="#paneNonPriority">
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <div class="fw-semibold">Non-Priority</div>
+                  <div class="text-muted small">16</div>
+                </div>
+                <div class="small text-muted">Programme aligned 11 · Needs review 5</div>
+                <div class="small text-muted mt-1">Module alignment (aligned programmes only)</div>
+                  <div class="progress progress-xs mt-1">
+                    <div class="progress-bar bg-success" style="width: 98.3%"></div>
+                  </div>
+                  <div class="small text-muted mt-1">114/116 (98.3%)</div>
+                <div class="small text-muted mt-1">Credits mismatch 9 · Preferred CRNs missing 0</div>
+              </button>
+            </div>
+            <div class="col-12 col-md-4">
+              <button class="btn btn-light border w-100 text-start h-100" type="button" data-bs-toggle="tab" data-bs-target="#paneReview">
+                <div class="d-flex justify-content-between align-items-baseline">
+                  <div class="fw-semibold">Review Required</div>
+                  <div class="text-muted small">19</div>
+                </div>
+                <div class="small text-muted">AKARI &amp; Banner 19 · Banner only 0 · AKARI only 0</div>
+                <div class="small text-muted mt-1">Credits mismatch n/a · Preferred CRNs missing n/a</div>
+              </button>
+            </div>
+          </div>
+
+          <div class="small text-muted">Open “Per Programme Module Review” below for the per-programme lists.</div>
+
+          <div class="border border-success rounded p-3 mt-3">
+            <div class="fw-semibold text-success">Module coverage by semester</div>
+            <div class="small text-muted mb-2">Priority programmes that are aligned (AKARI + Banner, expected school) only.</div>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <div class="semester-chip">
+                <div class="small text-muted">Semester 1</div>
+                <div class="progress progress-xs mt-1">
+                  <div class="progress-bar bg-danger" style="width: 35.1%"></div>
+                </div>
+                <div class="small mt-1">
+                    67/191 (35.1%)
+                </div>
+              </div>
+              <div class="semester-chip">
+                <div class="small text-muted">Semester 2</div>
+                <div class="progress progress-xs mt-1">
+                  <div class="progress-bar bg-danger" style="width: 38.7%"></div>
+                </div>
+                <div class="small mt-1">
+                    55/142 (38.7%)
+                </div>
+              </div>
+              <div class="semester-chip">
+                <div class="small text-muted">Semester 3</div>
+                <div class="progress progress-xs mt-1">
+                  <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                </div>
+                <div class="small mt-1">
+                    8/8 (100.0%)
+                </div>
+              </div>
+              <div class="semester-chip">
+                <div class="small text-muted">Full year / overlap</div>
+                <div class="progress progress-xs mt-1">
+                  <div class="progress-bar bg-danger" style="width: 34.5%"></div>
+                </div>
+                <div class="small mt-1">
+                    19/55 (34.5%)
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive mb-0">
+              <table class="table table-sm mb-0">
+                <thead class="table-light">
+                  <tr>
+                    <th>Semester</th>
+                    <th class="text-end">Modules</th>
+                    <th class="text-end">Missing</th>
+                    <th class="text-end">Banner-only</th>
+                    <th class="text-end">Credits mismatch</th>
+                    <th class="text-end">Preferred missing</th>
+                    <th class="text-end">OK %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Semester 1</td>
+                    <td class="text-end">191</td>
+                    <td class="text-end">124</td>
+                    <td class="text-end">58</td>
+                    <td class="text-end">3</td>
+                    <td class="text-end">5</td>
+                    <td class="text-end">35.1%</td>
+                  </tr>
+                  <tr>
+                    <td>Semester 2</td>
+                    <td class="text-end">142</td>
+                    <td class="text-end">87</td>
+                    <td class="text-end">49</td>
+                    <td class="text-end">3</td>
+                    <td class="text-end">6</td>
+                    <td class="text-end">38.7%</td>
+                  </tr>
+                  <tr>
+                    <td>Semester 3</td>
+                    <td class="text-end">8</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end">4</td>
+                    <td class="text-end">100.0%</td>
+                  </tr>
+                  <tr>
+                    <td>Full year / overlap</td>
+                    <td class="text-end">55</td>
+                    <td class="text-end">36</td>
+                    <td class="text-end">0</td>
+                    <td class="text-end">3</td>
+                    <td class="text-end">1</td>
+                    <td class="text-end">34.5%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card section-card mb-4 border-info border-2">
+      <div class="card-header bg-info text-dark">
+        <button
+          class="btn btn-link text-decoration-none p-0 w-100 text-start text-dark"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#schoolProgrammeTabsCollapse"
+          aria-expanded="true"
+          aria-controls="schoolProgrammeTabsCollapse"
+          title="Click to show/hide"
+        >
+          <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
+            <div>
+              <div class="fw-semibold">Per Programme Module Review</div>
+              <div class="small">Priority / Non-Priority / Review Required lists.</div>
+            </div>
+            <span class="collapse-chevron" aria-hidden="true">▾</span>
+          </div>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="collapse show" id="schoolProgrammeTabsCollapse">
+
+          <ul class="nav nav-tabs" id="programmeDashboardTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="tabPriority" data-bs-toggle="tab" data-bs-target="#panePriority" type="button" role="tab" aria-controls="panePriority" aria-selected="true">Priority</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tabNonPriority" data-bs-toggle="tab" data-bs-target="#paneNonPriority" type="button" role="tab" aria-controls="paneNonPriority" aria-selected="false">Non-Priority</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="tabReview" data-bs-toggle="tab" data-bs-target="#paneReview" type="button" role="tab" aria-controls="paneReview" aria-selected="false">Review Required</button>
+            </li>
+          </ul>
+
+          <div class="tab-content pt-3">
+            <div class="tab-pane fade show active" id="panePriority" role="tabpanel" aria-labelledby="tabPriority">
+              <div class="small text-muted mb-2">Priority programmes are those identified in the academic review as active or requiring boards.</div>
+              <details class="small text-muted mb-3">
+                <summary>Status definitions</summary>
+                <ul class="mb-0 mt-2">
+                  <li><span class="fw-semibold">Missing A</span>: programme is missing from AKARI.</li>
+                  <li><span class="fw-semibold">Missing B</span>: programme is missing from Banner.</li>
+                  <li><span class="fw-semibold">Missing A&amp;B</span>: programme is missing from AKARI and Banner.</li>
+                  <li><span class="fw-semibold">Complete</span>: module comparison has 0 missing, 0 banner-only, 0 credit mismatches, and 0 preferred CRN missing.</li>
+                  <li><span class="fw-semibold">Gaps</span>: anything else (including banner-only modules, credit mismatches, or preferred CRN missing even when OK% is 100%).</li>
+                </ul>
+              </details>
+              <details class="small text-muted mb-3">
+                <summary>Caveats</summary>
+                <ul class="mb-0 mt-2">
+                  <li>If Akari shows multiple schools for a programme, it is treated as <span class="fw-semibold">AKARI: Diff School</span>.</li>
+                  <li>If the expected school is missing in the review CSV, “In School vs Diff School” cannot be evaluated reliably.</li>
+                </ul>
+              </details>
+
+              <div class="d-flex justify-content-between align-items-baseline gap-2 mb-2">
+                <div>
+                  <div class="fw-semibold">Priority baseline programmes (sorted best → worst)</div>
+                  <div class="small text-muted">Click a programme to open the Akari vs Banner comparison (then select the year).</div>
+                </div>
+                <div class="small text-muted">39</div>
+              </div>
+              <div class="programme-grid">
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU286">TU286</a></div>
+                          <div class="small text-muted programme-title">M.Sc.Computing Development Ope</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 8/8</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU242">TU242</a></div>
+                          <div class="small text-muted programme-title">AI Tech (Human Centered)</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 7/7</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 1</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU278">TU278</a></div>
+                          <div class="small text-muted programme-title">MSc. Applied IT Architecture</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 8/8</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 3</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 2</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU428">TU428</a></div>
+                          <div class="small text-muted programme-title">MSC Comp Dev Operations</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 8/8</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 2</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5263">TU5263</a></div>
+                          <div class="small text-muted programme-title">Data Centre Technican Cert</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 16/16</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 2 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5279">TU5279</a></div>
+                          <div class="small text-muted programme-title">Cloud Solutions Architecture</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 3/3</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 1 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5354">TU5354</a></div>
+                          <div class="small text-muted programme-title">MC Ethics, Data &amp; Future AI</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 2/2</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 2</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU859">TU859</a></div>
+                          <div class="small text-muted programme-title">B.Sc. (Honours) Computing</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">70.8%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-danger" style="width: 70.8%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 34/48</div>
+                      <div class="small text-muted">Missing: 14 · Banner-only: 38</div>
+                      <div class="small text-muted">Credits mismatch: 2 · Preferred missing: 1</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU437">TU437</a></div>
+                          <div class="small text-muted programme-title">MSc in Sustainable Cloud Comp</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">69.2%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-danger" style="width: 69.2%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 9/13</div>
+                      <div class="small text-muted">Missing: 4 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 9</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU862">TU862</a></div>
+                          <div class="small text-muted programme-title">Comp - Mach Learn &amp; Art Intel</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">67.6%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-danger" style="width: 67.6%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 25/37</div>
+                      <div class="small text-muted">Missing: 12 · Banner-only: 26</div>
+                      <div class="small text-muted">Credits mismatch: 2 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU756">TU756</a></div>
+                          <div class="small text-muted programme-title">Computing (General Entry)</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">63.3%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-danger" style="width: 63.3%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 19/30</div>
+                      <div class="small text-muted">Missing: 11 · Banner-only: 14</div>
+                      <div class="small text-muted">Credits mismatch: 2 · Preferred missing: 1</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5284">TU5284</a></div>
+                          <div class="small text-muted programme-title">Cert in Fund. Software Develop</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">60.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-danger" style="width: 60.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 3/5</div>
+                      <div class="small text-muted">Missing: 2 · Banner-only: 2</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU067">TU067</a></div>
+                          <div class="small text-muted programme-title">H.Dip. Science in Computing</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">25.9%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-danger" style="width: 25.9%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 7/27</div>
+                      <div class="small text-muted">Missing: 20 · Banner-only: 22</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU066">TU066</a></div>
+                          <div class="small text-muted programme-title">B.Sc. (Honours) Cloud Computing with DevOps</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/15</div>
+                      <div class="small text-muted">Missing: 15 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU068, TU068F">TU068, TU068F</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing with Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/48</div>
+                      <div class="small text-muted">Missing: 48 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU069, TU069F">TU069, TU069F</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) IT Management</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/17</div>
+                      <div class="small text-muted">Missing: 17 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU077">TU077</a></div>
+                          <div class="small text-muted programme-title">Computing with Data Analytics</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/15</div>
+                      <div class="small text-muted">Missing: 15 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU090">TU090</a></div>
+                          <div class="small text-muted programme-title">B.Sc. Entr. Cloud Computing</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/12</div>
+                      <div class="small text-muted">Missing: 12 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU098, TU098F">TU098, TU098F</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing with Software Development</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/25</div>
+                      <div class="small text-muted">Missing: 25 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU099, TU099F">TU099, TU099F</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing with Software Development</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/41</div>
+                      <div class="small text-muted">Missing: 41 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU450">TU450</a></div>
+                          <div class="small text-muted programme-title">H.Dip. Information Technology</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">0.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 0/11</div>
+                      <div class="small text-muted">Missing: 11 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5002">TU5002</a></div>
+                          <div class="small text-muted programme-title">Cert in Strategic Project Mngt</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                        <div class="small text-muted mt-2">Akari school: School Of Mechanical Engineering</div>
+                      <div class="small text-muted">Banner school: School of Mechanical Engineering</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5517">TU5517</a></div>
+                          <div class="small text-muted programme-title">Cert in Proj Mngt SP lvl 08</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                        <div class="small text-muted mt-2">Akari school: School Of Mechanical Engineering</div>
+                      <div class="small text-muted">Banner school: School of Mechanical Engineering</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU069F">TU069F</a></div>
+                          <div class="small text-muted programme-title">B.Sc.(Hons) IT Management</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU271">TU271</a></div>
+                          <div class="small text-muted programme-title">Distributed and Mobile Comp</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU272">TU272</a></div>
+                          <div class="small text-muted programme-title">M.Sc. in Information Tech Mgt</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU273">TU273</a></div>
+                          <div class="small text-muted programme-title">PG.Dip. Information Tech Mgt</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU279">TU279</a></div>
+                          <div class="small text-muted programme-title">Level 9 Masters in Computing</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU453">TU453</a></div>
+                          <div class="small text-muted programme-title">P.Dip. Comp in Develop Operati</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU471">TU471</a></div>
+                          <div class="small text-muted programme-title">Comp in Human Ctrd Artif Intel</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5033">TU5033</a></div>
+                          <div class="small text-muted programme-title">Certificate Project Leadership</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU652">TU652</a></div>
+                          <div class="small text-muted programme-title">Computing</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU759">TU759</a></div>
+                          <div class="small text-muted programme-title">B.Sc. in IT Management</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU861">TU861</a></div>
+                          <div class="small text-muted programme-title">Computing (Language)</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU865">TU865</a></div>
+                          <div class="small text-muted programme-title">Cloud Computing</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU048,TU048P">TU048,TU048P</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing with Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A&amp;B</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU733">TU733</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing with options in AI and ML, Software Development, Cloud Computing (Add On)</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A&amp;B</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU842">TU842</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Information Systems with Digital Transformation</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A&amp;B</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU849">TU849</a></div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing with options in AI and ML, Software Development, Cloud Computing (Add On)</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A&amp;B</span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="paneNonPriority" role="tabpanel" aria-labelledby="tabNonPriority">
+              <div class="small text-muted mb-2">Non-Priority programmes are those marked inactive in the academic review.</div>
+              <details class="small text-muted mb-3">
+                <summary>Status definitions</summary>
+                <ul class="mb-0 mt-2">
+                  <li><span class="fw-semibold">Missing A</span>: programme is missing from AKARI.</li>
+                  <li><span class="fw-semibold">Missing B</span>: programme is missing from Banner.</li>
+                  <li><span class="fw-semibold">Missing A&amp;B</span>: programme is missing from AKARI and Banner.</li>
+                  <li><span class="fw-semibold">Complete</span>: module comparison has 0 missing, 0 banner-only, 0 credit mismatches, and 0 preferred CRN missing.</li>
+                  <li><span class="fw-semibold">Gaps</span>: anything else (including banner-only modules, credit mismatches, or preferred CRN missing even when OK% is 100%).</li>
+                </ul>
+              </details>
+              <details class="small text-muted mb-3">
+                <summary>Caveats</summary>
+                <ul class="mb-0 mt-2">
+                  <li>If Akari shows multiple schools for a programme, it is treated as <span class="fw-semibold">AKARI: Diff School</span>.</li>
+                  <li>If the expected school is missing in the review CSV, “In School vs Diff School” cannot be evaluated reliably.</li>
+                </ul>
+              </details>
+
+              <div class="d-flex justify-content-between align-items-baseline gap-2 mb-2">
+                <div class="fw-semibold">Non-priority baseline programmes (sorted best → worst)</div>
+                <div class="small text-muted">16</div>
+              </div>
+              <div class="programme-grid">
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5275">TU5275</a></div>
+                          <div class="small text-muted programme-title">Lvl 07 Cert Net Des &amp; Imp Mino</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 4/4</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5276">TU5276</a></div>
+                          <div class="small text-muted programme-title">MCert Netw Security &amp; Scriping</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 7/7</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5283">TU5283</a></div>
+                          <div class="small text-muted programme-title">Cert in Information Security</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 5/5</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5288">TU5288</a></div>
+                          <div class="small text-muted programme-title">Lv 8 Mnr Grad Cert Sci in Comp</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 5/5</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5292">TU5292</a></div>
+                          <div class="small text-muted programme-title">PG.Cert. Strat &amp; Organ Mgt DO</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 4/4</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5307">TU5307</a></div>
+                          <div class="small text-muted programme-title">Cert Enterprise Analyst Funde</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 11/11</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5995">TU5995</a></div>
+                          <div class="small text-muted programme-title">Cert in Prep Study 3rd Lvl SP</div>
+                      </div>
+                        <span class="badge bg-success">Complete</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 4/4</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5274">TU5274</a></div>
+                          <div class="small text-muted programme-title">Lvl 07 Cert Cloud Mngt &amp; Secur</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 8/8</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 4</div>
+                      <div class="small text-muted">Credits mismatch: 1 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5277">TU5277</a></div>
+                          <div class="small text-muted programme-title">Cert in Web Application Devel</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 7/7</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 1 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU097F">TU097F</a></div>
+                          <div class="small text-muted programme-title">Computing</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">98.1%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 98.1%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 53/54</div>
+                      <div class="small text-muted">Missing: 1 · Banner-only: 1</div>
+                      <div class="small text-muted">Credits mismatch: 7 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU5280">TU5280</a></div>
+                          <div class="small text-muted programme-title">Cert in Machine Learning &amp; AI</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Module OK</span>
+                        <span class="fw-semibold">85.7%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-warning" style="width: 85.7%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 6/7</div>
+                      <div class="small text-muted">Missing: 1 · Banner-only: 1</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU096F">TU096F</a></div>
+                          <div class="small text-muted programme-title">B.Sc. in Computing</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU1986">TU1986</a></div>
+                          <div class="small text-muted programme-title">Level 8 Abinitio Degree IT Mgt</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU1999">TU1999</a></div>
+                          <div class="small text-muted programme-title">HC in Science in IT Mgt</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU270">TU270</a></div>
+                          <div class="small text-muted programme-title">Distributed and Mobile Comp</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=non_priority_reviewed&programme=TU865A">TU865A</a></div>
+                          <div class="small text-muted programme-title">Cloud Computing and Dev Ops</div>
+                      </div>
+                        <span class="badge bg-danger">Missing A</span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="paneReview" role="tabpanel" aria-labelledby="tabReview">
+              <div class="small text-muted mb-2">Review Required programmes are associated with this school in Akari or Banner but not present in the academic review baselines.</div>
+              <details class="small text-muted mb-3">
+                <summary>Badge definitions</summary>
+                <ul class="mb-0 mt-2">
+                  <li><span class="fw-semibold">Banner only</span>: in Banner for this school, not found in AKARI.</li>
+                  <li><span class="fw-semibold">AKARI only</span>: in AKARI for this school, not found in Banner.</li>
+                  <li><span class="fw-semibold">AKARI &amp; Banner</span>: found in both sources but missing from the academic review lists.</li>
+                </ul>
+              </details>
+              <div class="d-flex justify-content-between align-items-baseline gap-2 mt-2 mb-2">
+                <div>
+                  <div class="fw-semibold">Banner programmes not in academic review baselines</div>
+                  <div class="small text-muted">Assigned to this school in Banner but not present in the reviewed priority/non-priority lists.</div>
+                </div>
+                <div class="small text-muted">19</div>
+              </div>
+              <div class="programme-grid mb-3">
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU048, TU048P</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing with Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU061, TU759</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in IT Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU068A, TU859B</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing with Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU096, TU096F</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU272, TU272P</div>
+                          <div class="small text-muted programme-title">M.Sc. in Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU273, TU273P</div>
+                          <div class="small text-muted programme-title">Postgraduate Diploma in Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU451</div>
+                          <div class="small text-muted programme-title">MSc. in Computing with Cloud &amp; Mobile Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU452</div>
+                          <div class="small text-muted programme-title">MSc. (Structured Research) Applied Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU453, TU453P</div>
+                          <div class="small text-muted programme-title">Postgraduate Diploma in Computing in Development Operations</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU471, TU471P</div>
+                          <div class="small text-muted programme-title">Master of Science in Computing - Human Centered Artificial Intelligence</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU5282</div>
+                          <div class="small text-muted programme-title">CISCO Certified Network Associate Programme (CCNA)</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU5285</div>
+                          <div class="small text-muted programme-title">Certificate in Cloud Computing Infrastructure Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU5305</div>
+                          <div class="small text-muted programme-title">Certificate in Cloud Computing Applications Development</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU652, TU652P</div>
+                          <div class="small text-muted programme-title">Higher Certificate in Science in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU756A, TU756B</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU859E, TU859F</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU861, TU861P</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing with Language (French/ German/ Spanish)</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU862A, TU862B</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Hons) in Computing with Data Analytics</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU865, TU865P</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Cloud Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="d-flex justify-content-between align-items-baseline gap-2 mt-2 mb-2">
+                <div>
+                  <div class="fw-semibold">Akari programmes not in academic review baselines</div>
+                  <div class="small text-muted">In Akari for this school but not present in the reviewed priority/non-priority lists (crosswalk hints shown where available).</div>
+                </div>
+                <div class="small text-muted">19</div>
+              </div>
+              <div class="programme-grid">
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU048, TU048P</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing with Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU061, TU759</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in IT Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU068A, TU859B</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing with Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU096, TU096F</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU272, TU272P</div>
+                          <div class="small text-muted programme-title">M.Sc. in Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU273, TU273P</div>
+                          <div class="small text-muted programme-title">Postgraduate Diploma in Information Technology Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU451</div>
+                          <div class="small text-muted programme-title">MSc. in Computing with Cloud &amp; Mobile Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU452</div>
+                          <div class="small text-muted programme-title">MSc. (Structured Research) Applied Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU453, TU453P</div>
+                          <div class="small text-muted programme-title">Postgraduate Diploma in Computing in Development Operations</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU471, TU471P</div>
+                          <div class="small text-muted programme-title">Master of Science in Computing - Human Centered Artificial Intelligence</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU5282</div>
+                          <div class="small text-muted programme-title">CISCO Certified Network Associate Programme (CCNA)</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                      <div class="small text-muted mt-2">Crosswalk hint: TA_ECISC_C</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU5285</div>
+                          <div class="small text-muted programme-title">Certificate in Cloud Computing Infrastructure Management</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                      <div class="small text-muted mt-2">Crosswalk hint: TA_KSPCC_D</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU5305</div>
+                          <div class="small text-muted programme-title">Certificate in Cloud Computing Applications Development</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU652, TU652P</div>
+                          <div class="small text-muted programme-title">Higher Certificate in Science in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU756A, TU756B</div>
+                          <div class="small text-muted programme-title">Bachelor of Science in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU859E, TU859F</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU861, TU861P</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Computing with Language (French/ German/ Spanish)</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU862A, TU862B</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Hons) in Computing with Data Analytics</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold">TU865, TU865P</div>
+                          <div class="small text-muted programme-title">Bachelor of Science (Honours) in Cloud Computing</div>
+                      </div>
+                        <span class="badge bg-info text-dark">AKARI &amp; Banner</span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
