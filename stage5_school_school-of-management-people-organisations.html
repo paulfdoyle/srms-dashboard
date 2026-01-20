@@ -105,11 +105,11 @@
             <div class="col-12 col-md-4">
               <button class="btn btn-light border w-100 text-start h-100" type="button" data-bs-toggle="tab" data-bs-target="#panePriority">
                 <div class="d-flex justify-content-between align-items-baseline">
-                  <div class="fw-semibold">Priority</div>
+                  <div class="fw-semibold">Active</div>
                   <div class="text-muted small">15</div>
                 </div>
-                <div class="small text-muted">Programme aligned 14 · Needs review 1</div>
-                <div class="small text-muted mt-1">Module alignment (aligned programmes only)</div>
+                <div class="small text-muted">Programmes matched in Akari &amp; Banner 14 · Needs review 1</div>
+                <div class="small text-muted mt-1">Module alignment (matched programmes only)</div>
                   <div class="progress progress-xs mt-1">
                     <div class="progress-bar bg-danger" style="width: 70.4%"></div>
                   </div>
@@ -120,11 +120,11 @@
             <div class="col-12 col-md-4">
               <button class="btn btn-light border w-100 text-start h-100" type="button" data-bs-toggle="tab" data-bs-target="#paneNonPriority">
                 <div class="d-flex justify-content-between align-items-baseline">
-                  <div class="fw-semibold">Non-Priority</div>
+                  <div class="fw-semibold">Inactive</div>
                   <div class="text-muted small">0</div>
                 </div>
-                <div class="small text-muted">Programme aligned 0 · Needs review 0</div>
-                <div class="small text-muted mt-1">Module alignment (aligned programmes only)</div>
+                <div class="small text-muted">Programmes matched in Akari &amp; Banner 0 · Needs review 0</div>
+                <div class="small text-muted mt-1">Module alignment (matched programmes only)</div>
                   <div class="small text-muted mt-1">n/a</div>
                 <div class="small text-muted mt-1">Credits mismatch 0 · Preferred CRNs missing 0</div>
               </button>
@@ -145,7 +145,7 @@
 
           <div class="border border-success rounded p-3 mt-3">
             <div class="fw-semibold text-success">Module coverage by semester</div>
-            <div class="small text-muted mb-2">Priority programmes that are aligned (AKARI + Banner, expected school) only.</div>
+            <div class="small text-muted mb-2">Active programmes matched in Akari &amp; Banner (expected school) only.</div>
             <div class="d-flex flex-wrap gap-2 mb-3">
               <div class="semester-chip">
                 <div class="small text-muted">Semester 1</div>
@@ -256,7 +256,7 @@
           <div class="d-flex justify-content-between flex-wrap gap-2 align-items-center">
             <div>
               <div class="fw-semibold">Per Programme Module Review</div>
-              <div class="small">Priority / Non-Priority / Review Required lists.</div>
+              <div class="small">Active / Inactive / Review Required lists.</div>
             </div>
             <span class="collapse-chevron" aria-hidden="true">▾</span>
           </div>
@@ -267,10 +267,10 @@
 
           <ul class="nav nav-tabs" id="programmeDashboardTabs" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="tabPriority" data-bs-toggle="tab" data-bs-target="#panePriority" type="button" role="tab" aria-controls="panePriority" aria-selected="true">Priority</button>
+              <button class="nav-link active" id="tabPriority" data-bs-toggle="tab" data-bs-target="#panePriority" type="button" role="tab" aria-controls="panePriority" aria-selected="true">Active</button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tabNonPriority" data-bs-toggle="tab" data-bs-target="#paneNonPriority" type="button" role="tab" aria-controls="paneNonPriority" aria-selected="false">Non-Priority</button>
+              <button class="nav-link" id="tabNonPriority" data-bs-toggle="tab" data-bs-target="#paneNonPriority" type="button" role="tab" aria-controls="paneNonPriority" aria-selected="false">Inactive</button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="tabReview" data-bs-toggle="tab" data-bs-target="#paneReview" type="button" role="tab" aria-controls="paneReview" aria-selected="false">Review Required</button>
@@ -279,7 +279,7 @@
 
           <div class="tab-content pt-3">
             <div class="tab-pane fade show active" id="panePriority" role="tabpanel" aria-labelledby="tabPriority">
-              <div class="small text-muted mb-2">Priority programmes are those identified in the academic review as active or requiring boards.</div>
+              <div class="small text-muted mb-2">Active programmes are those identified in the academic review as active or requiring boards.</div>
               <details class="small text-muted mb-3">
                 <summary>Status definitions</summary>
                 <ul class="mb-0 mt-2">
@@ -300,7 +300,7 @@
 
               <div class="d-flex justify-content-between align-items-baseline gap-2 mb-2">
                 <div>
-                  <div class="fw-semibold">Priority baseline programmes (sorted best → worst)</div>
+                  <div class="fw-semibold">Active baseline programmes (sorted best → worst)</div>
                   <div class="small text-muted">Click a programme to open the Akari vs Banner comparison (then select the year).</div>
                 </div>
                 <div class="small text-muted">15</div>
@@ -585,7 +585,7 @@
             </div>
 
             <div class="tab-pane fade" id="paneNonPriority" role="tabpanel" aria-labelledby="tabNonPriority">
-              <div class="small text-muted mb-2">Non-Priority programmes are those marked inactive in the academic review.</div>
+              <div class="small text-muted mb-2">Inactive programmes are those marked inactive in the academic review.</div>
               <details class="small text-muted mb-3">
                 <summary>Status definitions</summary>
                 <ul class="mb-0 mt-2">
@@ -605,7 +605,7 @@
               </details>
 
               <div class="d-flex justify-content-between align-items-baseline gap-2 mb-2">
-                <div class="fw-semibold">Non-priority baseline programmes (sorted best → worst)</div>
+                <div class="fw-semibold">Inactive baseline programmes (sorted best → worst)</div>
                 <div class="small text-muted">0</div>
               </div>
               <div class="programme-grid">
