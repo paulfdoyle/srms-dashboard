@@ -70,7 +70,7 @@
         <div class="mt-2">
           <span class="badge bg-success text-light">Completed</span>
         </div>
-        <div class="text-muted small mt-2">Generated: 2026-01-19 00:37</div>
+        <div class="text-muted small mt-2">Generated: 2026-01-26 01:40</div>
       </div>
       <div class="align-self-start">
         <a class="btn btn-outline-secondary" href="stage5.html">Back to School Dashboards</a>
@@ -109,22 +109,27 @@
                   <div class="text-muted small">29</div>
                 </div>
                 <div class="small text-muted">Programmes matched in Akari &amp; Banner 19 · Needs review 10</div>
-                <div class="small text-muted mt-1">Module alignment (matched programmes only)</div>
+                <div class="small text-muted mt-1">Modules present (matched programmes only)</div>
                   <div class="progress progress-xs mt-1">
-                    <div class="progress-bar bg-danger" style="width: 73.2%"></div>
+                    <div class="progress-bar bg-danger" style="width: 73.6%"></div>
                   </div>
-                  <div class="small text-muted mt-1">379/518 (73.2%)</div>
-                <div class="small text-muted mt-1">Credits mismatch 7 · Preferred CRNs missing 2</div>
+                  <div class="small text-muted mt-1">381/518 (73.6%)</div>
+                <div class="small text-muted mt-2">Correct semester (matched programmes only)</div>
+                  <div class="progress progress-xs mt-1">
+                    <div class="progress-bar bg-danger" style="width: 69.1%"></div>
+                  </div>
+                  <div class="small text-muted mt-1">358/518 (69.1%)</div>
+                <div class="small text-muted mt-1">Credits mismatch 7 · Preferred CRNs missing 3</div>
               </button>
             </div>
             <div class="col-12 col-md-4">
               <button class="btn btn-light border w-100 text-start h-100" type="button" data-bs-toggle="tab" data-bs-target="#paneNonPriority">
                 <div class="d-flex justify-content-between align-items-baseline">
-                  <div class="fw-semibold">Inactive</div>
-                  <div class="text-muted small">20</div>
-                </div>
+                <div class="fw-semibold">Inactive</div>
+                <div class="text-muted small">20</div>
+              </div>
                 <div class="small text-muted">Programmes matched in Akari &amp; Banner 6 · Needs review 14</div>
-                <div class="small text-muted mt-1">Module alignment (matched programmes only)</div>
+                <div class="small text-muted mt-1">Modules present (matched programmes only)</div>
                   <div class="progress progress-xs mt-1">
                     <div class="progress-bar bg-danger" style="width: 37.0%"></div>
                   </div>
@@ -153,19 +158,19 @@
               <div class="semester-chip">
                 <div class="small text-muted">Semester 1</div>
                 <div class="progress progress-xs mt-1">
-                  <div class="progress-bar bg-danger" style="width: 72.3%"></div>
+                  <div class="progress-bar bg-danger" style="width: 72.7%"></div>
                 </div>
                 <div class="small mt-1">
-                    185/256 (72.3%)
+                    186/256 (72.7%)
                 </div>
               </div>
               <div class="semester-chip">
                 <div class="small text-muted">Semester 2</div>
                 <div class="progress progress-xs mt-1">
-                  <div class="progress-bar bg-danger" style="width: 72.8%"></div>
+                  <div class="progress-bar bg-danger" style="width: 73.2%"></div>
                 </div>
                 <div class="small mt-1">
-                    166/228 (72.8%)
+                    167/228 (73.2%)
                 </div>
               </div>
               <div class="semester-chip">
@@ -204,20 +209,20 @@
                   <tr>
                     <td>Semester 1</td>
                     <td class="text-end">256</td>
-                    <td class="text-end">71</td>
+                    <td class="text-end">70</td>
                     <td class="text-end">13</td>
                     <td class="text-end">1</td>
                     <td class="text-end">0</td>
-                    <td class="text-end">72.3%</td>
+                    <td class="text-end">72.7%</td>
                   </tr>
                   <tr>
                     <td>Semester 2</td>
                     <td class="text-end">228</td>
-                    <td class="text-end">62</td>
+                    <td class="text-end">61</td>
                     <td class="text-end">8</td>
                     <td class="text-end">4</td>
-                    <td class="text-end">2</td>
-                    <td class="text-end">72.8%</td>
+                    <td class="text-end">3</td>
+                    <td class="text-end">73.2%</td>
                   </tr>
                   <tr>
                     <td>Semester 3</td>
@@ -289,7 +294,7 @@
                   <li><span class="fw-semibold">Missing A</span>: programme is missing from AKARI.</li>
                   <li><span class="fw-semibold">Missing B</span>: programme is missing from Banner.</li>
                   <li><span class="fw-semibold">Missing A&amp;B</span>: programme is missing from AKARI and Banner.</li>
-                  <li><span class="fw-semibold">Complete</span>: module comparison has 0 missing, 0 banner-only, 0 credit mismatches, and 0 preferred CRN missing.</li>
+                  <li><span class="fw-semibold">Complete (strict)</span>: module comparison has 0 missing, 0 banner-only, 0 credit mismatches, 0 preferred CRN missing, and all modules are in the correct semester.</li>
                   <li><span class="fw-semibold">Gaps</span>: anything else (including banner-only modules, credit mismatches, or preferred CRN missing even when OK% is 100%).</li>
                 </ul>
               </details>
@@ -312,32 +317,13 @@
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
                       <div>
-                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU325A">TU325A</a></div>
-                          <div class="small text-muted programme-title">Digital and Content Marketing</div>
-                      </div>
-                        <span class="badge bg-success">Complete</span>
-                    </div>
-                      <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
-                        <span class="fw-semibold">100.0%</span>
-                      </div>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
-                      </div>
-                      <div class="small text-muted mt-2">OK: 15/15</div>
-                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
-                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
-                  </div>
-                  <div class="programme-card">
-                    <div class="d-flex justify-content-between align-items-start gap-2">
-                      <div>
                         <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU5511">TU5511</a></div>
                           <div class="small text-muted programme-title">Cert in Social Media Mktg</div>
                       </div>
                         <span class="badge bg-success">Complete</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">100.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -346,6 +332,15 @@
                       <div class="small text-muted mt-2">OK: 8/8</div>
                       <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">100.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 8/8</div>
+                          <div class="small text-success">All modules in the correct semester</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -356,7 +351,7 @@
                         <span class="badge bg-success">Complete</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">100.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -365,6 +360,42 @@
                       <div class="small text-muted mt-2">OK: 3/3</div>
                       <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">100.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 3/3</div>
+                          <div class="small text-success">All modules in the correct semester</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU325A">TU325A</a></div>
+                          <div class="small text-muted programme-title">Digital and Content Marketing</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Modules present</span>
+                        <span class="fw-semibold">100.0%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 15/15</div>
+                      <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">86.7%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-warning" style="width: 86.7%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 13/15</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -375,7 +406,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">100.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -384,6 +415,15 @@
                       <div class="small text-muted mt-2">OK: 15/15</div>
                       <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 1 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">100.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 15/15</div>
+                          <div class="small text-success">All modules in the correct semester</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -394,7 +434,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">100.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -403,6 +443,15 @@
                       <div class="small text-muted mt-2">OK: 14/14</div>
                       <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 1 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">100.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 14/14</div>
+                          <div class="small text-success">All modules in the correct semester</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -413,7 +462,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">98.6%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -422,6 +471,14 @@
                       <div class="small text-muted mt-2">OK: 71/72</div>
                       <div class="small text-muted">Missing: 1 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 3 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">98.6%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 98.6%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 71/72</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -432,7 +489,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">98.4%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -441,6 +498,14 @@
                       <div class="small text-muted mt-2">OK: 63/64</div>
                       <div class="small text-muted">Missing: 1 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 2</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">98.4%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 98.4%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 63/64</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -451,7 +516,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">95.7%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -460,6 +525,14 @@
                       <div class="small text-muted mt-2">OK: 22/23</div>
                       <div class="small text-muted">Missing: 1 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">91.3%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 91.3%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 21/23</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -470,7 +543,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">95.6%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -479,6 +552,14 @@
                       <div class="small text-muted mt-2">OK: 43/45</div>
                       <div class="small text-muted">Missing: 2 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">95.6%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 95.6%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 43/45</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -489,7 +570,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">91.7%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -498,44 +579,14 @@
                       <div class="small text-muted mt-2">OK: 22/24</div>
                       <div class="small text-muted">Missing: 2 · Banner-only: 1</div>
                       <div class="small text-muted">Credits mismatch: 1 · Preferred missing: 0</div>
-                  </div>
-                  <div class="programme-card">
-                    <div class="d-flex justify-content-between align-items-start gap-2">
-                      <div>
-                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU919">TU919</a></div>
-                          <div class="small text-muted programme-title">Advertising and Marketing Comm</div>
-                      </div>
-                        <span class="badge bg-warning text-dark">Gaps</span>
-                    </div>
-                      <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
-                        <span class="fw-semibold">89.6%</span>
-                      </div>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" style="width: 89.6%"></div>
-                      </div>
-                      <div class="small text-muted mt-2">OK: 43/48</div>
-                      <div class="small text-muted">Missing: 5 · Banner-only: 4</div>
-                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
-                  </div>
-                  <div class="programme-card">
-                    <div class="d-flex justify-content-between align-items-start gap-2">
-                      <div>
-                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU922">TU922</a></div>
-                          <div class="small text-muted programme-title">Marketing</div>
-                      </div>
-                        <span class="badge bg-warning text-dark">Gaps</span>
-                    </div>
-                      <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
-                        <span class="fw-semibold">87.0%</span>
-                      </div>
-                      <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" style="width: 87.0%"></div>
-                      </div>
-                      <div class="small text-muted mt-2">OK: 47/54</div>
-                      <div class="small text-muted">Missing: 7 · Banner-only: 8</div>
-                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">66.7%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-danger" style="width: 66.7%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 16/24</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -546,15 +597,77 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
-                        <span class="fw-semibold">80.0%</span>
+                        <span class="text-muted">Modules present</span>
+                        <span class="fw-semibold">90.0%</span>
                       </div>
                       <div class="progress progress-xs">
-                        <div class="progress-bar bg-warning" style="width: 80.0%"></div>
+                        <div class="progress-bar bg-success" style="width: 90.0%"></div>
                       </div>
-                      <div class="small text-muted mt-2">OK: 8/10</div>
-                      <div class="small text-muted">Missing: 2 · Banner-only: 1</div>
+                      <div class="small text-muted mt-2">OK: 9/10</div>
+                      <div class="small text-muted">Missing: 1 · Banner-only: 1</div>
                       <div class="small text-muted">Credits mismatch: 1 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">80.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-warning" style="width: 80.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 8/10</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU919">TU919</a></div>
+                          <div class="small text-muted programme-title">Advertising and Marketing Comm</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Modules present</span>
+                        <span class="fw-semibold">89.6%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-warning" style="width: 89.6%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 43/48</div>
+                      <div class="small text-muted">Missing: 5 · Banner-only: 4</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">89.6%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-warning" style="width: 89.6%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 43/48</div>
+                  </div>
+                  <div class="programme-card">
+                    <div class="d-flex justify-content-between align-items-start gap-2">
+                      <div>
+                        <div class="fw-semibold"><a class="text-decoration-none" href="viewer_stage2_akari_r27_semester_map.html?baseline=priority_reviewed&programme=TU922">TU922</a></div>
+                          <div class="small text-muted programme-title">Marketing</div>
+                      </div>
+                        <span class="badge bg-warning text-dark">Gaps</span>
+                    </div>
+                      <div class="d-flex justify-content-between small mt-2">
+                        <span class="text-muted">Modules present</span>
+                        <span class="fw-semibold">88.9%</span>
+                      </div>
+                      <div class="progress progress-xs">
+                        <div class="progress-bar bg-warning" style="width: 88.9%"></div>
+                      </div>
+                      <div class="small text-muted mt-2">OK: 48/54</div>
+                      <div class="small text-muted">Missing: 6 · Banner-only: 8</div>
+                      <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 1</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">64.8%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-danger" style="width: 64.8%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 35/54</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -565,7 +678,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">33.3%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -574,6 +687,14 @@
                       <div class="small text-muted mt-2">OK: 5/15</div>
                       <div class="small text-muted">Missing: 10 · Banner-only: 7</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">33.3%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-danger" style="width: 33.3%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 5/15</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -584,7 +705,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -593,6 +714,14 @@
                       <div class="small text-muted mt-2">OK: 0/18</div>
                       <div class="small text-muted">Missing: 18 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/18</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -603,7 +732,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -612,6 +741,14 @@
                       <div class="small text-muted mt-2">OK: 0/2</div>
                       <div class="small text-muted">Missing: 2 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/2</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -622,7 +759,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -631,6 +768,14 @@
                       <div class="small text-muted mt-2">OK: 0/56</div>
                       <div class="small text-muted">Missing: 56 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/56</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -641,7 +786,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -650,6 +795,14 @@
                       <div class="small text-muted mt-2">OK: 0/13</div>
                       <div class="small text-muted">Missing: 13 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/13</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -660,7 +813,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -669,6 +822,14 @@
                       <div class="small text-muted mt-2">OK: 0/19</div>
                       <div class="small text-muted">Missing: 19 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/19</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -679,7 +840,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">66.7%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -688,6 +849,14 @@
                       <div class="small text-muted mt-2">OK: 2/3</div>
                       <div class="small text-muted">Missing: 1 · Banner-only: 1</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">66.7%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-danger" style="width: 66.7%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 2/3</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -783,7 +952,7 @@
                   <li><span class="fw-semibold">Missing A</span>: programme is missing from AKARI.</li>
                   <li><span class="fw-semibold">Missing B</span>: programme is missing from Banner.</li>
                   <li><span class="fw-semibold">Missing A&amp;B</span>: programme is missing from AKARI and Banner.</li>
-                  <li><span class="fw-semibold">Complete</span>: module comparison has 0 missing, 0 banner-only, 0 credit mismatches, and 0 preferred CRN missing.</li>
+                  <li><span class="fw-semibold">Complete (strict)</span>: module comparison has 0 missing, 0 banner-only, 0 credit mismatches, 0 preferred CRN missing, and all modules are in the correct semester.</li>
                   <li><span class="fw-semibold">Gaps</span>: anything else (including banner-only modules, credit mismatches, or preferred CRN missing even when OK% is 100%).</li>
                 </ul>
               </details>
@@ -809,7 +978,7 @@
                         <span class="badge bg-success">Complete</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">100.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -818,6 +987,15 @@
                       <div class="small text-muted mt-2">OK: 3/3</div>
                       <div class="small text-muted">Missing: 0 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">100.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-success" style="width: 100.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 3/3</div>
+                          <div class="small text-success">All modules in the correct semester</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -828,7 +1006,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">50.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -837,6 +1015,14 @@
                       <div class="small text-muted mt-2">OK: 3/6</div>
                       <div class="small text-muted">Missing: 3 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">50.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-danger" style="width: 50.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 3/6</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -847,7 +1033,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">36.4%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -856,6 +1042,14 @@
                       <div class="small text-muted mt-2">OK: 4/11</div>
                       <div class="small text-muted">Missing: 7 · Banner-only: 1</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">36.4%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-danger" style="width: 36.4%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 4/11</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -866,7 +1060,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -875,6 +1069,14 @@
                       <div class="small text-muted mt-2">OK: 0/2</div>
                       <div class="small text-muted">Missing: 2 · Banner-only: 1</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/2</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -885,7 +1087,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -894,6 +1096,14 @@
                       <div class="small text-muted mt-2">OK: 0/2</div>
                       <div class="small text-muted">Missing: 2 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/2</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
@@ -904,7 +1114,7 @@
                         <span class="badge bg-warning text-dark">Gaps</span>
                     </div>
                       <div class="d-flex justify-content-between small mt-2">
-                        <span class="text-muted">Module OK</span>
+                        <span class="text-muted">Modules present</span>
                         <span class="fw-semibold">0.0%</span>
                       </div>
                       <div class="progress progress-xs">
@@ -913,6 +1123,14 @@
                       <div class="small text-muted mt-2">OK: 0/3</div>
                       <div class="small text-muted">Missing: 3 · Banner-only: 0</div>
                       <div class="small text-muted">Credits mismatch: 0 · Preferred missing: 0</div>
+                        <div class="d-flex justify-content-between small mt-2">
+                          <span class="text-muted">Correct semester</span>
+                          <span class="fw-semibold">0.0%</span>
+                        </div>
+                        <div class="progress progress-xs">
+                          <div class="progress-bar bg-secondary" style="width: 0.0%"></div>
+                        </div>
+                        <div class="small text-muted mt-2">Correct: 0/3</div>
                   </div>
                   <div class="programme-card">
                     <div class="d-flex justify-content-between align-items-start gap-2">
