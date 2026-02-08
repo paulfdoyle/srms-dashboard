@@ -1,0 +1,13 @@
+name: srms-dashboard
+image: registry.local:5000/srms-dashboard
+port: 8000
+base_path: /srms-dashboard
+health_path: /health
+build:
+  context: .
+  dockerfile: Dockerfile
+env:
+  required:
+    - PORT
+  optional:
+    - BASE_PATH
